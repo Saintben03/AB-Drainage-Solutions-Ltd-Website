@@ -1,6 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { Phone, Menu, X, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import logoMain from "@assets/site_files_1/AB Drainage logo.png";
 
 export const Navbar = () => {
@@ -9,12 +10,15 @@ export const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location]);
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -27,111 +31,151 @@ export const Navbar = () => {
 
   return (
     <>
-      {/* Top Emergency Bar */}
-      <div className="bg-accent text-accent-foreground py-2 px-4 text-center text-sm font-semibold uppercase tracking-wider flex items-center justify-center gap-2">
-        <span className="animate-pulse w-2 h-2 rounded-full bg-white block"></span>
-        24/7 Emergency Callout - Typically within 1 hour
+      {/* ── Emergency Bar ── */}
+      <div className="bg-accent text-white py-2 px-4 text-center text-xs font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-2">
+        <span className="animate-pulse w-2 h-2 rounded-full bg-white block shrink-0"></span>
+        24/7 Emergency Callout — Typically Within 1 Hour
       </div>
 
-      <header 
+      <header
         className={`sticky top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled ? "bg-background/95 backdrop-blur-md shadow-md py-3" : "bg-background py-5"
+          isScrolled
+            ? "bg-background/96 backdrop-blur-md shadow-lg shadow-black/30 border-b border-white/5 py-2"
+            : "bg-background py-4"
         }`}
       >
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="flex items-center justify-between">
-            
+          <div className="flex items-center justify-between gap-6">
+
             {/* Logo */}
             <Link href="/" className="flex-shrink-0 relative z-50">
-              <img 
-                src={logoMain} 
-                alt="A&B Drainage Solutions Ltd Logo" 
+              <img
+                src={logoMain}
+                alt="A&B Drainage Solutions Ltd Logo"
                 className="h-52 md:h-64 w-auto object-contain"
               />
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <Link 
-                  key={link.name} 
-                  href={link.href}
-                  className={`text-sm font-medium transition-colors hover:text-primary ${
-                    location === link.href ? "text-primary" : "text-foreground"
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              ))}
+            <nav className="hidden lg:flex items-center gap-7">
+              {navLinks.map((link) => {
+                const isActive = location === link.href;
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className={`text-sm font-bold uppercase tracking-wider transition-colors relative group ${
+                      isActive ? "text-accent" : "text-foreground/80 hover:text-accent"
+                    }`}
+                  >
+                    {link.name}
+                    <span className={`absolute -bottom-1 left-0 h-0.5 bg-accent transition-all duration-300 ${isActive ? "w-full" : "w-0 group-hover:w-full"}`}></span>
+                  </Link>
+                );
+              })}
             </nav>
 
-            {/* Emergency CTA Desktop */}
-            <div className="hidden lg:flex items-center gap-6">
+            {/* Desktop Emergency CTA */}
+            <div className="hidden lg:flex items-center gap-5">
               <div className="flex flex-col items-end">
-                <span className="text-xs text-muted-foreground uppercase tracking-widest font-semibold">Emergency Response</span>
-                <a href="tel:07498062710" className="text-xl font-display font-bold text-foreground hover:text-primary transition-colors flex items-center gap-2">
-                  <Phone size={20} className="text-primary" />
+                <span className="text-[10px] text-muted-foreground uppercase tracking-[0.18em] font-bold">Emergency Response</span>
+                <a
+                  href="tel:07498062710"
+                  className="text-lg font-display font-bold text-white hover:text-accent transition-colors flex items-center gap-2"
+                >
+                  <Phone size={17} className="text-accent" />
                   07498 062 710
                 </a>
               </div>
-              <Link 
+              <Link
                 href="/contact"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded text-sm font-bold uppercase tracking-wider flex items-center gap-2 transition-all"
+                className="bg-accent hover:bg-accent/90 text-white px-6 py-3 text-sm font-bold uppercase tracking-wider flex items-center gap-2 transition-all"
               >
-                Book Now <ArrowRight size={16} />
+                Book Now <ArrowRight size={15} />
               </Link>
             </div>
 
             {/* Mobile Actions */}
-            <div className="flex items-center gap-4 lg:hidden relative z-50">
-              <a 
-                href="tel:07498062710" 
-                className="bg-primary text-primary-foreground p-2 md:px-4 md:py-2 rounded flex items-center gap-2 font-bold animate-pulse"
+            <div className="flex items-center gap-3 lg:hidden relative z-50">
+              <a
+                href="tel:07498062710"
+                className="bg-accent text-white p-2.5 flex items-center gap-2 font-bold"
+                aria-label="Emergency call"
               >
-                <Phone size={20} />
-                <span className="hidden sm:inline">07498 062 710</span>
+                <Phone size={19} />
+                <span className="hidden sm:inline text-sm font-bold uppercase tracking-wider">Emergency</span>
               </a>
-              <button 
-                className="text-foreground p-1"
+              <button
+                className="text-foreground p-1.5 hover:text-accent transition-colors"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle menu"
               >
-                {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+                {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
               </button>
             </div>
           </div>
         </div>
 
         {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="fixed inset-0 top-[120px] bg-background/98 backdrop-blur-xl z-40 lg:hidden flex flex-col p-6 animate-in slide-in-from-top-4">
-            <nav className="flex flex-col gap-6 mt-8">
-              {navLinks.map((link) => (
-                <Link 
-                  key={link.name} 
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`text-2xl font-display uppercase font-bold border-b border-white/10 pb-4 ${
-                    location === link.href ? "text-primary" : "text-foreground"
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </nav>
-            <div className="mt-auto pb-12 flex flex-col gap-4">
-              <p className="text-sm text-muted-foreground uppercase tracking-widest font-semibold mb-2">24/7 Emergency Lines</p>
-              <a href="tel:01256688650" className="text-3xl font-display font-bold text-foreground flex items-center gap-3">
-                <Phone className="text-primary" size={28} />
-                01256 688 650
-              </a>
-              <a href="tel:07498062710" className="text-3xl font-display font-bold text-foreground flex items-center gap-3">
-                <Phone className="text-primary" size={28} />
-                07498 062 710
-              </a>
-            </div>
-          </div>
-        )}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.25 }}
+              className="fixed inset-0 top-[120px] bg-[#080808]/98 backdrop-blur-xl z-40 lg:hidden flex flex-col p-6"
+            >
+              <nav className="flex flex-col gap-0 bg-border mt-4">
+                {navLinks.map((link, i) => {
+                  const isActive = location === link.href;
+                  return (
+                    <motion.div
+                      key={link.name}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.25, delay: i * 0.05 }}
+                    >
+                      <Link
+                        href={link.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className={`flex items-center justify-between bg-card px-6 py-5 text-xl font-display uppercase font-bold border-l-4 transition-colors ${
+                          isActive
+                            ? "border-accent text-accent"
+                            : "border-transparent text-foreground hover:border-accent hover:text-accent"
+                        }`}
+                      >
+                        {link.name}
+                        <ArrowRight size={18} className="text-accent opacity-60" />
+                      </Link>
+                    </motion.div>
+                  );
+                })}
+              </nav>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.35 }}
+                className="mt-8 pb-12 space-y-4"
+              >
+                <p className="text-xs text-muted-foreground uppercase tracking-[0.2em] font-bold mb-4">24/7 Emergency Lines</p>
+                <a href="tel:01256688650" className="flex items-center gap-3 text-2xl font-display font-bold text-white hover:text-accent transition-colors">
+                  <div className="w-10 h-10 bg-accent flex items-center justify-center shrink-0">
+                    <Phone size={18} className="text-white" />
+                  </div>
+                  01256 688 650
+                </a>
+                <a href="tel:07498062710" className="flex items-center gap-3 text-2xl font-display font-bold text-white hover:text-accent transition-colors">
+                  <div className="w-10 h-10 bg-accent flex items-center justify-center shrink-0">
+                    <Phone size={18} className="text-white" />
+                  </div>
+                  07498 062 710
+                </a>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
     </>
   );
