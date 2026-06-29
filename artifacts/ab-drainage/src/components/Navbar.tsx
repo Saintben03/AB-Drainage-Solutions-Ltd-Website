@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Phone, Menu, X, ArrowRight, ExternalLink } from "lucide-react";
+import { Phone, Smartphone, Mail, Menu, X, ArrowRight, ExternalLink } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import logoMain from "@assets/site_files_1/AB Drainage logo.png";
@@ -42,9 +42,20 @@ export const Navbar = () => {
           <span className="animate-pulse w-2 h-2 rounded-full bg-white block shrink-0"></span>
           24/7 Emergency Callout — Typically Within 1 Hour
         </div>
+        <div className="absolute left-4 top-1/2 -translate-y-1/2 hidden xl:flex items-center gap-5">
+          <a href="tel:01256688650" className="flex items-center gap-1.5 hover:text-white/70 transition-colors">
+            <Phone size={14} /> 01256 688 650
+          </a>
+          <a href="tel:07498062710" className="flex items-center gap-1.5 hover:text-white/70 transition-colors">
+            <Smartphone size={14} /> 07498 062 710
+          </a>
+          <a href="mailto:info@abdrainage.co.uk" className="flex items-center gap-1.5 normal-case tracking-normal hover:text-white/70 transition-colors">
+            <Mail size={14} /> info@abdrainage.co.uk
+          </a>
+        </div>
         <div className="absolute right-4 top-1/2 -translate-y-1/2 hidden sm:flex items-center gap-3">
           <span className="text-white/70 tracking-[0.18em]">Follow Us</span>
-          <SocialLinks iconSize={15} itemClassName="text-white hover:text-white/70 hover:-translate-y-0.5" />
+          <SocialLinks iconSize={20} itemClassName="text-white hover:text-white/70 hover:-translate-y-0.5" />
         </div>
       </div>
 
