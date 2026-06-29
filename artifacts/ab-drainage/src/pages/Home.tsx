@@ -2,6 +2,10 @@ import { Link } from "wouter";
 import { ArrowRight, Phone, Check, Clock, MapPin, ShieldCheck, Star, ThumbsUp } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
+import { CountUp } from "@/components/CountUp";
+import { LogoMarquee } from "@/components/LogoMarquee";
+import { AnimatedDivider } from "@/components/AnimatedDivider";
+import { WaterWave } from "@/components/WaterWave";
 
 import heroImg from "@assets/site_files_1/AB Drainage background_edited.jpg";
 import work1 from "@assets/site_files_1/369541839_240515012286429_2194496784194718742_n.jpg";
@@ -36,11 +40,18 @@ const whyUs = [
   { icon: <MapPin size={22} />, title: "Hampshire Wide", desc: "Based centrally — we cover Basingstoke, Southampton, Winchester, Portsmouth and all surrounding areas.", color: "bg-accent" },
 ];
 
-const stats = [
-  { value: "33+", label: "Years Experience" },
-  { value: "~1hr", label: "Average Response" },
-  { value: "24/7", label: "Always Available" },
-  { value: "200+", label: "5-Star Reviews" },
+type Stat = { label: string; text?: string; to?: number; prefix?: string; suffix?: string };
+const stats: Stat[] = [
+  { to: 33, suffix: "+", label: "Years Experience" },
+  { prefix: "~", to: 1, suffix: "hr", label: "Average Response" },
+  { text: "24/7", label: "Always Available" },
+  { to: 200, suffix: "+", label: "5-Star Reviews" },
+];
+
+const trustLogos = [
+  { src: nhsLogo, alt: "NHS", className: "h-10 md:h-14" },
+  { src: lanesLogo, alt: "Lanes Group", className: "h-12 md:h-16" },
+  { src: ccLogo, alt: "CC Multi Disciplinary", className: "h-12 md:h-16" },
 ];
 
 const fadeUp = { hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
@@ -58,9 +69,11 @@ export default function Home() {
       {/* ── HERO (dark) ── */}
       <section className="relative min-h-[92vh] flex items-center pt-24 pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src={heroImg} alt="A&B Drainage Solutions Ltd Fleet" className="w-full h-full object-cover" />
+          <img src={heroImg} alt="A&B Drainage Solutions Ltd Fleet" className="w-full h-full object-cover origin-bottom animate-kenburns" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/75 to-background/20"></div>
         </div>
+
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#ffffff" />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
@@ -152,19 +165,11 @@ export default function Home() {
             <p className="text-center text-xs text-zinc-400 uppercase tracking-[0.2em] font-semibold mb-8">
               Trusted by institutions &amp; businesses across the UK
             </p>
-            <div className="flex flex-wrap justify-center items-center gap-14 md:gap-24">
-              <img src={nhsLogo} alt="NHS" className="h-10 md:h-14 w-auto object-contain" />
-              <img src={lanesLogo} alt="Lanes Group" className="h-12 md:h-16 w-auto object-contain" />
-              <img src={ccLogo} alt="CC Multi Disciplinary" className="h-12 md:h-16 w-auto object-contain" />
-            </div>
+            <LogoMarquee logos={trustLogos} />
           </div>
 
           {/* divider between trust logos and services */}
-          <div className="flex items-center justify-center gap-4 mb-20" aria-hidden="true">
-            <span className="h-px w-full max-w-xs bg-gradient-to-r from-transparent to-zinc-200" />
-            <span className="h-2 w-2 rotate-45 bg-accent shrink-0" />
-            <span className="h-px w-full max-w-xs bg-gradient-to-l from-transparent to-zinc-200" />
-          </div>
+          <AnimatedDivider className="mb-20" />
 
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -290,7 +295,9 @@ export default function Home() {
           >
             {stats.map((s, i) => (
               <motion.div key={i} variants={fadeUp}>
-                <p className="text-4xl md:text-5xl font-display font-bold text-white mb-1">{s.value}</p>
+                <p className="text-4xl md:text-5xl font-display font-bold text-white mb-1">
+                  {s.text ? s.text : <CountUp to={s.to!} prefix={s.prefix} suffix={s.suffix} />}
+                </p>
                 <p className="text-white/80 text-xs uppercase tracking-[0.18em] font-semibold">{s.label}</p>
               </motion.div>
             ))}
