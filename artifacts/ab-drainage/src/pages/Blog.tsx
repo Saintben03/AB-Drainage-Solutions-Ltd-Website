@@ -34,92 +34,84 @@ const imageMap: Record<string, string> = {
 
 export default function Blog() {
   const featuredPost = blogPosts[2]; // Emergency drainage
-  const otherPosts = blogPosts.filter(post => post.id !== featuredPost.id);
+  const otherPosts = blogPosts.filter((post) => post.id !== featuredPost.id);
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
+    show: { opacity: 1, transition: { staggerChildren: 0.08 } },
   };
-
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-  };
-
-  const getBadgeColor = (category: string) => {
-    if (category === "Emergency") {
-      return "bg-accent/20 text-accent border-accent/30";
-    }
-    return "bg-primary/20 text-primary border-primary/30";
+    show: { opacity: 1, y: 0, transition: { duration: 0.45 } },
   };
 
   return (
     <>
-      <SEO 
+      <SEO
         title="Drainage Blog | Expert Advice for Hampshire Homeowners and Businesses | A&B Drainage Solutions"
         description="Expert drainage tips, guides and advice from Hampshire's leading drainage specialists. Blocked drains, CCTV surveys, emergency callouts and more."
         canonicalUrl="/blog"
       />
 
-      {/* Hero Section */}
-      <section className="bg-card py-20 border-b border-border">
+      {/* ── PAGE HEADER ── */}
+      <section className="pt-36 pb-20 bg-card border-b border-border">
         <div className="container mx-auto px-4">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-3xl mb-16"
+            transition={{ duration: 0.5 }}
           >
-            <h1 className="text-4xl md:text-6xl font-display font-bold text-white uppercase leading-tight mb-6">
-              Drainage Advice and Expert Guides
+            <p className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-4">Expert Drainage Guides</p>
+            <h1 className="text-4xl md:text-6xl font-display font-bold text-white uppercase leading-tight mb-4">
+              Drainage Advice &amp; Expert Guides
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <p className="text-lg text-muted-foreground max-w-2xl">
               Professional insights, preventative tips, and detailed guides from Hampshire's most trusted drainage engineers.
             </p>
           </motion.div>
+        </div>
+      </section>
 
-          {/* Featured Post */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+      {/* ── FEATURED POST ── */}
+      <section className="py-16 bg-background border-b border-border">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-20"
+            transition={{ duration: 0.5, delay: 0.1 }}
           >
             <Link href={`/blog/${featuredPost.slug}`} className="group block">
-              <div className="bg-background border border-border rounded-xl overflow-hidden hover:border-accent/50 transition-colors flex flex-col md:flex-row">
-                <div className="w-full md:w-1/2 h-64 md:h-auto relative overflow-hidden">
+              <div className="bg-card border border-border hover:border-accent/40 transition-colors flex flex-col md:flex-row">
+                <div className="w-full md:w-1/2 h-64 md:h-auto relative overflow-hidden min-h-[280px]">
                   <img
                     src={imageMap[featuredPost.imageKey] ?? imageMap.fallback}
                     alt={featuredPost.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-black/20"></div>
                 </div>
-                <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
-                  <div className="flex items-center gap-4 mb-6 text-sm font-semibold text-muted-foreground uppercase tracking-widest">
-                    <span className={`px-3 py-1 border rounded-full ${getBadgeColor(featuredPost.category)}`}>
-                      {featuredPost.category}
+                <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center border-t-2 md:border-t-0 md:border-l-2 border-accent">
+                  <div className="flex items-center gap-3 mb-5 text-xs font-bold uppercase tracking-[0.2em]">
+                    <span className="text-accent">{featuredPost.category}</span>
+                    <span className="text-muted-foreground">·</span>
+                    <span className="flex items-center gap-1.5 text-muted-foreground">
+                      <Calendar size={11} />
+                      {new Date(featuredPost.date).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}
                     </span>
-                    <span className="flex items-center gap-2"><Calendar size={14} /> {new Date(featuredPost.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
                   </div>
-                  <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4 group-hover:text-accent transition-colors">
+                  <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4 uppercase leading-tight group-hover:text-accent transition-colors">
                     {featuredPost.title}
                   </h2>
-                  <p className="text-lg text-muted-foreground mb-8">
+                  <p className="text-muted-foreground mb-8 leading-relaxed">
                     {featuredPost.excerpt}
                   </p>
                   <div className="flex items-center gap-6 mt-auto">
-                    <span className="flex items-center gap-2 text-sm font-semibold text-muted-foreground uppercase tracking-widest">
-                      <Clock size={16} /> {featuredPost.readTime}
+                    <span className="flex items-center gap-1.5 text-xs font-bold text-muted-foreground uppercase tracking-widest">
+                      <Clock size={12} /> {featuredPost.readTime}
                     </span>
-                    <span className="text-accent font-bold text-sm uppercase tracking-widest flex items-center gap-2">
-                      Read Article <ArrowRight size={16} className="transform group-hover:translate-x-2 transition-transform" />
+                    <span className="text-accent font-bold text-xs uppercase tracking-[0.2em] flex items-center gap-2 group-hover:gap-4 transition-all">
+                      Read Article <ArrowRight size={13} />
                     </span>
                   </div>
                 </div>
@@ -129,19 +121,19 @@ export default function Blog() {
         </div>
       </section>
 
-      {/* Blog Grid */}
-      <section className="py-24 bg-background">
+      {/* ── BLOG GRID ── */}
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="show"
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0.5 bg-border"
           >
             {otherPosts.map((post) => (
               <motion.div key={post.id} variants={itemVariants} className="h-full">
                 <Link href={`/blog/${post.slug}`} className="group block h-full">
-                  <div className="bg-card border border-border rounded-xl overflow-hidden hover:border-primary/50 transition-colors h-full flex flex-col hover:-translate-y-2 duration-300">
+                  <div className="bg-card h-full flex flex-col hover:bg-card/80 transition-colors">
                     <div className="h-52 w-full relative overflow-hidden">
                       <img
                         src={imageMap[post.imageKey] ?? imageMap.fallback}
@@ -152,28 +144,29 @@ export default function Blog() {
                         height={208}
                       />
                       <div className="absolute inset-0 bg-black/20"></div>
-                      <span className={`absolute top-3 left-3 text-xs font-bold uppercase tracking-wider px-3 py-1 border rounded-full ${getBadgeColor(post.category)}`}>
-                        {post.category}
-                      </span>
                     </div>
-                    <div className="p-8 flex flex-col flex-grow">
-                      <div className="flex items-center justify-end mb-4">
+                    <div className="p-7 flex flex-col flex-grow border-t-2 border-t-accent">
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="text-xs font-bold text-accent uppercase tracking-[0.15em]">
+                          {post.category}
+                        </span>
                         <span className="text-xs text-muted-foreground font-semibold flex items-center gap-1">
-                          <Clock size={12} /> {post.readTime}
+                          <Clock size={11} /> {post.readTime}
                         </span>
                       </div>
-                      <h3 className="text-2xl font-display font-bold text-white mb-3 group-hover:text-primary transition-colors leading-tight">
+                      <h3 className="text-xl font-display font-bold text-white mb-3 group-hover:text-accent transition-colors leading-tight uppercase">
                         {post.title}
                       </h3>
-                      <p className="text-muted-foreground mb-6 line-clamp-3">
+                      <p className="text-muted-foreground text-sm mb-6 line-clamp-3 leading-relaxed">
                         {post.excerpt}
                       </p>
-                      <div className="mt-auto pt-6 border-t border-border flex items-center justify-between">
-                        <span className="text-xs font-semibold text-muted-foreground uppercase tracking-widest flex items-center gap-2">
-                          <Calendar size={14} /> {new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
+                      <div className="mt-auto pt-5 border-t border-border flex items-center justify-between">
+                        <span className="text-xs font-semibold text-muted-foreground uppercase tracking-widest flex items-center gap-1.5">
+                          <Calendar size={11} />
+                          {new Date(post.date).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}
                         </span>
-                        <span className="text-primary font-bold flex items-center group-hover:translate-x-2 transition-transform">
-                          <ArrowRight size={20} />
+                        <span className="text-accent font-bold flex items-center gap-1 group-hover:gap-3 transition-all text-xs uppercase tracking-widest">
+                          Read <ArrowRight size={13} />
                         </span>
                       </div>
                     </div>
