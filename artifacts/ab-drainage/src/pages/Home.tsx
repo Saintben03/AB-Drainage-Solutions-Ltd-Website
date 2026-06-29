@@ -233,8 +233,21 @@ export default function Home() {
           </motion.div>
         </div>
 
-        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="hsl(0 0% 11%)" />
       </section>
+
+      {/* ── PIPE INTERIOR DIVIDER ── */}
+      <div className="relative w-full h-52 md:h-72 lg:h-80 overflow-hidden" aria-hidden="true">
+        <img
+          src="/pipe-divider.webp"
+          alt=""
+          className="w-full h-full object-cover object-center"
+          loading="lazy"
+        />
+        {/* White fade from Services section above */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-transparent" />
+        {/* Dark fade into Why Choose Us below */}
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+      </div>
 
       {/* ── WHY CHOOSE US (dark) ── */}
       <section className="py-24 bg-background border-y border-border">

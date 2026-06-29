@@ -30,6 +30,12 @@ uri = "file://attached_assets/blog/soakaway-install.png"
 type = "image"
 title = "soakaway installation garden"
 
+[[generated]]
+id = "Xff6lC4e5Lbo0OAunCfrD"
+uri = "file://artifacts/ab-drainage/public/pipe-divider.png"
+type = "image"
+title = "pipe interior water flowing divider"
+
 [[outputs]]
 id = "XDj-vFcGSpHIPNB20N4wa"
 uri = "file://attached_assets/site_files_1/AB Drainage background.png"
