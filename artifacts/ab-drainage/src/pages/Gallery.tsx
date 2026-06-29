@@ -19,18 +19,17 @@ interface GalleryItem {
   src: string;
   caption: string;
   tag: string;
-  span?: boolean;
 }
 
 const items: GalleryItem[] = [
-  { src: crew1, caption: "Our engineers on site in full hi-vis", tag: "Our Team", span: true },
-  { src: crew4, caption: "Hands-on drainage work, done properly", tag: "On the Job" },
+  { src: crew1, caption: "Our engineers on site in full hi-vis", tag: "Our Team" },
   { src: surveyWalk, caption: "Heading out to a CCTV drainage survey", tag: "Surveys" },
+  { src: crew4, caption: "Hands-on drainage work, done properly", tag: "On the Job" },
   { src: crew2, caption: "The A&B crew, ready for the next callout", tag: "Our Team" },
   { src: vanBlue, caption: "Part of our fully-equipped A&B fleet", tag: "Our Fleet" },
   { src: crew3, caption: "Experienced engineers you can rely on", tag: "Our Team" },
-  { src: platformWorks, caption: "Specialist drainage works on the rail network", tag: "Major Works", span: true },
   { src: crew5, caption: "Mobilising across Hampshire, day or night", tag: "Our Team" },
+  { src: platformWorks, caption: "Specialist drainage works on the rail network", tag: "Major Works" },
   { src: crew6, caption: "33+ years of experience on every job", tag: "Our Team" },
 ];
 
@@ -109,23 +108,21 @@ export default function Gallery() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+            className="columns-1 sm:columns-2 lg:columns-3 gap-4"
           >
             {items.map((item, i) => (
               <motion.figure
                 key={i}
                 variants={fadeUp}
-                className={`group relative overflow-hidden bg-zinc-100 ${item.span ? "sm:col-span-2" : ""}`}
+                className="group relative overflow-hidden bg-zinc-100 break-inside-avoid mb-4"
               >
-                <div className={`overflow-hidden ${item.span ? "aspect-[16/9]" : "aspect-[4/3]"}`}>
-                  <img
-                    src={item.src}
-                    alt={item.caption}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent opacity-90"></div>
+                <img
+                  src={item.src}
+                  alt={item.caption}
+                  loading="lazy"
+                  className="w-full h-auto block transition duration-500 group-hover:brightness-110"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent opacity-90"></div>
                 <figcaption className="absolute bottom-0 left-0 right-0 p-5">
                   <span className="inline-block bg-accent text-white text-[10px] font-bold uppercase tracking-[0.2em] px-2.5 py-1 mb-2">
                     {item.tag}
