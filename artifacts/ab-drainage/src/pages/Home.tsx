@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { CountUp } from "@/components/CountUp";
 import { LogoMarquee } from "@/components/LogoMarquee";
 import { WaterWave } from "@/components/WaterWave";
-import { PipeScene } from "@/components/PipeScene";
 
 import heroImg from "@assets/site_files_1/AB Drainage background_logos.jpg";
 import work1 from "@assets/site_files_1/369541839_240515012286429_2194496784194718742_n.jpg";
@@ -234,18 +233,8 @@ export default function Home() {
           </motion.div>
         </div>
 
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="hsl(0 0% 11%)" />
       </section>
-
-      {/* ── PIPE INTERIOR DIVIDER — side-on cross-section with animated water ── */}
-      <div className="relative">
-        {/* Blend white Services section into the pipe wall */}
-        <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-white to-transparent z-10 pointer-events-none" />
-        <PipeScene
-          className="w-full h-52 md:h-64 lg:h-72"
-          fill="hsl(0 0% 11%)"
-          edgeColor="#7ec8e3"
-        />
-      </div>
 
       {/* ── WHY CHOOSE US (dark) ── */}
       <section className="py-24 bg-background border-y border-border">
