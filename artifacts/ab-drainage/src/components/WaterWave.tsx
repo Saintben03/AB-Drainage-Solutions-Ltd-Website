@@ -5,6 +5,8 @@ interface WaterWaveProps {
   fill?: string;
   /** Colour of the leading "water" edge that fades into `fill`. */
   edgeColor?: string;
+  /** Where the water edge sits: "top" (crest, default) or "bottom" (inside base). */
+  edgePosition?: "top" | "bottom";
 }
 
 const WAVE_PATH =
@@ -13,7 +15,8 @@ const WAVE_PATH =
 export function WaterWave({
   className = "",
   fill = "#ffffff",
-  edgeColor = "#7dd3fc",
+  edgeColor = "#bae6fd",
+  edgePosition = "top",
 }: WaterWaveProps) {
   const rawId = useId().replace(/:/g, "");
 
@@ -34,9 +37,19 @@ export function WaterWave({
             >
               <defs>
                 <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor={edgeColor} />
-                  <stop offset="45%" stopColor={fill} />
-                  <stop offset="100%" stopColor={fill} />
+                  {edgePosition === "bottom" ? (
+                    <>
+                      <stop offset="0%" stopColor={fill} />
+                      <stop offset="60%" stopColor={fill} />
+                      <stop offset="100%" stopColor={edgeColor} />
+                    </>
+                  ) : (
+                    <>
+                      <stop offset="0%" stopColor={edgeColor} />
+                      <stop offset="45%" stopColor={fill} />
+                      <stop offset="100%" stopColor={fill} />
+                    </>
+                  )}
                 </linearGradient>
               </defs>
               <path d={WAVE_PATH} fill={`url(#${gradId})`} />
