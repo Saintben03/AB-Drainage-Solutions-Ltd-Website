@@ -95,7 +95,7 @@ export default function Contact() {
       </section>
 
       {/* ── EMERGENCY STRIP ── */}
-      <section className="bg-accent py-8 pb-20 relative overflow-hidden">
+      <section className="bg-accent pt-14 pb-32 relative overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
