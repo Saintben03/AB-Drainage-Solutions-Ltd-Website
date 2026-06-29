@@ -354,12 +354,12 @@ export default function Home() {
       {/* ── PHOTO STRIP ── */}
       <div className="grid grid-cols-3 h-64 md:h-96 overflow-hidden">
         {[
-          { src: heroImg, pos: "object-[center_55%]", fit: "object-cover", bg: "" },
-          { src: work1, pos: "object-center", fit: "object-contain", bg: "bg-zinc-900" },
-          { src: work4, pos: "object-bottom", fit: "object-cover", bg: "" },
+          { src: heroImg, pos: "object-[center_55%]" },
+          { src: work1, pos: "object-center" },
+          { src: work4, pos: "object-bottom" },
         ].map((item, i) => (
-          <div key={i} className={`overflow-hidden relative ${item.bg}`}>
-            <img src={item.src} alt="" className={`w-full h-full ${item.fit} ${item.pos} hover:scale-105 transition-transform duration-700`} />
+          <div key={i} className="overflow-hidden relative">
+            <img src={item.src} alt="" className={`w-full h-full object-cover ${item.pos} hover:scale-105 transition-transform duration-700`} />
             <div className="absolute inset-0 bg-black/20"></div>
           </div>
         ))}
