@@ -204,12 +204,13 @@ export default function Services() {
                       ))}
                     </ul>
                     <div className="mt-auto">
-                      <a
-                        href="tel:01256688650"
+                      <button
+                        type="button"
+                        onClick={openBookNow}
                         className="w-full bg-accent hover:bg-accent/90 text-white py-3.5 font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all text-sm"
                       >
                         Book This Service
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </div>
