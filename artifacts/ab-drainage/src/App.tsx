@@ -16,6 +16,7 @@ import About from "@/pages/About";
 import Areas from "@/pages/Areas";
 import Blog from "@/pages/Blog";
 import BlogPost from "@/pages/BlogPost";
+import Gallery from "@/pages/Gallery";
 import Contact from "@/pages/Contact";
 
 const queryClient = new QueryClient();
@@ -64,6 +65,7 @@ function Router() {
               <Route path="/areas" component={Areas} />
               <Route path="/blog" component={Blog} />
               <Route path="/blog/:slug" component={BlogPost} />
+              <Route path="/gallery" component={Gallery} />
               <Route path="/contact" component={Contact} />
               <Route component={NotFound} />
             </Switch>
