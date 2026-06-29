@@ -80,7 +80,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/70 to-background/5"></div>
         </div>
 
-        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#e2e8f0" />
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#e0f2fe" />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
@@ -169,7 +169,7 @@ export default function Home() {
       </section>
 
       {/* ── TRUSTED BY (light band, animated wave at its base) ── */}
-      <section className="relative bg-slate-200 pt-16 pb-28 overflow-hidden">
+      <section className="relative bg-sky-100 pt-16 pb-28 overflow-hidden">
         <div className="container mx-auto px-4">
           <p className="text-center text-xs text-zinc-500 uppercase tracking-[0.2em] font-semibold mb-10">
             Trusted by institutions &amp; businesses across the UK
