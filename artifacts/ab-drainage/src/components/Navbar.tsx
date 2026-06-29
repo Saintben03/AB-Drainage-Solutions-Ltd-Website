@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import logoMain from "@assets/site_files_1/AB Drainage logo.png";
 import { BookNowModal } from "./BookNowModal";
+import { SocialLinks } from "./SocialLinks";
 
 export const Navbar = () => {
   const [location] = useLocation();
@@ -36,9 +37,15 @@ export const Navbar = () => {
   return (
     <>
       {/* ── Emergency Bar ── */}
-      <div className="bg-accent text-white py-2 px-4 text-center text-xs font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-2">
-        <span className="animate-pulse w-2 h-2 rounded-full bg-white block shrink-0"></span>
-        24/7 Emergency Callout — Typically Within 1 Hour
+      <div className="relative bg-accent text-white py-2 px-4 text-xs font-bold uppercase tracking-[0.2em]">
+        <div className="flex items-center justify-center gap-2 text-center">
+          <span className="animate-pulse w-2 h-2 rounded-full bg-white block shrink-0"></span>
+          24/7 Emergency Callout — Typically Within 1 Hour
+        </div>
+        <div className="absolute right-4 top-1/2 -translate-y-1/2 hidden sm:flex items-center gap-3">
+          <span className="text-white/70 tracking-[0.18em]">Follow Us</span>
+          <SocialLinks iconSize={15} itemClassName="text-white hover:text-white/70 hover:-translate-y-0.5" />
+        </div>
       </div>
 
       <header
@@ -202,6 +209,14 @@ export const Navbar = () => {
                   </div>
                   07498 062 710
                 </a>
+
+                <div className="pt-4">
+                  <p className="text-xs text-muted-foreground uppercase tracking-[0.2em] font-bold mb-4">Follow Us</p>
+                  <SocialLinks
+                    iconSize={20}
+                    itemClassName="w-11 h-11 border border-white/15 bg-card text-foreground/80 flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent rounded-md"
+                  />
+                </div>
               </motion.div>
             </motion.div>
           )}

@@ -1,6 +1,7 @@
 import { MapPin, Phone, Mail, Clock, ArrowRight } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { ContactForm } from "@/components/ContactForm";
+import { SocialLinks } from "@/components/SocialLinks";
 import { motion } from "framer-motion";
 
 import heroImg from "@assets/site_files_1/g-01u.jpg";
@@ -164,6 +165,20 @@ export default function Contact() {
               >
                 <p className="text-accent font-bold uppercase tracking-widest text-xs mb-2">FlexiPay Available</p>
                 <p className="text-muted-foreground text-sm leading-relaxed">We offer flexible payment plans to help spread the cost of major drainage repairs. Ask our team for details.</p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="mt-8"
+              >
+                <p className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-4">Follow Our Work</p>
+                <SocialLinks
+                  iconSize={22}
+                  itemClassName="w-12 h-12 bg-card border border-border text-foreground/80 flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent rounded-md"
+                />
               </motion.div>
             </div>
 

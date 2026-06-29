@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import logoMain from "@assets/site_files_1/AB Drainage logo.png";
+import { SocialLinks } from "./SocialLinks";
 
 export const Footer = () => {
   return (
@@ -16,6 +17,13 @@ export const Footer = () => {
               <a href="tel:01256688650" className="text-lg font-bold hover:text-primary transition-colors">01256 688 650</a>
               <a href="tel:07498062710" className="text-lg font-bold hover:text-primary transition-colors">07498 062 710</a>
               <a href="mailto:info@abdrainage.co.uk" className="text-primary hover:text-primary/80 transition-colors">info@abdrainage.co.uk</a>
+            </div>
+            <div className="pt-2">
+              <p className="text-xs text-muted-foreground uppercase tracking-[0.2em] font-bold mb-3">Follow Us</p>
+              <SocialLinks
+                iconSize={18}
+                itemClassName="w-10 h-10 border border-white/10 text-muted-foreground flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent rounded-md"
+              />
             </div>
           </div>
 
