@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { ArrowRight, Phone, Check, Clock, MapPin, ShieldCheck, Star, ThumbsUp } from "lucide-react";
+import { ArrowRight, Phone, Check, Clock, MapPin, ShieldCheck, Star, ThumbsUp, ExternalLink } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
 import { CountUp } from "@/components/CountUp";
@@ -29,6 +29,8 @@ const services = [
   { img: work1, title: "Commercial Drainage", features: ["Grease Trap Cleaning", "Planned Maintenance", "Industrial Tankers"], href: "/services#commercial" },
   { img: work4, title: "Soakaway Installation", features: ["Building Regs Compliant", "Soil Percolation Testing", "Modern Crate Systems"], href: "/services#soakaways" },
 ];
+
+const REVIEWS_URL = "https://www.google.com/search?sca_esv=c5931a817e678147&rlz=1C1FKPE_en&sxsrf=APpeQntSzWkW3P6RDjShZ8U4Q8pMdLUcJA:1782739760627&si=APenkKm7iecQ4G6P-TsbSMFKIQtv3EFIqRAFw-i8uEbk55Z-_xzoarmiPr3yJTxjvJ0nn14nN_hbjN2cdyrmJ1QNlLQPa5PDTlbz830J71gI13mQ6_wOTedYLkVUWHeql5r2QfYQVysB5qiUseD0eGrPIQ8QKmLAeA%3D%3D&q=A%26B+Drainage+Solutions+ltd+Reviews";
 
 const reviews = [
   { name: "James T.", location: "Basingstoke", stars: 5, text: "Called at 11pm with a badly blocked drain — engineer was on site within 45 minutes and had it cleared in under an hour. Exceptional service." },
@@ -110,11 +112,14 @@ export default function Home() {
               Blocked drain? Sewage backing up? We answer at 2am and arrive typically within 1 hour. 33 years solving Hampshire's toughest drainage problems.
             </motion.p>
 
-            <motion.div
+            <motion.a
+              href={REVIEWS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.22 }}
-              className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 px-5 py-3 rounded-lg mb-8"
+              className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 hover:border-white/40 px-5 py-3 rounded-lg mb-8 transition-all"
             >
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
@@ -122,8 +127,9 @@ export default function Home() {
                 ))}
               </div>
               <span className="text-white font-bold text-sm">Rated Excellent</span>
-              <span className="text-white/60 text-sm">· Reviewed on Yell &amp; Checkatrade</span>
-            </motion.div>
+              <span className="text-white/60 text-sm">· See our reviews</span>
+              <ExternalLink size={14} className="text-white/60" />
+            </motion.a>
 
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -351,6 +357,27 @@ export default function Home() {
                 </div>
               </motion.div>
             ))}
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center mt-12"
+          >
+            <a
+              href={REVIEWS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 bg-accent hover:bg-accent/90 text-white px-8 py-4 text-base font-bold uppercase tracking-wider transition-all"
+            >
+              See All Our Reviews
+              <ExternalLink size={18} />
+            </a>
+            <p className="text-zinc-400 text-xs mt-4 max-w-md mx-auto">
+              See verified feedback from Facebook, Checkatrade, Yell, MyBuilder, TrustATrader and more.
+            </p>
           </motion.div>
         </div>
       </section>
