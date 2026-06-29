@@ -83,12 +83,50 @@ export const Navbar = () => {
           <div className="flex items-center justify-between gap-6">
 
             {/* Logo */}
-            <Link href="/" className="flex-shrink-0 relative z-50">
-              <img
-                src={logoMain}
-                alt="A&B Drainage Solutions Ltd Logo"
-                className="h-52 md:h-64 w-auto object-contain"
-              />
+            <Link href="/" className="group flex-shrink-0 relative z-50 block">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8, y: -18, rotate: -4 }}
+                animate={{ opacity: 1, scale: 1, y: 0, rotate: 0 }}
+                transition={{ type: "spring", stiffness: 180, damping: 15, delay: 0.15 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+                className="relative will-change-transform"
+              >
+                {/* Inner wrapper floats so the masked shine stays aligned with the logo */}
+                <motion.div
+                  animate={{ y: [0, -5, 0] }}
+                  transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+                  className="relative"
+                >
+                  <img
+                    src={logoMain}
+                    alt="A&B Drainage Solutions Ltd Logo"
+                    className="h-52 md:h-64 w-auto object-contain transition-[filter] duration-300 group-hover:drop-shadow-[0_0_18px_rgba(234,88,12,0.45)]"
+                  />
+                  {/* Recurring gleam — a light streak clipped to the exact logo shape */}
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 overflow-hidden"
+                    style={{
+                      WebkitMaskImage: `url(${logoMain})`,
+                      maskImage: `url(${logoMain})`,
+                      WebkitMaskSize: "contain",
+                      maskSize: "contain",
+                      WebkitMaskRepeat: "no-repeat",
+                      maskRepeat: "no-repeat",
+                      WebkitMaskPosition: "center",
+                      maskPosition: "center",
+                    }}
+                  >
+                    <motion.span
+                      className="absolute top-0 left-0 h-full w-1/4 -skew-x-12 bg-gradient-to-r from-transparent via-white/80 to-transparent"
+                      initial={{ x: "-160%" }}
+                      animate={{ x: ["-160%", "560%"] }}
+                      transition={{ duration: 1.3, repeat: Infinity, repeatDelay: 4, ease: "easeInOut" }}
+                    />
+                  </span>
+                </motion.div>
+              </motion.div>
             </Link>
 
             {/* Desktop Navigation */}
