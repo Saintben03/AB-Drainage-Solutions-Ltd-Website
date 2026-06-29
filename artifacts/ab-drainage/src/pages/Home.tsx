@@ -337,10 +337,14 @@ export default function Home() {
       </section>
 
       {/* ── PHOTO STRIP ── */}
-      <div className="grid grid-cols-3 h-40 md:h-64 overflow-hidden">
-        {[heroImg, work1, work4].map((src, i) => (
+      <div className="grid grid-cols-3 h-64 md:h-96 overflow-hidden">
+        {[
+          { src: heroImg, pos: "object-[center_55%]" },
+          { src: work1, pos: "object-bottom" },
+          { src: work4, pos: "object-center" },
+        ].map((item, i) => (
           <div key={i} className="overflow-hidden relative">
-            <img src={src} alt="" className="w-full h-full object-cover scale-105 hover:scale-100 transition-transform duration-700" />
+            <img src={item.src} alt="" className={`w-full h-full object-cover ${item.pos} hover:scale-105 transition-transform duration-700`} />
             <div className="absolute inset-0 bg-black/20"></div>
           </div>
         ))}
