@@ -3,11 +3,13 @@ import { Phone, Menu, X, ArrowRight, ExternalLink } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import logoMain from "@assets/site_files_1/AB Drainage logo.png";
+import { BookNowModal } from "./BookNowModal";
 
 export const Navbar = () => {
   const [location] = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [bookNowOpen, setBookNowOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -99,12 +101,12 @@ export const Navbar = () => {
                   07498 062 710
                 </a>
               </div>
-              <Link
-                href="/contact"
+              <button
+                onClick={() => setBookNowOpen(true)}
                 className="bg-accent hover:bg-accent/90 text-white px-6 py-3 text-sm font-bold uppercase tracking-wider flex items-center gap-2 transition-all"
               >
                 Book Now <ArrowRight size={15} />
-              </Link>
+              </button>
             </div>
 
             {/* Mobile Actions */}
@@ -205,6 +207,8 @@ export const Navbar = () => {
           )}
         </AnimatePresence>
       </header>
+
+      <BookNowModal open={bookNowOpen} onClose={() => setBookNowOpen(false)} />
     </>
   );
 };
