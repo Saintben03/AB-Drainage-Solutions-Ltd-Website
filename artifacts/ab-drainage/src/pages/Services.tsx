@@ -122,7 +122,7 @@ export default function Services() {
       </section>
 
       {/* Jump nav */}
-      <section className="relative py-8 bg-sky-100 overflow-hidden">
+      <section className="relative pt-8 pb-28 bg-sky-100 overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-2">
             {services.map((s) => (
