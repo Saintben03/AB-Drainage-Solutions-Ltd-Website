@@ -354,8 +354,8 @@ export default function Home() {
       <div className="grid grid-cols-3 h-64 md:h-96 overflow-hidden">
         {[
           { src: heroImg, pos: "object-[center_55%]" },
-          { src: work1, pos: "object-bottom" },
-          { src: work4, pos: "object-center" },
+          { src: work1, pos: "object-[center_25%]" },
+          { src: work4, pos: "object-bottom" },
         ].map((item, i) => (
           <div key={i} className="overflow-hidden relative">
             <img src={item.src} alt="" className={`w-full h-full object-cover ${item.pos} hover:scale-105 transition-transform duration-700`} />
