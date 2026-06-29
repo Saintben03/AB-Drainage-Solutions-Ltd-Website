@@ -85,23 +85,19 @@ export const Navbar = () => {
             {/* Logo */}
             <Link href="/" className="group flex-shrink-0 relative z-50 block">
               <motion.div
-                initial={{ opacity: 0, scale: 0.8, y: -18, rotate: -4 }}
-                animate={{ opacity: 1, scale: 1, y: 0, rotate: 0 }}
-                transition={{ type: "spring", stiffness: 180, damping: 15, delay: 0.15 }}
+                initial={{ opacity: 0, scale: 0.92 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.45, ease: "easeOut", delay: 0.1 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
                 className="relative will-change-transform"
               >
-                {/* Inner wrapper floats so the masked shine stays aligned with the logo */}
-                <motion.div
-                  animate={{ y: [0, -5, 0] }}
-                  transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-                  className="relative"
-                >
+                {/* Inner wrapper keeps the masked shine aligned with the logo */}
+                <div className="relative">
                   <img
                     src={logoMain}
                     alt="A&B Drainage Solutions Ltd Logo"
-                    className="h-52 md:h-64 w-auto object-contain transition-[filter] duration-300 group-hover:drop-shadow-[0_0_18px_rgba(234,88,12,0.45)]"
+                    className="h-52 md:h-80 w-auto object-contain transition-[filter] duration-300 group-hover:drop-shadow-[0_0_18px_rgba(234,88,12,0.45)]"
                   />
                   {/* Recurring gleam — a light streak clipped to the exact logo shape */}
                   <span
@@ -125,7 +121,7 @@ export const Navbar = () => {
                       transition={{ duration: 1.3, repeat: Infinity, repeatDelay: 4, ease: "easeInOut" }}
                     />
                   </span>
-                </motion.div>
+                </div>
               </motion.div>
             </Link>
 
