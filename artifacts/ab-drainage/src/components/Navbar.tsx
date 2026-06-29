@@ -150,14 +150,14 @@ export const Navbar = () => {
                 className="whitespace-nowrap text-[13px] xl:text-sm font-bold uppercase tracking-tight xl:tracking-wide text-foreground/80 hover:text-accent transition-colors relative group flex items-center gap-1.5"
               >
                 {groupLink.name}
-                <ExternalLink size={13} className="opacity-60 shrink-0" />
+                <ExternalLink size={13} className="text-accent shrink-0" />
                 <span className="absolute -bottom-1 left-0 h-0.5 bg-accent transition-all duration-300 w-0 group-hover:w-full"></span>
               </a>
             </nav>
 
             {/* Desktop Emergency CTA */}
-            <div className="hidden lg:flex items-center gap-4 xl:gap-5 shrink-0">
-              <div className="hidden 2xl:flex flex-col items-end">
+            <div className="hidden lg:flex items-center gap-6 xl:gap-10 shrink-0">
+              <div className="hidden 2xl:flex flex-col items-center">
                 <span className="text-[10px] text-muted-foreground uppercase tracking-[0.18em] font-bold">Emergency Response</span>
                 <a
                   href="tel:07498062710"
