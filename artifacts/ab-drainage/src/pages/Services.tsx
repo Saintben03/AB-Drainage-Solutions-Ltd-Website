@@ -178,7 +178,7 @@ export default function Services() {
                 transition={{ duration: 0.4, delay: (i % 3) * 0.08 }}
                 className="scroll-mt-28 h-full"
               >
-                <div className="bg-card h-full flex flex-col group">
+                <div className="bg-background h-full flex flex-col group">
                   <div className="overflow-hidden h-52 relative">
                     <img
                       src={service.img}
