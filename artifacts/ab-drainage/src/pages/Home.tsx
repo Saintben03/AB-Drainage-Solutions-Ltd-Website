@@ -300,7 +300,7 @@ export default function Home() {
       </section>
 
       {/* ── STATS (orange band — colour pop) ── */}
-      <section className="bg-accent py-14 relative overflow-hidden">
+      <section className="bg-accent pt-14 pb-28 relative overflow-hidden">
         <div className="container mx-auto px-4">
           <motion.div
             variants={stagger}
