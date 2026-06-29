@@ -21,10 +21,13 @@ interface GalleryItem {
   tag: string;
 }
 
-const items: GalleryItem[] = [
+const featured: GalleryItem[] = [
   { src: crew1, caption: "Our engineers on site in full hi-vis", tag: "Our Team" },
-  { src: surveyWalk, caption: "Heading out to a CCTV drainage survey", tag: "Surveys" },
   { src: crew4, caption: "Hands-on drainage work, done properly", tag: "On the Job" },
+];
+
+const items: GalleryItem[] = [
+  { src: surveyWalk, caption: "Heading out to a CCTV drainage survey", tag: "Surveys" },
   { src: crew2, caption: "The A&B crew, ready for the next callout", tag: "Our Team" },
   { src: vanBlue, caption: "Part of our fully-equipped A&B fleet", tag: "Our Fleet" },
   { src: crew3, caption: "Experienced engineers you can rely on", tag: "Our Team" },
@@ -101,6 +104,36 @@ export default function Gallery() {
             <h2 className="text-4xl md:text-5xl font-display font-bold text-zinc-900 uppercase leading-tight">
               The People Behind the Work
             </h2>
+          </motion.div>
+
+          {/* Featured pair — shown large, near full-width */}
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4"
+          >
+            {featured.map((item, i) => (
+              <motion.figure
+                key={i}
+                variants={fadeUp}
+                className="group relative overflow-hidden bg-zinc-100"
+              >
+                <img
+                  src={item.src}
+                  alt={item.caption}
+                  className="w-full h-auto block transition duration-500 group-hover:brightness-110"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-90"></div>
+                <figcaption className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                  <span className="inline-block bg-accent text-white text-[11px] font-bold uppercase tracking-[0.2em] px-3 py-1 mb-3">
+                    {item.tag}
+                  </span>
+                  <p className="text-white font-bold text-lg md:text-2xl leading-snug">{item.caption}</p>
+                </figcaption>
+              </motion.figure>
+            ))}
           </motion.div>
 
           <motion.div
