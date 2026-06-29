@@ -140,8 +140,9 @@ export default function Services() {
       {/* Services grid */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0.5 bg-border">
-            {services.map((service, i) => (
+          {/* Shared card renderer */}
+          {(() => {
+            const renderCard = (service: typeof services[0], i: number) => (
               <motion.div
                 key={service.id}
                 id={service.id}
@@ -149,7 +150,7 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: (i % 3) * 0.08 }}
-                className="scroll-mt-28"
+                className="scroll-mt-28 h-full"
               >
                 <div className="bg-card h-full flex flex-col group">
                   <div className="overflow-hidden h-52 relative">
@@ -187,8 +188,24 @@ export default function Services() {
                   </div>
                 </div>
               </motion.div>
-            ))}
-          </div>
+            );
+            return (
+              <div className="bg-border flex flex-col gap-0.5">
+                {/* First 6 — full 3-column grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0.5">
+                  {services.slice(0, 6).map((s, i) => renderCard(s, i))}
+                </div>
+                {/* Last 2 — centred, each one-third wide */}
+                <div className="flex justify-center gap-0.5">
+                  {services.slice(6).map((s, i) => (
+                    <div key={s.id} className="w-full md:w-1/2 lg:w-1/3">
+                      {renderCard(s, i + 6)}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })()}
         </div>
       </section>
 
