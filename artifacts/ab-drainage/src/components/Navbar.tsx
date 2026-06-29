@@ -21,13 +21,14 @@ export const Navbar = () => {
     { name: "Services", href: "/services" },
     { name: "Areas Covered", href: "/areas" },
     { name: "About Us", href: "/about" },
+    { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
   ];
 
   return (
     <>
       {/* Top Emergency Bar */}
-      <div className="bg-destructive text-destructive-foreground py-2 px-4 text-center text-sm font-semibold uppercase tracking-wider flex items-center justify-center gap-2">
+      <div className="bg-accent text-accent-foreground py-2 px-4 text-center text-sm font-semibold uppercase tracking-wider flex items-center justify-center gap-2">
         <span className="animate-pulse w-2 h-2 rounded-full bg-white block"></span>
         24/7 Emergency Callout - Typically within 1 hour
       </div>
@@ -45,7 +46,7 @@ export const Navbar = () => {
               <img 
                 src={logoMain} 
                 alt="A&B Drainage Solutions Ltd Logo" 
-                className="h-12 md:h-16 w-auto object-contain"
+                className="h-20 md:h-28 w-auto object-contain"
               />
             </Link>
 

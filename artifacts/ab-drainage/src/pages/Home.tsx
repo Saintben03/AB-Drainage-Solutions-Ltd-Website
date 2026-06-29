@@ -28,7 +28,7 @@ export default function Home() {
             alt="A&B Drainage Solutions Ltd Fleet" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-background/80 md:bg-background/60 md:bg-gradient-to-r md:from-background md:via-background/90 md:to-transparent"></div>
+          <div className="absolute inset-0 bg-background/55 md:bg-gradient-to-r md:from-background/80 md:via-background/50 md:to-background/10"></div>
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -37,9 +37,9 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-3 py-1 bg-destructive/20 text-destructive border border-destructive/30 rounded-full text-sm font-bold uppercase tracking-wider mb-6"
+              className="inline-flex items-center gap-2 px-3 py-1 bg-accent/20 text-accent border border-accent/30 rounded-full text-sm font-bold uppercase tracking-wider mb-6"
             >
-              <span className="w-2 h-2 rounded-full bg-destructive animate-pulse"></span>
+              <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
               24/7 Emergency Response
             </motion.div>
             

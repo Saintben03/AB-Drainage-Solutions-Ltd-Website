@@ -70,8 +70,10 @@
   --muted: 215 28% 17%;
   --muted-foreground: 215 20% 65%;
 
-  --accent: 202 43% 51%;
+  --accent: 25 95% 53%;
   --accent-foreground: 0 0% 100%;
+  
+  --orange: 25 95% 53%;
 
   --destructive: 0 62% 30%;
   --destructive-foreground: 210 40% 98%;
