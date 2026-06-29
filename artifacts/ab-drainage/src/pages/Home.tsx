@@ -13,10 +13,10 @@ import work3 from "@assets/site_files_1/472171552_560083023662958_89762239631794
 import work4 from "@assets/site_files_1/g-01u.jpg";
 import crewTeam from "@assets/ab_group_gallery/worker-9.33.16.jpeg";
 import crewManhole from "@assets/ab_group_gallery/worker-9.33.30.jpeg";
-import crewWalking from "@assets/ab_group_gallery/worker-9.33.34.jpeg";
-import crewStation from "@assets/ab_group_gallery/worker-9.33.36.jpeg";
 import crewChain from "@assets/ab_group_gallery/worker-9.33.26.jpeg";
 import crewManholeOpen from "@assets/ab_group_gallery/worker-9.33.28.jpeg";
+import workGroundwork from "@assets/site_files_1/groundwork-01a.jpg";
+import workSurvey from "@assets/site_files_1/survey-01a.jpg";
 import lanesLogo from "@assets/site_files_1/LanesGroup-1000-px.png";
 import nhsLogo from "@assets/site_files_1/National_Health_Service_(England)_logo.svg.png";
 import ccLogo from "@assets/site_files_1/CC-Multi-Disciplinary-Strap-White-BG-Full-Col-RGB-Trans.png";
@@ -389,12 +389,12 @@ export default function Home() {
       {/* ── PHOTO STRIP ── */}
       <div className="grid grid-cols-3 h-64 md:h-96 overflow-hidden">
         {[
-          { src: crewWalking, pos: "object-[center_30%]" },
-          { src: heroImg, pos: "object-[center_55%]" },
-          { src: crewStation, pos: "object-[center_30%]" },
+          { src: workGroundwork, pos: "object-center", alt: "A&B Drainage groundwork excavation with mini-digger on site" },
+          { src: heroImg, pos: "object-[center_55%]", alt: "A&B Drainage fleet of vans and tanker" },
+          { src: workSurvey, pos: "object-center", alt: "A&B Drainage engineer running a CCTV drain survey" },
         ].map((item, i) => (
           <div key={i} className="overflow-hidden relative">
-            <img src={item.src} alt="" className={`w-full h-full object-cover ${item.pos} hover:scale-105 transition-transform duration-700`} />
+            <img src={item.src} alt={item.alt} className={`w-full h-full object-cover ${item.pos} hover:scale-105 transition-transform duration-700`} />
             <div className="absolute inset-0 bg-black/20"></div>
           </div>
         ))}
