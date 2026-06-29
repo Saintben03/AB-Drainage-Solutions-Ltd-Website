@@ -3,6 +3,7 @@ import { SEO } from "@/components/SEO";
 import { ContactForm } from "@/components/ContactForm";
 import { SocialLinks } from "@/components/SocialLinks";
 import { motion } from "framer-motion";
+import { WaterWave } from "@/components/WaterWave";
 
 import heroImg from "@assets/site_files_1/AB Drainage background_edited.jpg";
 
@@ -90,10 +91,11 @@ export default function Contact() {
             We are available 24 hours a day, 7 days a week. For emergencies, call us directly — we aim to be on-site within the hour.
           </motion.p>
         </div>
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="hsl(32 98% 50%)" />
       </section>
 
       {/* ── EMERGENCY STRIP ── */}
-      <section className="bg-accent py-8">
+      <section className="bg-accent py-8 pb-20 relative overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
@@ -108,6 +110,7 @@ export default function Contact() {
             </a>
           </div>
         </div>
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#ffffff" />
       </section>
 
       {/* ── MAIN CONTENT (light) ── */}

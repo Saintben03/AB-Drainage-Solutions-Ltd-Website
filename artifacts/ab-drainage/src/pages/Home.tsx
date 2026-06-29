@@ -300,7 +300,7 @@ export default function Home() {
       </section>
 
       {/* ── STATS (orange band — colour pop) ── */}
-      <section className="bg-accent py-14">
+      <section className="bg-accent py-14 relative overflow-hidden">
         <div className="container mx-auto px-4">
           <motion.div
             variants={stagger}
@@ -319,10 +319,11 @@ export default function Home() {
             ))}
           </motion.div>
         </div>
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#fafafa" />
       </section>
 
       {/* ── REVIEWS (light) ── */}
-      <section className="py-20 bg-zinc-50 border-b border-zinc-200">
+      <section className="py-20 bg-zinc-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -403,7 +404,6 @@ export default function Home() {
 
       {/* ── FINAL CTA (dark) ── */}
       <section className="py-24 bg-background relative overflow-hidden">
-        <div className="absolute inset-0 border-y border-accent/10"></div>
         <div className="container mx-auto px-4 relative z-10 text-center max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

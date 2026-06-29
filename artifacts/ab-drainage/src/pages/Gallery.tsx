@@ -91,7 +91,7 @@ export default function Gallery() {
       </section>
 
       {/* ── GALLERY GRID (light) ── */}
-      <section className="py-24 bg-white">
+      <section className="py-24 pb-28 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -166,9 +166,7 @@ export default function Gallery() {
             ))}
           </motion.div>
         </div>
-        <div className="relative">
-          <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="hsl(0 0% 11%)" />
-        </div>
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="hsl(0 0% 11%)" />
       </section>
 
       {/* ── CTA (dark) ── */}

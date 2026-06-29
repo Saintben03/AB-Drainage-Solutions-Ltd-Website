@@ -1,4 +1,5 @@
 import { useParams, Link } from "wouter";
+import { WaterWave } from "@/components/WaterWave";
 import { SEO } from "@/components/SEO";
 import { Clock, Calendar, ArrowLeft, ArrowRight, Phone } from "lucide-react";
 import { blogPosts } from "@/data/blogPosts";
@@ -120,10 +121,11 @@ export default function BlogPost() {
             </div>
           </div>
         </div>
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#ffffff" />
       </section>
 
       {/* Post Content & Sidebar (light) */}
-      <section className="py-20 bg-white">
+      <section className="py-20 pb-28 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-16 max-w-7xl mx-auto">
             
@@ -189,10 +191,11 @@ export default function BlogPost() {
             
           </div>
         </div>
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#fafafa" />
       </section>
 
       {/* Related Articles (light) */}
-      <section className="py-24 bg-zinc-50 border-t border-zinc-200">
+      <section className="py-24 bg-zinc-50">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl font-display font-bold text-zinc-900 uppercase mb-12">Related Articles</h2>

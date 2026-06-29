@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { ShieldCheck, Check, Phone, ArrowRight, Award, Users, Clock, Zap } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
+import { WaterWave } from "@/components/WaterWave";
 
 import fleetImg from "@assets/site_files_1/AB Drainage background_edited.jpg";
 import crewTeam from "@assets/ab_group_gallery/worker-9.33.16.jpeg";
@@ -80,7 +81,7 @@ export default function About() {
       </section>
 
       {/* ── STATS BAR ── */}
-      <section className="bg-[#0a0a0a] border-y border-white/5">
+      <section className="bg-[#0a0a0a] relative overflow-hidden">
         <div className="container mx-auto px-4">
           <motion.div
             variants={stagger}
@@ -98,10 +99,11 @@ export default function About() {
             ))}
           </motion.div>
         </div>
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#ffffff" />
       </section>
 
       {/* ── OUR STORY (light) ── */}
-      <section className="py-24 bg-white">
+      <section className="py-24 pb-28 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
@@ -212,10 +214,11 @@ export default function About() {
             </div>
           </div>
         </div>
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#e2e8f0" />
       </section>
 
       {/* ── TRUSTED BY (light band) ── */}
-      <section className="py-20 bg-slate-200 border-y border-slate-300">
+      <section className="py-20 pb-28 bg-slate-200 relative overflow-hidden">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -240,6 +243,7 @@ export default function About() {
             <img src={ccLogo} alt="CC Multi Disciplinary" className="h-12 md:h-16 w-auto object-contain drop-shadow-[0_6px_14px_rgba(15,23,42,0.18)] hover:scale-110 transition-transform duration-300" />
           </motion.div>
         </div>
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="hsl(0 0% 11%)" />
       </section>
 
       {/* ── PHOTO STRIP + CTA ── */}

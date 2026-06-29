@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { MapPin, Phone, ArrowRight, Check, Clock, ShieldCheck } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
+import { WaterWave } from "@/components/WaterWave";
 
 import heroImg from "@assets/site_files_1/AB Drainage background_edited.jpg";
 import vanImg from "@assets/site_files_1/g-01u.jpg";
@@ -100,7 +101,7 @@ export default function Areas() {
       </section>
 
       {/* ── STATS ── */}
-      <section className="bg-[#0a0a0a] border-y border-white/5 py-14">
+      <section className="bg-[#0a0a0a] py-14 relative overflow-hidden">
         <div className="container mx-auto px-4">
           <motion.div
             variants={stagger}
@@ -117,10 +118,11 @@ export default function Areas() {
             ))}
           </motion.div>
         </div>
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#ffffff" />
       </section>
 
       {/* ── AREA CARDS (light) ── */}
-      <section className="py-24 bg-white">
+      <section className="py-24 pb-28 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -180,10 +182,11 @@ export default function Areas() {
             </div>
           </motion.div>
         </div>
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#fafafa" />
       </section>
 
       {/* ── WHY LOCAL (light) ── */}
-      <section className="py-20 bg-zinc-50 border-y border-zinc-200">
+      <section className="py-20 pb-28 bg-zinc-50 relative overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -247,6 +250,7 @@ export default function Areas() {
             </motion.div>
           </div>
         </div>
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="hsl(0 0% 11%)" />
       </section>
 
       {/* ── EMERGENCY CTA ── */}
@@ -255,7 +259,7 @@ export default function Areas() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="py-16 bg-background border-t border-border"
+        className="py-16 bg-background"
       >
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">

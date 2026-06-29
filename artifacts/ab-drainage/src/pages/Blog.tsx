@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
+import { WaterWave } from "@/components/WaterWave";
 import { Clock, Calendar, ArrowRight } from "lucide-react";
 import { blogPosts } from "@/data/blogPosts";
 
@@ -86,10 +87,11 @@ export default function Blog() {
             Professional insights, preventative tips, and detailed guides from Hampshire's most trusted drainage engineers.
           </motion.p>
         </div>
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#ffffff" />
       </section>
 
       {/* ── FEATURED POST (light) ── */}
-      <section className="py-16 bg-white border-b border-zinc-200">
+      <section className="py-16 pb-28 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -135,6 +137,7 @@ export default function Blog() {
             </Link>
           </motion.div>
         </div>
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#fafafa" />
       </section>
 
       {/* ── BLOG GRID (light) ── */}
