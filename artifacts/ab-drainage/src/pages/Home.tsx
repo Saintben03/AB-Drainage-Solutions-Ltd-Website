@@ -80,7 +80,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/75 to-background/20"></div>
         </div>
 
-        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#e2e8f0" edgePosition="bottom" />
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#e2e8f0" />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
