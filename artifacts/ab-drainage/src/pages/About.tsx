@@ -3,6 +3,7 @@ import { ShieldCheck, Check, Phone, ArrowRight, Award, Users, Clock, Zap } from 
 import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
 import { WaterWave } from "@/components/WaterWave";
+import { LogoMarquee } from "@/components/LogoMarquee";
 
 import fleetImg from "@assets/site_files_1/AB Drainage background_edited.jpg";
 import crewTeam from "@assets/ab_group_gallery/worker-9.33.16.jpeg";
@@ -10,6 +11,12 @@ import crewDrain from "@assets/ab_group_gallery/worker-9.33.28.jpeg";
 import lanesLogo from "@assets/site_files_1/LanesGroup-1000-px.png";
 import nhsLogo from "@assets/site_files_1/National_Health_Service_(England)_logo.svg.png";
 import ccLogo from "@assets/site_files_1/CC-Multi-Disciplinary-Strap-White-BG-Full-Col-RGB-Trans.png";
+
+const trustLogos = [
+  { src: nhsLogo, alt: "NHS", className: "h-10 md:h-14" },
+  { src: lanesLogo, alt: "Lanes Group", className: "h-12 md:h-16" },
+  { src: ccLogo, alt: "CC Multi Disciplinary", className: "h-12 md:h-16" },
+];
 
 const stats = [
   { icon: <Clock size={28} />, value: "33+", label: "Years in Business" },
@@ -218,30 +225,12 @@ export default function About() {
       </section>
 
       {/* ── TRUSTED BY (light band) ── */}
-      <section className="py-20 pb-28 bg-slate-200 relative overflow-hidden">
+      <section className="pt-4 pb-28 bg-slate-200 relative overflow-hidden">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-12"
-          >
-            <p className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-3">Our Track Record</p>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-zinc-900 uppercase">Trusted by Major UK Institutions</h2>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="flex flex-wrap justify-center items-center gap-16 md:gap-28"
-          >
-            <img src={nhsLogo} alt="NHS" className="h-12 md:h-16 w-auto object-contain drop-shadow-[0_6px_14px_rgba(15,23,42,0.18)] hover:scale-110 transition-transform duration-300" />
-            <img src={lanesLogo} alt="Lanes Group" className="h-12 md:h-16 w-auto object-contain drop-shadow-[0_6px_14px_rgba(15,23,42,0.18)] hover:scale-110 transition-transform duration-300" />
-            <img src={ccLogo} alt="CC Multi Disciplinary" className="h-12 md:h-16 w-auto object-contain drop-shadow-[0_6px_14px_rgba(15,23,42,0.18)] hover:scale-110 transition-transform duration-300" />
-          </motion.div>
+          <p className="text-center text-xs text-zinc-500 uppercase tracking-[0.2em] font-semibold mb-10">
+            Trusted by major UK institutions &amp; businesses
+          </p>
+          <LogoMarquee logos={trustLogos} />
         </div>
         <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="hsl(0 0% 11%)" />
       </section>
