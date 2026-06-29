@@ -98,7 +98,7 @@ export const Navbar = () => {
                   <img
                     src={logoMain}
                     alt="A&B Drainage Solutions Ltd Logo"
-                    className="h-52 md:h-80 w-auto object-contain transition-[filter] duration-300 group-hover:drop-shadow-[0_0_18px_rgba(234,88,12,0.45)]"
+                    className="h-52 md:h-80 lg:h-56 xl:h-64 2xl:h-80 w-auto object-contain transition-[filter] duration-300 group-hover:drop-shadow-[0_0_18px_rgba(234,88,12,0.45)]"
                   />
                   {/* Recurring gleam — a light streak clipped to the exact logo shape */}
                   <span
@@ -127,14 +127,14 @@ export const Navbar = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-7">
+            <nav className="hidden lg:flex items-center gap-4 xl:gap-6 shrink-0">
               {navLinks.map((link) => {
                 const isActive = location === link.href;
                 return (
                   <Link
                     key={link.name}
                     href={link.href}
-                    className={`text-sm font-bold uppercase tracking-wider transition-colors relative group ${
+                    className={`whitespace-nowrap text-[13px] xl:text-sm font-bold uppercase tracking-tight xl:tracking-wide transition-colors relative group ${
                       isActive ? "text-accent" : "text-foreground/80 hover:text-accent"
                     }`}
                   >
@@ -147,17 +147,17 @@ export const Navbar = () => {
                 href={groupLink.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-bold uppercase tracking-wider text-foreground/80 hover:text-accent transition-colors relative group flex items-center gap-1.5"
+                className="whitespace-nowrap text-[13px] xl:text-sm font-bold uppercase tracking-tight xl:tracking-wide text-foreground/80 hover:text-accent transition-colors relative group flex items-center gap-1.5"
               >
                 {groupLink.name}
-                <ExternalLink size={13} className="opacity-60" />
+                <ExternalLink size={13} className="opacity-60 shrink-0" />
                 <span className="absolute -bottom-1 left-0 h-0.5 bg-accent transition-all duration-300 w-0 group-hover:w-full"></span>
               </a>
             </nav>
 
             {/* Desktop Emergency CTA */}
-            <div className="hidden lg:flex items-center gap-5">
-              <div className="flex flex-col items-end">
+            <div className="hidden lg:flex items-center gap-4 xl:gap-5 shrink-0">
+              <div className="hidden 2xl:flex flex-col items-end">
                 <span className="text-[10px] text-muted-foreground uppercase tracking-[0.18em] font-bold">Emergency Response</span>
                 <a
                   href="tel:07498062710"
