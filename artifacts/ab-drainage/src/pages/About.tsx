@@ -139,22 +139,23 @@ export default function About() {
               >
                 <p className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-4">The A&amp;B Standard</p>
                 <h2 className="text-3xl font-display font-bold text-zinc-900 uppercase mb-8">How We Operate</h2>
-                <motion.ul
-                  variants={stagger}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true }}
-                  className="space-y-4"
-                >
+                <ul className="space-y-4">
                   {standards.map((item, i) => (
-                    <motion.li key={i} variants={fadeUp} className="flex items-start gap-4">
+                    <motion.li
+                      key={i}
+                      initial={{ opacity: 0, y: 24 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: i * 0.07 }}
+                      className="flex items-start gap-4"
+                    >
                       <div className="w-6 h-6 bg-accent shrink-0 flex items-center justify-center mt-0.5">
                         <Check size={13} className="text-white" />
                       </div>
                       <span className="text-zinc-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: item }} />
                     </motion.li>
                   ))}
-                </motion.ul>
+                </ul>
               </motion.div>
             </div>
 
