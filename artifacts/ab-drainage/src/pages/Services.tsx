@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { Phone, ArrowRight, Check, ShieldCheck } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
+import { useBookNow } from "@/contexts/BookNowContext";
 
 import heroImg from "@assets/site_files_1/AB Drainage background_edited.jpg";
 import work1 from "@assets/site_files_1/369541839_240515012286429_2194496784194718742_n.jpg";
@@ -73,6 +74,7 @@ const services = [
 ];
 
 export default function Services() {
+  const { openBookNow } = useBookNow();
   return (
     <>
       <SEO
@@ -127,8 +129,14 @@ export default function Services() {
               </h2>
             </div>
             <div className="flex flex-col gap-3">
-              <a href="tel:01256688650" className="bg-accent hover:bg-accent/90 text-white px-8 py-4 font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all">
-                <Phone size={18} /> 01256 688 650
+              <button
+                onClick={openBookNow}
+                className="bg-accent hover:bg-accent/90 text-white px-8 py-4 font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all"
+              >
+                Book Now <ArrowRight size={18} />
+              </button>
+              <a href="tel:01256688650" className="bg-white/10 hover:bg-white/20 border border-white/20 text-white px-8 py-4 font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all text-sm">
+                <Phone size={16} /> 01256 688 650
               </a>
               <Link href="/contact" className="bg-transparent border border-white/20 hover:border-white/50 text-white px-8 py-4 font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all text-sm">
                 Send a Message

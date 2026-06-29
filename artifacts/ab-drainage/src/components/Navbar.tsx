@@ -3,14 +3,14 @@ import { Phone, Smartphone, Mail, Menu, X, ArrowRight, ExternalLink } from "luci
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import logoMain from "@assets/site_files_1/AB Drainage logo.png";
-import { BookNowModal } from "./BookNowModal";
 import { SocialLinks } from "./SocialLinks";
+import { useBookNow } from "@/contexts/BookNowContext";
 
 export const Navbar = () => {
   const [location] = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [bookNowOpen, setBookNowOpen] = useState(false);
+  const { openBookNow } = useBookNow();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -133,7 +133,7 @@ export const Navbar = () => {
                 </a>
               </div>
               <button
-                onClick={() => setBookNowOpen(true)}
+                onClick={openBookNow}
                 className="bg-accent hover:bg-accent/90 text-white px-6 py-3 text-sm font-bold uppercase tracking-wider flex items-center gap-2 transition-all"
               >
                 Book Now <ArrowRight size={15} />
@@ -246,8 +246,6 @@ export const Navbar = () => {
           )}
         </AnimatePresence>
       </header>
-
-      <BookNowModal open={bookNowOpen} onClose={() => setBookNowOpen(false)} />
     </>
   );
 };

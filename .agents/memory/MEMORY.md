@@ -1,1 +1,2 @@
 - [ab-drainage screenshots](ab-drainage-screenshots.md) — Home hero is min-h-[92vh]; vh scales with capture so screenshots can't reach below-fold content.
+- [ab-drainage BookNow modal](ab-drainage-booknow.md) — single global BookNowModal via BookNowContext; trigger from any page with useBookNow().openBookNow(), don't add per-page modal instances.
