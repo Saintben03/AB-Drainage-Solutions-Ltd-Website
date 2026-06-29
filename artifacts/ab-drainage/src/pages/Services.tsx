@@ -4,6 +4,7 @@ import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
 import { useBookNow } from "@/contexts/BookNowContext";
 import { FlexiPayForm } from "@/components/FlexiPayForm";
+import { WaterWave } from "@/components/WaterWave";
 
 import heroImg from "@assets/site_files_1/AB Drainage background_edited.jpg";
 import work1 from "@assets/site_files_1/369541839_240515012286429_2194496784194718742_n.jpg";
@@ -117,10 +118,101 @@ export default function Services() {
             We have the equipment, the experience, and the manpower to tackle any drainage issue — from a domestic blocked sink to full industrial site maintenance.
           </motion.p>
         </div>
+        <WaterWave className="absolute bottom-0 left-0 w-full z-20 -mb-px" fill="#ffffff" />
       </section>
 
-      {/* Committed banner */}
-      <section className="bg-[#0a0a0a] py-14 border-y border-white/5">
+      {/* Jump nav */}
+      <section className="py-6 bg-white border-b border-zinc-200">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-wrap justify-center gap-2">
+            {services.map((s) => (
+              <a
+                key={s.id}
+                href={`#${s.id}`}
+                className="px-4 py-2 text-xs font-bold uppercase tracking-widest text-zinc-600 hover:text-accent hover:border-accent border border-transparent transition-all whitespace-nowrap"
+              >
+                {s.title}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services grid (light) */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4">
+          {/* Shared card renderer */}
+          {(() => {
+            const renderCard = (service: typeof services[0], i: number) => (
+              <motion.div
+                key={service.id}
+                id={service.id}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: (i % 3) * 0.08 }}
+                className="scroll-mt-28 h-full"
+              >
+                <div className="bg-white border border-zinc-200 rounded-xl overflow-hidden h-full flex flex-col group shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                  <div className="overflow-hidden h-52 relative">
+                    <img
+                      src={service.img}
+                      alt={service.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-8 border-t-4 border-t-accent flex flex-col flex-grow">
+                    <h2 className="text-2xl font-display font-bold text-zinc-900 uppercase mb-4 leading-tight group-hover:text-accent transition-colors">
+                      {service.title}
+                    </h2>
+                    <p className="text-zinc-600 text-sm leading-relaxed mb-6">
+                      {service.desc}
+                    </p>
+                    <ul className="space-y-2 mb-8">
+                      {service.features.map((f, fi) => (
+                        <li key={fi} className="flex items-center gap-3 text-sm text-zinc-700 font-semibold uppercase tracking-wide">
+                          <Check size={14} className="text-accent shrink-0" />
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-auto">
+                      <button
+                        type="button"
+                        onClick={openBookNow}
+                        className="w-full bg-accent hover:bg-accent/90 text-white py-3.5 font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all text-sm"
+                      >
+                        Book This Service
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            );
+            return (
+              <div className="flex flex-col gap-6">
+                {/* First 6 — full 3-column grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {services.slice(0, 6).map((s, i) => renderCard(s, i))}
+                </div>
+                {/* Last 2 — centred, each one-third wide */}
+                <div className="flex flex-col md:flex-row justify-center gap-6">
+                  {services.slice(6).map((s, i) => (
+                    <div key={s.id} className="w-full md:w-1/2 lg:w-1/3">
+                      {renderCard(s, i + 6)}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })()}
+        </div>
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="hsl(0 0% 11%)" />
+      </section>
+
+      {/* Committed banner (dark) */}
+      <section className="bg-background py-16 relative overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row lg:items-center gap-8 justify-between">
             <div className="max-w-2xl">
@@ -145,100 +237,11 @@ export default function Services() {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Jump nav */}
-      <section className="py-6 bg-card border-b border-border">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center gap-2">
-            {services.map((s) => (
-              <a
-                key={s.id}
-                href={`#${s.id}`}
-                className="px-4 py-2 text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-accent hover:border-accent border border-transparent transition-all whitespace-nowrap"
-              >
-                {s.title}
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Services grid */}
-      <section className="py-20 bg-black">
-        <div className="container mx-auto px-4">
-          {/* Shared card renderer */}
-          {(() => {
-            const renderCard = (service: typeof services[0], i: number) => (
-              <motion.div
-                key={service.id}
-                id={service.id}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: (i % 3) * 0.08 }}
-                className="scroll-mt-28 h-full"
-              >
-                <div className="bg-background h-full flex flex-col group">
-                  <div className="overflow-hidden h-52 relative">
-                    <img
-                      src={service.img}
-                      alt={service.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-black/25"></div>
-                  </div>
-                  <div className="p-8 border-t-2 border-t-accent flex flex-col flex-grow">
-                    <h2 className="text-2xl font-display font-bold text-accent uppercase mb-4 leading-tight">
-                      {service.title}
-                    </h2>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                      {service.desc}
-                    </p>
-                    <ul className="space-y-2 mb-8">
-                      {service.features.map((f, fi) => (
-                        <li key={fi} className="flex items-center gap-3 text-sm text-white font-semibold uppercase tracking-wide">
-                          <Check size={14} className="text-accent shrink-0" />
-                          {f}
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="mt-auto">
-                      <button
-                        type="button"
-                        onClick={openBookNow}
-                        className="w-full bg-accent hover:bg-accent/90 text-white py-3.5 font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all text-sm"
-                      >
-                        Book This Service
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            );
-            return (
-              <div className="bg-black flex flex-col gap-0.5">
-                {/* First 6 — full 3-column grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0.5">
-                  {services.slice(0, 6).map((s, i) => renderCard(s, i))}
-                </div>
-                {/* Last 2 — centred, each one-third wide */}
-                <div className="flex justify-center gap-0.5">
-                  {services.slice(6).map((s, i) => (
-                    <div key={s.id} className="w-full md:w-1/2 lg:w-1/3">
-                      {renderCard(s, i + 6)}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            );
-          })()}
-        </div>
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#fafafa" />
       </section>
 
       {/* FlexiPay enquiry */}
-      <section className="py-20 bg-zinc-50 border-t border-zinc-200">
+      <section className="py-20 bg-zinc-50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <div>
