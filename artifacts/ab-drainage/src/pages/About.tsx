@@ -3,9 +3,9 @@ import { ShieldCheck, Check, Phone, ArrowRight, Award, Users, Clock, Zap } from 
 import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
 
-import teamImg from "@assets/site_files_1/495021961_10232376033277003_1967405647606398252_n.jpg";
 import fleetImg from "@assets/site_files_1/AB Drainage background_edited.jpg";
-import workImg from "@assets/site_files_1/469013019_569649879039606_8048861614780071861_n.jpg";
+import crewTeam from "@assets/ab_group_gallery/worker-9.33.16.jpeg";
+import crewDrain from "@assets/ab_group_gallery/worker-9.33.28.jpeg";
 import lanesLogo from "@assets/site_files_1/LanesGroup-1000-px.png";
 import nhsLogo from "@assets/site_files_1/National_Health_Service_(England)_logo.svg.png";
 import ccLogo from "@assets/site_files_1/CC-Multi-Disciplinary-Strap-White-BG-Full-Col-RGB-Trans.png";
@@ -168,9 +168,9 @@ export default function About() {
                 transition={{ duration: 0.6 }}
               >
                 <img
-                  src={teamImg}
-                  alt="A&B Drainage Team on site"
-                  className="w-full object-cover border-l-4 border-accent shadow-2xl"
+                  src={crewTeam}
+                  alt="A&B Drainage team on a railway platform"
+                  className="w-full object-cover object-center border-l-4 border-accent shadow-2xl"
                   style={{ maxHeight: "400px" }}
                 />
               </motion.div>
@@ -245,7 +245,7 @@ export default function About() {
       {/* ── PHOTO STRIP + CTA ── */}
       <section className="relative">
         <div className="grid grid-cols-2 overflow-hidden" style={{ height: "420px" }}>
-          {[fleetImg, teamImg].map((src, i) => (
+          {[crewDrain, fleetImg].map((src, i) => (
             <div key={i} className="overflow-hidden relative">
               <motion.img
                 initial={{ scale: 1.08 }}

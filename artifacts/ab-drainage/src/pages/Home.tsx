@@ -11,6 +11,10 @@ import work1 from "@assets/site_files_1/369541839_240515012286429_21944967841947
 import work2 from "@assets/site_files_1/468849454_17949583832886709_2702370064044539379_n.jpg";
 import work3 from "@assets/site_files_1/472171552_560083023662958_8976223963179451031_n.jpg";
 import work4 from "@assets/site_files_1/g-01u.jpg";
+import crewTeam from "@assets/ab_group_gallery/worker-9.33.16.jpeg";
+import crewManhole from "@assets/ab_group_gallery/worker-9.33.30.jpeg";
+import crewWalking from "@assets/ab_group_gallery/worker-9.33.34.jpeg";
+import crewStation from "@assets/ab_group_gallery/worker-9.33.36.jpeg";
 import lanesLogo from "@assets/site_files_1/LanesGroup-1000-px.png";
 import nhsLogo from "@assets/site_files_1/National_Health_Service_(England)_logo.svg.png";
 import ccLogo from "@assets/site_files_1/CC-Multi-Disciplinary-Strap-White-BG-Full-Col-RGB-Trans.png";
@@ -277,8 +281,8 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="grid grid-cols-2 gap-3"
             >
-              <img src={work1} alt="A&B Drainage at a commercial site" className="object-cover w-full h-[280px] rounded-lg mt-10 shadow-xl" />
-              <img src={work2} alt="A&B Drainage engineers at work" className="object-cover w-full h-[280px] rounded-lg shadow-xl" />
+              <img src={crewManhole} alt="A&B Drainage engineers lifting a manhole chamber" className="object-cover object-center w-full h-[280px] rounded-lg mt-10 shadow-xl" />
+              <img src={crewTeam} alt="A&B Drainage team on a railway platform" className="object-cover object-center w-full h-[280px] rounded-lg shadow-xl" />
             </motion.div>
           </div>
         </div>
@@ -354,9 +358,9 @@ export default function Home() {
       {/* ── PHOTO STRIP ── */}
       <div className="grid grid-cols-3 h-64 md:h-96 overflow-hidden">
         {[
+          { src: crewWalking, pos: "object-[center_30%]" },
           { src: heroImg, pos: "object-[center_55%]" },
-          { src: work1, pos: "object-center" },
-          { src: work4, pos: "object-bottom" },
+          { src: crewStation, pos: "object-[center_30%]" },
         ].map((item, i) => (
           <div key={i} className="overflow-hidden relative">
             <img src={item.src} alt="" className={`w-full h-full object-cover ${item.pos} hover:scale-105 transition-transform duration-700`} />

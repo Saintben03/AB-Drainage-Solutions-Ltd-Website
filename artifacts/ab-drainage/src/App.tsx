@@ -28,6 +28,23 @@ function Router() {
     window.scrollTo(0, 0);
   }, [location]);
 
+  useEffect(() => {
+    const isImage = (t: EventTarget | null) =>
+      t instanceof HTMLImageElement || (t instanceof HTMLElement && t.tagName === "IMG");
+    const onContextMenu = (e: MouseEvent) => {
+      if (isImage(e.target)) e.preventDefault();
+    };
+    const onDragStart = (e: DragEvent) => {
+      if (isImage(e.target)) e.preventDefault();
+    };
+    document.addEventListener("contextmenu", onContextMenu);
+    document.addEventListener("dragstart", onDragStart);
+    return () => {
+      document.removeEventListener("contextmenu", onContextMenu);
+      document.removeEventListener("dragstart", onDragStart);
+    };
+  }, []);
+
   return (
     <div className="flex flex-col min-h-[100dvh]">
       <Navbar />

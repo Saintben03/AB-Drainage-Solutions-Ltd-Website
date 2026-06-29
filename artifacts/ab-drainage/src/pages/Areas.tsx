@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 import heroImg from "@assets/site_files_1/AB Drainage background_edited.jpg";
 import vanImg from "@assets/site_files_1/g-01u.jpg";
-import workImg from "@assets/site_files_1/369541839_240515012286429_2194496784194718742_n.jpg";
+import crewArea from "@assets/ab_group_gallery/worker-9.33.26.jpeg";
 
 const areas = [
   { name: "Basingstoke", tag: "HQ Area" },
@@ -243,7 +243,7 @@ export default function Areas() {
               className="grid grid-cols-2 gap-3"
             >
               <img src={vanImg} alt="A&B Drainage tanker" className="w-full h-[260px] object-cover" />
-              <img src={workImg} alt="A&B Drainage on a commercial site" className="w-full h-[260px] object-cover mt-10" />
+              <img src={crewArea} alt="A&B Drainage engineers working at Bath Spa station" className="w-full h-[260px] object-cover object-center mt-10" />
             </motion.div>
           </div>
         </div>
