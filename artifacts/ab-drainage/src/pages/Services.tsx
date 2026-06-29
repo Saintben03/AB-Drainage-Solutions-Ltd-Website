@@ -118,11 +118,11 @@ export default function Services() {
             We have the equipment, the experience, and the manpower to tackle any drainage issue — from a domestic blocked sink to full industrial site maintenance.
           </motion.p>
         </div>
-        <WaterWave className="absolute bottom-0 left-0 w-full z-20 -mb-px" fill="#ffffff" />
+        <WaterWave className="absolute bottom-0 left-0 w-full z-20 -mb-px" fill="#e0f2fe" />
       </section>
 
       {/* Jump nav */}
-      <section className="py-6 bg-white border-b border-zinc-200">
+      <section className="relative py-8 bg-sky-100 overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-2">
             {services.map((s) => (
@@ -136,6 +136,7 @@ export default function Services() {
             ))}
           </div>
         </div>
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#ffffff" />
       </section>
 
       {/* Services grid (light) */}
