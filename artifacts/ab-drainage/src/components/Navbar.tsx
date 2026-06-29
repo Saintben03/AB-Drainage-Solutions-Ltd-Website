@@ -69,9 +69,9 @@ export const Navbar = () => {
             <div className="hidden lg:flex items-center gap-6">
               <div className="flex flex-col items-end">
                 <span className="text-xs text-muted-foreground uppercase tracking-widest font-semibold">Emergency Response</span>
-                <a href="tel:01256688650" className="text-xl font-display font-bold text-foreground hover:text-primary transition-colors flex items-center gap-2">
+                <a href="tel:07498062710" className="text-xl font-display font-bold text-foreground hover:text-primary transition-colors flex items-center gap-2">
                   <Phone size={20} className="text-primary" />
-                  01256 688 650
+                  07498 062 710
                 </a>
               </div>
               <Link 
