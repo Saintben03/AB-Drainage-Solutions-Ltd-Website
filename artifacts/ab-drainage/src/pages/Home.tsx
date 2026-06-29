@@ -67,9 +67,9 @@ export default function Home() {
       />
 
       {/* ── HERO (dark) ── */}
-      <section className="relative min-h-[92vh] flex items-center pt-24 pb-20 overflow-hidden">
+      <section className="relative min-h-[80vh] flex items-center pt-28 pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src={heroImg} alt="A&B Drainage Solutions Ltd Fleet" className="w-full h-full object-cover origin-bottom animate-kenburns" />
+          <img src={heroImg} alt="A&B Drainage Solutions Ltd Fleet" className="w-full h-full object-cover object-bottom origin-bottom animate-kenburns" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/75 to-background/20"></div>
         </div>
 
