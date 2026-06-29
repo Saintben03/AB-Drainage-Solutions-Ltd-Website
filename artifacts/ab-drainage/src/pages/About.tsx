@@ -243,7 +243,7 @@ export default function About() {
 
       {/* ── PHOTO STRIP + CTA ── */}
       <section className="relative">
-        <div className="grid grid-cols-2 h-48 md:h-72 overflow-hidden">
+        <div className="grid grid-cols-2 overflow-hidden" style={{ height: "420px" }}>
           {[fleetImg, teamImg].map((src, i) => (
             <div key={i} className="overflow-hidden relative">
               <motion.img
@@ -253,7 +253,7 @@ export default function About() {
                 transition={{ duration: 0.9 }}
                 src={src}
                 alt=""
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
               />
               <div className="absolute inset-0 bg-black/40"></div>
             </div>
