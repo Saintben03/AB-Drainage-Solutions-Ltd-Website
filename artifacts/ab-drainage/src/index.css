@@ -182,10 +182,25 @@
   animation: wavedrift 14s linear infinite;
 }
 
+/* Shimmer ribbons — opacity pulse at different rates, simulating light on water */
+@keyframes waveshimmer {
+  0%, 100% { opacity: 0.35; }
+  50%       { opacity: 1;    }
+}
+.wave-shimmer-a {
+  animation: waveshimmer 3.2s ease-in-out infinite;
+}
+.wave-shimmer-b {
+  animation: waveshimmer 2.0s ease-in-out infinite reverse;
+  animation-delay: -0.9s;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-kenburns,
   .animate-marquee,
-  .animate-wavedrift {
+  .animate-wavedrift,
+  .wave-shimmer-a,
+  .wave-shimmer-b {
     animation: none !important;
   }
   a[href][class*="bg-accent"]::after,
