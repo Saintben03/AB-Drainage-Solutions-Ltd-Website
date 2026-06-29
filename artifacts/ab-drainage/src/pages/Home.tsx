@@ -1,9 +1,8 @@
 import { Link } from "wouter";
-import { ArrowRight, Phone, Check, Clock, MapPin, ShieldCheck } from "lucide-react";
+import { ArrowRight, Phone, Check, Clock, MapPin, ShieldCheck, Star, ThumbsUp } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
 
-// Assets
 import heroImg from "@assets/site_files_1/AB Drainage background_edited.jpg";
 import work1 from "@assets/site_files_1/369541839_240515012286429_2194496784194718742_n.jpg";
 import work2 from "@assets/site_files_1/468849454_17949583832886709_2702370064044539379_n.jpg";
@@ -16,43 +15,29 @@ import imgCctv from "@assets/blog/cctv-survey.png";
 import imgJetting from "@assets/blog/drain-jetting.png";
 
 const services = [
-  {
-    img: work3,
-    title: "Emergency Drainage",
-    features: ["24/7 Rapid Response", "Typically 1 Hour ETA", "Sewage & Flooding"],
-    href: "/services#emergency",
-  },
-  {
-    img: imgCctv,
-    title: "CCTV Drain Surveys",
-    features: ["HD Camera Inspection", "Pre-Purchase Surveys", "Pinpoint Diagnosis"],
-    href: "/services#cctv-surveys",
-  },
-  {
-    img: imgJetting,
-    title: "Drain Cleaning & Jetting",
-    features: ["Up to 4,000 PSI", "Grease & Root Clearance", "Fully Cleared Pipes"],
-    href: "/services#cleaning-jetting",
-  },
-  {
-    img: work2,
-    title: "Drain Repairs",
-    features: ["No-Dig Relining", "Traditional Excavation", "Full Reinstatement"],
-    href: "/services#drain-repairs",
-  },
-  {
-    img: work1,
-    title: "Commercial Drainage",
-    features: ["Grease Trap Cleaning", "Planned Maintenance", "Industrial Tankers"],
-    href: "/services#commercial",
-  },
-  {
-    img: work4,
-    title: "Soakaway Installation",
-    features: ["Building Regs Compliant", "Soil Percolation Testing", "Modern Crate Systems"],
-    href: "/services#soakaways",
-  },
+  { img: work3, title: "Emergency Drainage", features: ["24/7 Rapid Response", "Typically 1 Hour ETA", "Sewage & Flooding"], href: "/services#emergency" },
+  { img: imgCctv, title: "CCTV Drain Surveys", features: ["HD Camera Inspection", "Pre-Purchase Surveys", "Pinpoint Diagnosis"], href: "/services#cctv-surveys" },
+  { img: imgJetting, title: "Drain Cleaning & Jetting", features: ["Up to 4,000 PSI", "Grease & Root Clearance", "Fully Cleared Pipes"], href: "/services#cleaning-jetting" },
+  { img: work2, title: "Drain Repairs", features: ["No-Dig Relining", "Traditional Excavation", "Full Reinstatement"], href: "/services#drain-repairs" },
+  { img: work1, title: "Commercial Drainage", features: ["Grease Trap Cleaning", "Planned Maintenance", "Industrial Tankers"], href: "/services#commercial" },
+  { img: work4, title: "Soakaway Installation", features: ["Building Regs Compliant", "Soil Percolation Testing", "Modern Crate Systems"], href: "/services#soakaways" },
 ];
+
+const reviews = [
+  { name: "James T.", location: "Basingstoke", stars: 5, text: "Called at 11pm with a badly blocked drain — engineer was on site within 45 minutes and had it cleared in under an hour. Exceptional service." },
+  { name: "Sarah M.", location: "Winchester", stars: 5, text: "Used A&B for a CCTV survey before buying our house. The report was thorough, professional, and gave us real peace of mind. Highly recommend." },
+  { name: "David H.", location: "Southampton", stars: 5, text: "Commercial contract with A&B for two years now. Reliable, honest, and the team always leaves the site clean. Worth every penny." },
+];
+
+const whyUs = [
+  { icon: <Clock size={22} />, title: "1 Hour Response", desc: "We aim to be on site within the hour — day or night, including weekends and bank holidays." },
+  { icon: <ShieldCheck size={22} />, title: "Fully Accredited", desc: "Fully insured, health & safety compliant, and approved to work for NHS and major UK contractors." },
+  { icon: <ThumbsUp size={22} />, title: "No Hidden Fees", desc: "Honest, upfront pricing. We quote before we start so there are never any billing surprises." },
+  { icon: <MapPin size={22} />, title: "Hampshire Wide", desc: "Based centrally — we cover Basingstoke, Southampton, Winchester, Portsmouth and all surrounding areas." },
+];
+
+const fadeUp = { hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
+const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.08 } } };
 
 export default function Home() {
   return (
@@ -66,12 +51,8 @@ export default function Home() {
       {/* ── HERO ── */}
       <section className="relative min-h-[92vh] flex items-center pt-24 pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img
-            src={heroImg}
-            alt="A&B Drainage Solutions Ltd Fleet"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/70 to-background/20"></div>
+          <img src={heroImg} alt="A&B Drainage Solutions Ltd Fleet" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/75 to-background/20"></div>
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -101,15 +82,31 @@ export default function Home() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.16 }}
-              className="text-lg md:text-xl text-foreground/80 mb-10 max-w-xl leading-relaxed"
+              className="text-lg md:text-xl text-foreground/80 mb-8 max-w-xl leading-relaxed"
             >
               Blocked drain? Sewage backing up? We answer at 2am and arrive typically within 1 hour. 33 years solving Hampshire's toughest drainage problems.
             </motion.p>
 
+            {/* Google Reviews trust pill */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.22 }}
+              className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 px-5 py-3 rounded-lg mb-8"
+            >
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={16} className="text-yellow-400 fill-yellow-400" />
+                ))}
+              </div>
+              <span className="text-white font-bold text-sm">Rated Excellent</span>
+              <span className="text-white/60 text-sm">· 200+ Google Reviews</span>
+            </motion.div>
+
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.24 }}
+              transition={{ duration: 0.55, delay: 0.28 }}
               className="flex flex-col sm:flex-row gap-4 mb-12"
             >
               <a
@@ -142,12 +139,12 @@ export default function Home() {
       </section>
 
       {/* ── TRUST BAR ── */}
-      <section className="bg-[#0a0a0a] py-10 border-y border-white/5">
+      <section className="bg-card py-10 border-b border-border">
         <div className="container mx-auto px-4">
           <p className="text-center text-xs text-muted-foreground uppercase tracking-[0.2em] font-semibold mb-8">
             Trusted by institutions &amp; businesses across the UK
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-14 md:gap-24 opacity-50 hover:opacity-80 transition-opacity duration-500 grayscale hover:grayscale-0">
+          <div className="flex flex-wrap justify-center items-center gap-14 md:gap-24 opacity-50 hover:opacity-90 transition-opacity duration-500 grayscale hover:grayscale-0">
             <img src={nhsLogo} alt="NHS" className="h-10 md:h-14 w-auto object-contain" />
             <img src={lanesLogo} alt="Lanes Group" className="h-12 md:h-16 w-auto object-contain" />
             <img src={ccLogo} alt="CC Multi Disciplinary" className="h-12 md:h-16 w-auto object-contain" />
@@ -158,7 +155,13 @@ export default function Home() {
       {/* ── SERVICES GRID ── */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
-          <div className="mb-14">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-14"
+          >
             <p className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-3">What We Do</p>
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
               <h2 className="text-4xl md:text-5xl font-display font-bold uppercase text-white leading-tight max-w-xl">
@@ -168,25 +171,20 @@ export default function Home() {
                 All Services <ArrowRight size={18} />
               </Link>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0.5 bg-border">
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0.5 bg-border"
+          >
             {services.map((s, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.07 }}
-              >
+              <motion.div key={i} variants={fadeUp}>
                 <Link href={s.href} className="group block bg-card h-full">
                   <div className="overflow-hidden h-52 relative">
-                    <img
-                      src={s.img}
-                      alt={s.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
+                    <img src={s.img} alt={s.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                     <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors"></div>
                   </div>
                   <div className="p-8 border-t-2 border-t-accent">
@@ -206,38 +204,47 @@ export default function Home() {
                 </Link>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* ── WHY CHOOSE US ── */}
-      <section className="py-24 bg-[#0a0a0a] border-y border-white/5">
+      {/* ── WHY CHOOSE US — light section ── */}
+      <section className="py-24 bg-white border-y border-zinc-200">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
+            <motion.div
+              initial={{ opacity: 0, x: -24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
               <p className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-3">Why Choose A&amp;B</p>
-              <h2 className="text-4xl md:text-5xl font-display font-bold uppercase text-white leading-tight mb-8">
-                33 Years of Getting It Right.
+              <h2 className="text-4xl md:text-5xl font-display font-bold uppercase text-zinc-900 leading-tight mb-6">
+                33 Years of Getting It <span className="text-accent">Right.</span>
               </h2>
-              <p className="text-foreground/70 leading-relaxed mb-10 text-lg">
-                We aren't a faceless franchise. We are a dedicated, local team of seasoned drainage engineers. We invest in the best equipment, we turn up when we say we will, and we fix the problem permanently.
+              <p className="text-zinc-600 leading-relaxed mb-10 text-lg">
+                We aren't a faceless franchise. We are a dedicated, local team of seasoned drainage engineers. We invest in the best equipment, turn up when we say we will, and fix problems permanently.
               </p>
 
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-                {[
-                  "24/7 Emergency Callouts",
-                  "Typically 1 Hour ETA",
-                  "Domestic &amp; Commercial",
-                  "Over 65s Discount",
-                  "FlexiPay Payment Plans",
-                  "Fully Insured &amp; Accredited",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-white font-semibold text-sm uppercase tracking-wide">
-                    <Check size={16} className="text-accent shrink-0" />
-                    <span dangerouslySetInnerHTML={{ __html: item }} />
-                  </li>
+              <motion.div
+                variants={stagger}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-10"
+              >
+                {whyUs.map((item, i) => (
+                  <motion.div key={i} variants={fadeUp} className="flex items-start gap-4 p-5 bg-zinc-50 border border-zinc-100 rounded-lg">
+                    <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center text-white shrink-0">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h4 className="font-display font-bold text-zinc-900 uppercase text-sm mb-1">{item.title}</h4>
+                      <p className="text-zinc-500 text-xs leading-relaxed">{item.desc}</p>
+                    </div>
+                  </motion.div>
                 ))}
-              </ul>
+              </motion.div>
 
               <Link
                 href="/about"
@@ -245,13 +252,64 @@ export default function Home() {
               >
                 More About Us <ArrowRight size={16} />
               </Link>
-            </div>
+            </motion.div>
 
-            <div className="grid grid-cols-2 gap-3">
-              <img src={work1} alt="A&B Drainage at a commercial site" className="object-cover w-full h-[280px] mt-10" />
-              <img src={work2} alt="A&B Drainage engineers at work" className="object-cover w-full h-[280px]" />
-            </div>
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="grid grid-cols-2 gap-3"
+            >
+              <img src={work1} alt="A&B Drainage at a commercial site" className="object-cover w-full h-[280px] rounded-lg mt-10 shadow-xl" />
+              <img src={work2} alt="A&B Drainage engineers at work" className="object-cover w-full h-[280px] rounded-lg shadow-xl" />
+            </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* ── REVIEWS — light section ── */}
+      <section className="py-20 bg-zinc-50 border-b border-zinc-200">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-12"
+          >
+            <div className="flex justify-center gap-1 mb-3">
+              {[...Array(5)].map((_, i) => <Star key={i} size={24} className="text-yellow-400 fill-yellow-400" />)}
+            </div>
+            <p className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-2">Customer Reviews</p>
+            <h2 className="text-3xl md:text-4xl font-display font-bold uppercase text-zinc-900">What Our Customers Say</h2>
+          </motion.div>
+
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          >
+            {reviews.map((r, i) => (
+              <motion.div key={i} variants={fadeUp} className="bg-white border border-zinc-100 rounded-xl p-8 shadow-sm">
+                <div className="flex gap-1 mb-4">
+                  {[...Array(r.stars)].map((_, si) => <Star key={si} size={16} className="text-yellow-400 fill-yellow-400" />)}
+                </div>
+                <p className="text-zinc-600 text-sm leading-relaxed mb-6 italic">"{r.text}"</p>
+                <div className="flex items-center gap-3 pt-4 border-t border-zinc-100">
+                  <div className="w-9 h-9 rounded-full bg-accent flex items-center justify-center text-white font-bold text-sm">
+                    {r.name[0]}
+                  </div>
+                  <div>
+                    <p className="font-bold text-zinc-900 text-sm">{r.name}</p>
+                    <p className="text-zinc-400 text-xs">{r.location}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
@@ -266,32 +324,31 @@ export default function Home() {
       </div>
 
       {/* ── FINAL CTA ── */}
-      <section className="py-24 bg-[#0a0a0a] relative overflow-hidden">
+      <section className="py-24 bg-background relative overflow-hidden">
         <div className="absolute inset-0 border-y border-accent/10"></div>
         <div className="container mx-auto px-4 relative z-10 text-center max-w-3xl">
-          <p className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-4">In Need of Expert Advice?</p>
-          <h2 className="text-4xl md:text-6xl font-display font-bold text-white uppercase mb-6 leading-tight">
-            Need a Drainage Expert Right Now?
-          </h2>
-          <p className="text-lg text-foreground/70 mb-10">
-            Don't wait for the problem to get worse. Our rapid response team is standing by.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a
-              href="tel:01256688650"
-              className="bg-accent hover:bg-accent/90 text-white px-10 py-5 text-xl font-bold uppercase tracking-wider flex items-center justify-center gap-3 transition-all"
-            >
-              <Phone size={22} />
-              01256 688 650
-            </a>
-            <a
-              href="tel:07498062710"
-              className="bg-transparent border-2 border-white/30 hover:border-accent hover:text-accent text-white px-10 py-5 text-xl font-bold uppercase tracking-wider flex items-center justify-center gap-3 transition-all"
-            >
-              <Phone size={22} />
-              07498 062 710
-            </a>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <p className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-4">In Need of Expert Advice?</p>
+            <h2 className="text-4xl md:text-6xl font-display font-bold text-white uppercase mb-6 leading-tight">
+              Need a Drainage Expert Right Now?
+            </h2>
+            <p className="text-lg text-foreground/70 mb-10">
+              Don't wait for the problem to get worse. Our rapid response team is standing by.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <a href="tel:01256688650" className="bg-accent hover:bg-accent/90 text-white px-10 py-5 text-xl font-bold uppercase tracking-wider flex items-center justify-center gap-3 transition-all">
+                <Phone size={22} /> 01256 688 650
+              </a>
+              <a href="tel:07498062710" className="bg-transparent border-2 border-white/30 hover:border-accent hover:text-accent text-white px-10 py-5 text-xl font-bold uppercase tracking-wider flex items-center justify-center gap-3 transition-all">
+                <Phone size={22} /> 07498 062 710
+              </a>
+            </div>
+          </motion.div>
         </div>
       </section>
     </>

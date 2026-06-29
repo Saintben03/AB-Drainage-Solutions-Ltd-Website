@@ -44,21 +44,21 @@
 }
 
 :root {
-  /* True dark charcoal — industrial, bold */
-  --background: 0 0% 7%;
-  --foreground: 0 0% 92%;
+  /* Dark charcoal — industrial but readable */
+  --background: 0 0% 11%;
+  --foreground: 0 0% 94%;
   
-  --border: 0 0% 16%;
-  --input: 0 0% 16%;
+  --border: 0 0% 22%;
+  --input: 0 0% 22%;
   --ring: 25 95% 53%;
 
-  --card: 0 0% 11%;
-  --card-foreground: 0 0% 92%;
-  --card-border: 0 0% 18%;
+  --card: 0 0% 17%;
+  --card-foreground: 0 0% 94%;
+  --card-border: 0 0% 24%;
 
-  --popover: 0 0% 11%;
-  --popover-foreground: 0 0% 92%;
-  --popover-border: 0 0% 18%;
+  --popover: 0 0% 17%;
+  --popover-foreground: 0 0% 94%;
+  --popover-border: 0 0% 24%;
 
   /* Brand Blue — used for info/secondary */
   --primary: 202 43% 51%;
