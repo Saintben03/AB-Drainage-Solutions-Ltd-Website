@@ -81,7 +81,7 @@ export default function About() {
       </section>
 
       {/* ── STATS BAR ── */}
-      <section className="bg-[#0a0a0a] relative overflow-hidden">
+      <section className="bg-[#0a0a0a] relative overflow-hidden pb-20">
         <div className="container mx-auto px-4">
           <motion.div
             variants={stagger}
