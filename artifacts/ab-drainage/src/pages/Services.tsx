@@ -82,7 +82,7 @@ export default function Services() {
       />
 
       {/* Page Header */}
-      <section className="relative overflow-hidden min-h-[80vh] flex items-start">
+      <section className="relative overflow-hidden min-h-[62vh] flex items-start">
         <div className="absolute inset-0 z-0">
           <img src={heroImg} alt="A&B Drainage fleet" className="w-full h-full object-cover object-bottom" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/75 to-background/30"></div>

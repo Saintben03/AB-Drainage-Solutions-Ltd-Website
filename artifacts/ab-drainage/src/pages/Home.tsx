@@ -45,7 +45,7 @@ const stats: Stat[] = [
   { to: 33, suffix: "+", label: "Years Experience" },
   { prefix: "~", to: 1, suffix: "hr", label: "Average Response" },
   { text: "24/7", label: "Always Available" },
-  { to: 200, suffix: "+", label: "5-Star Reviews" },
+  { text: "5-Star", label: "Rated Service" },
 ];
 
 const trustLogos = [
@@ -119,7 +119,7 @@ export default function Home() {
                 ))}
               </div>
               <span className="text-white font-bold text-sm">Rated Excellent</span>
-              <span className="text-white/60 text-sm">· 200+ Google Reviews</span>
+              <span className="text-white/60 text-sm">· Reviewed on Yell &amp; Checkatrade</span>
             </motion.div>
 
             <motion.div

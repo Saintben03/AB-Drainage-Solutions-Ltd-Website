@@ -59,7 +59,7 @@ export default function Contact() {
       />
 
       {/* ── HERO ── */}
-      <section className="pt-36 pb-20 relative overflow-hidden min-h-[80vh] flex items-start">
+      <section className="pt-36 pb-20 relative overflow-hidden min-h-[62vh] flex items-start">
         <div className="absolute inset-0 z-0">
           <img src={heroImg} alt="A&B Drainage fleet" className="w-full h-full object-cover object-bottom" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/85 to-background/40"></div>
