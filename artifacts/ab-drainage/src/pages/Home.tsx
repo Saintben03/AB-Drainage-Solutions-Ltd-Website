@@ -15,6 +15,8 @@ import crewTeam from "@assets/ab_group_gallery/worker-9.33.16.jpeg";
 import crewManhole from "@assets/ab_group_gallery/worker-9.33.30.jpeg";
 import crewWalking from "@assets/ab_group_gallery/worker-9.33.34.jpeg";
 import crewStation from "@assets/ab_group_gallery/worker-9.33.36.jpeg";
+import crewChain from "@assets/ab_group_gallery/worker-9.33.26.jpeg";
+import crewManholeOpen from "@assets/ab_group_gallery/worker-9.33.28.jpeg";
 import lanesLogo from "@assets/site_files_1/LanesGroup-1000-px.png";
 import nhsLogo from "@assets/site_files_1/National_Health_Service_(England)_logo.svg.png";
 import ccLogo from "@assets/site_files_1/CC-Multi-Disciplinary-Strap-White-BG-Full-Col-RGB-Trans.png";
@@ -285,10 +287,12 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="grid grid-cols-2 gap-3"
+              className="columns-2 gap-3 [&>img]:mb-3 [&>img]:w-full [&>img]:rounded-lg [&>img]:shadow-xl"
             >
-              <img src={crewManhole} alt="A&B Drainage engineers lifting a manhole chamber" className="object-cover object-center w-full h-[280px] rounded-lg mt-10 shadow-xl" />
-              <img src={crewTeam} alt="A&B Drainage team on a railway platform" className="object-cover object-center w-full h-[280px] rounded-lg shadow-xl" />
+              <img src={crewTeam} alt="A&B Drainage engineers on a railway platform" />
+              <img src={crewChain} alt="A&B Drainage engineers setting up a safety cordon at Bath Spa station" />
+              <img src={crewManhole} alt="A&B Drainage engineer chaining a manhole chamber" />
+              <img src={crewManholeOpen} alt="A&B Drainage engineers carrying out a manhole inspection" />
             </motion.div>
           </div>
         </div>
