@@ -1,8 +1,9 @@
 import { Link } from "wouter";
-import { Phone, ArrowRight, Check, ShieldCheck } from "lucide-react";
+import { Phone, ArrowRight, Check } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
 import { useBookNow } from "@/contexts/BookNowContext";
+import { FlexiPayForm } from "@/components/FlexiPayForm";
 
 import heroImg from "@assets/site_files_1/AB Drainage background_edited.jpg";
 import work1 from "@assets/site_files_1/369541839_240515012286429_2194496784194718742_n.jpg";
@@ -236,24 +237,35 @@ export default function Services() {
         </div>
       </section>
 
-      {/* FlexiPay strip */}
-      <section className="py-16 bg-[#0a0a0a] border-t border-white/5">
+      {/* FlexiPay enquiry */}
+      <section className="py-20 bg-zinc-50 border-t border-zinc-200">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="flex items-start gap-5">
-              <ShieldCheck size={40} className="text-accent shrink-0" />
-              <div>
-                <h3 className="text-xl font-display font-bold text-white uppercase mb-1">FlexiPay Available</h3>
-                <p className="text-muted-foreground text-sm max-w-lg">We offer flexible payment plans to help spread the cost of major drainage repairs and installations. Ask our team for details when you call.</p>
-              </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+            <div>
+              <p className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-3">FlexiPay</p>
+              <h2 className="text-3xl md:text-4xl font-display font-bold uppercase text-zinc-900 leading-tight mb-6">
+                Spread the Cost With a <span className="text-accent">Stress-Free</span> Payment Plan
+              </h2>
+              <p className="text-zinc-600 leading-relaxed mb-4">
+                At A&amp;B, we understand that essential works can't always wait — and having flexible payment options can make all the difference. That's why we offer <strong className="text-zinc-900">FlexiPay</strong>, in partnership with Mayfair Southern, providing a simple way to spread the cost of your project.
+              </p>
+              <p className="text-zinc-600 leading-relaxed mb-8">
+                Just complete the enquiry form and our friendly team will get in touch to arrange a payment plan that suits you. Get the service you need now and pay in a way that works for you.
+              </p>
+              <a
+                href="tel:01256688650"
+                className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-white px-8 py-4 font-bold uppercase tracking-wider transition-all text-sm"
+              >
+                <Phone size={18} /> Talk to Our Team
+              </a>
             </div>
-            <a
-              href="tel:01256688650"
-              className="bg-accent hover:bg-accent/90 text-white px-8 py-4 font-bold uppercase tracking-wider flex items-center gap-2 transition-all whitespace-nowrap text-sm"
-            >
-              <Phone size={18} /> Talk to Our Team
-            </a>
+
+            <FlexiPayForm />
           </div>
+
+          <p className="text-zinc-400 text-[11px] leading-relaxed text-center max-w-4xl mx-auto mt-12">
+            FlexiPay in association with Mayfair Southern. Mayfair Southern Ltd is an Appointed Representative of Business Asset Finance Ltd who are authorised and regulated by the Financial Conduct Authority, Licence No. 804369 and Data Protection Licence No. ZA439871.
+          </p>
         </div>
       </section>
     </>
