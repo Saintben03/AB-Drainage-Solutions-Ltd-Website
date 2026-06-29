@@ -30,10 +30,17 @@ const reviews = [
 ];
 
 const whyUs = [
-  { icon: <Clock size={22} />, title: "1 Hour Response", desc: "We aim to be on site within the hour — day or night, including weekends and bank holidays." },
-  { icon: <ShieldCheck size={22} />, title: "Fully Accredited", desc: "Fully insured, health & safety compliant, and approved to work for NHS and major UK contractors." },
-  { icon: <ThumbsUp size={22} />, title: "No Hidden Fees", desc: "Honest, upfront pricing. We quote before we start so there are never any billing surprises." },
-  { icon: <MapPin size={22} />, title: "Hampshire Wide", desc: "Based centrally — we cover Basingstoke, Southampton, Winchester, Portsmouth and all surrounding areas." },
+  { icon: <Clock size={22} />, title: "1 Hour Response", desc: "We aim to be on site within the hour — day or night, including weekends and bank holidays.", color: "bg-accent" },
+  { icon: <ShieldCheck size={22} />, title: "Fully Accredited", desc: "Fully insured, health & safety compliant, and approved to work for NHS and major UK contractors.", color: "bg-primary" },
+  { icon: <ThumbsUp size={22} />, title: "No Hidden Fees", desc: "Honest, upfront pricing. We quote before we start so there are never any billing surprises.", color: "bg-primary" },
+  { icon: <MapPin size={22} />, title: "Hampshire Wide", desc: "Based centrally — we cover Basingstoke, Southampton, Winchester, Portsmouth and all surrounding areas.", color: "bg-accent" },
+];
+
+const stats = [
+  { value: "33+", label: "Years Experience" },
+  { value: "~1hr", label: "Average Response" },
+  { value: "24/7", label: "Always Available" },
+  { value: "200+", label: "5-Star Reviews" },
 ];
 
 const fadeUp = { hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
@@ -48,7 +55,7 @@ export default function Home() {
         canonicalUrl="/"
       />
 
-      {/* ── HERO ── */}
+      {/* ── HERO (dark) ── */}
       <section className="relative min-h-[92vh] flex items-center pt-24 pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img src={heroImg} alt="A&B Drainage Solutions Ltd Fleet" className="w-full h-full object-cover" />
@@ -87,7 +94,6 @@ export default function Home() {
               Blocked drain? Sewage backing up? We answer at 2am and arrive typically within 1 hour. 33 years solving Hampshire's toughest drainage problems.
             </motion.p>
 
-            {/* Google Reviews trust pill */}
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -138,23 +144,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── TRUST BAR ── */}
-      <section className="bg-card py-10 border-b border-border">
+      {/* ── SERVICES (light + colourful) ── */}
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
-          <p className="text-center text-xs text-muted-foreground uppercase tracking-[0.2em] font-semibold mb-8">
-            Trusted by institutions &amp; businesses across the UK
-          </p>
-          <div className="flex flex-wrap justify-center items-center gap-14 md:gap-24 opacity-50 hover:opacity-90 transition-opacity duration-500 grayscale hover:grayscale-0">
-            <img src={nhsLogo} alt="NHS" className="h-10 md:h-14 w-auto object-contain" />
-            <img src={lanesLogo} alt="Lanes Group" className="h-12 md:h-16 w-auto object-contain" />
-            <img src={ccLogo} alt="CC Multi Disciplinary" className="h-12 md:h-16 w-auto object-contain" />
+          {/* trust logos — full colour on white */}
+          <div className="mb-20">
+            <p className="text-center text-xs text-zinc-400 uppercase tracking-[0.2em] font-semibold mb-8">
+              Trusted by institutions &amp; businesses across the UK
+            </p>
+            <div className="flex flex-wrap justify-center items-center gap-14 md:gap-24">
+              <img src={nhsLogo} alt="NHS" className="h-10 md:h-14 w-auto object-contain" />
+              <img src={lanesLogo} alt="Lanes Group" className="h-12 md:h-16 w-auto object-contain" />
+              <img src={ccLogo} alt="CC Multi Disciplinary" className="h-12 md:h-16 w-auto object-contain" />
+            </div>
           </div>
-        </div>
-      </section>
 
-      {/* ── SERVICES GRID ── */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -164,7 +168,7 @@ export default function Home() {
           >
             <p className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-3">What We Do</p>
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-              <h2 className="text-4xl md:text-5xl font-display font-bold uppercase text-white leading-tight max-w-xl">
+              <h2 className="text-4xl md:text-5xl font-display font-bold uppercase text-zinc-900 leading-tight max-w-xl">
                 Complete Drainage Solutions
               </h2>
               <Link href="/services" className="text-accent font-bold hover:text-accent/80 flex items-center gap-2 uppercase tracking-widest text-sm whitespace-nowrap">
@@ -178,20 +182,19 @@ export default function Home() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0.5 bg-border"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             {services.map((s, i) => (
               <motion.div key={i} variants={fadeUp}>
-                <Link href={s.href} className="group block bg-card h-full">
+                <Link href={s.href} className="group block bg-white border border-zinc-200 rounded-xl overflow-hidden h-full shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
                   <div className="overflow-hidden h-52 relative">
                     <img src={s.img} alt={s.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors"></div>
                   </div>
-                  <div className="p-8 border-t-2 border-t-accent">
-                    <h3 className="text-2xl font-display font-bold text-accent uppercase mb-4">{s.title}</h3>
+                  <div className="p-8 border-t-4 border-t-accent">
+                    <h3 className="text-2xl font-display font-bold text-zinc-900 uppercase mb-4 group-hover:text-accent transition-colors">{s.title}</h3>
                     <ul className="space-y-2 mb-8">
                       {s.features.map((f, fi) => (
-                        <li key={fi} className="flex items-center gap-3 text-sm text-foreground/80 font-medium">
+                        <li key={fi} className="flex items-center gap-3 text-sm text-zinc-600 font-medium">
                           <Check size={14} className="text-accent shrink-0" />
                           {f}
                         </li>
@@ -208,8 +211,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── WHY CHOOSE US — light section ── */}
-      <section className="py-24 bg-white border-y border-zinc-200">
+      {/* ── WHY CHOOSE US (dark) ── */}
+      <section className="py-24 bg-background border-y border-border">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -219,10 +222,10 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <p className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-3">Why Choose A&amp;B</p>
-              <h2 className="text-4xl md:text-5xl font-display font-bold uppercase text-zinc-900 leading-tight mb-6">
+              <h2 className="text-4xl md:text-5xl font-display font-bold uppercase text-white leading-tight mb-6">
                 33 Years of Getting It <span className="text-accent">Right.</span>
               </h2>
-              <p className="text-zinc-600 leading-relaxed mb-10 text-lg">
+              <p className="text-foreground/70 leading-relaxed mb-10 text-lg">
                 We aren't a faceless franchise. We are a dedicated, local team of seasoned drainage engineers. We invest in the best equipment, turn up when we say we will, and fix problems permanently.
               </p>
 
@@ -234,13 +237,13 @@ export default function Home() {
                 className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-10"
               >
                 {whyUs.map((item, i) => (
-                  <motion.div key={i} variants={fadeUp} className="flex items-start gap-4 p-5 bg-zinc-50 border border-zinc-100 rounded-lg">
-                    <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center text-white shrink-0">
+                  <motion.div key={i} variants={fadeUp} className="flex items-start gap-4 p-5 bg-card border border-border rounded-lg">
+                    <div className={`w-10 h-10 ${item.color} rounded-lg flex items-center justify-center text-white shrink-0`}>
                       {item.icon}
                     </div>
                     <div>
-                      <h4 className="font-display font-bold text-zinc-900 uppercase text-sm mb-1">{item.title}</h4>
-                      <p className="text-zinc-500 text-xs leading-relaxed">{item.desc}</p>
+                      <h4 className="font-display font-bold text-white uppercase text-sm mb-1">{item.title}</h4>
+                      <p className="text-muted-foreground text-xs leading-relaxed">{item.desc}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -268,7 +271,27 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── REVIEWS — light section ── */}
+      {/* ── STATS (orange band — colour pop) ── */}
+      <section className="bg-accent py-14">
+        <div className="container mx-auto px-4">
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
+          >
+            {stats.map((s, i) => (
+              <motion.div key={i} variants={fadeUp}>
+                <p className="text-4xl md:text-5xl font-display font-bold text-white mb-1">{s.value}</p>
+                <p className="text-white/80 text-xs uppercase tracking-[0.18em] font-semibold">{s.label}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── REVIEWS (light) ── */}
       <section className="py-20 bg-zinc-50 border-b border-zinc-200">
         <div className="container mx-auto px-4">
           <motion.div
@@ -323,7 +346,7 @@ export default function Home() {
         ))}
       </div>
 
-      {/* ── FINAL CTA ── */}
+      {/* ── FINAL CTA (dark) ── */}
       <section className="py-24 bg-background relative overflow-hidden">
         <div className="absolute inset-0 border-y border-accent/10"></div>
         <div className="container mx-auto px-4 relative z-10 text-center max-w-3xl">
