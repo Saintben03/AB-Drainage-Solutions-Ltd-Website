@@ -84,7 +84,7 @@ export default function Services() {
       {/* Page Header */}
       <section className="relative overflow-hidden flex items-end" style={{ minHeight: "520px" }}>
         <div className="absolute inset-0 z-0">
-          <img src={heroImg} alt="A&B Drainage fleet" className="w-full h-full object-cover object-center" />
+          <img src={heroImg} alt="A&B Drainage fleet" className="w-full h-full object-cover object-[center_60%]" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/75 to-background/30"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent"></div>
         </div>
