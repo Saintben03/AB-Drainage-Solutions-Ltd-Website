@@ -213,7 +213,7 @@ export default function Services() {
       </section>
 
       {/* Committed banner (dark) */}
-      <section className="bg-background py-16 relative overflow-hidden">
+      <section className="bg-background pt-8 pb-28 relative overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row lg:items-center gap-8 justify-between">
             <div className="max-w-2xl">
