@@ -1,0 +1,32 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "7Ydnjfw1LssUmBRnFkfda"
+uri = "file://attached_assets/blog/cctv-survey.png"
+type = "image"
+title = "cctv drain survey camera"
+
+[[generated]]
+id = "ef8SKAMVQX6lVXaF-_NSb"
+uri = "file://attached_assets/blog/blocked-drain.png"
+type = "image"
+title = "blocked drain close up"
+
+[[generated]]
+id = "X3HjMDr44utM-V2H-Fcg_"
+uri = "file://attached_assets/blog/tree-roots-drain.png"
+type = "image"
+title = "tree roots drain damage"
+
+[[generated]]
+id = "j-3DDKBJhukkEVMuYVHtD"
+uri = "file://attached_assets/blog/drain-jetting.png"
+type = "image"
+title = "drain jetting high pressure"
+
+[[generated]]
+id = "4bJhJKhgCfr6Z7u4mm1gC"
+uri = "file://attached_assets/blog/soakaway-install.png"
+type = "image"
+title = "soakaway installation garden"

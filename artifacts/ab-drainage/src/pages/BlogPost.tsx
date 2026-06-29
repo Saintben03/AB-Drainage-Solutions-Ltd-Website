@@ -4,6 +4,34 @@ import { Clock, Calendar, ArrowLeft, ArrowRight, Phone } from "lucide-react";
 import { blogPosts } from "@/data/blogPosts";
 import NotFound from "@/pages/not-found";
 
+// Real fleet/job photos
+import imgFleet from "@assets/site_files_1/AB Drainage background_edited.jpg";
+import imgVanSchool from "@assets/site_files_1/369541839_240515012286429_2194496784194718742_n.jpg";
+import imgVanResidential from "@assets/site_files_1/468849454_17949583832886709_2702370064044539379_n.jpg";
+import imgWorkerManhole from "@assets/site_files_1/472171552_560083023662958_8976223963179451031_n.jpg";
+import imgScania from "@assets/site_files_1/g-01u.jpg";
+import imgVanManhole from "@assets/site_files_1/g-01w.jpg";
+// AI-generated specialist images
+import imgCctv from "@assets/blog/cctv-survey.png";
+import imgTreeRoots from "@assets/blog/tree-roots-drain.png";
+import imgJetting from "@assets/blog/drain-jetting.png";
+import imgSoakaway from "@assets/blog/soakaway-install.png";
+import imgBlockedDrain from "@assets/blog/blocked-drain.png";
+
+const imageMap: Record<string, string> = {
+  unblock: imgWorkerManhole,
+  cctv: imgCctv,
+  emergency: imgFleet,
+  commercial: imgVanSchool,
+  "tree-roots": imgTreeRoots,
+  jetting: imgJetting,
+  soakaway: imgSoakaway,
+  "blocked-causes": imgVanManhole,
+  "drain-repair": imgVanResidential,
+  industrial: imgScania,
+  fallback: imgBlockedDrain,
+};
+
 export default function BlogPost() {
   const params = useParams();
   const slug = params.slug;
@@ -59,10 +87,16 @@ export default function BlogPost() {
       />
 
       {/* Post Header */}
-      <section className={`pt-32 pb-20 bg-gradient-to-br ${getCategoryColor(post.category)} relative overflow-hidden`}>
-        <div className="absolute inset-0 bg-black/40 mix-blend-overlay"></div>
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+      <section className="pt-32 pb-20 relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src={imageMap[post.imageKey] ?? imageMap.fallback}
+            alt={post.title}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-background/75"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
+        </div>
         
         <div className="container mx-auto px-4 relative z-10">
           <Link href="/blog" className="inline-flex items-center gap-2 text-white/80 hover:text-white font-semibold uppercase tracking-widest text-sm mb-12 transition-colors">

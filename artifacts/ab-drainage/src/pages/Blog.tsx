@@ -4,6 +4,34 @@ import { motion } from "framer-motion";
 import { Clock, Calendar, ArrowRight } from "lucide-react";
 import { blogPosts } from "@/data/blogPosts";
 
+// Real fleet/job photos
+import imgFleet from "@assets/site_files_1/AB Drainage background_edited.jpg";
+import imgVanSchool from "@assets/site_files_1/369541839_240515012286429_2194496784194718742_n.jpg";
+import imgVanResidential from "@assets/site_files_1/468849454_17949583832886709_2702370064044539379_n.jpg";
+import imgWorkerManhole from "@assets/site_files_1/472171552_560083023662958_8976223963179451031_n.jpg";
+import imgScania from "@assets/site_files_1/g-01u.jpg";
+import imgVanManhole from "@assets/site_files_1/g-01w.jpg";
+// AI-generated specialist images
+import imgCctv from "@assets/blog/cctv-survey.png";
+import imgTreeRoots from "@assets/blog/tree-roots-drain.png";
+import imgJetting from "@assets/blog/drain-jetting.png";
+import imgSoakaway from "@assets/blog/soakaway-install.png";
+import imgBlockedDrain from "@assets/blog/blocked-drain.png";
+
+const imageMap: Record<string, string> = {
+  unblock: imgWorkerManhole,
+  cctv: imgCctv,
+  emergency: imgFleet,
+  commercial: imgVanSchool,
+  "tree-roots": imgTreeRoots,
+  jetting: imgJetting,
+  soakaway: imgSoakaway,
+  "blocked-causes": imgVanManhole,
+  "drain-repair": imgVanResidential,
+  industrial: imgScania,
+  fallback: imgBlockedDrain,
+};
+
 export default function Blog() {
   const featuredPost = blogPosts[2]; // Emergency drainage
   const otherPosts = blogPosts.filter(post => post.id !== featuredPost.id);
@@ -21,21 +49,6 @@ export default function Blog() {
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-  };
-
-  const getCategoryColor = (category: string) => {
-    switch (category) {
-      case "Emergency":
-        return "from-accent to-orange-400";
-      case "CCTV Surveys":
-        return "from-primary to-blue-400";
-      case "Drain Repairs":
-        return "from-slate-700 to-slate-500";
-      case "Commercial":
-        return "from-emerald-700 to-emerald-500";
-      default:
-        return "from-muted-foreground to-slate-400";
-    }
   };
 
   const getBadgeColor = (category: string) => {
@@ -79,9 +92,14 @@ export default function Blog() {
           >
             <Link href={`/blog/${featuredPost.slug}`} className="group block">
               <div className="bg-background border border-border rounded-xl overflow-hidden hover:border-accent/50 transition-colors flex flex-col md:flex-row">
-                <div className={`w-full md:w-1/2 h-64 md:h-auto bg-gradient-to-br ${getCategoryColor(featuredPost.category)} relative overflow-hidden`}>
-                  <div className="absolute inset-0 bg-black/20 mix-blend-overlay"></div>
-                  <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20"></div>
+                <div className="w-full md:w-1/2 h-64 md:h-auto relative overflow-hidden">
+                  <img
+                    src={imageMap[featuredPost.imageKey] ?? imageMap.fallback}
+                    alt={featuredPost.title}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-black/20"></div>
                 </div>
                 <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
                   <div className="flex items-center gap-4 mb-6 text-sm font-semibold text-muted-foreground uppercase tracking-widest">
@@ -124,15 +142,22 @@ export default function Blog() {
               <motion.div key={post.id} variants={itemVariants} className="h-full">
                 <Link href={`/blog/${post.slug}`} className="group block h-full">
                   <div className="bg-card border border-border rounded-xl overflow-hidden hover:border-primary/50 transition-colors h-full flex flex-col hover:-translate-y-2 duration-300">
-                    <div className={`h-48 w-full bg-gradient-to-br ${getCategoryColor(post.category)} relative overflow-hidden`}>
-                      <div className="absolute inset-0 bg-black/20 mix-blend-overlay"></div>
-                      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20"></div>
+                    <div className="h-52 w-full relative overflow-hidden">
+                      <img
+                        src={imageMap[post.imageKey] ?? imageMap.fallback}
+                        alt={post.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                        width={600}
+                        height={208}
+                      />
+                      <div className="absolute inset-0 bg-black/20"></div>
+                      <span className={`absolute top-3 left-3 text-xs font-bold uppercase tracking-wider px-3 py-1 border rounded-full ${getBadgeColor(post.category)}`}>
+                        {post.category}
+                      </span>
                     </div>
                     <div className="p-8 flex flex-col flex-grow">
-                      <div className="flex items-center justify-between mb-4">
-                        <span className={`text-xs font-bold uppercase tracking-wider px-3 py-1 border rounded-full ${getBadgeColor(post.category)}`}>
-                          {post.category}
-                        </span>
+                      <div className="flex items-center justify-end mb-4">
                         <span className="text-xs text-muted-foreground font-semibold flex items-center gap-1">
                           <Clock size={12} /> {post.readTime}
                         </span>

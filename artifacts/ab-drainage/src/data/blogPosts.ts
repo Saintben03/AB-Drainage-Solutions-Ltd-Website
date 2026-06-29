@@ -8,6 +8,7 @@ export interface BlogPost {
   date: string;
   readTime: string;
   category: string;
+  imageKey: string;
   content: string;
 }
 
@@ -22,6 +23,7 @@ export const blogPosts: BlogPost[] = [
     date: "2024-04-12",
     readTime: "5 min read",
     category: "Advice",
+    imageKey: "unblock",
     content: `Dealing with a blocked drain is one of the most frustrating experiences for any homeowner. Whether it is a slow-draining sink, a gurgling plughole, or water refusing to go down altogether, it is a problem that requires prompt attention. Here is a step-by-step guide to safely tackling minor blockages before they become a major headache.
 
 First, try boiling water. This is the simplest and often most effective method for minor fat or soap scum blockages in kitchen and bathroom sinks. Pour a kettle full of boiling water down the drain in stages, allowing the hot water to work on the blockage for a few seconds between each pour. Note: Do not use boiling water on PVC pipes as the heat can soften or melt the plastic joints. 
@@ -44,6 +46,7 @@ If boiling water, plunging, and mild snaking fail to resolve the issue, it is ti
     date: "2024-04-20",
     readTime: "6 min read",
     category: "CCTV Surveys",
+    imageKey: "cctv",
     content: `A drainage system is largely out of sight, meaning problems can develop unseen until they become severe. A CCTV drain survey uses a high-definition camera inserted into the pipes to inspect their condition from the inside, providing a clear, accurate diagnosis without the need for disruptive digging. Here are the five key warning signs that you need to arrange a CCTV survey.
 
 1. Slow Drainage. If multiple sinks, baths, or toilets are draining slowly, and plunging provides only temporary relief, there is likely a blockage or partial collapse further down the main line. A CCTV survey will locate the exact position and nature of the restriction.
@@ -70,6 +73,7 @@ Crucially, a CCTV survey saves money. By pinpointing the exact location and caus
     date: "2024-05-02",
     readTime: "4 min read",
     category: "Emergency",
+    imageKey: "emergency",
     content: `A drainage emergency, such as raw sewage backing up into your home or sudden severe flooding from a drain, is a highly stressful and unpleasant experience. Quick, calm action is essential to minimise damage to your property and protect the health of your family. Here is exactly what you need to do right now.
 
 First, stop using all water immediately. Turn off taps, do not flush toilets, and turn off appliances like washing machines and dishwashers. Any additional water entering the system will simply add to the backup and worsen the flooding. 
@@ -94,6 +98,7 @@ Once you have taken these immediate steps to secure the property, you need to ca
     date: "2024-05-15",
     readTime: "7 min read",
     category: "Commercial",
+    imageKey: "commercial",
     content: `For any business, a major drainage failure is more than just an inconvenience; it is a significant operational disruption that can lead to health and safety violations, property damage, and lost revenue. Commercial drainage systems face far higher demands than domestic ones, making regular, planned maintenance an essential investment for Hampshire businesses.
 
 Different commercial sectors face specific drainage challenges. Restaurants, cafes, and commercial kitchens battle a constant influx of Fats, Oils, and Grease (FOG). Without regular cleaning of grease traps and interceptors, FOG solidifies in the pipes, leading to severe blockages and foul odours that can quickly ruin a business's reputation. 
@@ -118,6 +123,7 @@ By implementing a scheduled drain cleaning programme, businesses can budget pred
     date: "2024-06-03",
     readTime: "5 min read",
     category: "Drain Repairs",
+    imageKey: "tree-roots",
     content: `Tree roots are arguably the most persistent and destructive natural enemy of underground drainage systems. They are the silent destroyers, causing extensive damage slowly over time, completely out of sight until a major blockage or collapse occurs. 
 
 Roots are instinctively drawn to the moisture, nutrients, and oxygen present inside drainage pipes. They don't need a large hole to enter; even a microscopic, hairline crack in a pipe joint is enough. Once a tiny root tip finds its way in, it thrives in the ideal conditions inside the pipe, growing rapidly into a dense mass that catches toilet paper, grease, and debris, quickly forming a solid blockage.
@@ -142,6 +148,7 @@ However, simply removing the roots is a temporary fix; they will grow back throu
     date: "2024-06-18",
     readTime: "6 min read",
     category: "Advice",
+    imageKey: "jetting",
     content: `When faced with a blocked sink or a slow-draining shower, the immediate reaction for many homeowners is to reach for a bottle of chemical drain cleaner from the supermarket. While these products might seem like a quick, cheap fix, they often fall short and can actually cause more harm than good. Comparing chemical cleaners to professional high-pressure water jetting reveals stark differences in effectiveness, safety, and long-term results.
 
 Chemical drain cleaners typically rely on highly caustic or acidic compounds to generate heat and dissolve blockages. They are designed to burn through hair, soap scum, and light grease. However, their limitations are significant. They are often completely ineffective against solid obstructions, heavy scale build-up, or tree roots. Furthermore, they are heavier than water; in a completely blocked pipe, the chemical will sink to the blockage and sit there. Over time, the intense heat generated by these chemicals can warp, melt, or weaken PVC and older plastic pipes, leading to leaks and costly repairs. Environmentally, flushing highly toxic chemicals into the water system is highly undesirable.
@@ -164,6 +171,7 @@ While a plunger is fine for minor, local blockages, for anything stubborn, recur
     date: "2024-07-05",
     readTime: "7 min read",
     category: "Soakaways",
+    imageKey: "soakaway",
     content: `Managing surface water effectively is crucial to prevent localised flooding and protect your property's foundations. A soakaway is a common and highly effective method for dispersing surface water (rainwater from roofs and hardstanding areas) back into the ground. However, installing a soakaway in Hampshire requires careful planning and adherence to strict regulations.
 
 A soakaway is essentially a large hole dug into the ground, traditionally filled with rubble or gravel, but increasingly constructed using modern, modular plastic crates. These crates create a large, void space underground that temporarily stores surface water during heavy rainfall, allowing it to slowly percolate into the surrounding soil.
@@ -188,6 +196,7 @@ Cost factors for installation include the size of the soakaway required, the eas
     date: "2024-07-22",
     readTime: "6 min read",
     category: "Advice",
+    imageKey: "blocked-causes",
     content: `A blocked drain is a disruption no homeowner wants to deal with. While some blockages are due to structural issues out of your control, the vast majority are caused by what we put down our sinks and toilets. Understanding the most common culprits is the first step towards prevention. Here are the seven most frequent causes of blocked drains we encounter in Hampshire homes.
 
 1. Fat, Oil, and Grease (FOG). This is the number one cause of kitchen sink blockages. Warm grease poured down the plughole quickly cools and solidifies in the underground pipes, adhering to the walls and building up layer by layer until the pipe is completely choked. Always wipe greasy pans with a paper towel and dispose of fats in the bin, never down the sink.
@@ -216,6 +225,7 @@ Prevention is always better than cure. Regular mindfulness about what goes down 
     date: "2024-08-10",
     readTime: "6 min read",
     category: "Drain Repairs",
+    imageKey: "drain-repair",
     content: `When a CCTV survey reveals structural damage to your drainage system, such as a crack, a collapsed section, or severe root ingress, a repair is necessary to restore function and prevent further property damage. Modern drainage technology offers several repair options, ranging from minimally invasive techniques to traditional digging. Understanding these options helps you make an informed decision based on cost, disruption, and the severity of the damage.
 
 The first step is always an accurate diagnosis via a CCTV survey. This dictates the appropriate repair method.
@@ -240,6 +250,7 @@ Choosing the right option is a matter of balancing the extent of the damage with
     date: "2024-08-28",
     readTime: "7 min read",
     category: "Commercial",
+    imageKey: "industrial",
     content: `Managing the drainage infrastructure on a large industrial site is a complex, high-stakes responsibility. Unlike domestic or light commercial properties, industrial estates—such as those in Basingstoke, Andover, and the Southampton docks area—must handle vast volumes of water, heavy vehicle traffic, and the constant risk of chemical or trade effluent contamination. Proactive maintenance is not just about preventing blockages; it is a critical component of environmental compliance and operational continuity.
 
 The legal obligations for industrial site operators are stringent. Under the Environmental Permitting Regulations, businesses are strictly liable for any pollution originating from their site. Discharging contaminated water—whether it's oil runoff from a transport yard or chemical effluent from a manufacturing process—into the surface water system or a local watercourse can result in severe fines and prosecution by the Environment Agency.
