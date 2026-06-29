@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { useBookNow } from "@/contexts/BookNowContext";
 import { FlexiPayForm } from "@/components/FlexiPayForm";
 import { WaterWave } from "@/components/WaterWave";
-import { PipeScene } from "@/components/PipeScene";
 
 import heroImg from "@assets/site_files_1/AB Drainage background_edited.jpg";
 import work1 from "@assets/site_files_1/369541839_240515012286429_2194496784194718742_n.jpg";
@@ -119,7 +118,7 @@ export default function Services() {
             We have the equipment, the experience, and the manpower to tackle any drainage issue — from a domestic blocked sink to full industrial site maintenance.
           </motion.p>
         </div>
-        <PipeScene className="absolute bottom-0 left-0 w-full z-20 -mb-px h-44 md:h-56" fill="#e0f2fe" />
+        <WaterWave className="absolute bottom-0 left-0 w-full z-20 -mb-px" fill="#e0f2fe" />
       </section>
 
       {/* Jump nav */}

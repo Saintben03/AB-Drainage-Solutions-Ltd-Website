@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { CountUp } from "@/components/CountUp";
 import { LogoMarquee } from "@/components/LogoMarquee";
 import { WaterWave } from "@/components/WaterWave";
-import { PipeScene } from "@/components/PipeScene";
 
 import heroImg from "@assets/site_files_1/AB Drainage background_logos.jpg";
 import work1 from "@assets/site_files_1/369541839_240515012286429_2194496784194718742_n.jpg";
@@ -81,7 +80,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/70 to-background/5"></div>
         </div>
 
-        <PipeScene className="absolute bottom-0 left-0 w-full z-[5] -mb-px h-44 md:h-56" fill="#e0f2fe" />
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#e0f2fe" />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
