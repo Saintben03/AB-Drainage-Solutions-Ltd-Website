@@ -18,7 +18,7 @@ const areas = [
   { name: "Fleet", tag: "" },
   { name: "Alton", tag: "" },
   { name: "Petersfield", tag: "" },
-  { name: "Portsmouth", tag: "Major Hub" },
+  { name: "Portsmouth", tag: "" },
   { name: "Eastleigh", tag: "" },
   { name: "Fareham", tag: "" },
   { name: "Gosport", tag: "" },
@@ -143,8 +143,8 @@ export default function Areas() {
             className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-0.5 bg-border mb-16"
           >
             {areas.map((area, i) => (
-              <motion.div key={i} variants={fadeUp}>
-                <div className="bg-card p-6 flex items-start gap-3 group hover:bg-accent/10 transition-colors cursor-default border-t-2 border-t-transparent hover:border-t-accent">
+              <motion.div key={i} variants={fadeUp} className="h-full">
+                <div className="bg-card p-6 flex items-start gap-3 group hover:bg-accent/10 transition-colors cursor-default border-t-2 border-t-transparent hover:border-t-accent h-full">
                   <MapPin size={16} className="text-accent shrink-0 mt-0.5" />
                   <div>
                     <p className="font-bold text-white text-sm uppercase tracking-wide group-hover:text-accent transition-colors">
