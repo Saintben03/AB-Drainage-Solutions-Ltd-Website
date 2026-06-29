@@ -157,7 +157,7 @@ export const Navbar = () => {
 
             {/* Desktop Emergency CTA */}
             <div className="hidden lg:flex items-center gap-6 xl:gap-10 shrink-0">
-              <div className="hidden 2xl:flex flex-col items-center">
+              <div className="hidden 2xl:flex flex-col items-center 2xl:ml-8 2xl:pl-8 2xl:border-l 2xl:border-white/15">
                 <span className="text-[10px] text-muted-foreground uppercase tracking-[0.18em] font-bold">Emergency Response</span>
                 <a
                   href="tel:07498062710"
