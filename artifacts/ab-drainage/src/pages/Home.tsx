@@ -76,8 +76,8 @@ export default function Home() {
       {/* ── HERO (dark) ── */}
       <section className="relative min-h-[80vh] flex items-center pt-28 pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src={heroImg} alt="A&B Drainage Solutions Ltd Fleet" className="w-full h-full object-cover object-bottom origin-bottom animate-kenburns" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/75 to-background/20"></div>
+          <img src={heroImg} alt="A&B Drainage Solutions Ltd Fleet" className="w-full h-full object-cover object-bottom origin-bottom animate-kenburns saturate-[1.35] brightness-[1.12] contrast-[1.08]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/70 to-background/5"></div>
         </div>
 
         <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#e2e8f0" />
