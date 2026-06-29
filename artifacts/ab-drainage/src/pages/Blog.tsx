@@ -53,22 +53,38 @@ export default function Blog() {
         canonicalUrl="/blog"
       />
 
-      {/* ── PAGE HEADER ── */}
-      <section className="pt-36 pb-20 bg-card border-b border-border">
-        <div className="container mx-auto px-4">
-          <motion.div
+      {/* ── HERO ── */}
+      <section className="relative overflow-hidden min-h-[80vh] flex items-start">
+        <div className="absolute inset-0 z-0">
+          <img src={imgFleet} alt="A&B Drainage fleet" className="w-full h-full object-cover object-bottom" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/75 to-background/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10 pt-40 pb-20">
+          <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
+            className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-4"
           >
-            <p className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-4">Expert Drainage Guides</p>
-            <h1 className="text-4xl md:text-6xl font-display font-bold text-white uppercase leading-tight mb-4">
-              Drainage Advice &amp; Expert Guides
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl">
-              Professional insights, preventative tips, and detailed guides from Hampshire's most trusted drainage engineers.
-            </p>
-          </motion.div>
+            Expert Drainage Guides
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.08 }}
+            className="text-4xl md:text-6xl font-display font-bold text-white uppercase leading-tight mb-6"
+          >
+            Drainage Advice &amp; <span className="text-accent">Expert Guides</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.16 }}
+            className="text-lg md:text-xl text-foreground/70 max-w-2xl leading-relaxed"
+          >
+            Professional insights, preventative tips, and detailed guides from Hampshire's most trusted drainage engineers.
+          </motion.p>
         </div>
       </section>
 
