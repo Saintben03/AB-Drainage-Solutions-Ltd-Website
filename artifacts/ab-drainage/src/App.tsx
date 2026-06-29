@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -21,6 +22,11 @@ const queryClient = new QueryClient();
 function Router() {
   const [location] = useLocation();
   const reduced = useReducedMotion();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
   return (
     <div className="flex flex-col min-h-[100dvh]">
       <Navbar />
