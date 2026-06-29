@@ -182,10 +182,23 @@
   animation: wavedrift 14s linear infinite;
 }
 
+@keyframes wavedriftrev {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.animate-wavedriftrev {
+  animation: wavedriftrev 16s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-kenburns,
   .animate-marquee,
-  .animate-wavedrift {
+  .animate-wavedrift,
+  .animate-wavedriftrev {
     animation: none !important;
   }
   a[href][class*="bg-accent"]::after,
