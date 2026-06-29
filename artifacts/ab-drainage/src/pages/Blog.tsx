@@ -88,8 +88,8 @@ export default function Blog() {
         </div>
       </section>
 
-      {/* ── FEATURED POST ── */}
-      <section className="py-16 bg-background border-b border-border">
+      {/* ── FEATURED POST (light) ── */}
+      <section className="py-16 bg-white border-b border-zinc-200">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -97,7 +97,7 @@ export default function Blog() {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <Link href={`/blog/${featuredPost.slug}`} className="group block">
-              <div className="bg-card border border-border hover:border-accent/40 transition-colors flex flex-col md:flex-row">
+              <div className="bg-white border border-zinc-200 shadow-sm hover:shadow-xl hover:border-accent/40 transition-all flex flex-col md:flex-row">
                 <div className="w-full md:w-1/2 h-64 md:h-auto relative overflow-hidden min-h-[280px]">
                   <img
                     src={imageMap[featuredPost.imageKey] ?? imageMap.fallback}
@@ -110,20 +110,20 @@ export default function Blog() {
                 <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center border-t-2 md:border-t-0 md:border-l-2 border-accent">
                   <div className="flex items-center gap-3 mb-5 text-xs font-bold uppercase tracking-[0.2em]">
                     <span className="text-accent">{featuredPost.category}</span>
-                    <span className="text-muted-foreground">·</span>
-                    <span className="flex items-center gap-1.5 text-muted-foreground">
+                    <span className="text-zinc-400">·</span>
+                    <span className="flex items-center gap-1.5 text-zinc-500">
                       <Calendar size={11} />
                       {new Date(featuredPost.date).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}
                     </span>
                   </div>
-                  <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4 uppercase leading-tight group-hover:text-accent transition-colors">
+                  <h2 className="text-3xl md:text-4xl font-display font-bold text-zinc-900 mb-4 uppercase leading-tight group-hover:text-accent transition-colors">
                     {featuredPost.title}
                   </h2>
-                  <p className="text-muted-foreground mb-8 leading-relaxed">
+                  <p className="text-zinc-600 mb-8 leading-relaxed">
                     {featuredPost.excerpt}
                   </p>
                   <div className="flex items-center gap-6 mt-auto">
-                    <span className="flex items-center gap-1.5 text-xs font-bold text-muted-foreground uppercase tracking-widest">
+                    <span className="flex items-center gap-1.5 text-xs font-bold text-zinc-500 uppercase tracking-widest">
                       <Clock size={12} /> {featuredPost.readTime}
                     </span>
                     <span className="text-accent font-bold text-xs uppercase tracking-[0.2em] flex items-center gap-2 group-hover:gap-4 transition-all">
@@ -137,19 +137,19 @@ export default function Blog() {
         </div>
       </section>
 
-      {/* ── BLOG GRID ── */}
-      <section className="py-20 bg-background">
+      {/* ── BLOG GRID (light) ── */}
+      <section className="py-20 bg-zinc-50">
         <div className="container mx-auto px-4">
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="show"
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0.5 bg-border"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0.5 bg-zinc-200"
           >
             {otherPosts.map((post) => (
               <motion.div key={post.id} variants={itemVariants} className="h-full">
                 <Link href={`/blog/${post.slug}`} className="group block h-full">
-                  <div className="bg-card h-full flex flex-col hover:bg-card/80 transition-colors">
+                  <div className="bg-white h-full flex flex-col hover:bg-zinc-50 transition-colors">
                     <div className="h-52 w-full relative overflow-hidden">
                       <img
                         src={imageMap[post.imageKey] ?? imageMap.fallback}
@@ -166,18 +166,18 @@ export default function Blog() {
                         <span className="text-xs font-bold text-accent uppercase tracking-[0.15em]">
                           {post.category}
                         </span>
-                        <span className="text-xs text-muted-foreground font-semibold flex items-center gap-1">
+                        <span className="text-xs text-zinc-500 font-semibold flex items-center gap-1">
                           <Clock size={11} /> {post.readTime}
                         </span>
                       </div>
-                      <h3 className="text-xl font-display font-bold text-white mb-3 group-hover:text-accent transition-colors leading-tight uppercase">
+                      <h3 className="text-xl font-display font-bold text-zinc-900 mb-3 group-hover:text-accent transition-colors leading-tight uppercase">
                         {post.title}
                       </h3>
-                      <p className="text-muted-foreground text-sm mb-6 line-clamp-3 leading-relaxed">
+                      <p className="text-zinc-600 text-sm mb-6 line-clamp-3 leading-relaxed">
                         {post.excerpt}
                       </p>
-                      <div className="mt-auto pt-5 border-t border-border flex items-center justify-between">
-                        <span className="text-xs font-semibold text-muted-foreground uppercase tracking-widest flex items-center gap-1.5">
+                      <div className="mt-auto pt-5 border-t border-zinc-200 flex items-center justify-between">
+                        <span className="text-xs font-semibold text-zinc-500 uppercase tracking-widest flex items-center gap-1.5">
                           <Calendar size={11} />
                           {new Date(post.date).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}
                         </span>

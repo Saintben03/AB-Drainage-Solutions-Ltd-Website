@@ -1,2 +1,3 @@
 - [ab-drainage screenshots](ab-drainage-screenshots.md) — Home hero is min-h-[92vh]; vh scales with capture so screenshots can't reach below-fold content.
+- [ab-drainage theme tokens](ab-drainage-theme-tokens.md) — dark-first theme: text-foreground/bg-card/border-border render light-on-light in light sections; use explicit zinc values.
 - [ab-drainage BookNow modal](ab-drainage-booknow.md) — single global BookNowModal via BookNowContext; trigger from any page with useBookNow().openBookNow(), don't add per-page modal instances.

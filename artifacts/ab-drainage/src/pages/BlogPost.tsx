@@ -122,15 +122,15 @@ export default function BlogPost() {
         </div>
       </section>
 
-      {/* Post Content & Sidebar */}
-      <section className="py-20 bg-background">
+      {/* Post Content & Sidebar (light) */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-16 max-w-7xl mx-auto">
             
             {/* Main Content */}
             <div className="w-full lg:w-2/3">
-              <div className="prose prose-invert prose-lg max-w-none">
-                <p className="text-xl text-white/90 leading-relaxed font-medium mb-10 pb-10 border-b border-border">
+              <div className="prose prose-lg max-w-none">
+                <p className="text-xl text-zinc-800 leading-relaxed font-medium mb-10 pb-10 border-b border-zinc-200">
                   {post.excerpt}
                 </p>
                 
@@ -141,8 +141,8 @@ export default function BlogPost() {
                     if (parts.length > 1 && parts[0].length < 10) {
                       return (
                         <div key={index} className="mb-8">
-                          <h3 className="text-2xl font-display font-bold text-white uppercase mt-12 mb-4">{parts[0]}. {parts.slice(1).join('.').trim().split('.')[0]}</h3>
-                          <p className="text-muted-foreground leading-relaxed">
+                          <h3 className="text-2xl font-display font-bold text-zinc-900 uppercase mt-12 mb-4">{parts[0]}. {parts.slice(1).join('.').trim().split('.')[0]}</h3>
+                          <p className="text-zinc-600 leading-relaxed">
                             {parts.slice(1).join('.').replace(parts.slice(1).join('.').trim().split('.')[0], '').replace(/^\./, '').trim()}
                           </p>
                         </div>
@@ -151,7 +151,7 @@ export default function BlogPost() {
                   }
                   
                   return (
-                    <p key={index} className="text-muted-foreground leading-relaxed mb-8">
+                    <p key={index} className="text-zinc-600 leading-relaxed mb-8">
                       {para}
                     </p>
                   );
@@ -162,12 +162,12 @@ export default function BlogPost() {
             {/* Sidebar */}
             <div className="w-full lg:w-1/3">
               <div className="sticky top-32">
-                <div className="bg-card border border-border rounded-xl p-8 shadow-xl">
+                <div className="bg-zinc-50 border border-zinc-200 rounded-xl p-8 shadow-lg">
                   <div className="w-16 h-16 bg-accent/10 text-accent rounded-full flex items-center justify-center mb-6">
                     <Phone size={32} />
                   </div>
-                  <h3 className="text-2xl font-display font-bold text-white uppercase mb-4">Need Help Now?</h3>
-                  <p className="text-muted-foreground mb-8">
+                  <h3 className="text-2xl font-display font-bold text-zinc-900 uppercase mb-4">Need Help Now?</h3>
+                  <p className="text-zinc-600 mb-8">
                     If you are dealing with a drainage emergency or need professional advice, our team is available 24/7.
                   </p>
                   
@@ -180,7 +180,7 @@ export default function BlogPost() {
                     </a>
                   </div>
                   
-                  <Link href="/contact" className="text-center block text-sm font-bold text-white hover:text-primary uppercase tracking-widest transition-colors">
+                  <Link href="/contact" className="text-center block text-sm font-bold text-zinc-900 hover:text-primary uppercase tracking-widest transition-colors">
                     Send us a message
                   </Link>
                 </div>
@@ -191,25 +191,25 @@ export default function BlogPost() {
         </div>
       </section>
 
-      {/* Related Articles */}
-      <section className="py-24 bg-card border-t border-border">
+      {/* Related Articles (light) */}
+      <section className="py-24 bg-zinc-50 border-t border-zinc-200">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl font-display font-bold text-white uppercase mb-12">Related Articles</h2>
+            <h2 className="text-3xl font-display font-bold text-zinc-900 uppercase mb-12">Related Articles</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {relatedPosts.map((related) => (
                 <Link key={related.id} href={`/blog/${related.slug}`} className="group block h-full">
-                  <div className="bg-background border border-border rounded-xl overflow-hidden hover:border-primary/50 transition-colors h-full flex flex-col hover:-translate-y-2 duration-300">
+                  <div className="bg-white border border-zinc-200 shadow-sm rounded-xl overflow-hidden hover:border-primary/50 hover:shadow-lg transition-all h-full flex flex-col hover:-translate-y-2 duration-300">
                     <div className="p-8 flex flex-col flex-grow">
                       <span className={`text-xs font-bold uppercase tracking-wider px-3 py-1 border rounded-full self-start mb-4 ${getBadgeColor(related.category)}`}>
                         {related.category}
                       </span>
-                      <h3 className="text-xl font-display font-bold text-white mb-4 group-hover:text-primary transition-colors leading-tight">
+                      <h3 className="text-xl font-display font-bold text-zinc-900 mb-4 group-hover:text-primary transition-colors leading-tight">
                         {related.title}
                       </h3>
-                      <div className="mt-auto pt-6 border-t border-border flex items-center justify-between">
-                        <span className="text-xs font-semibold text-muted-foreground uppercase tracking-widest flex items-center gap-2">
+                      <div className="mt-auto pt-6 border-t border-zinc-200 flex items-center justify-between">
+                        <span className="text-xs font-semibold text-zinc-500 uppercase tracking-widest flex items-center gap-2">
                           <Clock size={14} /> {related.readTime}
                         </span>
                         <span className="text-primary font-bold flex items-center group-hover:translate-x-2 transition-transform">

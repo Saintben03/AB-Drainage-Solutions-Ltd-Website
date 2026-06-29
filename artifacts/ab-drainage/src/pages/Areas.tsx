@@ -119,8 +119,8 @@ export default function Areas() {
         </div>
       </section>
 
-      {/* ── AREA CARDS ── */}
-      <section className="py-24 bg-background">
+      {/* ── AREA CARDS (light) ── */}
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -130,7 +130,7 @@ export default function Areas() {
             className="mb-14"
           >
             <p className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-3">Primary Coverage</p>
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-white uppercase leading-tight">
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-zinc-900 uppercase leading-tight">
               Hampshire &amp; Surrounding Counties
             </h2>
           </motion.div>
@@ -140,14 +140,14 @@ export default function Areas() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-0.5 bg-border mb-16"
+            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-0.5 bg-zinc-200 mb-16"
           >
             {areas.map((area, i) => (
               <motion.div key={i} variants={fadeUp} className="h-full">
-                <div className="bg-card p-6 flex items-start gap-3 group hover:bg-accent/10 transition-colors cursor-default border-t-2 border-t-transparent hover:border-t-accent h-full">
+                <div className="bg-white p-6 flex items-start gap-3 group hover:bg-accent/10 transition-colors cursor-default border-t-2 border-t-transparent hover:border-t-accent h-full">
                   <MapPin size={16} className="text-accent shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-bold text-white text-sm uppercase tracking-wide group-hover:text-accent transition-colors">
+                    <p className="font-bold text-zinc-900 text-sm uppercase tracking-wide group-hover:text-accent transition-colors">
                       {area.name}
                     </p>
                     {area.tag && (
@@ -165,15 +165,15 @@ export default function Areas() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="bg-card border-l-4 border-accent p-8 mb-16"
+            className="bg-zinc-50 border-l-4 border-accent p-8 mb-16"
           >
-            <h3 className="text-xl font-display font-bold text-white uppercase mb-3">We Also Operate In</h3>
-            <p className="text-muted-foreground mb-5">
+            <h3 className="text-xl font-display font-bold text-zinc-900 uppercase mb-3">We Also Operate In</h3>
+            <p className="text-zinc-600 mb-5">
               We frequently cover towns and villages bordering Hampshire. If you are unsure whether we serve your area, call us — we will always try.
             </p>
             <div className="flex flex-wrap gap-3">
               {borderAreas.map((county, i) => (
-                <span key={i} className="px-4 py-2 border border-border text-sm font-bold text-muted-foreground uppercase tracking-wider hover:border-accent hover:text-accent transition-colors">
+                <span key={i} className="px-4 py-2 border border-zinc-300 text-sm font-bold text-zinc-600 uppercase tracking-wider hover:border-accent hover:text-accent transition-colors">
                   {county}
                 </span>
               ))}
@@ -182,8 +182,8 @@ export default function Areas() {
         </div>
       </section>
 
-      {/* ── WHY LOCAL ── */}
-      <section className="py-20 bg-[#0a0a0a] border-y border-white/5">
+      {/* ── WHY LOCAL (light) ── */}
+      <section className="py-20 bg-zinc-50 border-y border-zinc-200">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -193,10 +193,10 @@ export default function Areas() {
               transition={{ duration: 0.6 }}
             >
               <p className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-4">Why Local Matters</p>
-              <h2 className="text-4xl md:text-5xl font-display font-bold text-white uppercase leading-tight mb-8">
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-zinc-900 uppercase leading-tight mb-8">
                 Deep Local Knowledge
               </h2>
-              <p className="text-foreground/70 leading-relaxed mb-8 text-lg">
+              <p className="text-zinc-600 leading-relaxed mb-8 text-lg">
                 Being local means we understand the specific drainage infrastructure and common problems found in Hampshire's diverse properties — from historic Winchester townhouses to modern Southampton developments and rural Andover farmhouses.
               </p>
               <ul className="space-y-4 mb-10">
@@ -212,7 +212,7 @@ export default function Areas() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: i * 0.1 }}
-                    className="flex items-start gap-3 text-white font-medium"
+                    className="flex items-start gap-3 text-zinc-700 font-medium"
                   >
                     <Check size={16} className="text-accent shrink-0 mt-1" />
                     <span dangerouslySetInnerHTML={{ __html: item }} />
@@ -228,7 +228,7 @@ export default function Areas() {
                 </a>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 border border-white/20 hover:border-accent text-white hover:text-accent px-8 py-4 font-bold uppercase tracking-wider text-sm transition-all"
+                  className="inline-flex items-center gap-2 border border-zinc-300 hover:border-accent text-zinc-700 hover:text-accent px-8 py-4 font-bold uppercase tracking-wider text-sm transition-all"
                 >
                   Request Callout <ArrowRight size={15} />
                 </Link>

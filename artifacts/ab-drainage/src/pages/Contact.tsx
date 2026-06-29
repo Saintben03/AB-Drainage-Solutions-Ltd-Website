@@ -110,8 +110,8 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* ── MAIN CONTENT ── */}
-      <section className="py-24 bg-background">
+      {/* ── MAIN CONTENT (light) ── */}
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
 
@@ -124,12 +124,12 @@ export default function Contact() {
                 transition={{ duration: 0.5 }}
               >
                 <p className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-3">Direct Contact</p>
-                <h2 className="text-3xl font-display font-bold text-white uppercase mb-10">
+                <h2 className="text-3xl font-display font-bold text-zinc-900 uppercase mb-10">
                   Reach Our Team
                 </h2>
               </motion.div>
 
-              <div className="space-y-0 bg-border flex flex-col gap-0.5">
+              <div className="space-y-0 bg-zinc-200 flex flex-col gap-0.5">
                 {contactItems.map((item, i) => (
                   <motion.div
                     key={i}
@@ -137,19 +137,19 @@ export default function Contact() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: i * 0.08 }}
-                    className="bg-card p-6 flex items-center gap-5 border-l-4 border-l-accent"
+                    className="bg-white p-6 flex items-center gap-5 border-l-4 border-l-accent"
                   >
                     <div className="w-11 h-11 bg-accent flex items-center justify-center text-white shrink-0">
                       {item.icon}
                     </div>
                     <div>
-                      <p className="text-xs font-bold text-muted-foreground uppercase tracking-[0.18em] mb-1">{item.label}</p>
+                      <p className="text-xs font-bold text-zinc-500 uppercase tracking-[0.18em] mb-1">{item.label}</p>
                       {item.isLink && item.href ? (
-                        <a href={item.href} className="text-xl font-display font-bold text-white hover:text-accent transition-colors">
+                        <a href={item.href} className="text-xl font-display font-bold text-zinc-900 hover:text-accent transition-colors">
                           {item.value}
                         </a>
                       ) : (
-                        <p className="text-xl font-display font-bold text-white">{item.value}</p>
+                        <p className="text-xl font-display font-bold text-zinc-900">{item.value}</p>
                       )}
                     </div>
                   </motion.div>
@@ -161,10 +161,10 @@ export default function Contact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="mt-8 p-7 bg-card border-t-2 border-accent"
+                className="mt-8 p-7 bg-zinc-50 border-t-2 border-accent"
               >
                 <p className="text-accent font-bold uppercase tracking-widest text-xs mb-2">FlexiPay Available</p>
-                <p className="text-muted-foreground text-sm leading-relaxed">We offer flexible payment plans to help spread the cost of major drainage repairs. Ask our team for details.</p>
+                <p className="text-zinc-600 text-sm leading-relaxed">We offer flexible payment plans to help spread the cost of major drainage repairs. Ask our team for details.</p>
               </motion.div>
 
               <motion.div
@@ -177,7 +177,7 @@ export default function Contact() {
                 <p className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-4">Follow Our Work</p>
                 <SocialLinks
                   iconSize={22}
-                  itemClassName="w-12 h-12 bg-card border border-border text-foreground/80 flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent rounded-md"
+                  itemClassName="w-12 h-12 bg-zinc-100 border border-zinc-200 text-zinc-600 flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent rounded-md"
                 />
               </motion.div>
             </div>

@@ -100,8 +100,8 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── OUR STORY ── */}
-      <section className="py-24 bg-background">
+      {/* ── OUR STORY (light) ── */}
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
@@ -114,10 +114,10 @@ export default function About() {
                 transition={{ duration: 0.5 }}
               >
                 <p className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-4">Our Story</p>
-                <h2 className="text-4xl md:text-5xl font-display font-bold text-white uppercase leading-tight mb-8">
+                <h2 className="text-4xl md:text-5xl font-display font-bold text-zinc-900 uppercase leading-tight mb-8">
                   Built on a Simple Promise
                 </h2>
-                <div className="space-y-5 text-lg text-foreground/70 leading-relaxed">
+                <div className="space-y-5 text-lg text-zinc-600 leading-relaxed">
                   <p>
                     Established over 33 years ago, we built this company on a simple premise: answer the phone, turn up quickly, and do the job right the first time.
                   </p>
@@ -135,10 +135,10 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="pt-12 mt-12 border-t border-border"
+                className="pt-12 mt-12 border-t border-zinc-200"
               >
                 <p className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-4">The A&amp;B Standard</p>
-                <h2 className="text-3xl font-display font-bold text-white uppercase mb-8">How We Operate</h2>
+                <h2 className="text-3xl font-display font-bold text-zinc-900 uppercase mb-8">How We Operate</h2>
                 <motion.ul
                   variants={stagger}
                   initial="hidden"
@@ -151,7 +151,7 @@ export default function About() {
                       <div className="w-6 h-6 bg-accent shrink-0 flex items-center justify-center mt-0.5">
                         <Check size={13} className="text-white" />
                       </div>
-                      <span className="text-foreground/80 leading-relaxed" dangerouslySetInnerHTML={{ __html: item }} />
+                      <span className="text-zinc-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: item }} />
                     </motion.li>
                   ))}
                 </motion.ul>
@@ -179,15 +179,15 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="grid grid-cols-2 gap-0.5 bg-border"
+                className="grid grid-cols-2 gap-0.5 bg-zinc-200"
               >
-                <div className="bg-card p-7 border-t-2 border-accent">
+                <div className="bg-zinc-50 p-7 border-t-2 border-accent">
                   <h3 className="text-accent font-display font-bold uppercase text-lg mb-2">Over 65s Discount</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">A dedicated discount for all customers aged 65 and over. Because community matters.</p>
+                  <p className="text-zinc-600 text-sm leading-relaxed">A dedicated discount for all customers aged 65 and over. Because community matters.</p>
                 </div>
-                <div className="bg-card p-7 border-t-2 border-accent">
+                <div className="bg-zinc-50 p-7 border-t-2 border-accent">
                   <h3 className="text-accent font-display font-bold uppercase text-lg mb-2">FlexiPay Plans</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">Unexpected major repairs? Spread the cost with our flexible payment plans.</p>
+                  <p className="text-zinc-600 text-sm leading-relaxed">Unexpected major repairs? Spread the cost with our flexible payment plans.</p>
                 </div>
               </motion.div>
 
@@ -213,8 +213,8 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── TRUSTED BY ── */}
-      <section className="py-20 bg-[#0a0a0a] border-y border-white/5">
+      {/* ── TRUSTED BY (light band) ── */}
+      <section className="py-20 bg-slate-200 border-y border-slate-300">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -224,7 +224,7 @@ export default function About() {
             className="text-center mb-12"
           >
             <p className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-3">Our Track Record</p>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-white uppercase">Trusted by Major UK Institutions</h2>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-zinc-900 uppercase">Trusted by Major UK Institutions</h2>
           </motion.div>
 
           <motion.div
@@ -232,11 +232,11 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex flex-wrap justify-center items-center gap-16 md:gap-28 grayscale hover:grayscale-0 transition-all duration-500 opacity-60 hover:opacity-90"
+            className="flex flex-wrap justify-center items-center gap-16 md:gap-28"
           >
-            <img src={nhsLogo} alt="NHS" className="h-12 md:h-16 w-auto object-contain" />
-            <img src={lanesLogo} alt="Lanes Group" className="h-12 md:h-16 w-auto object-contain" />
-            <img src={ccLogo} alt="CC Multi Disciplinary" className="h-12 md:h-16 w-auto object-contain" />
+            <img src={nhsLogo} alt="NHS" className="h-12 md:h-16 w-auto object-contain drop-shadow-[0_6px_14px_rgba(15,23,42,0.18)] hover:scale-110 transition-transform duration-300" />
+            <img src={lanesLogo} alt="Lanes Group" className="h-12 md:h-16 w-auto object-contain drop-shadow-[0_6px_14px_rgba(15,23,42,0.18)] hover:scale-110 transition-transform duration-300" />
+            <img src={ccLogo} alt="CC Multi Disciplinary" className="h-12 md:h-16 w-auto object-contain drop-shadow-[0_6px_14px_rgba(15,23,42,0.18)] hover:scale-110 transition-transform duration-300" />
           </motion.div>
         </div>
       </section>
