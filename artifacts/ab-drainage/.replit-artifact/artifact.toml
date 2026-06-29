@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "AB Drainage Solutions Ltd"
+version = "1.0.0"
+id = "artifacts/ab-drainage"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22087
+
+[services.development]
+run = "pnpm --filter @workspace/ab-drainage run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/ab-drainage", "run", "build" ]
+publicDir = "artifacts/ab-drainage/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22087"
+BASE_PATH = "/"
