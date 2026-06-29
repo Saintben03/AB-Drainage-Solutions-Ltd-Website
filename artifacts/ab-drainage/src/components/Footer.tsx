@@ -6,19 +6,19 @@ export const Footer = () => {
   return (
     <footer className="bg-[#080808] pt-20 pb-10 border-t border-white/5">
       <div className="container mx-auto px-4 lg:px-8">
+        <img src={logoMain} alt="A&B Drainage Solutions Ltd" className="h-36 w-auto mb-10" />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
           
           <div className="space-y-4">
-            <img src={logoMain} alt="A&B Drainage Solutions Ltd" className="h-36 w-auto" />
             <p className="text-muted-foreground text-sm leading-relaxed max-w-sm">
               With over 33 years of experience, we are Hampshire's trusted experts for domestic, commercial, and industrial drainage solutions. We answer when it matters.
             </p>
-            <div className="flex flex-col gap-2 pt-2">
+            <div className="flex flex-col gap-2">
               <a href="tel:01256688650" className="text-lg font-bold hover:text-primary transition-colors">01256 688 650</a>
               <a href="tel:07498062710" className="text-lg font-bold hover:text-primary transition-colors">07498 062 710</a>
               <a href="mailto:info@abdrainage.co.uk" className="text-primary hover:text-primary/80 transition-colors">info@abdrainage.co.uk</a>
             </div>
-            <div className="pt-2">
+            <div>
               <p className="text-xs text-muted-foreground uppercase tracking-[0.2em] font-bold mb-3">Follow Us</p>
               <SocialLinks
                 iconSize={18}
