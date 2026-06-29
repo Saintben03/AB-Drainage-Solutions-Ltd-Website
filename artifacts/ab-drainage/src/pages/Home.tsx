@@ -237,7 +237,7 @@ export default function Home() {
       </section>
 
       {/* ── WHY CHOOSE US (dark) ── */}
-      <section className="py-24 bg-background">
+      <section className="relative pt-24 pb-40 bg-background overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -296,6 +296,7 @@ export default function Home() {
             </motion.div>
           </div>
         </div>
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="hsl(32 98% 50%)" />
       </section>
 
       {/* ── STATS (orange band — colour pop) ── */}
