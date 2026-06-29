@@ -169,7 +169,7 @@ export default function Home() {
       </section>
 
       {/* ── TRUSTED BY (light band, animated wave at its base) ── */}
-      <section className="relative bg-sky-100 pt-16 pb-28 overflow-hidden">
+      <section className="relative bg-sky-100 pt-4 pb-28 overflow-hidden">
         <div className="container mx-auto px-4">
           <p className="text-center text-xs text-zinc-500 uppercase tracking-[0.2em] font-semibold mb-10">
             Trusted by institutions &amp; businesses across the UK
