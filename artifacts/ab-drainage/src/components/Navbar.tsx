@@ -36,26 +36,39 @@ export const Navbar = () => {
 
   return (
     <>
-      {/* ── Emergency Bar ── */}
-      <div className="relative bg-accent text-white py-2 px-4 text-xs font-bold uppercase tracking-[0.2em]">
-        <div className="flex items-center justify-center gap-2 text-center">
-          <span className="animate-pulse w-2 h-2 rounded-full bg-white block shrink-0"></span>
-          24/7 Emergency Callout — Typically Within 1 Hour
-        </div>
-        <div className="absolute left-4 top-1/2 -translate-y-1/2 hidden xl:flex items-center gap-5">
-          <a href="tel:01256688650" className="flex items-center gap-1.5 hover:text-white/70 transition-colors">
-            <Phone size={14} /> 01256 688 650
-          </a>
-          <a href="tel:07498062710" className="flex items-center gap-1.5 hover:text-white/70 transition-colors">
-            <Smartphone size={14} /> 07498 062 710
-          </a>
-          <a href="mailto:info@abdrainage.co.uk" className="flex items-center gap-1.5 normal-case tracking-normal hover:text-white/70 transition-colors">
-            <Mail size={14} /> info@abdrainage.co.uk
-          </a>
-        </div>
-        <div className="absolute right-4 top-1/2 -translate-y-1/2 hidden sm:flex items-center gap-3">
-          <span className="text-white/70 tracking-[0.18em]">Follow Us</span>
-          <SocialLinks iconSize={20} itemClassName="text-white hover:text-white/70 hover:-translate-y-0.5" />
+      {/* ── Emergency Bar (expands on hover) ── */}
+      <div className="group relative bg-accent text-white px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] transition-all duration-300 hover:py-4 hover:shadow-lg hover:shadow-accent/40">
+        <div className="flex items-center justify-center gap-4">
+          {/* Left contact group (large screens) */}
+          <div className="hidden xl:flex flex-1 items-center gap-5 transition-all duration-300 group-hover:text-sm">
+            <a href="tel:01256688650" className="flex items-center gap-1.5 hover:text-white/70 transition-colors">
+              <Phone size={14} className="transition-all duration-300 group-hover:w-[18px] group-hover:h-[18px]" /> 01256 688 650
+            </a>
+            <a href="tel:07498062710" className="flex items-center gap-1.5 hover:text-white/70 transition-colors">
+              <Smartphone size={14} className="transition-all duration-300 group-hover:w-[18px] group-hover:h-[18px]" /> 07498 062 710
+            </a>
+            <a href="mailto:info@abdrainage.co.uk" className="flex items-center gap-1.5 normal-case tracking-normal hover:text-white/70 transition-colors">
+              <Mail size={14} className="transition-all duration-300 group-hover:w-[18px] group-hover:h-[18px]" /> info@abdrainage.co.uk
+            </a>
+          </div>
+
+          {/* Center: message + prominent social (not jammed in the corner) */}
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-center">
+            <span className="flex items-center gap-2 transition-all duration-300 group-hover:text-sm">
+              <span className="animate-pulse w-2 h-2 rounded-full bg-white block shrink-0 transition-all duration-300 group-hover:w-3 group-hover:h-3"></span>
+              24/7 Emergency Callout — Typically Within 1 Hour
+            </span>
+            <span className="hidden sm:flex items-center gap-3 pl-6 border-l border-white/30">
+              <span className="text-white/80 tracking-[0.18em] transition-all duration-300 group-hover:text-sm">Follow Us</span>
+              <SocialLinks
+                iconSize={24}
+                itemClassName="text-white hover:-translate-y-0.5 [&_svg]:transition-all [&_svg]:duration-300 [&_svg]:w-6 [&_svg]:h-6 group-hover:[&_svg]:w-9 group-hover:[&_svg]:h-9"
+              />
+            </span>
+          </div>
+
+          {/* Right spacer balances the left group so the message stays centred */}
+          <div className="hidden xl:block flex-1" aria-hidden="true"></div>
         </div>
       </div>
 
