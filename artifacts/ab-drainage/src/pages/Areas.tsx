@@ -54,9 +54,9 @@ export default function Areas() {
       />
 
       {/* ── HERO ── */}
-      <section className="pt-36 pb-24 relative overflow-hidden">
+      <section className="pt-36 pb-24 relative overflow-hidden min-h-[80vh] flex items-start">
         <div className="absolute inset-0 z-0">
-          <img src={heroImg} alt="A&B Drainage Fleet" className="w-full h-full object-cover object-[center_60%]" />
+          <img src={heroImg} alt="A&B Drainage Fleet" className="w-full h-full object-cover object-bottom" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/40"></div>
         </div>
         <div className="container mx-auto px-4 relative z-10">
