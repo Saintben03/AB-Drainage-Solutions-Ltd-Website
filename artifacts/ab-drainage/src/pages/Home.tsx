@@ -159,6 +159,13 @@ export default function Home() {
             </div>
           </div>
 
+          {/* divider between trust logos and services */}
+          <div className="flex items-center justify-center gap-4 mb-20" aria-hidden="true">
+            <span className="h-px w-full max-w-xs bg-gradient-to-r from-transparent to-zinc-200" />
+            <span className="h-2 w-2 rotate-45 bg-accent shrink-0" />
+            <span className="h-px w-full max-w-xs bg-gradient-to-l from-transparent to-zinc-200" />
+          </div>
+
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
