@@ -62,7 +62,7 @@ export const Navbar = () => {
           </span>
 
           {/* Right: Follow Us + prominent social, pushed to the right edge */}
-          <div className="hidden sm:flex flex-1 items-center justify-end gap-3">
+          <div className="hidden sm:flex flex-1 items-center justify-end gap-3 pr-28">
             <span className="text-white/80 tracking-[0.18em] transition-all duration-300 group-hover:text-sm">Follow Us</span>
             <SocialLinks
               iconSize={24}
