@@ -79,7 +79,7 @@
   --destructive: 0 62% 30%;
   --destructive-foreground: 210 40% 98%;
 
-  --radius: 0.25rem;
+  --radius: 0.625rem;
 }
 
 @layer base {
@@ -91,5 +91,15 @@
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-display tracking-tight;
+  }
+
+  /* Global button rounding — applies to every CTA link/button across the site */
+  a[href][class*="bg-accent"],
+  a[href][class*="bg-primary"],
+  a[href][class*="bg-white"],
+  button[class*="bg-accent"],
+  button[class*="bg-primary"],
+  button[type="submit"] {
+    border-radius: var(--radius-lg);
   }
 }
