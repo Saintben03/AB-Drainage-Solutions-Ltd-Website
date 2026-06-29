@@ -4,7 +4,6 @@ import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
 import { CountUp } from "@/components/CountUp";
 import { LogoMarquee } from "@/components/LogoMarquee";
-import { AnimatedDivider } from "@/components/AnimatedDivider";
 import { WaterWave } from "@/components/WaterWave";
 
 import heroImg from "@assets/site_files_1/AB Drainage background_edited.jpg";
@@ -158,7 +157,7 @@ export default function Home() {
       </section>
 
       {/* ── SERVICES (light + colourful) ── */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4">
           {/* trust logos — full colour on white */}
           <div className="mb-20">
@@ -167,9 +166,6 @@ export default function Home() {
             </p>
             <LogoMarquee logos={trustLogos} />
           </div>
-
-          {/* divider between trust logos and services */}
-          <AnimatedDivider className="mb-20" />
 
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -221,6 +217,8 @@ export default function Home() {
             ))}
           </motion.div>
         </div>
+
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="hsl(0 0% 11%)" />
       </section>
 
       {/* ── WHY CHOOSE US (dark) ── */}
