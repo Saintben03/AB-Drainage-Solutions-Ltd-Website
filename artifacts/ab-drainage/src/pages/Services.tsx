@@ -139,9 +139,9 @@ export default function Services() {
       </section>
 
       {/* Jump nav */}
-      <section className="py-6 bg-card border-b border-border overflow-x-auto">
+      <section className="py-6 bg-card border-b border-border">
         <div className="container mx-auto px-4">
-          <div className="flex gap-2 min-w-max">
+          <div className="flex flex-wrap justify-center gap-2">
             {services.map((s) => (
               <a
                 key={s.id}
