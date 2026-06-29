@@ -8,7 +8,7 @@ export const Footer = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
           
-          <div className="space-y-3 -mt-4">
+          <div className="space-y-3 -mt-8">
             <img src={logoMain} alt="A&B Drainage Solutions Ltd" className="h-20 w-auto" />
             <p className="text-muted-foreground text-sm leading-relaxed max-w-sm">
               With over 33 years of experience, we are Hampshire's trusted experts for domestic, commercial, and industrial drainage solutions. We answer when it matters.
