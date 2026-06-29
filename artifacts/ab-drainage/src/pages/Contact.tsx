@@ -4,7 +4,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { SocialLinks } from "@/components/SocialLinks";
 import { motion } from "framer-motion";
 
-import heroImg from "@assets/site_files_1/g-01u.jpg";
+import heroImg from "@assets/site_files_1/AB Drainage background_edited.jpg";
 
 const contactItems = [
   {
@@ -61,7 +61,7 @@ export default function Contact() {
       {/* ── HERO ── */}
       <section className="pt-36 pb-20 relative overflow-hidden min-h-[80vh] flex items-start">
         <div className="absolute inset-0 z-0">
-          <img src={heroImg} alt="A&B Drainage" className="w-full h-full object-cover object-bottom" />
+          <img src={heroImg} alt="A&B Drainage fleet" className="w-full h-full object-cover object-bottom" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/85 to-background/40"></div>
         </div>
         <div className="container mx-auto px-4 relative z-10">
