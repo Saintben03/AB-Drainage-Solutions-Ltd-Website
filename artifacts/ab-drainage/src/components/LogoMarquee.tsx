@@ -16,7 +16,7 @@ function LogoGroup({ logos, ariaHidden }: { logos: MarqueeLogo[]; ariaHidden?: b
           key={i}
           src={logo.src}
           alt={logo.alt}
-          className={`w-auto object-contain shrink-0 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300 ${logo.className ?? "h-10 md:h-14"}`}
+          className={`w-auto object-contain shrink-0 drop-shadow-[0_6px_14px_rgba(15,23,42,0.18)] hover:scale-110 transition-transform duration-300 ${logo.className ?? "h-10 md:h-14"}`}
         />
       ))}
     </div>
