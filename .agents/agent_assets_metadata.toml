@@ -1,5 +1,4 @@
 uploads = []
-outputs = []
 
 [[generated]]
 id = "7Ydnjfw1LssUmBRnFkfda"
@@ -30,3 +29,9 @@ id = "4bJhJKhgCfr6Z7u4mm1gC"
 uri = "file://attached_assets/blog/soakaway-install.png"
 type = "image"
 title = "soakaway installation garden"
+
+[[outputs]]
+id = "XDj-vFcGSpHIPNB20N4wa"
+uri = "file://attached_assets/site_files_1/AB Drainage background.png"
+type = "image"
+title = "Original fleet hero photo (full resolution)"
