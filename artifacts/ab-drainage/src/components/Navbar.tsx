@@ -38,18 +38,20 @@ export const Navbar = () => {
   return (
     <>
       {/* ── Emergency Bar (expands on hover) ── */}
-      <div className="group relative bg-accent text-white px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] transition-all duration-300 hover:py-4 hover:shadow-lg hover:shadow-accent/40">
-        <div className="flex items-center justify-center gap-4">
-          {/* Left contact group (large screens) — nudged inward */}
-          <div className="hidden xl:flex flex-1 items-center gap-5 pl-6 transition-all duration-300 group-hover:text-sm">
-            <a href="tel:01256688650" className="flex items-center gap-1.5 hover:text-white/70 transition-colors">
-              <Phone size={14} className="transition-all duration-300 group-hover:w-[18px] group-hover:h-[18px]" /> 01256 688 650
+      <div className="group relative bg-accent text-white px-4 py-2 text-[10px] xl:text-xs font-bold uppercase tracking-[0.12em] 2xl:tracking-[0.18em] transition-all duration-300 hover:py-4 hover:shadow-lg hover:shadow-accent/40">
+        <div className="flex items-center justify-center gap-2 xl:gap-4">
+          {/* Left contact group (large screens) */}
+          <div className="hidden xl:flex flex-1 items-center gap-3 2xl:gap-5 pl-2 2xl:pl-6 transition-all duration-300 group-hover:text-sm">
+            <a href="tel:01256688650" className="flex items-center gap-1.5 whitespace-nowrap shrink-0 hover:text-white/70 transition-colors">
+              <Phone size={13} className="shrink-0 transition-all duration-300 group-hover:w-[18px] group-hover:h-[18px]" /> 01256 688 650
             </a>
-            <a href="tel:07498062710" className="flex items-center gap-1.5 hover:text-white/70 transition-colors">
-              <Smartphone size={14} className="transition-all duration-300 group-hover:w-[18px] group-hover:h-[18px]" /> 07498 062 710
+            <span className="text-white/30 shrink-0">|</span>
+            <a href="tel:07498062710" className="flex items-center gap-1.5 whitespace-nowrap shrink-0 hover:text-white/70 transition-colors">
+              <Smartphone size={13} className="shrink-0 transition-all duration-300 group-hover:w-[18px] group-hover:h-[18px]" /> 07498 062 710
             </a>
-            <a href="mailto:info@abdrainage.co.uk" className="flex items-center gap-1.5 normal-case tracking-normal hover:text-white/70 transition-colors">
-              <Mail size={14} className="transition-all duration-300 group-hover:w-[18px] group-hover:h-[18px]" /> info@abdrainage.co.uk
+            <span className="hidden 2xl:inline text-white/30 shrink-0">|</span>
+            <a href="mailto:info@abdrainage.co.uk" className="hidden 2xl:flex items-center gap-1.5 whitespace-nowrap shrink-0 normal-case tracking-normal hover:text-white/70 transition-colors">
+              <Mail size={13} className="shrink-0 transition-all duration-300 group-hover:w-[18px] group-hover:h-[18px]" /> info@abdrainage.co.uk
             </a>
           </div>
 
@@ -57,13 +59,13 @@ export const Navbar = () => {
           <div className="hidden sm:block xl:hidden flex-1" aria-hidden="true"></div>
 
           {/* Center: 24/7 message framed by dividers on both sides */}
-          <span className="flex items-center gap-2 sm:px-6 sm:border-x sm:border-white/30 transition-all duration-300 group-hover:text-sm">
+          <span className="flex items-center gap-2 sm:px-4 xl:px-6 sm:border-x sm:border-white/30 sm:whitespace-nowrap shrink-0 transition-all duration-300 group-hover:text-sm">
             <span className="animate-pulse w-2 h-2 rounded-full bg-white block shrink-0 transition-all duration-300 group-hover:w-3 group-hover:h-3"></span>
             24/7 Emergency Callout — Typically Within 1 Hour
           </span>
 
           {/* Right: Follow Us + prominent social, pushed to the right edge */}
-          <div className="hidden sm:flex flex-1 items-center justify-end gap-3 pr-28">
+          <div className="hidden sm:flex flex-1 items-center justify-end gap-3 pr-4 xl:pr-6">
             <span className="text-white/80 tracking-[0.18em] transition-all duration-300 group-hover:text-sm">Follow Us</span>
             <SocialLinks
               iconSize={24}
