@@ -78,6 +78,24 @@ uri = "file://attached_assets/fencing/fence-gallery-gate.png"
 type = "image"
 title = "ornamental iron garden gate fence"
 
+[[generated]]
+id = "KtWTHg6CJXZzDufVAjK7E"
+uri = "file://attached_assets/fencing/fence-gallery-decorative.png"
+type = "image"
+title = "decorative metal fence panels"
+
+[[generated]]
+id = "Jpn9GG3-MYRIRNh_ixfEo"
+uri = "file://attached_assets/fencing/fence-gallery-timber.png"
+type = "image"
+title = "contemporary timber horizontal fence"
+
+[[generated]]
+id = "3BkJhR6QIV_QZoWZilG-x"
+uri = "file://attached_assets/fencing/fence-whyus-garden.png"
+type = "image"
+title = "garden green lawn modern fence patio"
+
 [[outputs]]
 id = "XDj-vFcGSpHIPNB20N4wa"
 uri = "file://attached_assets/site_files_1/AB Drainage background.png"

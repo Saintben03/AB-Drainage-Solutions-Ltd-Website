@@ -8,17 +8,20 @@ const BG = "#1c1c1c";
 const DARK = "#09090b";
 const ACCENT = "#16a34a";
 
-import imgHero        from "@assets/fencing/fence-hero.png";
-import imgAboutSrc    from "@assets/fencing/fence-about.png";
-import imgGComposite  from "@assets/fencing/fence-gallery-composite.png";
-import imgGTraditional from "@assets/fencing/fence-gallery-traditional.png";
-import imgGSecurity   from "@assets/fencing/fence-gallery-security.png";
-import imgGAgri       from "@assets/fencing/fence-gallery-agricultural.png";
-import imgGGate       from "@assets/fencing/fence-gallery-gate.png";
+import imgHero          from "@assets/fencing/fence-hero.png";
+import imgAboutSrc      from "@assets/fencing/fence-about.png";
+import imgGComposite    from "@assets/fencing/fence-gallery-composite.png";
+import imgGTraditional  from "@assets/fencing/fence-gallery-traditional.png";
+import imgGSecurity     from "@assets/fencing/fence-gallery-security.png";
+import imgGAgri         from "@assets/fencing/fence-gallery-agricultural.png";
+import imgGGate         from "@assets/fencing/fence-gallery-gate.png";
+import imgGDecorative   from "@assets/fencing/fence-gallery-decorative.png";
+import imgGTimber       from "@assets/fencing/fence-gallery-timber.png";
+import imgWhyUsGarden   from "@assets/fencing/fence-whyus-garden.png";
 
 const heroImg  = imgHero;
 const imgAbout = imgAboutSrc;
-const imgWhyUs = imgGGate;
+const imgWhyUs = imgWhyUsGarden;
 
 /* ── Organic curve divider — garden/nature feel ── */
 function OrganicDivider({ from, to, flip = false }: { from: string; to: string; flip?: boolean }) {
@@ -50,12 +53,14 @@ const services = [
 ];
 
 const gallery = [
-  { src: imgHero,          caption: "Modern black aluminium slatted fence with LED lit planters" },
-  { src: imgGTraditional,  caption: "Traditional close-board fence — English cottage garden" },
-  { src: imgGComposite,    caption: "Composite horizontal fence panel — sage aluminium finish" },
-  { src: imgGSecurity,     caption: "Commercial palisade security fencing installation" },
-  { src: imgGAgri,         caption: "Post-and-rail agricultural fencing — Hampshire countryside" },
-  { src: imgGGate,         caption: "Ornamental iron gate set between slatted fence panels" },
+  { src: imgHero,          caption: "Modern black aluminium slatted fence with LED planters" },
+  { src: imgGTraditional,  caption: "Traditional close-board — English cottage garden" },
+  { src: imgGComposite,    caption: "Composite horizontal panel — sage aluminium finish" },
+  { src: imgGSecurity,     caption: "Commercial palisade security fencing" },
+  { src: imgGAgri,         caption: "Post-and-rail agricultural — Hampshire countryside" },
+  { src: imgGGate,         caption: "Ornamental iron gate with slatted fence panels" },
+  { src: imgGDecorative,   caption: "Decorative metal lattice fence — luxury residence" },
+  { src: imgGTimber,       caption: "Contemporary oak-finish horizontal timber fence" },
 ];
 
 const whyUs = [
@@ -209,7 +214,7 @@ export default function ABGroupFencing() {
             <p className="text-[#16a34a] text-xs font-bold uppercase tracking-[0.25em] mb-3">Fencing & Garden Work</p>
             <h2 className="text-4xl md:text-5xl font-display font-bold text-white uppercase">Our Work</h2>
           </motion.div>
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             {gallery.map((item, i) => (
               <motion.div
                 key={i}
@@ -217,7 +222,7 @@ export default function ABGroupFencing() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: i * 0.07 }}
-                className={`relative overflow-hidden group ${i === 0 ? "col-span-2 lg:col-span-1 row-span-2" : ""}`}
+                className="relative overflow-hidden group"
               >
                 <img src={item.src} alt={item.caption} className="w-full h-full object-cover aspect-square group-hover:scale-105 transition-transform duration-700" draggable={false} />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
