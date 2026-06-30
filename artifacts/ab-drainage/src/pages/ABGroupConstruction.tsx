@@ -95,8 +95,8 @@ export default function ABGroupConstruction() {
   return (
     <>
       <SEO
-        title="AB Construction Solutions Ltd | Civil Engineering & Groundworks | Hampshire"
-        description="AB Construction Solutions Ltd — Hampshire's civil engineering and groundworks specialists. Foundation laying, site clearance, pipeline installation and structural works. Part of The AB Group."
+        title="AB Construction Solutions | Civil Engineering & Groundworks | Hampshire"
+        description="AB Construction Solutions — Hampshire's civil engineering and groundworks specialists. Foundation laying, site clearance, pipeline installation and structural works."
         canonicalUrl="/ab-group/construction"
       />
 
@@ -111,18 +111,18 @@ export default function ABGroupConstruction() {
         <div className="relative z-10 container mx-auto px-4 lg:px-8 pb-28 pt-16">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} className="max-w-3xl">
             <Link href="/ab-group" className="inline-flex items-center gap-2 text-white/50 hover:text-white text-xs font-bold uppercase tracking-[0.2em] mb-8 transition-colors">
-              <ChevronLeft size={14} /> The AB Group
+              <ChevronLeft size={14} /> Other Services
             </Link>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-1 h-12 bg-[#dc2626]" />
               <div>
-                <p className="text-[#dc2626] text-xs font-bold uppercase tracking-[0.25em]">The AB Group</p>
+                <p className="text-[#dc2626] text-xs font-bold uppercase tracking-[0.25em]">Other Services</p>
                 <p className="text-white/40 text-xs uppercase tracking-[0.18em]">Civil Engineering Division</p>
               </div>
             </div>
             <h1 className="text-5xl md:text-7xl xl:text-8xl font-display font-black uppercase text-white leading-[0.9] mb-6 relative">
               <span className="relative">AB Construction<span className="absolute -inset-x-8 -inset-y-10 bg-black/50 blur-3xl rounded-3xl -z-10" /></span>
-              <br /><span className="text-[#dc2626]">Solutions Ltd</span>
+              <br /><span className="text-[#dc2626]">Solutions</span>
             </h1>
             <p className="text-xl text-white/70 leading-relaxed mb-10 max-w-xl">
               Hampshire's civil engineering and groundworks specialists. From site preparation to structural works, delivered on time, on budget, to the highest standards.
@@ -155,7 +155,7 @@ export default function ABGroupConstruction() {
               <p className="text-[#dc2626] text-xs font-bold uppercase tracking-[0.25em] mb-4">About The Division</p>
               <h2 className="text-4xl md:text-5xl font-display font-bold text-white uppercase leading-tight mb-6">Built on Solid<br />Foundations</h2>
               <p className="text-white/60 leading-relaxed mb-6">
-                AB Construction Solutions Ltd operates as the civil engineering arm of The AB Group — delivering groundworks, civil infrastructure and structural construction projects across Hampshire and the wider South East.
+                AB Construction Solutions operates as the civil engineering arm of our group — delivering groundworks, civil infrastructure and structural construction projects across Hampshire and the wider South East.
               </p>
               <p className="text-white/60 leading-relaxed mb-10">
                 Working across residential, commercial and infrastructure sectors, our directly employed teams bring decades of hands-on expertise to every project, no matter the scale.

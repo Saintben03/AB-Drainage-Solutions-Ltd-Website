@@ -427,12 +427,12 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="text-center mb-14"
           >
-            <p className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-4">Part of Something Bigger</p>
+            <p className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-4">More From The AB Group</p>
             <h2 className="text-4xl md:text-6xl font-display font-bold text-white uppercase leading-tight mb-5">
-              The <span className="text-accent">AB Group</span>
+              Other <span className="text-accent">Services</span> We Offer
             </h2>
             <p className="text-lg text-white/55 max-w-2xl mx-auto">
-              A&amp;B Drainage is one of four specialist divisions within the AB Group — 33 years of combined expertise across drainage, construction, fencing and facilities management.
+              Alongside drainage, our group brings 33 years of combined expertise across construction, fencing and facilities management — all under one roof.
             </p>
           </motion.div>
 
@@ -463,7 +463,7 @@ export default function Home() {
               <div className="relative z-10 flex flex-col h-full p-7 pt-9">
                 <p className="text-red-400 text-[10px] font-bold uppercase tracking-[0.28em] mb-3">Division</p>
                 <h3 className="text-white font-display font-bold text-2xl uppercase leading-tight mb-4">
-                  Construction<br />Solutions Ltd
+                  Construction<br />Solutions
                 </h3>
                 <p className="text-white/65 text-sm leading-relaxed mb-7">
                   Reliable construction across residential, commercial and infrastructure sites — strong project oversight, skilled workmanship, clear communication from start to finish.
@@ -501,7 +501,7 @@ export default function Home() {
               <div className="relative z-10 flex flex-col h-full p-7 pt-9">
                 <p className="text-green-400 text-[10px] font-bold uppercase tracking-[0.28em] mb-3">Division</p>
                 <h3 className="text-white font-display font-bold text-2xl uppercase leading-tight mb-4">
-                  Fencing<br />Solutions Ltd
+                  Fencing<br />Solutions
                 </h3>
                 <p className="text-white/65 text-sm leading-relaxed mb-7">
                   Expert fencing and landscaping tailored to homes and businesses — durable, well-crafted, designed to enhance outdoor spaces with a practical no-nonsense approach.
@@ -539,7 +539,7 @@ export default function Home() {
               <div className="relative z-10 flex flex-col h-full p-7 pt-9">
                 <p className="text-[#5392B6] text-[10px] font-bold uppercase tracking-[0.28em] mb-3">Division</p>
                 <h3 className="text-white font-display font-bold text-2xl uppercase leading-tight mb-4">
-                  Facilities<br />Management Ltd
+                  Facilities<br />Management
                 </h3>
                 <p className="text-white/65 text-sm leading-relaxed mb-7">
                   Keeping commercial buildings operating safely and efficiently — from planned maintenance programmes to rapid reactive support and ongoing compliance.
@@ -573,7 +573,7 @@ export default function Home() {
           >
             <div>
               <p className="text-[#5392B6] text-[10px] font-bold uppercase tracking-[0.22em] mb-1">Currently Viewing</p>
-              <h4 className="text-white font-display font-bold text-lg uppercase">A&amp;B Drainage Solutions Ltd — Part of the AB Group</h4>
+              <h4 className="text-white font-display font-bold text-lg uppercase">Our Other Services</h4>
               <p className="text-white/45 text-sm mt-1">Hampshire's leading drainage specialists for over 33 years. Rapid response, 24/7.</p>
             </div>
             <div className="flex flex-wrap gap-3 shrink-0">

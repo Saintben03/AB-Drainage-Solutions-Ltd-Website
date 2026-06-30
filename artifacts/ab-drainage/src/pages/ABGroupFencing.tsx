@@ -96,8 +96,8 @@ export default function ABGroupFencing() {
   return (
     <>
       <SEO
-        title="AB Fencing Solutions Ltd | Residential, Commercial & Security Fencing | Hampshire"
-        description="AB Fencing Solutions Ltd — Hampshire's fencing specialists. Residential, commercial, agricultural, security fencing, gates and barriers. Part of The AB Group."
+        title="AB Fencing Solutions | Residential, Commercial & Security Fencing | Hampshire"
+        description="AB Fencing Solutions — Hampshire's fencing specialists. Residential, commercial, agricultural, security fencing, gates and barriers."
         canonicalUrl="/ab-group/fencing"
       />
 
@@ -112,18 +112,18 @@ export default function ABGroupFencing() {
         <div className="relative z-10 container mx-auto px-4 lg:px-8 pb-28 pt-16">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} className="max-w-3xl">
             <Link href="/ab-group" className="inline-flex items-center gap-2 text-white/50 hover:text-white text-xs font-bold uppercase tracking-[0.2em] mb-8 transition-colors">
-              <ChevronLeft size={14} /> The AB Group
+              <ChevronLeft size={14} /> Other Services
             </Link>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-1 h-12 bg-[#16a34a]" />
               <div>
-                <p className="text-[#16a34a] text-xs font-bold uppercase tracking-[0.25em]">The AB Group</p>
+                <p className="text-[#16a34a] text-xs font-bold uppercase tracking-[0.25em]">Other Services</p>
                 <p className="text-white/40 text-xs uppercase tracking-[0.18em]">Fencing Division</p>
               </div>
             </div>
             <h1 className="text-5xl md:text-7xl xl:text-8xl font-display font-black uppercase text-white leading-[0.9] mb-6 relative">
               <span className="relative">AB Fencing<span className="absolute -inset-x-8 -inset-y-10 bg-black/50 blur-3xl rounded-3xl -z-10" /></span>
-              <br /><span className="text-[#16a34a]">Solutions Ltd</span>
+              <br /><span className="text-[#16a34a]">Solutions</span>
             </h1>
             <p className="text-xl text-white/70 leading-relaxed mb-10 max-w-xl">
               Hampshire's fencing specialists. Residential, commercial, agricultural and security fencing installed to the highest standard — on time, every time.
@@ -156,7 +156,7 @@ export default function ABGroupFencing() {
               <p className="text-[#16a34a] text-xs font-bold uppercase tracking-[0.25em] mb-4">About The Division</p>
               <h2 className="text-4xl md:text-5xl font-display font-bold text-white uppercase leading-tight mb-6">Boundaries Done<br />Properly</h2>
               <p className="text-white/60 leading-relaxed mb-6">
-                AB Fencing Solutions Ltd is the fencing and boundary division of The AB Group — delivering high-quality fencing installations across Hampshire for residential homeowners, farmers and commercial developers alike.
+                AB Fencing Solutions is the fencing and boundary division of our group — delivering high-quality fencing installations across Hampshire for residential homeowners, farmers and commercial developers alike.
               </p>
               <p className="text-white/60 leading-relaxed mb-10">
                 Whether you need a decorative garden fence, a high-security perimeter system or miles of agricultural stock fencing, our directly employed operatives bring craftsmanship and reliability to every post.

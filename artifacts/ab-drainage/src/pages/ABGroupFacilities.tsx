@@ -97,8 +97,8 @@ export default function ABGroupFacilities() {
   return (
     <>
       <SEO
-        title="AB Facilities Management Ltd | Building & Facilities Management | Hampshire"
-        description="AB Facilities Management Ltd — Hampshire's facilities management specialists. Planned maintenance, reactive callouts, compliance, multi-site management. Part of The AB Group."
+        title="AB Facilities Management | Building & Facilities Management | Hampshire"
+        description="AB Facilities Management — Hampshire's facilities management specialists. Planned maintenance, reactive callouts, compliance, multi-site management."
         canonicalUrl="/ab-group/facilities"
       />
 
@@ -113,18 +113,18 @@ export default function ABGroupFacilities() {
         <div className="relative z-10 container mx-auto px-4 lg:px-8 pb-28 pt-16">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} className="max-w-3xl">
             <Link href="/ab-group" className="inline-flex items-center gap-2 text-white/50 hover:text-white text-xs font-bold uppercase tracking-[0.2em] mb-8 transition-colors">
-              <ChevronLeft size={14} /> The AB Group
+              <ChevronLeft size={14} /> Other Services
             </Link>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-1 h-12 bg-slate-400" />
               <div>
-                <p className="text-slate-400 text-xs font-bold uppercase tracking-[0.25em]">The AB Group</p>
+                <p className="text-slate-400 text-xs font-bold uppercase tracking-[0.25em]">Other Services</p>
                 <p className="text-white/40 text-xs uppercase tracking-[0.18em]">Facilities Division</p>
               </div>
             </div>
             <h1 className="text-5xl md:text-7xl xl:text-8xl font-display font-black uppercase text-white leading-[0.9] mb-6 relative">
               <span className="relative">AB Facilities<span className="absolute -inset-x-8 -inset-y-10 bg-black/50 blur-3xl rounded-3xl -z-10" /></span>
-              <br /><span className="text-slate-400">Management Ltd</span>
+              <br /><span className="text-slate-400">Management</span>
             </h1>
             <p className="text-xl text-white/70 leading-relaxed mb-10 max-w-xl">
               Hampshire's trusted facilities management partner. Keeping commercial buildings safe, compliant and operating at their best — every day.
@@ -159,7 +159,7 @@ export default function ABGroupFacilities() {
               <p className="text-slate-400 text-xs font-bold uppercase tracking-[0.25em] mb-4">About The Division</p>
               <h2 className="text-4xl md:text-5xl font-display font-bold text-white uppercase leading-tight mb-6">Buildings That<br />Work Better</h2>
               <p className="text-white/60 leading-relaxed mb-6">
-                AB Facilities Management Ltd is the FM arm of The AB Group — delivering comprehensive building and facilities management services to commercial, public sector and multi-site clients across Hampshire.
+                AB Facilities Management delivers comprehensive building and facilities management services to commercial, public sector and multi-site clients across Hampshire.
               </p>
               <p className="text-white/60 leading-relaxed mb-10">
                 We take the complexity out of running and maintaining commercial premises, acting as your dedicated partner from day-to-day reactive works through to long-term strategic asset planning.
