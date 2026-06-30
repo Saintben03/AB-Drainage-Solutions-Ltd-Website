@@ -77,114 +77,159 @@ export default function Home() {
       />
 
       {/* ── HERO (dark) ── */}
-      <section className="relative md:min-h-[80vh] flex flex-col md:items-center md:justify-center md:pt-28 md:pb-20 overflow-hidden pt-10 pb-0">
-        {/* Desktop-only background image */}
-        <div className="absolute inset-0 z-0 hidden md:block">
-          <img src={heroImg} alt="A&B Drainage Solutions Ltd Fleet" className="w-full h-full object-cover object-center animate-heropan saturate-[1.6] brightness-[1.12] contrast-[1.15]" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/15 to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-l from-[#5392B6]/8 via-[#5392B6]/2 to-transparent" style={{ mixBlendMode: "multiply" }}></div>
-        </div>
-        {/* Mobile-only solid dark bg so text is always legible */}
-        <div className="absolute inset-0 z-0 bg-background md:hidden"></div>
+      <section className="relative overflow-hidden bg-background">
 
-        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px hidden md:block" fill="#e0f2fe" />
+        {/* ── Mobile hero (stacked: image top, text bottom) ── */}
+        <div className="md:hidden flex flex-col">
+          {/* Van image — top of hero on mobile */}
+          <div className="relative w-full h-52 shrink-0">
+            <img
+              src={heroImg}
+              alt="A&B Drainage Solutions Ltd fleet of vans"
+              className="w-full h-full object-cover object-[62%_55%] saturate-[1.5] brightness-[1.1] contrast-[1.1]"
+            />
+            {/* fade bottom edge into the dark text area below */}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/90" />
+          </div>
 
-        <div className="container mx-auto px-4 relative z-10 pb-8 md:pb-0">
-          <div className="max-w-3xl relative">
-            <div className="absolute -inset-x-8 -inset-y-10 bg-black/50 blur-3xl rounded-3xl -z-10 pointer-events-none" aria-hidden="true"></div>
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-accent text-[10px] sm:text-xs font-bold uppercase tracking-[0.12em] sm:tracking-[0.25em] mb-5 flex items-center gap-3"
-            >
+          {/* Text content */}
+          <div className="px-4 pt-6 pb-10">
+            <p className="text-accent text-[10px] font-bold uppercase tracking-[0.12em] mb-4 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse inline-block"></span>
               Hampshire's Drainage Specialists — 33 Years Experience
-            </motion.p>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.08 }}
-              className="text-4xl sm:text-5xl md:text-7xl font-display font-bold text-white leading-[1.05] mb-6 uppercase [text-shadow:0_2px_20px_rgba(0,0,0,0.9),0_1px_4px_rgba(0,0,0,0.7)]"
-            >
-              The Drain Experts{" "}
-              <span className="text-accent">Hampshire</span>{" "}
-              Relies On.
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.16 }}
-              className="text-lg md:text-xl text-white/85 mb-8 max-w-xl leading-relaxed [text-shadow:0_1px_8px_rgba(0,0,0,0.8)]"
-            >
+            </p>
+            <h1 className="text-4xl font-display font-bold text-white leading-[1.05] mb-4 uppercase [text-shadow:0_2px_20px_rgba(0,0,0,0.9)]">
+              The Drain Experts <span className="text-accent">Hampshire</span> Relies On.
+            </h1>
+            <p className="text-base text-white/80 mb-6 leading-relaxed">
               Blocked drain? Sewage backing up? We answer at 2am and arrive typically within 1 hour. 33 years solving Hampshire's toughest drainage problems.
-            </motion.p>
-
-            <motion.a
+            </p>
+            <a
               href={REVIEWS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.22 }}
-              className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 hover:border-white/40 px-5 py-3 rounded-lg mb-8 transition-all"
+              className="inline-flex items-center gap-3 bg-white/10 border border-white/20 px-4 py-2.5 rounded-lg mb-6 transition-all"
             >
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={16} className="text-yellow-400 fill-yellow-400" />
+                  <Star key={i} size={14} className="text-yellow-400 fill-yellow-400" />
                 ))}
               </div>
               <span className="text-white font-bold text-sm">Rated Excellent</span>
-              <span className="text-white/60 text-sm">· See our reviews</span>
-              <ExternalLink size={14} className="text-white/60" />
-            </motion.a>
-
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.28 }}
-              className="flex flex-col sm:flex-row gap-4 mb-12"
-            >
+              <ExternalLink size={13} className="text-white/60" />
+            </a>
+            <div className="flex flex-col gap-3 mb-6">
               <a
                 href="tel:01256688650"
-                className="bg-accent hover:bg-accent/90 text-white px-8 py-5 text-lg font-bold uppercase tracking-wider flex items-center justify-center gap-3 transition-all"
+                className="bg-accent text-white px-6 py-4 text-base font-bold uppercase tracking-wider flex items-center justify-center gap-3"
               >
-                <Phone size={22} />
-                Call 01256 688 650
+                <Phone size={20} /> Call 01256 688 650
               </a>
               <Link
                 href="/services"
-                className="bg-transparent border-2 border-white/30 hover:border-white text-white px-8 py-5 text-lg font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all"
+                className="border-2 border-white/30 text-white px-6 py-4 text-base font-bold uppercase tracking-wider flex items-center justify-center gap-2"
               >
-                Our Services <ArrowRight size={20} />
+                Our Services <ArrowRight size={18} />
               </Link>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-wrap gap-4 sm:gap-8 text-[10px] sm:text-sm font-bold text-white/70 uppercase tracking-wide sm:tracking-widest"
-            >
-              <span className="flex items-center gap-2"><Clock size={15} className="text-accent" /> 1 Hour ETA</span>
-              <span className="flex items-center gap-2"><ShieldCheck size={15} className="text-accent" /> 33+ Yrs Exp</span>
-              <span className="flex items-center gap-2"><MapPin size={15} className="text-accent" /> Hampshire Wide</span>
-            </motion.div>
+            </div>
+            <div className="flex gap-5 text-[10px] font-bold text-white/60 uppercase tracking-wide">
+              <span className="flex items-center gap-1.5"><Clock size={13} className="text-accent" /> 1 Hour ETA</span>
+              <span className="flex items-center gap-1.5"><ShieldCheck size={13} className="text-accent" /> 33+ Yrs Exp</span>
+              <span className="flex items-center gap-1.5"><MapPin size={13} className="text-accent" /> Hampshire Wide</span>
+            </div>
           </div>
         </div>
 
-        {/* Mobile-only van image panel */}
-        <div className="md:hidden relative w-full mt-6 z-10">
-          <img
-            src={heroImg}
-            alt="A&B Drainage Solutions Ltd fleet of vans"
-            className="w-full h-56 object-cover object-[60%_55%] saturate-[1.5] brightness-[1.1] contrast-[1.1]"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+        {/* ── Desktop hero (background image) ── */}
+        <div className="hidden md:block relative min-h-[80vh] flex items-center pt-28 pb-20">
+          <div className="absolute inset-0 z-0">
+            <img src={heroImg} alt="A&B Drainage Solutions Ltd Fleet" className="w-full h-full object-cover object-center animate-heropan saturate-[1.6] brightness-[1.12] contrast-[1.15]" />
+            <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/15 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-l from-[#5392B6]/8 via-[#5392B6]/2 to-transparent" style={{ mixBlendMode: "multiply" }}></div>
+          </div>
           <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#e0f2fe" />
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-3xl relative">
+              <div className="absolute -inset-x-8 -inset-y-10 bg-black/50 blur-3xl rounded-3xl -z-10 pointer-events-none" aria-hidden="true"></div>
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-5 flex items-center gap-3"
+              >
+                <span className="w-2 h-2 rounded-full bg-accent animate-pulse inline-block"></span>
+                Hampshire's Drainage Specialists — 33 Years Experience
+              </motion.p>
+              <motion.h1
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.55, delay: 0.08 }}
+                className="text-5xl md:text-7xl font-display font-bold text-white leading-[1.05] mb-6 uppercase [text-shadow:0_2px_20px_rgba(0,0,0,0.9),0_1px_4px_rgba(0,0,0,0.7)]"
+              >
+                The Drain Experts{" "}
+                <span className="text-accent">Hampshire</span>{" "}
+                Relies On.
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.55, delay: 0.16 }}
+                className="text-xl text-white/85 mb-8 max-w-xl leading-relaxed [text-shadow:0_1px_8px_rgba(0,0,0,0.8)]"
+              >
+                Blocked drain? Sewage backing up? We answer at 2am and arrive typically within 1 hour. 33 years solving Hampshire's toughest drainage problems.
+              </motion.p>
+              <motion.a
+                href={REVIEWS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.22 }}
+                className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 hover:border-white/40 px-5 py-3 rounded-lg mb-8 transition-all"
+              >
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={16} className="text-yellow-400 fill-yellow-400" />
+                  ))}
+                </div>
+                <span className="text-white font-bold text-sm">Rated Excellent</span>
+                <span className="text-white/60 text-sm">· See our reviews</span>
+                <ExternalLink size={14} className="text-white/60" />
+              </motion.a>
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.55, delay: 0.28 }}
+                className="flex flex-row gap-4 mb-12"
+              >
+                <a
+                  href="tel:01256688650"
+                  className="bg-accent hover:bg-accent/90 text-white px-8 py-5 text-lg font-bold uppercase tracking-wider flex items-center justify-center gap-3 transition-all"
+                >
+                  <Phone size={22} />
+                  Call 01256 688 650
+                </a>
+                <Link
+                  href="/services"
+                  className="bg-transparent border-2 border-white/30 hover:border-white text-white px-8 py-5 text-lg font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all"
+                >
+                  Our Services <ArrowRight size={20} />
+                </Link>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="flex flex-wrap gap-8 text-sm font-bold text-white/70 uppercase tracking-widest"
+              >
+                <span className="flex items-center gap-2"><Clock size={15} className="text-accent" /> 1 Hour ETA</span>
+                <span className="flex items-center gap-2"><ShieldCheck size={15} className="text-accent" /> 33+ Yrs Exp</span>
+                <span className="flex items-center gap-2"><MapPin size={15} className="text-accent" /> Hampshire Wide</span>
+              </motion.div>
+            </div>
+          </div>
         </div>
+
       </section>
 
       {/* ── TRUSTED BY (light band, animated wave at its base) ── */}

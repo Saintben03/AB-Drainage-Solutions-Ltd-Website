@@ -50,11 +50,15 @@ export const Navbar = () => {
 
   useEffect(() => {
     const measure = () => {
-      if (headerRef.current) setHeaderHeight(headerRef.current.getBoundingClientRect().height);
+      if (headerRef.current) setHeaderHeight(headerRef.current.getBoundingClientRect().bottom);
     };
     measure();
     window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
+    window.addEventListener("scroll", measure, { passive: true });
+    return () => {
+      window.removeEventListener("resize", measure);
+      window.removeEventListener("scroll", measure);
+    };
   }, []);
 
   useEffect(() => {
