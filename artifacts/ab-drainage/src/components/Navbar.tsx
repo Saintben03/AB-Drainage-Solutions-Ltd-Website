@@ -295,12 +295,26 @@ export const Navbar = () => {
                 <Phone size={19} />
                 <span className="hidden sm:inline text-sm font-bold uppercase tracking-wider">Emergency</span>
               </a>
+
+              {/* Bordered hamburger — hair salon style, mobile only */}
               <button
-                className="text-foreground p-1.5 hover:text-accent transition-colors"
+                className={`w-[44px] h-[44px] border flex flex-col items-center justify-center gap-[5px] transition-all duration-200 shrink-0 ${
+                  mobileMenuOpen
+                    ? "border-accent bg-accent/5"
+                    : "border-foreground/25 hover:border-accent"
+                }`}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle menu"
               >
-                {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+                {mobileMenuOpen ? (
+                  <X size={20} className="text-accent" />
+                ) : (
+                  <>
+                    <span className="w-[22px] h-[2px] bg-foreground block"></span>
+                    <span className="w-[22px] h-[2px] bg-accent block"></span>
+                    <span className="w-[22px] h-[2px] bg-foreground block"></span>
+                  </>
+                )}
               </button>
             </div>
           </div>
