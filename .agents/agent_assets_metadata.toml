@@ -96,6 +96,84 @@ uri = "file://attached_assets/fencing/fence-whyus-garden.png"
 type = "image"
 title = "garden green lawn modern fence patio"
 
+[[generated]]
+id = "rnWMWefktcl9GFrfnzjQY"
+uri = "file://attached_assets/construction/const-about.png"
+type = "image"
+title = "construction team groundworks about"
+
+[[generated]]
+id = "SnXEhzPx8QL12520gIPxp"
+uri = "file://attached_assets/construction/const-gallery-excavation.png"
+type = "image"
+title = "excavator digging foundations"
+
+[[generated]]
+id = "hwRxuzWdqjp0Oh-Vne7g1"
+uri = "file://attached_assets/facilities/fac-about.png"
+type = "image"
+title = "facilities manager commercial building"
+
+[[generated]]
+id = "D2o55YHrJJNR7RanjRIjm"
+uri = "file://attached_assets/construction/const-gallery-concrete.png"
+type = "image"
+title = "concrete foundation pour"
+
+[[generated]]
+id = "7Oam8k3ZmgRxOWhRhYJfq"
+uri = "file://attached_assets/construction/const-gallery-road.png"
+type = "image"
+title = "tarmac road laying roller"
+
+[[generated]]
+id = "99WXfZXQmAvY2oscZv4so"
+uri = "file://attached_assets/construction/const-gallery-steelframe.png"
+type = "image"
+title = "steel frame structural erection"
+
+[[generated]]
+id = "beZFjBXSQgJoSngpKLO1W"
+uri = "file://attached_assets/facilities/fac-gallery-grounds.png"
+type = "image"
+title = "grounds maintenance commercial building"
+
+[[generated]]
+id = "YTT6eU6Lo9YVj0E--r06f"
+uri = "file://attached_assets/facilities/fac-gallery-electrical.png"
+type = "image"
+title = "commercial electrical maintenance"
+
+[[generated]]
+id = "mUmpc6r7pQP0IS4nP9WPd"
+uri = "file://attached_assets/construction/const-gallery-hardstanding.png"
+type = "image"
+title = "completed concrete hardstanding"
+
+[[generated]]
+id = "AZ7c5olZYngPfUjTsMNpS"
+uri = "file://attached_assets/construction/const-gallery-brickwork.png"
+type = "image"
+title = "brickwork cavity wall construction"
+
+[[generated]]
+id = "CrGGuoHtDP6CfaK8dkeYH"
+uri = "file://attached_assets/construction/const-whyus.png"
+type = "image"
+title = "completed commercial development aerial"
+
+[[generated]]
+id = "6R0S3CQTbqGgqodpuHCM-"
+uri = "file://attached_assets/facilities/fac-gallery-kitchen.png"
+type = "image"
+title = "commercial kitchen deep clean"
+
+[[generated]]
+id = "VCAPVeQHD751ht_0ag05D"
+uri = "file://attached_assets/facilities/fac-whyus.png"
+type = "image"
+title = "modern office building golden hour"
+
 [[outputs]]
 id = "XDj-vFcGSpHIPNB20N4wa"
 uri = "file://attached_assets/site_files_1/AB Drainage background.png"

@@ -4,12 +4,16 @@ import { ArrowRight, Phone, Mail, CheckCircle2, Wrench, ClipboardCheck, Building
 import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
 
-import img2 from "@assets/ab_group_gallery/worker-9.33.26.jpeg";
-import img3 from "@assets/ab_group_gallery/worker-9.33.28.jpeg";
-import img4 from "@assets/ab_group_gallery/worker-9.33.30.jpeg";
-import img5 from "@assets/ab_group_gallery/worker-9.33.34.jpeg";
-import img6 from "@assets/ab_group_gallery/worker-9.33.36.jpeg";
-import imgWork from "@assets/site_files_1/survey-01a.jpg";
+import imgAbout      from "@assets/facilities/fac-about.png";
+import imgGCleaning  from "@assets/facilities/fac-gallery-cleaning.png";
+import imgGHvac      from "@assets/facilities/fac-gallery-hvac.png";
+import imgGGrounds   from "@assets/facilities/fac-gallery-grounds.png";
+import imgGElec      from "@assets/facilities/fac-gallery-electrical.png";
+import imgGLobby     from "@assets/facilities/fac-gallery-lobby.png";
+import imgGSecurity  from "@assets/facilities/fac-gallery-security.png";
+import imgGFire      from "@assets/facilities/fac-gallery-fire.png";
+import imgGKitchen   from "@assets/facilities/fac-gallery-kitchen.png";
+import imgWhyUs      from "@assets/facilities/fac-whyus.png";
 
 const heroImg = "https://images.unsplash.com/photo-1497366216548-37526070297c?w=2560&q=90&auto=format&fit=crop";
 
@@ -50,12 +54,14 @@ const services = [
 ];
 
 const gallery = [
-  { src: heroImg, caption: "Commercial building management — AB Facilities" },
-  { src: img2, caption: "Highly skilled facilities engineers" },
-  { src: img3, caption: "On-site inspection and compliance checks" },
-  { src: img4, caption: "Planned maintenance works in progress" },
-  { src: img5, caption: "Full PPE compliance on every visit" },
-  { src: img6, caption: "AB Facilities Management — Hampshire and beyond" },
+  { src: imgGCleaning,  caption: "Commercial office deep clean" },
+  { src: imgGHvac,      caption: "HVAC and air conditioning maintenance" },
+  { src: imgGGrounds,   caption: "Commercial grounds maintenance" },
+  { src: imgGElec,      caption: "Electrical distribution board servicing" },
+  { src: imgGLobby,     caption: "Lobby and reception upkeep" },
+  { src: imgGSecurity,  caption: "CCTV and access control installation" },
+  { src: imgGFire,      caption: "Fire system compliance inspection" },
+  { src: imgGKitchen,   caption: "Commercial kitchen deep clean" },
 ];
 
 const whyUs = [
@@ -168,7 +174,7 @@ export default function ABGroupFacilities() {
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
-              <img src={imgWork} alt="AB Facilities team inspection" className="w-full aspect-[4/3] object-cover" draggable={false} />
+              <img src={imgAbout} alt="AB Facilities Management — commercial building" className="w-full aspect-[4/3] object-cover" draggable={false} />
               <div className="absolute -bottom-4 -left-4 bg-slate-600 text-white p-6 hidden md:block">
                 <p className="text-2xl font-display font-black uppercase">ISO</p>
                 <p className="text-xs uppercase tracking-[0.15em] text-white/80">Standards</p>
@@ -210,9 +216,9 @@ export default function ABGroupFacilities() {
             <p className="text-slate-400 text-xs font-bold uppercase tracking-[0.25em] mb-3">Meet The Team</p>
             <h2 className="text-4xl md:text-5xl font-display font-bold text-white uppercase">Our People</h2>
           </motion.div>
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             {gallery.map((item, i) => (
-              <motion.div key={i} initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.07 }} className={`relative overflow-hidden group ${i === 0 ? "col-span-2 lg:col-span-1 row-span-2" : ""}`}>
+              <motion.div key={i} initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.07 }} className="relative overflow-hidden group">
                 <img src={item.src} alt={item.caption} className="w-full h-full object-cover aspect-square group-hover:scale-105 transition-transform duration-700" draggable={false} />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                   <p className="text-white text-xs font-bold uppercase tracking-wide">{item.caption}</p>
@@ -245,7 +251,7 @@ export default function ABGroupFacilities() {
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-              <img src={img4} alt="AB Facilities management on site" className="w-full aspect-[4/3] object-cover" draggable={false} />
+              <img src={imgWhyUs} alt="Modern commercial building — AB Facilities" className="w-full aspect-[4/3] object-cover" draggable={false} />
             </motion.div>
           </div>
         </div>

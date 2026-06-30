@@ -4,12 +4,16 @@ import { ArrowRight, Phone, Mail, CheckCircle2, HardHat, Shovel, Layers, Truck, 
 import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
 
-import imgTeam from "@assets/ab_group_gallery/worker-9.33.34.jpeg";
-import img2 from "@assets/site_files_1/groundwork-01b.jpg";
-import img3 from "@assets/site_files_1/groundwork-01c.jpg";
-import img4 from "@assets/site_files_1/pipeline-01a.jpg";
-import img5 from "@assets/site_files_1/pipeline-01b.jpg";
-import img6 from "@assets/site_files_1/drainage-01a.jpg";
+import imgAbout      from "@assets/construction/const-about.png";
+import imgGExcavation from "@assets/construction/const-gallery-excavation.png";
+import imgGConcrete   from "@assets/construction/const-gallery-concrete.png";
+import imgGRoad       from "@assets/construction/const-gallery-road.png";
+import imgGSteel      from "@assets/construction/const-gallery-steelframe.png";
+import imgGClearance  from "@assets/construction/const-gallery-clearance.png";
+import imgGRetaining  from "@assets/construction/const-gallery-retaining.png";
+import imgGHardstand  from "@assets/construction/const-gallery-hardstanding.png";
+import imgGBrickwork  from "@assets/construction/const-gallery-brickwork.png";
+import imgWhyUs       from "@assets/construction/const-whyus.png";
 
 const heroImg = "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=2560&q=90&auto=format&fit=crop";
 
@@ -48,12 +52,14 @@ const services = [
 ];
 
 const gallery = [
-  { src: heroImg, caption: "Site works — construction in progress" },
-  { src: img2, caption: "Excavation and foundation preparation underway" },
-  { src: img3, caption: "Site reinstatement following civil engineering works" },
-  { src: img4, caption: "Pipeline installation as part of a major civil contract" },
-  { src: img5, caption: "Specialist pipeline works — full reinstatement and testing" },
-  { src: img6, caption: "Infrastructure works completed to programme and specification" },
+  { src: imgGExcavation, caption: "Excavation and foundation preparation" },
+  { src: imgGConcrete,   caption: "Reinforced concrete foundation pour" },
+  { src: imgGRoad,       caption: "Tarmac road construction and surfacing" },
+  { src: imgGSteel,      caption: "Structural steel frame erection" },
+  { src: imgGClearance,  caption: "Site clearance and land preparation" },
+  { src: imgGRetaining,  caption: "Retaining wall and blockwork construction" },
+  { src: imgGHardstand,  caption: "Completed commercial hardstanding" },
+  { src: imgGBrickwork,  caption: "Brick and blockwork cavity wall construction" },
 ];
 
 const whyUs = [
@@ -164,7 +170,7 @@ export default function ABGroupConstruction() {
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
-              <img src={imgTeam} alt="AB Construction team on site" className="w-full aspect-[4/3] object-cover" draggable={false} />
+              <img src={imgAbout} alt="AB Construction civil engineering team on site" className="w-full aspect-[4/3] object-cover" draggable={false} />
               <div className="absolute -bottom-4 -left-4 bg-[#dc2626] text-white p-6 hidden md:block">
                 <p className="text-2xl font-display font-black uppercase">CDM</p>
                 <p className="text-xs uppercase tracking-[0.15em] text-white/80">Compliant</p>
@@ -206,9 +212,9 @@ export default function ABGroupConstruction() {
             <p className="text-[#dc2626] text-xs font-bold uppercase tracking-[0.25em] mb-3">Project Portfolio</p>
             <h2 className="text-4xl md:text-5xl font-display font-bold text-white uppercase">Our Work</h2>
           </motion.div>
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             {gallery.map((item, i) => (
-              <motion.div key={i} initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.07 }} className={`relative overflow-hidden group ${i === 0 ? "col-span-2 lg:col-span-1 row-span-2" : ""}`}>
+              <motion.div key={i} initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.07 }} className="relative overflow-hidden group">
                 <img src={item.src} alt={item.caption} className="w-full h-full object-cover aspect-square group-hover:scale-105 transition-transform duration-700" draggable={false} />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                   <p className="text-white text-xs font-bold uppercase tracking-wide">{item.caption}</p>
@@ -241,7 +247,7 @@ export default function ABGroupConstruction() {
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-              <img src={img5} alt="AB Construction pipeline works" className="w-full aspect-[4/3] object-cover" draggable={false} />
+              <img src={imgWhyUs} alt="Completed commercial development — AB Construction" className="w-full aspect-[4/3] object-cover" draggable={false} />
             </motion.div>
           </div>
         </div>
