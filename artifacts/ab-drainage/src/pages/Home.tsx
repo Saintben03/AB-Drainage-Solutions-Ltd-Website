@@ -142,7 +142,7 @@ export default function Home() {
         </div>
 
         {/* ── Desktop hero (background image) ── */}
-        <div className="hidden md:flex relative min-h-[62vh] items-center pt-20 pb-16">
+        <div className="hidden md:flex relative min-h-[80vh] items-center pt-20 pb-16">
           <div className="absolute inset-0 z-0">
             <img src={heroImg} alt="A&B Drainage Solutions Ltd Fleet" className="w-full h-full object-cover object-center animate-heropan saturate-[1.6] brightness-[1.12] contrast-[1.15]" />
             <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/15 to-transparent"></div>
