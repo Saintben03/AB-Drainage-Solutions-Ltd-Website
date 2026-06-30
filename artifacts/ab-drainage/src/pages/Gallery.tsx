@@ -56,7 +56,7 @@ export default function Gallery() {
       />
 
       {/* ── HERO (dark) ── */}
-      <section className="relative overflow-hidden min-h-[58vh] flex items-center pt-28 pb-20">
+      <section className="relative overflow-hidden min-h-[80vh] flex items-center pt-28 pb-20">
         <div className="absolute inset-0 z-0">
           <img src={heroImg} alt="A&B Drainage fleet and engineers" className="w-full h-full object-cover object-center animate-heropan saturate-[1.45] brightness-[1.08] contrast-[1.12]" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/55 to-transparent"></div>
