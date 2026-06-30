@@ -41,3 +41,9 @@ id = "XDj-vFcGSpHIPNB20N4wa"
 uri = "file://attached_assets/site_files_1/AB Drainage background.png"
 type = "image"
 title = "Original fleet hero photo (full resolution)"
+
+[[outputs]]
+id = "4W4gnb53mEhWTaPJDcAAa"
+uri = "file://attached_assets/site_files_1/AB Drainage background_logos.jpg"
+type = "image"
+title = "Hero image — AB Drainage background_logos.jpg"
