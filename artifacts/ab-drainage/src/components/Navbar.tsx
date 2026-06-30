@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Phone, Smartphone, Mail, Menu, X, ArrowRight, ExternalLink } from "lucide-react";
+import { Phone, Smartphone, Mail, Menu, X, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import logoMain from "@assets/site_files_1/AB Drainage logo.png";
@@ -33,7 +33,7 @@ export const Navbar = () => {
     { name: "Contact", href: "/contact" },
   ];
 
-  const groupLink = { name: "AB Group", href: "https://ab-group.uk/services/" };
+  const groupLink = { name: "The AB Group", href: "/#ab-group" };
 
   return (
     <>
@@ -147,12 +147,9 @@ export const Navbar = () => {
               })}
               <a
                 href={groupLink.href}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="whitespace-nowrap text-[13px] xl:text-sm font-bold uppercase tracking-tight xl:tracking-wide text-foreground/80 hover:text-accent transition-colors relative group flex items-center gap-1.5"
               >
                 {groupLink.name}
-                <ExternalLink size={13} className="text-accent shrink-0" />
                 <span className="absolute -bottom-1 left-0 h-0.5 bg-accent transition-all duration-300 w-0 group-hover:w-full"></span>
               </a>
             </nav>
@@ -240,13 +237,11 @@ export const Navbar = () => {
                 >
                   <a
                     href={groupLink.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center justify-between bg-card px-6 py-5 text-xl font-display uppercase font-bold border-l-4 border-transparent text-foreground hover:border-accent hover:text-accent transition-colors"
                   >
                     {groupLink.name}
-                    <ExternalLink size={18} className="text-accent opacity-60" />
+                    <ArrowRight size={18} className="text-accent opacity-60" />
                   </a>
                 </motion.div>
               </nav>

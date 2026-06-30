@@ -406,6 +406,167 @@ export default function Home() {
         ))}
       </div>
 
+      {/* ── THE AB GROUP ── */}
+      <section id="ab-group" className="py-24 bg-zinc-950 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-[#5392B6]/5 blur-3xl"></div>
+          <div className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full bg-accent/5 blur-3xl"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-16"
+          >
+            <p className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-4">Part of Something Bigger</p>
+            <h2 className="text-4xl md:text-6xl font-display font-bold text-white uppercase leading-tight mb-6">
+              The <span className="text-accent">AB Group</span>
+            </h2>
+            <p className="text-lg text-white/60 max-w-2xl mx-auto">
+              A&B Drainage Solutions is one of four specialist divisions within the AB Group — 33 years of combined expertise across drainage, construction, fencing and facilities management.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1 } } }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          >
+            {/* Construction */}
+            <motion.div
+              variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
+              className="bg-zinc-900 border border-zinc-800 flex flex-col group hover:border-red-600/40 transition-colors duration-300"
+            >
+              <div className="h-1.5 bg-red-600 w-full"></div>
+              <div className="p-8 flex flex-col flex-1">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 bg-red-600/10 border border-red-600/30 flex items-center justify-center shrink-0">
+                    <span className="text-red-500 font-display font-bold text-lg">AB</span>
+                  </div>
+                  <div>
+                    <p className="text-red-500 text-[10px] font-bold uppercase tracking-[0.2em]">Division</p>
+                    <h3 className="text-white font-display font-bold text-xl uppercase leading-tight">Construction<br />Solutions Ltd</h3>
+                  </div>
+                </div>
+                <p className="text-white/55 text-sm leading-relaxed mb-8">
+                  Reliable construction solutions with clear communication, strong project oversight and skilled workmanship across sites of every scale — residential, commercial and infrastructure.
+                </p>
+                <ul className="space-y-2.5 mt-auto">
+                  {["Commercial Construction", "Residential Projects", "Project Management", "Specialist Labour Supply", "Site RAMS & Method Statements", "Health &amp; Safety Advice"].map((s) => (
+                    <li key={s} className="flex items-center gap-2.5 text-sm text-white/75">
+                      <span className="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0"></span>
+                      <span dangerouslySetInnerHTML={{ __html: s }} />
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-8 pt-6 border-t border-zinc-800">
+                  <a href="https://ab-constructionltd.uk/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-red-500 hover:text-red-400 text-xs font-bold uppercase tracking-[0.15em] transition-colors">
+                    Visit Site <ArrowRight size={13} />
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Fencing */}
+            <motion.div
+              variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
+              className="bg-zinc-900 border border-zinc-800 flex flex-col group hover:border-green-600/40 transition-colors duration-300"
+            >
+              <div className="h-1.5 bg-green-600 w-full"></div>
+              <div className="p-8 flex flex-col flex-1">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 bg-green-600/10 border border-green-600/30 flex items-center justify-center shrink-0">
+                    <span className="text-green-500 font-display font-bold text-lg">AB</span>
+                  </div>
+                  <div>
+                    <p className="text-green-500 text-[10px] font-bold uppercase tracking-[0.2em]">Division</p>
+                    <h3 className="text-white font-display font-bold text-xl uppercase leading-tight">Fencing<br />Solutions Ltd</h3>
+                  </div>
+                </div>
+                <p className="text-white/55 text-sm leading-relaxed mb-8">
+                  Expert fencing and landscaping services tailored to homes and businesses nationwide — durable, well-crafted and designed to enhance outdoor spaces with a practical, no-nonsense approach.
+                </p>
+                <ul className="space-y-2.5 mt-auto">
+                  {["Secure Fencing Installations", "Garden Landscaping", "Pathway &amp; Patio Laying", "Boundary Solutions", "Outdoor Design &amp; Planning", "Nationwide Coverage"].map((s) => (
+                    <li key={s} className="flex items-center gap-2.5 text-sm text-white/75">
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0"></span>
+                      <span dangerouslySetInnerHTML={{ __html: s }} />
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-8 pt-6 border-t border-zinc-800">
+                  <a href="https://ab-fencing.uk/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-green-500 hover:text-green-400 text-xs font-bold uppercase tracking-[0.15em] transition-colors">
+                    Visit Site <ArrowRight size={13} />
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Facilities */}
+            <motion.div
+              variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
+              className="bg-zinc-900 border border-zinc-800 flex flex-col group hover:border-slate-400/40 transition-colors duration-300"
+            >
+              <div className="h-1.5 bg-slate-400 w-full"></div>
+              <div className="p-8 flex flex-col flex-1">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 bg-slate-400/10 border border-slate-400/30 flex items-center justify-center shrink-0">
+                    <span className="text-slate-300 font-display font-bold text-lg">AB</span>
+                  </div>
+                  <div>
+                    <p className="text-slate-400 text-[10px] font-bold uppercase tracking-[0.2em]">Division</p>
+                    <h3 className="text-white font-display font-bold text-xl uppercase leading-tight">Facilities<br />Management Ltd</h3>
+                  </div>
+                </div>
+                <p className="text-white/55 text-sm leading-relaxed mb-8">
+                  Safe and compliant facilities management keeping commercial buildings operating efficiently — from planned maintenance programmes to rapid reactive support and ongoing compliance solutions.
+                </p>
+                <ul className="space-y-2.5 mt-auto">
+                  {["Planned Maintenance", "Reactive Callouts", "Compliance &amp; Safety Checks", "Multi-Site Management", "Efficiency Monitoring", "Reporting &amp; Transparency"].map((s) => (
+                    <li key={s} className="flex items-center gap-2.5 text-sm text-white/75">
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0"></span>
+                      <span dangerouslySetInnerHTML={{ __html: s }} />
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-8 pt-6 border-t border-zinc-800">
+                  <a href="https://ab-facilities.uk/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-slate-400 hover:text-slate-300 text-xs font-bold uppercase tracking-[0.15em] transition-colors">
+                    Visit Site <ArrowRight size={13} />
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* AB Group banner */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="mt-12 bg-zinc-900 border border-zinc-800 p-8 flex flex-col md:flex-row items-center justify-between gap-6"
+          >
+            <div>
+              <p className="text-[#5392B6] text-xs font-bold uppercase tracking-[0.2em] mb-1">Currently Viewing</p>
+              <h4 className="text-white font-display font-bold text-xl uppercase">A&amp;B Drainage Solutions Ltd — Part of the AB Group</h4>
+              <p className="text-white/50 text-sm mt-1">Hampshire's leading drainage specialists for over 33 years. Rapid response, 24/7.</p>
+            </div>
+            <a
+              href="https://ab-group.uk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border border-white/20 hover:border-accent text-white hover:text-accent px-8 py-4 font-bold uppercase tracking-wider text-sm transition-all shrink-0"
+            >
+              Visit AB Group <ArrowRight size={15} />
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
       {/* ── FINAL CTA (dark) ── */}
       <section className="py-24 bg-background relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10 text-center max-w-3xl">
