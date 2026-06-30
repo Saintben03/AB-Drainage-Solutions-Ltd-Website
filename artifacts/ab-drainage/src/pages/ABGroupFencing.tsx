@@ -5,13 +5,14 @@ import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
 import { WaterWave } from "@/components/WaterWave";
 
-import heroImg from "@assets/site_files_1/g-01f.jpg";
-import img2 from "@assets/site_files_1/g-01g.jpg";
-import img3 from "@assets/site_files_1/g-01h.jpg";
-import img4 from "@assets/site_files_1/g-01t.jpg";
-import img5 from "@assets/site_files_1/g-01u.jpg";
-import img6 from "@assets/site_files_1/g-01m.jpg";
 import imgTeam from "@assets/ab_group_gallery/worker-9.33.26.jpeg";
+
+const heroImg = "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=85&auto=format&fit=crop";
+const img2 = "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=900&q=80&auto=format&fit=crop";
+const img3 = "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=900&q=80&auto=format&fit=crop";
+const img4 = "https://images.unsplash.com/photo-1572971373006-5a7a2b5dcd37?w=900&q=80&auto=format&fit=crop";
+const img5 = "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=900&q=80&auto=format&fit=crop";
+const img6 = "https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=900&q=80&auto=format&fit=crop";
 
 const ACCENT = "#16a34a";
 
@@ -49,12 +50,12 @@ const services = [
 ];
 
 const gallery = [
-  { src: heroImg, caption: "AB Fencing fleet — ready to respond across Hampshire" },
-  { src: img2, caption: "Professional fencing team vehicles on deployment" },
-  { src: img3, caption: "Fully equipped for any fencing installation" },
-  { src: img4, caption: "Fleet maintained to the highest operational standard" },
-  { src: img5, caption: "Our vans — your assurance of a professional service" },
-  { src: img6, caption: "AB Fencing Solutions — serving Hampshire and beyond" },
+  { src: heroImg, caption: "Residential close-board fencing — Hampshire" },
+  { src: img2, caption: "Stone patio and landscaping — completed to spec" },
+  { src: img3, caption: "Garden fencing installation — domestic project" },
+  { src: img4, caption: "Timber and composite fencing — residential boundary" },
+  { src: img5, caption: "Agricultural and rural fencing across Hampshire" },
+  { src: img6, caption: "High-quality gates and access solutions" },
 ];
 
 const whyUs = [
@@ -162,7 +163,7 @@ export default function ABGroupFencing() {
             </div>
           </motion.div>
         </div>
-        <WaterWave color="#16a34a" />
+        <WaterWave edgeColor="#16a34a" />
       </section>
 
       {/* ── ABOUT ── */}

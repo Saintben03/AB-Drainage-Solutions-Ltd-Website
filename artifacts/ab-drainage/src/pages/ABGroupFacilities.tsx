@@ -5,13 +5,14 @@ import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
 import { WaterWave } from "@/components/WaterWave";
 
-import heroImg from "@assets/ab_group_gallery/worker-9.33.16.jpeg";
 import img2 from "@assets/ab_group_gallery/worker-9.33.26.jpeg";
 import img3 from "@assets/ab_group_gallery/worker-9.33.28.jpeg";
 import img4 from "@assets/ab_group_gallery/worker-9.33.30.jpeg";
 import img5 from "@assets/ab_group_gallery/worker-9.33.34.jpeg";
 import img6 from "@assets/ab_group_gallery/worker-9.33.36.jpeg";
 import imgWork from "@assets/site_files_1/survey-01a.jpg";
+
+const heroImg = "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=85&auto=format&fit=crop";
 
 const ACCENT = "#475569";
 const ACCENT_BRIGHT = "#94a3b8";
@@ -162,7 +163,7 @@ export default function ABGroupFacilities() {
             </div>
           </motion.div>
         </div>
-        <WaterWave color="#64748b" />
+        <WaterWave edgeColor="#64748b" />
       </section>
 
       {/* ── ABOUT ── */}
