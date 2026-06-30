@@ -10,6 +10,7 @@ import NotFound from "@/pages/not-found";
 
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { CookieBanner } from "@/components/CookieBanner";
 import Home from "@/pages/Home";
 import Services from "@/pages/Services";
 import About from "@/pages/About";
@@ -21,6 +22,8 @@ import Contact from "@/pages/Contact";
 import ABGroupConstruction from "@/pages/ABGroupConstruction";
 import ABGroupFencing from "@/pages/ABGroupFencing";
 import ABGroupFacilities from "@/pages/ABGroupFacilities";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import Terms from "@/pages/Terms";
 
 const queryClient = new QueryClient();
 
@@ -73,12 +76,15 @@ function Router() {
               <Route path="/ab-group/construction" component={ABGroupConstruction} />
               <Route path="/ab-group/fencing" component={ABGroupFencing} />
               <Route path="/ab-group/facilities" component={ABGroupFacilities} />
+              <Route path="/privacy-policy" component={PrivacyPolicy} />
+              <Route path="/terms" component={Terms} />
               <Route component={NotFound} />
             </Switch>
           </motion.div>
         </AnimatePresence>
       </main>
       <Footer />
+      <CookieBanner />
     </div>
   );
 }
