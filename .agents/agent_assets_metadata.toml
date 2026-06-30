@@ -36,6 +36,48 @@ uri = "file://artifacts/ab-drainage/public/pipe-divider.png"
 type = "image"
 title = "pipe interior water flowing divider"
 
+[[generated]]
+id = "T_xrKit6IZD7VEnwcWnC1"
+uri = "file://attached_assets/fencing/fence-hero.png"
+type = "image"
+title = "modern black slatted fence hero"
+
+[[generated]]
+id = "X06MvxckyPkayX2wPIWOR"
+uri = "file://attached_assets/fencing/fence-about.png"
+type = "image"
+title = "cedar wood garden fence about"
+
+[[generated]]
+id = "pTjBh_0I8U6zZRqXF0n83"
+uri = "file://attached_assets/fencing/fence-gallery-composite.png"
+type = "image"
+title = "composite sage fence panel"
+
+[[generated]]
+id = "f1_5wBI_Cwn6dAU1iKhtr"
+uri = "file://attached_assets/fencing/fence-gallery-traditional.png"
+type = "image"
+title = "traditional close board garden fence"
+
+[[generated]]
+id = "NVIFPk0puJwxy3nnkAeA9"
+uri = "file://attached_assets/fencing/fence-gallery-security.png"
+type = "image"
+title = "industrial security palisade fence"
+
+[[generated]]
+id = "AzMT0bDTdBbtD8ZV2AHsW"
+uri = "file://attached_assets/fencing/fence-gallery-agricultural.png"
+type = "image"
+title = "agricultural post rail fence countryside"
+
+[[generated]]
+id = "UvtWT2Wkk_ghtpLBrnEhJ"
+uri = "file://attached_assets/fencing/fence-gallery-gate.png"
+type = "image"
+title = "ornamental iron garden gate fence"
+
 [[outputs]]
 id = "XDj-vFcGSpHIPNB20N4wa"
 uri = "file://attached_assets/site_files_1/AB Drainage background.png"

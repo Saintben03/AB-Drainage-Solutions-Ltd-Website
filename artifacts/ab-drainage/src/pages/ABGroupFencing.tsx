@@ -8,14 +8,17 @@ const BG = "#1c1c1c";
 const DARK = "#09090b";
 const ACCENT = "#16a34a";
 
-import imgFenceMod   from "@assets/image_1782815159827.png";  // Modern black horizontal fence + lit planters
-import imgFenceWood  from "@assets/image_1782815182409.png";  // Slatted wooden garden fence, lawn + deck lighting
-import imgFenceProd  from "@assets/image_1782815201545.png";  // Sage/grey composite aluminium fence panel
-import imgFenceGab   from "@assets/image_1782815226940.png";  // Gabion / pebble infill architectural fence
+import imgHero        from "@assets/fencing/fence-hero.png";
+import imgAboutSrc    from "@assets/fencing/fence-about.png";
+import imgGComposite  from "@assets/fencing/fence-gallery-composite.png";
+import imgGTraditional from "@assets/fencing/fence-gallery-traditional.png";
+import imgGSecurity   from "@assets/fencing/fence-gallery-security.png";
+import imgGAgri       from "@assets/fencing/fence-gallery-agricultural.png";
+import imgGGate       from "@assets/fencing/fence-gallery-gate.png";
 
-const heroImg  = imgFenceMod;
-const imgAbout = imgFenceWood;
-const imgWhyUs = imgFenceProd;
+const heroImg  = imgHero;
+const imgAbout = imgAboutSrc;
+const imgWhyUs = imgGGate;
 
 /* ── Organic curve divider — garden/nature feel ── */
 function OrganicDivider({ from, to, flip = false }: { from: string; to: string; flip?: boolean }) {
@@ -47,12 +50,12 @@ const services = [
 ];
 
 const gallery = [
-  { src: imgFenceMod,  caption: "Modern black horizontal slatted fence with lit planters" },
-  { src: imgFenceWood, caption: "Slatted cedar garden fence — lawn, deck and uplighting" },
-  { src: imgFenceProd, caption: "Composite aluminium horizontal slatted panel — sage finish" },
-  { src: imgFenceGab,  caption: "Architectural gabion infill fence — stone and steel frame" },
-  { src: imgFenceMod,  caption: "Contemporary garden fencing with landscape lighting" },
-  { src: imgFenceWood, caption: "Full garden enclosure — timber slatted panels" },
+  { src: imgHero,          caption: "Modern black aluminium slatted fence with LED lit planters" },
+  { src: imgGTraditional,  caption: "Traditional close-board fence — English cottage garden" },
+  { src: imgGComposite,    caption: "Composite horizontal fence panel — sage aluminium finish" },
+  { src: imgGSecurity,     caption: "Commercial palisade security fencing installation" },
+  { src: imgGAgri,         caption: "Post-and-rail agricultural fencing — Hampshire countryside" },
+  { src: imgGGate,         caption: "Ornamental iron gate set between slatted fence panels" },
 ];
 
 const whyUs = [
