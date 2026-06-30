@@ -1,0 +1,16 @@
+name: ab-drainage
+region: lon1
+
+static_sites:
+- name: ab-drainage-web
+  source_dir: /
+  build_command: npm install -g pnpm && pnpm install && pnpm --filter @workspace/ab-drainage run build
+  output_dir: artifacts/ab-drainage/dist/public
+  catchall_document: index.html
+  envs:
+  - key: PORT
+    value: "3000"
+  - key: BASE_PATH
+    value: "/"
+  routes:
+  - path: /
