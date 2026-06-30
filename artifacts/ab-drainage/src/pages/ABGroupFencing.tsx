@@ -8,19 +8,14 @@ const BG = "#1c1c1c";
 const DARK = "#09090b";
 const ACCENT = "#16a34a";
 
-/* ── Unsplash 4K garden / fencing / outdoor images ── */
-// Hero: beautiful green rolling English countryside — Hampshire rural setting
-const heroImg   = "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=2560&q=90&auto=format&fit=crop";
-// About: green rolling countryside
-const imgAbout  = "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1400&q=85&auto=format&fit=crop";
-// Gallery: garden / fence / patio / outdoor scenes
-const imgG1     = "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1200&q=85&auto=format&fit=crop";
-const imgG2     = "https://images.unsplash.com/photo-1585320806297-9794b3e4ebe1?w=1200&q=85&auto=format&fit=crop";
-const imgG3     = "https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=1200&q=85&auto=format&fit=crop";
-const imgG4     = "https://images.unsplash.com/photo-1572547474861-0ee783d3c2f5?w=1200&q=85&auto=format&fit=crop";
-const imgG5     = "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=1200&q=85&auto=format&fit=crop";
-const imgG6     = "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=85&auto=format&fit=crop";
-const imgWhyUs  = "https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=1400&q=85&auto=format&fit=crop";
+import imgFenceMod   from "@assets/image_1782815159827.png";  // Modern black horizontal fence + lit planters
+import imgFenceWood  from "@assets/image_1782815182409.png";  // Slatted wooden garden fence, lawn + deck lighting
+import imgFenceProd  from "@assets/image_1782815201545.png";  // Sage/grey composite aluminium fence panel
+import imgFenceGab   from "@assets/image_1782815226940.png";  // Gabion / pebble infill architectural fence
+
+const heroImg  = imgFenceMod;
+const imgAbout = imgFenceWood;
+const imgWhyUs = imgFenceProd;
 
 /* ── Organic curve divider — garden/nature feel ── */
 function OrganicDivider({ from, to, flip = false }: { from: string; to: string; flip?: boolean }) {
@@ -52,12 +47,12 @@ const services = [
 ];
 
 const gallery = [
-  { src: imgG1, caption: "Close-board residential garden fencing" },
-  { src: imgG2, caption: "Natural stone patio and landscaping" },
-  { src: imgG3, caption: "Garden boundary — domestic installation" },
-  { src: imgG4, caption: "Contemporary house exterior & fencing" },
-  { src: imgG5, caption: "Ornamental gates and garden access" },
-  { src: imgG6, caption: "Modern timber & composite fencing" },
+  { src: imgFenceMod,  caption: "Modern black horizontal slatted fence with lit planters" },
+  { src: imgFenceWood, caption: "Slatted cedar garden fence — lawn, deck and uplighting" },
+  { src: imgFenceProd, caption: "Composite aluminium horizontal slatted panel — sage finish" },
+  { src: imgFenceGab,  caption: "Architectural gabion infill fence — stone and steel frame" },
+  { src: imgFenceMod,  caption: "Contemporary garden fencing with landscape lighting" },
+  { src: imgFenceWood, caption: "Full garden enclosure — timber slatted panels" },
 ];
 
 const whyUs = [
