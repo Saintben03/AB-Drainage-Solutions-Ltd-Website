@@ -78,8 +78,8 @@ export const Navbar = () => {
       <header
         className={`sticky top-0 w-full z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-background/96 backdrop-blur-md shadow-lg shadow-black/30 border-b border-white/5 py-3"
-            : "bg-background py-6"
+            ? "bg-background/96 backdrop-blur-md shadow-lg shadow-black/30 border-b border-white/5 py-1"
+            : "bg-background py-2"
         }`}
       >
         <div className="container mx-auto px-4 lg:px-8">
