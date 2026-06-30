@@ -195,7 +195,7 @@ export const Navbar = () => {
                   onClick={() => setGroupDropdownOpen((o) => !o)}
                   aria-expanded={groupDropdownOpen}
                 >
-                  The AB Group
+                  Other Services
                   <ChevronDown
                     size={13}
                     className={`transition-transform duration-200 ${groupDropdownOpen ? "rotate-180" : ""}`}
@@ -337,7 +337,7 @@ export const Navbar = () => {
                       isGroupActive ? "border-accent text-accent" : "border-transparent text-foreground hover:border-accent hover:text-accent"
                     }`}
                   >
-                    The AB Group
+                    Other Services
                     <ChevronDown
                       size={20}
                       className={`text-accent opacity-60 transition-transform duration-200 ${mobileGroupOpen ? "rotate-180" : ""}`}
