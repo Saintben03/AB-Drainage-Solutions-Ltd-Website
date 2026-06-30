@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { CountUp } from "@/components/CountUp";
 import { LogoMarquee } from "@/components/LogoMarquee";
 import { WaterWave } from "@/components/WaterWave";
+import { useBookNow } from "@/contexts/BookNowContext";
 
 import heroImg from "@assets/Designer_(1)_1782807579036.png";
 import work1 from "@assets/site_files_1/369541839_240515012286429_2194496784194718742_n.jpg";
@@ -68,6 +69,7 @@ const fadeUp = { hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transi
 const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.08 } } };
 
 export default function Home() {
+  const { openBookNow } = useBookNow();
   return (
     <>
       <SEO
@@ -88,8 +90,9 @@ export default function Home() {
               alt="A&B Drainage Solutions Ltd fleet of vans"
               className="w-full h-full object-cover object-[62%_40%] saturate-[1.5] brightness-[1.05] contrast-[1.1]"
             />
-            {/* Dark overlay — heavier at bottom so text pops, lighter at top so image shows */}
-            <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/55 to-background/95" />
+            {/* Navy cinematic filter — overall blue cast + bottom darken for legibility */}
+            <div className="absolute inset-0 bg-[#0a2c47]/45" style={{ mixBlendMode: "multiply" }} />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#06182a]/35 via-[#06182a]/70 to-[#06182a]/95" />
           </div>
 
           {/* Text content — sits over the image */}
@@ -138,20 +141,22 @@ export default function Home() {
               <span className="flex items-center gap-1.5"><MapPin size={13} className="text-accent" /> Hampshire Wide</span>
             </div>
           </div>
-          <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#e0f2fe" />
+          <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#5392B6" />
         </div>
 
         {/* ── Desktop hero (background image) ── */}
         <div className="hidden md:flex relative min-h-[80vh] items-center pt-20 pb-16">
           <div className="absolute inset-0 z-0">
             <img src={heroImg} alt="A&B Drainage Solutions Ltd Fleet" className="w-full h-full object-cover object-center animate-heropan saturate-[1.6] brightness-[1.12] contrast-[1.15]" />
-            <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/15 to-transparent"></div>
-            <div className="absolute inset-0 bg-gradient-to-l from-[#5392B6]/8 via-[#5392B6]/2 to-transparent" style={{ mixBlendMode: "multiply" }}></div>
+            {/* Navy cinematic filter — blue cast over the whole frame, strong navy on the left for text, truck stays visible on the right */}
+            <div className="absolute inset-0 bg-[#0a2c47]/40" style={{ mixBlendMode: "multiply" }}></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#06182a] via-[#06182a]/75 to-[#06182a]/15"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#06182a]/85 via-transparent to-[#06182a]/30"></div>
           </div>
-          <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#e0f2fe" />
+          <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#5392B6" />
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-3xl relative">
-              <div className="absolute -inset-x-8 -inset-y-10 bg-black/60 blur-3xl rounded-3xl pointer-events-none" aria-hidden="true"></div>
+              <div className="absolute -inset-x-8 -inset-y-10 bg-[#06182a]/55 blur-3xl rounded-3xl pointer-events-none" aria-hidden="true"></div>
               <div className="relative z-10">
               <motion.p
                 initial={{ opacity: 0, y: 16 }}
@@ -233,6 +238,28 @@ export default function Home() {
           </div>
         </div>
 
+      </section>
+
+      {/* ── SCHEDULE STRIP (brand-blue band, reference-style) ── */}
+      <section className="relative bg-[#5392B6] overflow-hidden">
+        <div
+          className="absolute right-3 md:right-14 top-1/2 -translate-y-1/2 text-white/10 font-display font-bold text-[8rem] md:text-[13rem] leading-none select-none pointer-events-none"
+          aria-hidden="true"
+        >
+          AB
+        </div>
+        <div className="container mx-auto px-4 py-6 md:py-8 relative z-10 flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-5">
+          <p className="text-white font-display font-bold uppercase tracking-wide text-xl md:text-3xl text-center sm:text-left leading-tight">
+            Need Drainage Support?{" "}
+            <span className="text-[#06182a]">Schedule Your Service</span>
+          </p>
+          <button
+            onClick={openBookNow}
+            className="bg-white text-[#06182a] px-8 py-4 font-bold uppercase tracking-wider text-sm flex items-center gap-2 shrink-0 transition-all"
+          >
+            Book Now <ArrowRight size={16} />
+          </button>
+        </div>
       </section>
 
       {/* ── TRUSTED BY (light band, animated wave at its base) ── */}
