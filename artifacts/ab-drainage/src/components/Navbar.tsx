@@ -1,16 +1,44 @@
 import { Link, useLocation } from "wouter";
-import { Phone, Smartphone, Mail, Menu, X, ArrowRight } from "lucide-react";
-import { useState, useEffect } from "react";
+import { Phone, Smartphone, Mail, Menu, X, ArrowRight, ChevronDown } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import logoMain from "@assets/site_files_1/AB Drainage logo.png";
 import { SocialLinks } from "./SocialLinks";
 import { useBookNow } from "@/contexts/BookNowContext";
 
+const groupCompanies = [
+  {
+    name: "AB Construction Solutions",
+    sub: "Civil Engineering & Groundworks",
+    href: "/ab-group/construction",
+    color: "#dc2626",
+    dot: "bg-red-600",
+  },
+  {
+    name: "AB Fencing Solutions",
+    sub: "Residential, Commercial & Agricultural",
+    href: "/ab-group/fencing",
+    color: "#16a34a",
+    dot: "bg-green-600",
+  },
+  {
+    name: "AB Facilities Management",
+    sub: "Buildings & Compliance",
+    href: "/ab-group/facilities",
+    color: "#64748b",
+    dot: "bg-slate-500",
+  },
+];
+
 export const Navbar = () => {
   const [location] = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [groupDropdownOpen, setGroupDropdownOpen] = useState(false);
+  const [mobileGroupOpen, setMobileGroupOpen] = useState(false);
   const { openBookNow } = useBookNow();
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const leaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -18,10 +46,19 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setMobileMenuOpen(false);
+    setGroupDropdownOpen(false);
   }, [location]);
+
+  const handleGroupEnter = () => {
+    if (leaveTimer.current) clearTimeout(leaveTimer.current);
+    setGroupDropdownOpen(true);
+  };
+
+  const handleGroupLeave = () => {
+    leaveTimer.current = setTimeout(() => setGroupDropdownOpen(false), 180);
+  };
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -33,7 +70,7 @@ export const Navbar = () => {
     { name: "Contact", href: "/contact" },
   ];
 
-  const groupLink = { name: "The AB Group", href: "/#ab-group" };
+  const isGroupActive = location.startsWith("/ab-group");
 
   return (
     <>
@@ -95,14 +132,12 @@ export const Navbar = () => {
                 whileTap={{ scale: 0.97 }}
                 className="relative will-change-transform"
               >
-                {/* Inner wrapper keeps the masked shine aligned with the logo */}
                 <div className="relative">
                   <img
                     src={logoMain}
                     alt="A&B Drainage Solutions Ltd Logo"
                     className="h-48 md:h-56 lg:h-48 xl:h-56 2xl:h-64 w-auto object-contain -my-12 transition-[filter] duration-300 group-hover:drop-shadow-[0_0_18px_rgba(234,88,12,0.45)]"
                   />
-                  {/* Recurring gleam — a light streak clipped to the exact logo shape */}
                   <span
                     aria-hidden="true"
                     className="pointer-events-none absolute inset-0 overflow-hidden"
@@ -145,13 +180,72 @@ export const Navbar = () => {
                   </Link>
                 );
               })}
-              <a
-                href={groupLink.href}
-                className="whitespace-nowrap text-[13px] xl:text-sm font-bold uppercase tracking-tight xl:tracking-wide text-foreground/80 hover:text-accent transition-colors relative group flex items-center gap-1.5"
+
+              {/* The AB Group dropdown */}
+              <div
+                ref={dropdownRef}
+                className="relative"
+                onMouseEnter={handleGroupEnter}
+                onMouseLeave={handleGroupLeave}
               >
-                {groupLink.name}
-                <span className="absolute -bottom-1 left-0 h-0.5 bg-accent transition-all duration-300 w-0 group-hover:w-full"></span>
-              </a>
+                <button
+                  className={`whitespace-nowrap text-[13px] xl:text-sm font-bold uppercase tracking-tight xl:tracking-wide transition-colors relative flex items-center gap-1 ${
+                    isGroupActive ? "text-accent" : "text-foreground/80 hover:text-accent"
+                  }`}
+                  onClick={() => setGroupDropdownOpen((o) => !o)}
+                  aria-expanded={groupDropdownOpen}
+                >
+                  The AB Group
+                  <ChevronDown
+                    size={13}
+                    className={`transition-transform duration-200 ${groupDropdownOpen ? "rotate-180" : ""}`}
+                  />
+                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-accent transition-all duration-300 ${isGroupActive ? "w-full" : "w-0 group-hover:w-full"}`}></span>
+                </button>
+
+                <AnimatePresence>
+                  {groupDropdownOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 6, scale: 0.97 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 6, scale: 0.97 }}
+                      transition={{ duration: 0.18, ease: "easeOut" }}
+                      className="absolute top-full right-0 mt-3 w-72 bg-[#0d0d0d] border border-white/10 shadow-2xl shadow-black/60 z-50"
+                      onMouseEnter={handleGroupEnter}
+                      onMouseLeave={handleGroupLeave}
+                    >
+                      <div className="px-4 pt-4 pb-2">
+                        <p className="text-white/30 text-[10px] font-bold uppercase tracking-[0.2em]">AB Group Divisions</p>
+                      </div>
+                      {groupCompanies.map((co) => (
+                        <Link
+                          key={co.href}
+                          href={co.href}
+                          className="flex items-start gap-3 px-4 py-3.5 hover:bg-white/5 transition-colors group/item border-t border-white/5"
+                        >
+                          <span
+                            className="w-2.5 h-2.5 rounded-full shrink-0 mt-1"
+                            style={{ backgroundColor: co.color }}
+                          />
+                          <div>
+                            <p className="text-white font-bold text-sm uppercase tracking-wide leading-tight group-hover/item:text-white transition-colors" style={{ color: "inherit" }}>
+                              {co.name}
+                            </p>
+                            <p className="text-white/45 text-xs mt-0.5">{co.sub}</p>
+                          </div>
+                          <ArrowRight
+                            size={13}
+                            className="ml-auto shrink-0 mt-1 text-white/20 group-hover/item:text-white/60 transition-colors"
+                          />
+                        </Link>
+                      ))}
+                      <div className="px-4 py-3 border-t border-white/10">
+                        <p className="text-white/25 text-[10px] uppercase tracking-[0.15em]">A&B Drainage — Currently Viewing</p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             </nav>
 
             {/* Desktop Emergency CTA */}
@@ -203,7 +297,7 @@ export const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.25 }}
-              className="fixed inset-0 top-[120px] bg-[#080808]/98 backdrop-blur-xl z-40 lg:hidden flex flex-col p-6"
+              className="fixed inset-0 top-[120px] bg-[#080808]/98 backdrop-blur-xl z-40 lg:hidden flex flex-col p-6 overflow-y-auto"
             >
               <nav className="flex flex-col gap-0 bg-border mt-4">
                 {navLinks.map((link, i) => {
@@ -230,19 +324,56 @@ export const Navbar = () => {
                     </motion.div>
                   );
                 })}
+
+                {/* The AB Group — accordion */}
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.25, delay: navLinks.length * 0.05 }}
                 >
-                  <a
-                    href={groupLink.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between bg-card px-6 py-5 text-xl font-display uppercase font-bold border-l-4 border-transparent text-foreground hover:border-accent hover:text-accent transition-colors"
+                  <button
+                    onClick={() => setMobileGroupOpen((o) => !o)}
+                    className={`w-full flex items-center justify-between bg-card px-6 py-5 text-xl font-display uppercase font-bold border-l-4 transition-colors ${
+                      isGroupActive ? "border-accent text-accent" : "border-transparent text-foreground hover:border-accent hover:text-accent"
+                    }`}
                   >
-                    {groupLink.name}
-                    <ArrowRight size={18} className="text-accent opacity-60" />
-                  </a>
+                    The AB Group
+                    <ChevronDown
+                      size={20}
+                      className={`text-accent opacity-60 transition-transform duration-200 ${mobileGroupOpen ? "rotate-180" : ""}`}
+                    />
+                  </button>
+
+                  <AnimatePresence>
+                    {mobileGroupOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.22 }}
+                        className="overflow-hidden bg-zinc-950"
+                      >
+                        {groupCompanies.map((co) => (
+                          <Link
+                            key={co.href}
+                            href={co.href}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="flex items-center gap-3 px-8 py-4 border-t border-zinc-800 hover:bg-zinc-900 transition-colors"
+                          >
+                            <span
+                              className="w-2 h-2 rounded-full shrink-0"
+                              style={{ backgroundColor: co.color }}
+                            />
+                            <div className="flex-1">
+                              <p className="text-white font-bold text-sm uppercase tracking-wide">{co.name}</p>
+                              <p className="text-white/40 text-xs">{co.sub}</p>
+                            </div>
+                            <ArrowRight size={14} className="text-white/30" />
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </motion.div>
               </nav>
 

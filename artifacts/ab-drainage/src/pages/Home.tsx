@@ -464,9 +464,9 @@ export default function Home() {
                   ))}
                 </ul>
                 <div className="mt-8 pt-6 border-t border-zinc-800">
-                  <a href="https://ab-constructionltd.uk/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-red-500 hover:text-red-400 text-xs font-bold uppercase tracking-[0.15em] transition-colors">
-                    Visit Site <ArrowRight size={13} />
-                  </a>
+                  <Link href="/ab-group/construction" className="inline-flex items-center gap-2 text-red-500 hover:text-red-400 text-xs font-bold uppercase tracking-[0.15em] transition-colors">
+                    Learn More <ArrowRight size={13} />
+                  </Link>
                 </div>
               </div>
             </motion.div>
@@ -499,9 +499,9 @@ export default function Home() {
                   ))}
                 </ul>
                 <div className="mt-8 pt-6 border-t border-zinc-800">
-                  <a href="https://ab-fencing.uk/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-green-500 hover:text-green-400 text-xs font-bold uppercase tracking-[0.15em] transition-colors">
-                    Visit Site <ArrowRight size={13} />
-                  </a>
+                  <Link href="/ab-group/fencing" className="inline-flex items-center gap-2 text-green-500 hover:text-green-400 text-xs font-bold uppercase tracking-[0.15em] transition-colors">
+                    Learn More <ArrowRight size={13} />
+                  </Link>
                 </div>
               </div>
             </motion.div>
@@ -534,9 +534,9 @@ export default function Home() {
                   ))}
                 </ul>
                 <div className="mt-8 pt-6 border-t border-zinc-800">
-                  <a href="https://ab-facilities.uk/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-slate-400 hover:text-slate-300 text-xs font-bold uppercase tracking-[0.15em] transition-colors">
-                    Visit Site <ArrowRight size={13} />
-                  </a>
+                  <Link href="/ab-group/facilities" className="inline-flex items-center gap-2 text-slate-400 hover:text-slate-300 text-xs font-bold uppercase tracking-[0.15em] transition-colors">
+                    Learn More <ArrowRight size={13} />
+                  </Link>
                 </div>
               </div>
             </motion.div>
@@ -555,14 +555,17 @@ export default function Home() {
               <h4 className="text-white font-display font-bold text-xl uppercase">A&amp;B Drainage Solutions Ltd — Part of the AB Group</h4>
               <p className="text-white/50 text-sm mt-1">Hampshire's leading drainage specialists for over 33 years. Rapid response, 24/7.</p>
             </div>
-            <a
-              href="https://ab-group.uk/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-white/20 hover:border-accent text-white hover:text-accent px-8 py-4 font-bold uppercase tracking-wider text-sm transition-all shrink-0"
-            >
-              Visit AB Group <ArrowRight size={15} />
-            </a>
+            <div className="flex flex-wrap gap-3 shrink-0">
+              <Link href="/ab-group/construction" className="inline-flex items-center gap-2 border border-red-600/40 hover:border-red-500 text-white/70 hover:text-red-400 px-5 py-3 font-bold uppercase tracking-wider text-xs transition-all">
+                Construction <ArrowRight size={13} />
+              </Link>
+              <Link href="/ab-group/fencing" className="inline-flex items-center gap-2 border border-green-600/40 hover:border-green-500 text-white/70 hover:text-green-400 px-5 py-3 font-bold uppercase tracking-wider text-xs transition-all">
+                Fencing <ArrowRight size={13} />
+              </Link>
+              <Link href="/ab-group/facilities" className="inline-flex items-center gap-2 border border-slate-500/40 hover:border-slate-400 text-white/70 hover:text-slate-300 px-5 py-3 font-bold uppercase tracking-wider text-xs transition-all">
+                Facilities <ArrowRight size={13} />
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>

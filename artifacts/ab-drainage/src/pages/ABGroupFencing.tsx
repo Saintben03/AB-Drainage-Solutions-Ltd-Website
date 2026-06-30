@@ -1,0 +1,493 @@
+import { useState } from "react";
+import { Link } from "wouter";
+import { ArrowRight, Phone, Mail, CheckCircle2, Shield, Fence, Lock, TreePine, Wrench, LayoutGrid, ChevronLeft } from "lucide-react";
+import { SEO } from "@/components/SEO";
+import { motion } from "framer-motion";
+import { WaterWave } from "@/components/WaterWave";
+
+import heroImg from "@assets/site_files_1/g-01f.jpg";
+import img2 from "@assets/site_files_1/g-01g.jpg";
+import img3 from "@assets/site_files_1/g-01h.jpg";
+import img4 from "@assets/site_files_1/g-01t.jpg";
+import img5 from "@assets/site_files_1/g-01u.jpg";
+import img6 from "@assets/site_files_1/g-01m.jpg";
+import imgTeam from "@assets/ab_group_gallery/worker-9.33.26.jpeg";
+
+const ACCENT = "#16a34a";
+
+const services = [
+  {
+    icon: <Fence size={26} />,
+    title: "Residential Fencing",
+    desc: "Timber panel, close-board, picket and decorative fencing tailored to your home and garden — professionally fitted and finished.",
+  },
+  {
+    icon: <Shield size={26} />,
+    title: "Security Fencing",
+    desc: "High-security palisade, mesh and anti-climb systems for commercial, industrial and sensitive sites requiring robust perimeter protection.",
+  },
+  {
+    icon: <LayoutGrid size={26} />,
+    title: "Commercial Fencing",
+    desc: "Large-scale fencing solutions for development sites, car parks, retail parks and business premises with minimal disruption to operations.",
+  },
+  {
+    icon: <TreePine size={26} />,
+    title: "Agricultural Fencing",
+    desc: "Post and rail, stock fencing, electric fencing and field gates designed for farmland and rural estates across Hampshire.",
+  },
+  {
+    icon: <Lock size={26} />,
+    title: "Gates & Barriers",
+    desc: "Automated swing and sliding gates, manual entry gates, security barriers and pedestrian access solutions designed and installed to specification.",
+  },
+  {
+    icon: <Wrench size={26} />,
+    title: "Fence Repairs",
+    desc: "Storm damage, impact repairs, post replacements and ongoing maintenance contracts to keep your boundary secure and looking sharp.",
+  },
+];
+
+const gallery = [
+  { src: heroImg, caption: "AB Fencing fleet — ready to respond across Hampshire" },
+  { src: img2, caption: "Professional fencing team vehicles on deployment" },
+  { src: img3, caption: "Fully equipped for any fencing installation" },
+  { src: img4, caption: "Fleet maintained to the highest operational standard" },
+  { src: img5, caption: "Our vans — your assurance of a professional service" },
+  { src: img6, caption: "AB Fencing Solutions — serving Hampshire and beyond" },
+];
+
+const whyUs = [
+  { title: "Experienced Installers", desc: "Our teams have decades of combined fencing experience across residential, agricultural, commercial and security applications." },
+  { title: "All Materials In-House", desc: "We carry a comprehensive stock of materials so there are no waiting times — your job starts when we say it starts." },
+  { title: "Fully Insured & Compliant", desc: "Full public liability cover, CSCS operatives and compliance with all Health & Safety Executive guidelines on every site." },
+  { title: "Part of The AB Group", desc: "As part of a multi-discipline group, we can co-ordinate groundworks, drainage and construction alongside your fencing project." },
+];
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
+const stagger = {
+  show: { transition: { staggerChildren: 0.1 } },
+};
+
+type FormState = { name: string; email: string; phone: string; service: string; message: string };
+const INIT: FormState = { name: "", email: "", phone: "", service: "", message: "" };
+
+export default function ABGroupFencing() {
+  const [form, setForm] = useState<FormState>(INIT);
+  const [sent, setSent] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(`Fencing Enquiry — ${form.service || "General"}`);
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nService: ${form.service}\n\nMessage:\n${form.message}`
+    );
+    window.location.href = `mailto:info@abdrainage.co.uk?subject=${subject}&body=${body}`;
+    setSent(true);
+    setForm(INIT);
+  };
+
+  return (
+    <>
+      <SEO
+        title="AB Fencing Solutions Ltd | Residential, Commercial & Security Fencing | Hampshire"
+        description="AB Fencing Solutions Ltd — Hampshire's fencing specialists. Residential, commercial, agricultural, security fencing, gates and barriers. Part of The AB Group."
+        canonicalUrl="/ab-group/fencing"
+      />
+
+      {/* ── HERO ── */}
+      <section className="relative min-h-[92vh] flex items-end overflow-hidden bg-background">
+        <div className="absolute inset-0">
+          <img
+            src={heroImg}
+            alt="AB Fencing Solutions fleet"
+            className="w-full h-full object-cover animate-heropan"
+            draggable={false}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#16a34a]/30 via-[#16a34a]/10 to-transparent mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
+        </div>
+
+        <div className="relative z-10 container mx-auto px-4 lg:px-8 pb-24 pt-16">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="max-w-3xl"
+          >
+            <Link href="/ab-group" className="inline-flex items-center gap-2 text-white/50 hover:text-white text-xs font-bold uppercase tracking-[0.2em] mb-8 transition-colors">
+              <ChevronLeft size={14} /> The AB Group
+            </Link>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-1 h-12 bg-[#16a34a]" />
+              <div>
+                <p className="text-[#16a34a] text-xs font-bold uppercase tracking-[0.25em]">The AB Group</p>
+                <p className="text-white/40 text-xs uppercase tracking-[0.18em]">Fencing Division</p>
+              </div>
+            </div>
+            <h1 className="text-5xl md:text-7xl xl:text-8xl font-display font-black uppercase text-white leading-[0.9] mb-6 relative">
+              <span className="relative">
+                AB Fencing
+                <span className="absolute -inset-x-8 -inset-y-10 bg-black/50 blur-3xl rounded-3xl -z-10" />
+              </span>
+              <br />
+              <span className="text-[#16a34a]">Solutions Ltd</span>
+            </h1>
+            <p className="text-xl text-white/70 leading-relaxed mb-10 max-w-xl">
+              Hampshire's fencing specialists. Residential, commercial, agricultural and security fencing installed to the highest standard — on time, every time.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href="#enquire"
+                className="inline-flex items-center gap-2 px-10 py-5 text-white font-bold uppercase tracking-wider text-sm transition-all hover:opacity-90"
+                style={{ backgroundColor: ACCENT }}
+              >
+                Get a Quote <ArrowRight size={16} />
+              </a>
+              <a
+                href="#services"
+                className="inline-flex items-center gap-2 px-10 py-5 border border-white/25 text-white font-bold uppercase tracking-wider text-sm hover:border-white/60 transition-all"
+              >
+                Our Services
+              </a>
+            </div>
+          </motion.div>
+        </div>
+        <WaterWave color="#16a34a" />
+      </section>
+
+      {/* ── ABOUT ── */}
+      <section className="py-24 bg-zinc-950">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <p className="text-[#16a34a] text-xs font-bold uppercase tracking-[0.25em] mb-4">About The Division</p>
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-white uppercase leading-tight mb-6">
+                Boundaries Done<br />Properly
+              </h2>
+              <p className="text-white/60 leading-relaxed mb-6">
+                AB Fencing Solutions Ltd is the fencing and boundary division of The AB Group — delivering high-quality fencing installations across Hampshire for residential homeowners, farmers and commercial developers alike.
+              </p>
+              <p className="text-white/60 leading-relaxed mb-10">
+                Whether you need a decorative garden fence, a high-security perimeter system or miles of agricultural stock fencing, our directly employed operatives bring craftsmanship and reliability to every post.
+              </p>
+              <div className="grid grid-cols-3 gap-6 border-t border-white/10 pt-8">
+                {[
+                  { val: "25+", label: "Years Experience" },
+                  { val: "1000+", label: "Installations" },
+                  { val: "All", label: "Fence Types" },
+                ].map((s) => (
+                  <div key={s.label}>
+                    <p className="text-3xl font-display font-black text-[#16a34a]">{s.val}</p>
+                    <p className="text-white/50 text-xs uppercase tracking-[0.15em] mt-1">{s.label}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative"
+            >
+              <img src={imgTeam} alt="AB Fencing team" className="w-full aspect-[4/3] object-cover" draggable={false} />
+              <div className="absolute -bottom-4 -left-4 bg-[#16a34a] text-white p-6 hidden md:block">
+                <p className="text-2xl font-display font-black uppercase">HSE</p>
+                <p className="text-xs uppercase tracking-[0.15em] text-white/80">Compliant</p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SERVICES ── */}
+      <section id="services" className="py-24 bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-16"
+          >
+            <p className="text-[#16a34a] text-xs font-bold uppercase tracking-[0.25em] mb-3">What We Install</p>
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-white uppercase">Our Services</h2>
+          </motion.div>
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            {services.map((s) => (
+              <motion.div
+                key={s.title}
+                variants={fadeUp}
+                className="bg-zinc-900 border border-zinc-800 p-8 group hover:border-[#16a34a]/40 transition-all duration-300"
+              >
+                <div className="w-12 h-12 bg-[#16a34a]/10 border border-[#16a34a]/30 flex items-center justify-center text-[#16a34a] mb-6 group-hover:bg-[#16a34a] group-hover:text-white transition-all duration-300">
+                  {s.icon}
+                </div>
+                <h3 className="text-white font-display font-bold text-lg uppercase mb-3">{s.title}</h3>
+                <p className="text-white/55 text-sm leading-relaxed">{s.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── GALLERY ── */}
+      <section className="py-24 bg-zinc-950">
+        <div className="container mx-auto px-4 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-14"
+          >
+            <p className="text-[#16a34a] text-xs font-bold uppercase tracking-[0.25em] mb-3">Our Fleet & Operations</p>
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-white uppercase">On the Ground</h2>
+          </motion.div>
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
+            {gallery.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.97 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: i * 0.07 }}
+                className={`relative overflow-hidden group ${i === 0 ? "col-span-2 lg:col-span-1 row-span-2" : ""}`}
+              >
+                <img
+                  src={item.src}
+                  alt={item.caption}
+                  className="w-full h-full object-cover aspect-square group-hover:scale-105 transition-transform duration-700"
+                  draggable={false}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <p className="text-white text-xs font-bold uppercase tracking-wide">{item.caption}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHY US ── */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <p className="text-[#16a34a] text-xs font-bold uppercase tracking-[0.25em] mb-4">The Difference</p>
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-white uppercase leading-tight mb-10">
+                Why Choose<br />AB Fencing?
+              </h2>
+              <div className="space-y-6">
+                {whyUs.map((w, i) => (
+                  <motion.div
+                    key={w.title}
+                    initial={{ opacity: 0, x: -16 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: i * 0.1 }}
+                    className="flex gap-4"
+                  >
+                    <CheckCircle2 size={22} className="shrink-0 mt-0.5" style={{ color: ACCENT }} />
+                    <div>
+                      <h4 className="text-white font-bold uppercase tracking-wide text-sm mb-1">{w.title}</h4>
+                      <p className="text-white/55 text-sm leading-relaxed">{w.desc}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <img src={img4} alt="AB Fencing professional fleet" className="w-full aspect-[4/3] object-cover" draggable={false} />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ENQUIRY FORM ── */}
+      <section id="enquire" className="py-24 bg-zinc-950 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#16a34a]/5 via-transparent to-transparent pointer-events-none" />
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <p className="text-[#16a34a] text-xs font-bold uppercase tracking-[0.25em] mb-4">Get Started</p>
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-white uppercase leading-tight mb-6">
+                Request a<br />Quote
+              </h2>
+              <p className="text-white/60 leading-relaxed mb-10">
+                Tell us about your fencing project and one of our team will be in touch promptly with expert advice and a competitive quotation.
+              </p>
+              <div className="space-y-4">
+                <a href="tel:01256688650" className="flex items-center gap-3 text-white hover:text-[#16a34a] transition-colors">
+                  <div className="w-10 h-10 bg-[#16a34a]/10 border border-[#16a34a]/30 flex items-center justify-center">
+                    <Phone size={16} className="text-[#16a34a]" />
+                  </div>
+                  <span className="font-bold">01256 688 650</span>
+                </a>
+                <a href="mailto:info@abdrainage.co.uk" className="flex items-center gap-3 text-white hover:text-[#16a34a] transition-colors">
+                  <div className="w-10 h-10 bg-[#16a34a]/10 border border-[#16a34a]/30 flex items-center justify-center">
+                    <Mail size={16} className="text-[#16a34a]" />
+                  </div>
+                  <span className="font-bold">info@abdrainage.co.uk</span>
+                </a>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+            >
+              {sent ? (
+                <div className="bg-zinc-900 border border-[#16a34a]/40 p-12 text-center">
+                  <CheckCircle2 size={48} className="text-[#16a34a] mx-auto mb-4" />
+                  <h3 className="text-white font-display font-bold text-2xl uppercase mb-3">Enquiry Sent</h3>
+                  <p className="text-white/60">Thank you — your email client should have opened. We will be in touch shortly.</p>
+                  <button onClick={() => setSent(false)} className="mt-6 text-[#16a34a] text-sm font-bold uppercase tracking-wider hover:underline">
+                    Send Another
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="bg-zinc-900 border border-zinc-800 p-8 space-y-5">
+                  <div className="grid sm:grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-white/60 text-xs uppercase tracking-[0.15em] font-bold mb-2">Full Name *</label>
+                      <input
+                        name="name"
+                        value={form.name}
+                        onChange={handleChange}
+                        required
+                        className="w-full bg-zinc-800 border border-zinc-700 text-white px-4 py-3 text-sm focus:outline-none focus:border-[#16a34a] transition-colors"
+                        placeholder="Your name"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-white/60 text-xs uppercase tracking-[0.15em] font-bold mb-2">Phone</label>
+                      <input
+                        name="phone"
+                        value={form.phone}
+                        onChange={handleChange}
+                        className="w-full bg-zinc-800 border border-zinc-700 text-white px-4 py-3 text-sm focus:outline-none focus:border-[#16a34a] transition-colors"
+                        placeholder="Your number"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-white/60 text-xs uppercase tracking-[0.15em] font-bold mb-2">Email Address *</label>
+                    <input
+                      name="email"
+                      type="email"
+                      value={form.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full bg-zinc-800 border border-zinc-700 text-white px-4 py-3 text-sm focus:outline-none focus:border-[#16a34a] transition-colors"
+                      placeholder="your@email.com"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-white/60 text-xs uppercase tracking-[0.15em] font-bold mb-2">Service Required</label>
+                    <select
+                      name="service"
+                      value={form.service}
+                      onChange={handleChange}
+                      className="w-full bg-zinc-800 border border-zinc-700 text-white px-4 py-3 text-sm focus:outline-none focus:border-[#16a34a] transition-colors"
+                    >
+                      <option value="">Select a service...</option>
+                      <option>Residential Fencing</option>
+                      <option>Security Fencing</option>
+                      <option>Commercial Fencing</option>
+                      <option>Agricultural Fencing</option>
+                      <option>Gates &amp; Barriers</option>
+                      <option>Fence Repairs</option>
+                      <option>General Enquiry</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-white/60 text-xs uppercase tracking-[0.15em] font-bold mb-2">Project Details *</label>
+                    <textarea
+                      name="message"
+                      value={form.message}
+                      onChange={handleChange}
+                      required
+                      rows={5}
+                      className="w-full bg-zinc-800 border border-zinc-700 text-white px-4 py-3 text-sm focus:outline-none focus:border-[#16a34a] transition-colors resize-none"
+                      placeholder="Describe your fencing project or requirement..."
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full py-4 text-white font-bold uppercase tracking-wider text-sm flex items-center justify-center gap-2 transition-all hover:opacity-90"
+                    style={{ backgroundColor: ACCENT }}
+                  >
+                    Send Enquiry <ArrowRight size={16} />
+                  </button>
+                  <p className="text-white/30 text-xs text-center">Enquiries are sent to info@abdrainage.co.uk</p>
+                </form>
+              )}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── AB GROUP FOOTER BANNER ── */}
+      <section className="py-16 bg-background border-t border-zinc-800">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+            <div>
+              <p className="text-white/30 text-xs uppercase tracking-[0.2em] font-bold mb-2">Part of The AB Group</p>
+              <h3 className="text-white font-display font-bold text-xl uppercase">Explore Our Other Divisions</h3>
+            </div>
+            <div className="flex flex-wrap gap-4">
+              <Link href="/ab-group/construction" className="flex items-center gap-2 px-6 py-3 border border-zinc-700 text-white hover:border-red-600 hover:text-red-400 text-sm font-bold uppercase tracking-wide transition-all">
+                AB Construction Solutions <ArrowRight size={14} />
+              </Link>
+              <Link href="/ab-group/facilities" className="flex items-center gap-2 px-6 py-3 border border-zinc-700 text-white hover:border-slate-500 hover:text-slate-300 text-sm font-bold uppercase tracking-wide transition-all">
+                AB Facilities Management <ArrowRight size={14} />
+              </Link>
+              <Link href="/" className="flex items-center gap-2 px-6 py-3 border border-zinc-700 text-white hover:border-[#5392B6] hover:text-[#5392B6] text-sm font-bold uppercase tracking-wide transition-all">
+                A&amp;B Drainage Solutions <ArrowRight size={14} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

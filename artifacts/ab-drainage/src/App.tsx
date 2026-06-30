@@ -18,6 +18,9 @@ import Blog from "@/pages/Blog";
 import BlogPost from "@/pages/BlogPost";
 import Gallery from "@/pages/Gallery";
 import Contact from "@/pages/Contact";
+import ABGroupConstruction from "@/pages/ABGroupConstruction";
+import ABGroupFencing from "@/pages/ABGroupFencing";
+import ABGroupFacilities from "@/pages/ABGroupFacilities";
 
 const queryClient = new QueryClient();
 
@@ -67,6 +70,9 @@ function Router() {
               <Route path="/blog/:slug" component={BlogPost} />
               <Route path="/gallery" component={Gallery} />
               <Route path="/contact" component={Contact} />
+              <Route path="/ab-group/construction" component={ABGroupConstruction} />
+              <Route path="/ab-group/fencing" component={ABGroupFencing} />
+              <Route path="/ab-group/facilities" component={ABGroupFacilities} />
               <Route component={NotFound} />
             </Switch>
           </motion.div>
