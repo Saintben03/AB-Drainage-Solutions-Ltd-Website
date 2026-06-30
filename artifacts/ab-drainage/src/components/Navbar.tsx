@@ -189,8 +189,10 @@ export const Navbar = () => {
                 onMouseLeave={handleGroupLeave}
               >
                 <button
-                  className={`whitespace-nowrap text-[13px] xl:text-sm font-bold uppercase tracking-tight xl:tracking-wide transition-colors relative flex items-center gap-1 ${
-                    isGroupActive ? "text-accent" : "text-foreground/80 hover:text-accent"
+                  className={`whitespace-nowrap text-[13px] xl:text-sm font-bold uppercase tracking-tight xl:tracking-wide transition-all relative flex items-center gap-1 px-3 py-1.5 rounded-sm border ${
+                    isGroupActive
+                      ? "bg-accent text-white border-accent"
+                      : "bg-accent/10 text-accent border-accent/40 hover:bg-accent hover:text-white hover:border-accent"
                   }`}
                   onClick={() => setGroupDropdownOpen((o) => !o)}
                   aria-expanded={groupDropdownOpen}
@@ -200,7 +202,6 @@ export const Navbar = () => {
                     size={13}
                     className={`transition-transform duration-200 ${groupDropdownOpen ? "rotate-180" : ""}`}
                   />
-                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-accent transition-all duration-300 ${isGroupActive ? "w-full" : "w-0 group-hover:w-full"}`}></span>
                 </button>
 
                 <AnimatePresence>
