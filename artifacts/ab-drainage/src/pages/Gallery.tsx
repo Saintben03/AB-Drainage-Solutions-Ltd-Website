@@ -5,15 +5,50 @@ import { WaterWave } from "@/components/WaterWave";
 import { motion } from "framer-motion";
 
 import heroImg from "@assets/Designer_(1)_1782807579036.png";
+
+// Team
 import crew1 from "@assets/ab_group_gallery/worker-9.33.16.jpeg";
 import crew2 from "@assets/ab_group_gallery/worker-9.33.26.jpeg";
 import crew3 from "@assets/ab_group_gallery/worker-9.33.28.jpeg";
 import crew4 from "@assets/ab_group_gallery/worker-9.33.30.jpeg";
 import crew5 from "@assets/ab_group_gallery/worker-9.33.34.jpeg";
 import crew6 from "@assets/ab_group_gallery/worker-9.33.36.jpeg";
+
+// Fleet
 import vanBlue from "@assets/site_files_1/g-01f.jpg";
-import surveyWalk from "@assets/site_files_1/survey-01b.jpg";
-import platformWorks from "@assets/site_files_1/drainage-01a.jpg";
+import vanG from "@assets/site_files_1/g-01g.jpg";
+import vanH from "@assets/site_files_1/g-01h.jpg";
+import vanM from "@assets/site_files_1/g-01m.jpg";
+import vanT from "@assets/site_files_1/g-01t.jpg";
+import vanU from "@assets/site_files_1/g-01u.jpg";
+import vanW from "@assets/site_files_1/g-01w.jpg";
+
+// Surveys
+import survey1 from "@assets/site_files_1/survey-01a.jpg";
+import survey2 from "@assets/site_files_1/survey-01b.jpg";
+
+// Drainage / platform works
+import drainage1 from "@assets/site_files_1/drainage-01a.jpg";
+
+// Blocked drains
+import blocked1 from "@assets/site_files_1/blocked-drain-01a.jpg";
+import blocked2 from "@assets/site_files_1/blocked-drain-01b.jpg";
+import blocked3 from "@assets/site_files_1/blocked-drain-01c.jpg";
+
+// Groundworks
+import ground1 from "@assets/site_files_1/groundwork-01a.jpg";
+import ground2 from "@assets/site_files_1/groundwork-01b.jpg";
+import ground3 from "@assets/site_files_1/groundwork-01c.jpg";
+
+// Pipeline
+import pipe1 from "@assets/site_files_1/pipeline-01a.jpg";
+import pipe2 from "@assets/site_files_1/pipeline-01b.jpg";
+
+// On the job (social media originals)
+import job1 from "@assets/site_files_1/369541839_240515012286429_2194496784194718742_n.jpg";
+import job2 from "@assets/site_files_1/468849454_17949583832886709_2702370064044539379_n.jpg";
+import job3 from "@assets/site_files_1/472171552_560083023662958_8976223963179451031_n.jpg";
+import job4 from "@assets/site_files_1/495021961_10232376033277003_1967405647606398252_n.jpg";
 
 interface GalleryItem {
   src: string;
@@ -27,12 +62,39 @@ const featured: GalleryItem[] = [
 ];
 
 const items: GalleryItem[] = [
-  { src: surveyWalk, caption: "Heading out to a CCTV drainage survey", tag: "Surveys" },
-  { src: crew2, caption: "The A&B crew, ready for the next callout", tag: "Our Team" },
+  // Work — blocked drains
+  { src: blocked1, caption: "Locating and clearing a severe blockage", tag: "Blocked Drains" },
+  { src: blocked2, caption: "High-pressure jetting to restore full flow", tag: "Blocked Drains" },
+  { src: blocked3, caption: "Drain clearance completed — pipe running free", tag: "Blocked Drains" },
+  // Surveys
+  { src: survey1, caption: "CCTV survey equipment ready for deployment", tag: "Surveys" },
+  { src: survey2, caption: "Heading out to a CCTV drainage survey", tag: "Surveys" },
+  // Groundworks
+  { src: ground1, caption: "Precision groundworks on a Hampshire site", tag: "Groundworks" },
+  { src: ground2, caption: "Excavation and pipe installation underway", tag: "Groundworks" },
+  { src: ground3, caption: "Reinstatement following drain repair", tag: "Groundworks" },
+  // Pipeline
+  { src: pipe1, caption: "Pipeline inspection and maintenance works", tag: "Pipeline Works" },
+  { src: pipe2, caption: "Specialist pipeline works — full reinstatement", tag: "Pipeline Works" },
+  // Major / platform
+  { src: drainage1, caption: "Specialist drainage works on the rail network", tag: "Major Works" },
+  // On the job
+  { src: job1, caption: "The A&B crew — always ready for the next callout", tag: "Our Team" },
+  { src: job2, caption: "Commercial drainage maintenance in progress", tag: "On the Job" },
+  { src: job3, caption: "Industrial site — tanker and team on standby", tag: "On the Job" },
+  { src: job4, caption: "Reactive callout handled swiftly and professionally", tag: "On the Job" },
+  // Fleet
+  { src: crew2, caption: "The A&B crew, ready to mobilise", tag: "Our Team" },
   { src: vanBlue, caption: "Part of our fully-equipped A&B fleet", tag: "Our Fleet" },
+  { src: vanG, caption: "A&B van — one of many across Hampshire", tag: "Our Fleet" },
+  { src: vanH, caption: "Fully-stocked service van ready for deployment", tag: "Our Fleet" },
+  { src: vanM, caption: "Fleet vehicle at a Hampshire site", tag: "Our Fleet" },
+  { src: vanT, caption: "A&B on the road — rapid response coverage", tag: "Our Fleet" },
+  { src: vanU, caption: "Our tanker fleet — for high-capacity work", tag: "Our Fleet" },
+  { src: vanW, caption: "A&B fleet lined up — Hampshire's drain experts", tag: "Our Fleet" },
+  // More team
   { src: crew3, caption: "Experienced engineers you can rely on", tag: "Our Team" },
   { src: crew5, caption: "Mobilising across Hampshire, day or night", tag: "Our Team" },
-  { src: platformWorks, caption: "Specialist drainage works on the rail network", tag: "Major Works" },
   { src: crew6, caption: "33+ years of experience on every job", tag: "Our Team" },
 ];
 
@@ -43,7 +105,7 @@ const fadeUp = {
 
 const stagger = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.08 } },
+  show: { transition: { staggerChildren: 0.06 } },
 };
 
 export default function Gallery() {
@@ -51,7 +113,7 @@ export default function Gallery() {
     <>
       <SEO
         title="Gallery | A&B Drainage Solutions Hampshire"
-        description="See A&B Drainage Solutions in action across Hampshire — our engineers, fleet and drainage projects, from CCTV surveys to major rail-network works."
+        description="See A&B Drainage Solutions in action across Hampshire — our engineers, fleet and drainage projects, from blocked drains to major groundworks and rail-network works."
         canonicalUrl="/gallery"
       />
 
@@ -106,11 +168,11 @@ export default function Gallery() {
           >
             <p className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-3">On the Tools</p>
             <h2 className="text-4xl md:text-5xl font-display font-bold text-zinc-900 uppercase leading-tight">
-              The People Behind the Work
+              The People &amp; Work Behind the Name
             </h2>
           </motion.div>
 
-          {/* Featured pair — shown large, near full-width */}
+          {/* Featured pair — shown large */}
           <motion.div
             variants={stagger}
             initial="hidden"
@@ -140,6 +202,7 @@ export default function Gallery() {
             ))}
           </motion.div>
 
+          {/* Masonry grid — all work images */}
           <motion.div
             variants={stagger}
             initial="hidden"
