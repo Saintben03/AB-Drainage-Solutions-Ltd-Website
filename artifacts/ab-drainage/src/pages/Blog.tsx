@@ -5,8 +5,8 @@ import { WaterWave } from "@/components/WaterWave";
 import { Clock, Calendar, ArrowRight } from "lucide-react";
 import { blogPosts } from "@/data/blogPosts";
 
+import heroImg from "@assets/Designer_(1)_1782807579036.png";
 // Real fleet/job photos
-import imgFleet from "@assets/site_files_1/AB Drainage background_edited.jpg";
 import imgVanSchool from "@assets/site_files_1/369541839_240515012286429_2194496784194718742_n.jpg";
 import imgVanResidential from "@assets/site_files_1/468849454_17949583832886709_2702370064044539379_n.jpg";
 import imgWorkerManhole from "@assets/site_files_1/472171552_560083023662958_8976223963179451031_n.jpg";
@@ -22,7 +22,7 @@ import imgBlockedDrain from "@assets/blog/blocked-drain.png";
 const imageMap: Record<string, string> = {
   unblock: imgWorkerManhole,
   cctv: imgCctv,
-  emergency: imgFleet,
+  emergency: heroImg,
   commercial: imgVanSchool,
   "tree-roots": imgTreeRoots,
   jetting: imgJetting,
@@ -55,39 +55,42 @@ export default function Blog() {
       />
 
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden min-h-[62vh] flex items-start">
+      <section className="relative overflow-hidden min-h-[80vh] flex items-center pt-28 pb-20">
         <div className="absolute inset-0 z-0">
-          <img src={imgFleet} alt="A&B Drainage fleet" className="w-full h-full object-cover object-bottom" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/75 to-background/30"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent"></div>
-        </div>
-        <div className="container mx-auto px-4 relative z-10 pt-40 pb-20">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-4"
-          >
-            Expert Drainage Guides
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.08 }}
-            className="text-4xl md:text-6xl font-display font-bold text-white uppercase leading-tight mb-6"
-          >
-            Drainage Advice &amp; <span className="text-accent">Expert Guides</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.16 }}
-            className="text-lg md:text-xl text-foreground/70 max-w-2xl leading-relaxed"
-          >
-            Professional insights, preventative tips, and detailed guides from Hampshire's most trusted drainage engineers.
-          </motion.p>
+          <img src={heroImg} alt="A&B Drainage fleet" className="w-full h-full object-cover object-center animate-heropan saturate-[1.45] brightness-[1.08] contrast-[1.12]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/55 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-l from-[#5392B6]/35 via-[#5392B6]/12 to-transparent" style={{ mixBlendMode: "multiply" }}></div>
         </div>
         <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#ffffff" />
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="relative max-w-3xl">
+            <div className="absolute -inset-x-8 -inset-y-10 bg-black/50 blur-3xl rounded-3xl -z-10 pointer-events-none" aria-hidden="true"></div>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-4"
+            >
+              Expert Drainage Guides
+            </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.08 }}
+              className="text-4xl md:text-6xl font-display font-bold text-white uppercase leading-tight mb-6 [text-shadow:0_2px_20px_rgba(0,0,0,0.9),0_1px_4px_rgba(0,0,0,0.7)]"
+            >
+              Drainage Advice &amp; <span className="text-accent">Expert Guides</span>
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.16 }}
+              className="text-lg md:text-xl text-white/85 max-w-2xl leading-relaxed [text-shadow:0_1px_8px_rgba(0,0,0,0.8)]"
+            >
+              Professional insights, preventative tips, and detailed guides from Hampshire's most trusted drainage engineers.
+            </motion.p>
+          </div>
+        </div>
       </section>
 
       {/* ── FEATURED POST (light) ── */}

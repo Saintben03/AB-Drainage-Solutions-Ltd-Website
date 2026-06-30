@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { WaterWave } from "@/components/WaterWave";
 import { LogoMarquee } from "@/components/LogoMarquee";
 
-import fleetImg from "@assets/site_files_1/AB Drainage background_edited.jpg";
+import heroImg from "@assets/Designer_(1)_1782807579036.png";
 import crewTeam from "@assets/ab_group_gallery/worker-9.33.16.jpeg";
 import crewDrain from "@assets/ab_group_gallery/worker-9.33.28.jpeg";
 import lanesLogo from "@assets/site_files_1/LanesGroup-1000-px.png";
@@ -54,36 +54,41 @@ export default function About() {
       />
 
       {/* ── HERO ── */}
-      <section className="pt-36 pb-24 relative overflow-hidden min-h-[62vh] flex items-start">
+      <section className="relative overflow-hidden min-h-[80vh] flex items-center pt-28 pb-20">
         <div className="absolute inset-0 z-0">
-          <img src={fleetImg} alt="A&B Drainage Fleet" className="w-full h-full object-cover object-bottom" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/80 to-background/30"></div>
+          <img src={heroImg} alt="A&B Drainage Fleet" className="w-full h-full object-cover object-center animate-heropan saturate-[1.45] brightness-[1.08] contrast-[1.12]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/55 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-l from-[#5392B6]/35 via-[#5392B6]/12 to-transparent" style={{ mixBlendMode: "multiply" }}></div>
         </div>
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#ffffff" />
         <div className="container mx-auto px-4 relative z-10">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-4"
-          >
-            Hampshire's Trusted Drainage Specialists
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.08 }}
-            className="text-5xl md:text-7xl font-display font-bold text-white uppercase mb-6 leading-tight"
-          >
-            About <span className="text-accent">A&amp;B</span> Drainage
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.16 }}
-            className="text-xl text-foreground/70 max-w-2xl leading-relaxed"
-          >
-            For over three decades, A&amp;B Drainage Solutions Ltd has been the name Hampshire trusts when things go wrong underground.
-          </motion.p>
+          <div className="relative max-w-3xl">
+            <div className="absolute -inset-x-8 -inset-y-10 bg-black/50 blur-3xl rounded-3xl -z-10 pointer-events-none" aria-hidden="true"></div>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-4"
+            >
+              Hampshire's Trusted Drainage Specialists
+            </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.08 }}
+              className="text-5xl md:text-7xl font-display font-bold text-white uppercase mb-6 leading-tight [text-shadow:0_2px_20px_rgba(0,0,0,0.9),0_1px_4px_rgba(0,0,0,0.7)]"
+            >
+              About <span className="text-accent">A&amp;B</span> Drainage
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.16 }}
+              className="text-xl text-white/85 max-w-2xl leading-relaxed [text-shadow:0_1px_8px_rgba(0,0,0,0.8)]"
+            >
+              For over three decades, A&amp;B Drainage Solutions Ltd has been the name Hampshire trusts when things go wrong underground.
+            </motion.p>
+          </div>
         </div>
       </section>
 
@@ -238,7 +243,7 @@ export default function About() {
       {/* ── PHOTO STRIP + CTA ── */}
       <section className="relative">
         <div className="grid grid-cols-2 overflow-hidden" style={{ height: "420px" }}>
-          {[crewDrain, fleetImg].map((src, i) => (
+          {[crewDrain, crewTeam].map((src, i) => (
             <div key={i} className="overflow-hidden relative">
               <motion.img
                 initial={{ scale: 1.08 }}
