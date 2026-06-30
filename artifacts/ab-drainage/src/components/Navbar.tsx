@@ -76,9 +76,28 @@ export const Navbar = () => {
     <>
       {/* ── Emergency Bar (expands on hover) ── */}
       <div className="group relative bg-accent text-white px-4 py-2 text-[10px] xl:text-xs font-bold uppercase tracking-[0.12em] 2xl:tracking-[0.18em] transition-all duration-300 hover:py-4 hover:shadow-lg hover:shadow-accent/40">
-        <div className="flex items-center justify-center gap-2 xl:gap-4">
-          {/* Left contact group (large screens) */}
-          <div className="hidden xl:flex flex-1 items-center gap-3 2xl:gap-5 pl-2 2xl:pl-6 transition-all duration-300 group-hover:text-sm">
+
+        {/* Mobile layout: phones + 24/7 message in one compact row */}
+        <div className="xl:hidden flex items-center justify-between gap-2">
+          <a href="tel:01256688650" className="flex items-center gap-1 whitespace-nowrap hover:text-white/70 transition-colors shrink-0">
+            <Phone size={11} className="shrink-0" /> 01256 688 650
+          </a>
+          <span className="text-white/30 shrink-0">|</span>
+          <span className="flex items-center gap-1.5 shrink-0">
+            <span className="animate-pulse w-1.5 h-1.5 rounded-full bg-white block shrink-0"></span>
+            <span className="hidden sm:inline">24/7 Emergency — Within 1 Hour</span>
+            <span className="sm:hidden">24/7 Emergency</span>
+          </span>
+          <span className="text-white/30 shrink-0">|</span>
+          <a href="tel:07498062710" className="flex items-center gap-1 whitespace-nowrap hover:text-white/70 transition-colors shrink-0">
+            <Smartphone size={11} className="shrink-0" /> 07498 062 710
+          </a>
+        </div>
+
+        {/* xl+ layout: left phones | center message | right socials */}
+        <div className="hidden xl:flex items-center justify-center gap-4">
+          {/* Left contact group */}
+          <div className="flex flex-1 items-center gap-3 2xl:gap-5 pl-2 2xl:pl-6 transition-all duration-300 group-hover:text-sm">
             <a href="tel:01256688650" className="flex items-center gap-1.5 whitespace-nowrap shrink-0 hover:text-white/70 transition-colors">
               <Phone size={13} className="shrink-0 transition-all duration-300 group-hover:w-[18px] group-hover:h-[18px]" /> 01256 688 650
             </a>
@@ -92,17 +111,14 @@ export const Navbar = () => {
             </a>
           </div>
 
-          {/* Left spacer keeps the message centred on sm–lg where contact is hidden */}
-          <div className="hidden sm:block xl:hidden flex-1" aria-hidden="true"></div>
-
-          {/* Center: 24/7 message framed by dividers on both sides */}
-          <span className="flex items-center gap-2 sm:px-4 xl:px-6 sm:border-x sm:border-white/30 sm:whitespace-nowrap shrink-0 transition-all duration-300 group-hover:text-sm">
+          {/* Center: 24/7 message */}
+          <span className="flex items-center gap-2 px-6 border-x border-white/30 whitespace-nowrap shrink-0 transition-all duration-300 group-hover:text-sm">
             <span className="animate-pulse w-2 h-2 rounded-full bg-white block shrink-0 transition-all duration-300 group-hover:w-3 group-hover:h-3"></span>
             24/7 Emergency Callout — Typically Within 1 Hour
           </span>
 
-          {/* Right: Follow Us + prominent social, pushed to the right edge */}
-          <div className="hidden sm:flex flex-1 items-center justify-end gap-3 pr-4 xl:pr-6">
+          {/* Right: Follow Us + social icons */}
+          <div className="flex flex-1 items-center justify-end gap-3 pr-4 xl:pr-6">
             <span className="text-white/80 tracking-[0.18em] transition-all duration-300 group-hover:text-sm">Follow Us</span>
             <SocialLinks
               iconSize={24}

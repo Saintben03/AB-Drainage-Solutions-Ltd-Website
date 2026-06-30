@@ -102,7 +102,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.08 }}
-              className="text-5xl md:text-7xl font-display font-bold text-white leading-[1.05] mb-6 uppercase [text-shadow:0_2px_20px_rgba(0,0,0,0.9),0_1px_4px_rgba(0,0,0,0.7)]"
+              className="text-4xl sm:text-5xl md:text-7xl font-display font-bold text-white leading-[1.05] mb-6 uppercase [text-shadow:0_2px_20px_rgba(0,0,0,0.9),0_1px_4px_rgba(0,0,0,0.7)]"
             >
               The Drain Experts{" "}
               <span className="text-accent">Hampshire</span>{" "}
