@@ -76,11 +76,11 @@ export default function Home() {
       {/* ── HERO (dark) ── */}
       <section className="relative min-h-[80vh] flex items-center pt-28 pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src={heroImg} alt="A&B Drainage Solutions Ltd Fleet" className="w-full h-full object-cover object-center animate-heropan saturate-[1.45] brightness-[1.08] contrast-[1.12]" />
-          {/* Left text-legibility fade */}
-          <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/55 to-transparent"></div>
-          {/* Brand-blue wash — softens logos, ties image to brand identity */}
-          <div className="absolute inset-0 bg-gradient-to-l from-[#5392B6]/35 via-[#5392B6]/12 to-transparent" style={{ mixBlendMode: "multiply" }}></div>
+          <img src={heroImg} alt="A&B Drainage Solutions Ltd Fleet" className="w-full h-full object-cover object-center animate-heropan saturate-[1.6] brightness-[1.12] contrast-[1.15]" />
+          {/* Left text-legibility fade — stops well before centre */}
+          <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/15 to-transparent"></div>
+          {/* Subtle brand-blue wash — right edge only, very light */}
+          <div className="absolute inset-0 bg-gradient-to-l from-[#5392B6]/8 via-[#5392B6]/2 to-transparent" style={{ mixBlendMode: "multiply" }}></div>
         </div>
 
         <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#e0f2fe" />

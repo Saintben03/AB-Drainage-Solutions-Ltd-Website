@@ -99,10 +99,9 @@ export default function ABGroupFacilities() {
       {/* ── HERO ── */}
       <section className="relative min-h-[92vh] flex items-end overflow-hidden bg-background">
         <div className="absolute inset-0">
-          <img src={heroImg} alt="Modern commercial building — AB Facilities Management" className="w-full h-full object-cover animate-heropan" draggable={false} />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/60 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-500/30 via-slate-500/10 to-transparent mix-blend-multiply" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
+          <img src={heroImg} alt="Modern commercial building — AB Facilities Management" className="w-full h-full object-cover animate-heropan saturate-[1.5] brightness-[1.1] contrast-[1.12]" draggable={false} />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/15 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-500/10 via-slate-500/2 to-transparent mix-blend-multiply" />
         </div>
 
         <div className="relative z-10 container mx-auto px-4 lg:px-8 pb-28 pt-16">
