@@ -4,7 +4,7 @@ region: lon1
 static_sites:
 - name: ab-drainage-web
   source_dir: /
-  build_command: npm install -g pnpm@latest && pnpm install --no-frozen-lockfile && pnpm --filter @workspace/ab-drainage run build
+  build_command: npm install -g pnpm@9 && pnpm install --no-frozen-lockfile && pnpm --filter @workspace/ab-drainage run build
   output_dir: artifacts/ab-drainage/dist/public
   catchall_document: index.html
   envs:
