@@ -79,46 +79,46 @@ export default function Home() {
       {/* ── HERO (dark) ── */}
       <section className="relative overflow-hidden bg-background">
 
-        {/* ── Mobile hero (stacked: image top, text bottom) ── */}
-        <div className="md:hidden flex flex-col">
-          {/* Van image — top of hero on mobile */}
-          <div className="relative w-full h-52 shrink-0">
+        {/* ── Mobile hero (text overlaid on image) ── */}
+        <div className="md:hidden relative min-h-[88vh] flex flex-col justify-end pb-10">
+          {/* Background image */}
+          <div className="absolute inset-0 z-0">
             <img
               src={heroImg}
               alt="A&B Drainage Solutions Ltd fleet of vans"
-              className="w-full h-full object-cover object-[62%_55%] saturate-[1.5] brightness-[1.1] contrast-[1.1]"
+              className="w-full h-full object-cover object-[62%_40%] saturate-[1.5] brightness-[1.05] contrast-[1.1]"
             />
-            {/* fade bottom edge into the dark text area below */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/90" />
+            {/* Dark overlay — heavier at bottom so text pops, lighter at top so image shows */}
+            <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/55 to-background/95" />
           </div>
 
-          {/* Text content */}
-          <div className="px-4 pt-6 pb-10">
-            <p className="text-accent text-[10px] font-bold uppercase tracking-[0.12em] mb-4 flex items-center gap-2">
+          {/* Text content — sits over the image */}
+          <div className="relative z-10 px-4">
+            <p className="text-accent text-[10px] font-bold uppercase tracking-[0.12em] mb-3 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse inline-block"></span>
               Hampshire's Drainage Specialists — 33 Years Experience
             </p>
-            <h1 className="text-4xl font-display font-bold text-white leading-[1.05] mb-4 uppercase [text-shadow:0_2px_20px_rgba(0,0,0,0.9)]">
+            <h1 className="text-[2.4rem] font-display font-bold text-white leading-[1.05] mb-3 uppercase [text-shadow:0_2px_20px_rgba(0,0,0,0.9),0_1px_6px_rgba(0,0,0,0.8)]">
               The Drain Experts <span className="text-accent">Hampshire</span> Relies On.
             </h1>
-            <p className="text-base text-white/80 mb-6 leading-relaxed">
+            <p className="text-sm text-white/85 mb-5 leading-relaxed [text-shadow:0_1px_8px_rgba(0,0,0,0.9)]">
               Blocked drain? Sewage backing up? We answer at 2am and arrive typically within 1 hour. 33 years solving Hampshire's toughest drainage problems.
             </p>
             <a
               href={REVIEWS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-white/10 border border-white/20 px-4 py-2.5 rounded-lg mb-6 transition-all"
+              className="inline-flex items-center gap-2 bg-black/40 backdrop-blur-sm border border-white/20 px-4 py-2.5 rounded-lg mb-5 transition-all"
             >
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={14} className="text-yellow-400 fill-yellow-400" />
+                  <Star key={i} size={13} className="text-yellow-400 fill-yellow-400" />
                 ))}
               </div>
               <span className="text-white font-bold text-sm">Rated Excellent</span>
-              <ExternalLink size={13} className="text-white/60" />
+              <ExternalLink size={12} className="text-white/60" />
             </a>
-            <div className="flex flex-col gap-3 mb-6">
+            <div className="flex flex-col gap-3 mb-5">
               <a
                 href="tel:01256688650"
                 className="bg-accent text-white px-6 py-4 text-base font-bold uppercase tracking-wider flex items-center justify-center gap-3"
@@ -127,17 +127,18 @@ export default function Home() {
               </a>
               <Link
                 href="/services"
-                className="border-2 border-white/30 text-white px-6 py-4 text-base font-bold uppercase tracking-wider flex items-center justify-center gap-2"
+                className="border-2 border-white/40 text-white px-6 py-4 text-base font-bold uppercase tracking-wider flex items-center justify-center gap-2"
               >
                 Our Services <ArrowRight size={18} />
               </Link>
             </div>
-            <div className="flex gap-5 text-[10px] font-bold text-white/60 uppercase tracking-wide">
+            <div className="flex gap-5 text-[10px] font-bold text-white/70 uppercase tracking-wide">
               <span className="flex items-center gap-1.5"><Clock size={13} className="text-accent" /> 1 Hour ETA</span>
               <span className="flex items-center gap-1.5"><ShieldCheck size={13} className="text-accent" /> 33+ Yrs Exp</span>
               <span className="flex items-center gap-1.5"><MapPin size={13} className="text-accent" /> Hampshire Wide</span>
             </div>
           </div>
+          <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#e0f2fe" />
         </div>
 
         {/* ── Desktop hero (background image) ── */}
