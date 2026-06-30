@@ -347,17 +347,19 @@ export const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.25 }}
-              className="fixed inset-x-0 bottom-0 bg-[#080808]/98 backdrop-blur-xl z-40 lg:hidden flex flex-col p-6 overflow-y-auto"
-          style={{ top: headerHeight }}
-            >
+      </header>
+
+      {/* Mobile Menu — outside <header> so it sits above the header's z-50 stacking context */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-x-0 bottom-0 bg-[#080808]/98 backdrop-blur-xl z-[60] lg:hidden flex flex-col p-6 overflow-y-auto"
+            style={{ top: headerHeight }}
+          >
               <nav className="flex flex-col gap-0 bg-border mt-4">
                 {navLinks.map((link, i) => {
                   const isActive = location === link.href;
@@ -467,7 +469,6 @@ export const Navbar = () => {
             </motion.div>
           )}
         </AnimatePresence>
-      </header>
     </>
   );
 };
