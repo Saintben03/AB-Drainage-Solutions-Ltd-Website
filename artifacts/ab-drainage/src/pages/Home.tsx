@@ -76,7 +76,7 @@ export default function Home() {
       {/* ── HERO (dark) ── */}
       <section className="relative min-h-[80vh] flex items-center pt-28 pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src={heroImg} alt="A&B Drainage Solutions Ltd Fleet" className="w-full h-full object-cover object-bottom origin-bottom animate-heropan saturate-[1.55] brightness-[1.05] contrast-[1.18]" />
+          <img src={heroImg} alt="A&B Drainage Solutions Ltd Fleet" className="w-full h-full object-cover object-bottom animate-heropan saturate-[1.55] brightness-[1.05] contrast-[1.18]" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/65 to-transparent"></div>
         </div>
 
