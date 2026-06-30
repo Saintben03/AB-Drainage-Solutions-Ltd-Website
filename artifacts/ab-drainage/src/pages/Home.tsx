@@ -478,7 +478,7 @@ export default function Home() {
                 </ul>
                 <Link
                   href="/ab-group/construction"
-                  className="mt-8 flex items-center justify-center gap-2 bg-red-600 hover:bg-red-500 text-white text-xs font-bold uppercase tracking-[0.18em] py-4 transition-all duration-300 shadow-lg shadow-red-950/50"
+                  className="mt-8 flex items-center justify-center gap-2 bg-red-600 hover:bg-red-500 text-white text-xs font-bold uppercase tracking-[0.18em] py-4 rounded-lg transition-all duration-300 shadow-lg shadow-red-950/50"
                 >
                   Learn More <ArrowRight size={14} />
                 </Link>
@@ -516,7 +516,7 @@ export default function Home() {
                 </ul>
                 <Link
                   href="/ab-group/fencing"
-                  className="mt-8 flex items-center justify-center gap-2 bg-green-700 hover:bg-green-600 text-white text-xs font-bold uppercase tracking-[0.18em] py-4 transition-all duration-300 shadow-lg shadow-green-950/50"
+                  className="mt-8 flex items-center justify-center gap-2 bg-green-700 hover:bg-green-600 text-white text-xs font-bold uppercase tracking-[0.18em] py-4 rounded-lg transition-all duration-300 shadow-lg shadow-green-950/50"
                 >
                   Learn More <ArrowRight size={14} />
                 </Link>
@@ -554,7 +554,7 @@ export default function Home() {
                 </ul>
                 <Link
                   href="/ab-group/facilities"
-                  className="mt-8 flex items-center justify-center gap-2 bg-[#5392B6] hover:bg-[#4a82a4] text-white text-xs font-bold uppercase tracking-[0.18em] py-4 transition-all duration-300 shadow-lg shadow-blue-950/50"
+                  className="mt-8 flex items-center justify-center gap-2 bg-[#5392B6] hover:bg-[#4a82a4] text-white text-xs font-bold uppercase tracking-[0.18em] py-4 rounded-lg transition-all duration-300 shadow-lg shadow-blue-950/50"
                 >
                   Learn More <ArrowRight size={14} />
                 </Link>
@@ -577,13 +577,13 @@ export default function Home() {
               <p className="text-white/45 text-sm mt-1">Hampshire's leading drainage specialists for over 33 years. Rapid response, 24/7.</p>
             </div>
             <div className="flex flex-wrap gap-3 shrink-0">
-              <Link href="/ab-group/construction" className="inline-flex items-center gap-2 border-l-2 border-l-red-600 border border-zinc-700 hover:border-red-600/60 bg-zinc-800/60 hover:bg-red-950/30 text-white/70 hover:text-red-300 px-5 py-3 font-bold uppercase tracking-wider text-xs transition-all duration-200">
+              <Link href="/ab-group/construction" className="inline-flex items-center gap-2 border-l-2 border-l-red-600 border border-zinc-700 hover:border-red-600/60 bg-zinc-800/60 hover:bg-red-950/30 text-white/70 hover:text-red-300 px-5 py-3 font-bold uppercase tracking-wider text-xs rounded-lg transition-all duration-200">
                 Construction <ArrowRight size={13} />
               </Link>
-              <Link href="/ab-group/fencing" className="inline-flex items-center gap-2 border-l-2 border-l-green-600 border border-zinc-700 hover:border-green-600/60 bg-zinc-800/60 hover:bg-green-950/30 text-white/70 hover:text-green-300 px-5 py-3 font-bold uppercase tracking-wider text-xs transition-all duration-200">
+              <Link href="/ab-group/fencing" className="inline-flex items-center gap-2 border-l-2 border-l-green-600 border border-zinc-700 hover:border-green-600/60 bg-zinc-800/60 hover:bg-green-950/30 text-white/70 hover:text-green-300 px-5 py-3 font-bold uppercase tracking-wider text-xs rounded-lg transition-all duration-200">
                 Fencing <ArrowRight size={13} />
               </Link>
-              <Link href="/ab-group/facilities" className="inline-flex items-center gap-2 border-l-2 border-l-[#5392B6] border border-zinc-700 hover:border-[#5392B6]/60 bg-zinc-800/60 hover:bg-blue-950/30 text-white/70 hover:text-[#5392B6] px-5 py-3 font-bold uppercase tracking-wider text-xs transition-all duration-200">
+              <Link href="/ab-group/facilities" className="inline-flex items-center gap-2 border-l-2 border-l-[#5392B6] border border-zinc-700 hover:border-[#5392B6]/60 bg-zinc-800/60 hover:bg-blue-950/30 text-white/70 hover:text-[#5392B6] px-5 py-3 font-bold uppercase tracking-wider text-xs rounded-lg transition-all duration-200">
                 Facilities <ArrowRight size={13} />
               </Link>
             </div>
