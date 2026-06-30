@@ -35,7 +35,7 @@ const services = [
   { img: work4, title: "Soakaway Installation", features: ["Building Regs Compliant", "Soil Percolation Testing", "Modern Crate Systems"], href: "/services#soakaways" },
 ];
 
-const REVIEWS_URL = "https://www.google.com/search?sca_esv=c5931a817e678147&rlz=1C1FKPE_en&sxsrf=APpeQntSzWkW3P6RDjShZ8U4Q8pMdLUcJA:1782739760627&si=APenkKm7iecQ4G6P-TsbSMFKIQtv3EFIqRAFw-i8uEbk55Z-_xzoarmiPr3yJTxjvJ0nn14nN_hbjN2cdyrmJ1QNlLQPa5PDTlbz830J71gI13mQ6_wOTedYLkVUWHeql5r2QfYQVysB5qiUseD0eGrPIQ8QKmLAeA%3D%3D&q=A%26B+Drainage+Solutions+ltd+Reviews";
+const REVIEWS_URL = "https://www.google.com/search?q=A%26B+Drainage+Solutions+Ltd+Basingstoke+Reviews";
 
 const reviews = [
   { name: "James T.", location: "Basingstoke", stars: 5, text: "Called at 11pm with a badly blocked drain — engineer was on site within 45 minutes and had it cleared in under an hour. Exceptional service." },
