@@ -77,7 +77,7 @@ export default function Areas() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.08 }}
-              className="text-5xl md:text-7xl font-display font-bold text-white uppercase mb-6 leading-tight [text-shadow:0_2px_20px_rgba(0,0,0,0.9),0_1px_4px_rgba(0,0,0,0.7)]"
+              className="text-4xl sm:text-5xl md:text-7xl font-display font-bold text-white uppercase mb-6 leading-tight [text-shadow:0_2px_20px_rgba(0,0,0,0.9),0_1px_4px_rgba(0,0,0,0.7)]"
             >
               Areas We <span className="text-accent">Cover</span>
             </motion.h1>
@@ -85,7 +85,7 @@ export default function Areas() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.16 }}
-              className="text-xl text-white/85 max-w-xl leading-relaxed mb-10 [text-shadow:0_1px_8px_rgba(0,0,0,0.8)]"
+              className="text-base sm:text-xl text-white/85 max-w-xl leading-relaxed mb-10 [text-shadow:0_1px_8px_rgba(0,0,0,0.8)]"
             >
               Based centrally in Hampshire, we provide rapid response drainage services across the county and into surrounding areas — typically on-site within one hour.
             </motion.p>

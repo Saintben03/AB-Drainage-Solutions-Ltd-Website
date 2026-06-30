@@ -82,7 +82,7 @@ export default function Contact() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.08 }}
-              className="text-5xl md:text-7xl font-display font-bold text-white uppercase mb-6 leading-tight [text-shadow:0_2px_20px_rgba(0,0,0,0.9),0_1px_4px_rgba(0,0,0,0.7)]"
+              className="text-4xl sm:text-5xl md:text-7xl font-display font-bold text-white uppercase mb-6 leading-tight [text-shadow:0_2px_20px_rgba(0,0,0,0.9),0_1px_4px_rgba(0,0,0,0.7)]"
             >
               Get In <span className="text-accent">Touch</span>
             </motion.h1>
@@ -90,7 +90,7 @@ export default function Contact() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.16 }}
-              className="text-xl text-white/85 max-w-xl leading-relaxed [text-shadow:0_1px_8px_rgba(0,0,0,0.8)]"
+              className="text-base sm:text-xl text-white/85 max-w-xl leading-relaxed [text-shadow:0_1px_8px_rgba(0,0,0,0.8)]"
             >
               We are available 24 hours a day, 7 days a week. For emergencies, call us directly — we aim to be on-site within the hour.
             </motion.p>

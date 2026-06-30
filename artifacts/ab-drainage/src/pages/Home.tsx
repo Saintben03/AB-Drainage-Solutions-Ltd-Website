@@ -92,7 +92,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-accent text-sm font-bold uppercase tracking-[0.25em] mb-5 flex items-center gap-3"
+              className="text-accent text-[10px] sm:text-xs font-bold uppercase tracking-[0.12em] sm:tracking-[0.25em] mb-5 flex items-center gap-3"
             >
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse inline-block"></span>
               Hampshire's Drainage Specialists — 33 Years Experience
@@ -162,7 +162,7 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-wrap gap-8 text-sm font-bold text-white/70 uppercase tracking-widest"
+              className="flex flex-wrap gap-4 sm:gap-8 text-[10px] sm:text-sm font-bold text-white/70 uppercase tracking-wide sm:tracking-widest"
             >
               <span className="flex items-center gap-2"><Clock size={15} className="text-accent" /> 1 Hour ETA</span>
               <span className="flex items-center gap-2"><ShieldCheck size={15} className="text-accent" /> 33+ Yrs Exp</span>
