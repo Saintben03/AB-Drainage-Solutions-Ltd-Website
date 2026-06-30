@@ -7,6 +7,7 @@ import { FlexiPayForm } from "@/components/FlexiPayForm";
 import { WaterWave } from "@/components/WaterWave";
 
 import heroImg from "@assets/site_files_1/AB Drainage background_edited.jpg";
+import heroBg from "@assets/site_files_1/AB Drainage background_logos.jpg";
 import work1 from "@assets/site_files_1/369541839_240515012286429_2194496784194718742_n.jpg";
 import work2 from "@assets/site_files_1/468849454_17949583832886709_2702370064044539379_n.jpg";
 import work3 from "@assets/site_files_1/472171552_560083023662958_8976223963179451031_n.jpg";
@@ -86,13 +87,14 @@ export default function Services() {
       />
 
       {/* Page Header */}
-      <section className="relative overflow-hidden min-h-[62vh] flex items-start">
+      <section className="relative overflow-hidden min-h-[62vh] flex items-center pt-28 pb-20">
         <div className="absolute inset-0 z-0">
-          <img src={heroImg} alt="A&B Drainage fleet" className="w-full h-full object-cover object-bottom" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/75 to-background/30"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent"></div>
+          <img src={heroBg} alt="A&B Drainage fleet" className="w-full h-full object-cover object-center animate-heropan saturate-[1.45] brightness-[1.08] contrast-[1.12]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/55 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-l from-[#5392B6]/35 via-[#5392B6]/12 to-transparent" style={{ mixBlendMode: "multiply" }}></div>
         </div>
-        <div className="container mx-auto px-4 relative z-10 pt-40 pb-20">
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#e0f2fe" />
+        <div className="container mx-auto px-4 relative z-10">
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}

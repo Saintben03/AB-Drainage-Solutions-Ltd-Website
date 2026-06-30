@@ -4,7 +4,7 @@ import { SEO } from "@/components/SEO";
 import { WaterWave } from "@/components/WaterWave";
 import { motion } from "framer-motion";
 
-import heroImg from "@assets/site_files_1/AB Drainage background_edited.jpg";
+import heroImg from "@assets/site_files_1/AB Drainage background_logos.jpg";
 import crew1 from "@assets/ab_group_gallery/worker-9.33.16.jpeg";
 import crew2 from "@assets/ab_group_gallery/worker-9.33.26.jpeg";
 import crew3 from "@assets/ab_group_gallery/worker-9.33.28.jpeg";
@@ -56,11 +56,13 @@ export default function Gallery() {
       />
 
       {/* ── HERO (dark) ── */}
-      <section className="pt-36 pb-28 relative overflow-hidden min-h-[58vh] flex items-start">
+      <section className="relative overflow-hidden min-h-[58vh] flex items-center pt-28 pb-20">
         <div className="absolute inset-0 z-0">
-          <img src={heroImg} alt="A&B Drainage fleet and engineers" className="w-full h-full object-cover object-bottom" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/40"></div>
+          <img src={heroImg} alt="A&B Drainage fleet and engineers" className="w-full h-full object-cover object-center animate-heropan saturate-[1.45] brightness-[1.08] contrast-[1.12]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/55 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-l from-[#5392B6]/35 via-[#5392B6]/12 to-transparent" style={{ mixBlendMode: "multiply" }}></div>
         </div>
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#ffffff" />
         <div className="container mx-auto px-4 relative z-10">
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -87,7 +89,6 @@ export default function Gallery() {
             Real photos of our team, our fleet and our work across Hampshire — no stock images, just three decades of drainage expertise on the ground.
           </motion.p>
         </div>
-        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#ffffff" />
       </section>
 
       {/* ── GALLERY GRID (light) ── */}

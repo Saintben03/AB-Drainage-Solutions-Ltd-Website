@@ -4,7 +4,7 @@ import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
 import { WaterWave } from "@/components/WaterWave";
 
-import heroImg from "@assets/site_files_1/AB Drainage background_edited.jpg";
+import heroImg from "@assets/site_files_1/AB Drainage background_logos.jpg";
 import vanImg from "@assets/site_files_1/g-01u.jpg";
 import crewArea from "@assets/ab_group_gallery/worker-9.33.26.jpeg";
 
@@ -55,11 +55,13 @@ export default function Areas() {
       />
 
       {/* ── HERO ── */}
-      <section className="pt-36 pb-24 relative overflow-hidden min-h-[62vh] flex items-start">
+      <section className="relative overflow-hidden min-h-[62vh] flex items-center pt-28 pb-20">
         <div className="absolute inset-0 z-0">
-          <img src={heroImg} alt="A&B Drainage Fleet" className="w-full h-full object-cover object-bottom" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/40"></div>
+          <img src={heroImg} alt="A&B Drainage Fleet" className="w-full h-full object-cover object-center animate-heropan saturate-[1.45] brightness-[1.08] contrast-[1.12]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/55 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-l from-[#5392B6]/35 via-[#5392B6]/12 to-transparent" style={{ mixBlendMode: "multiply" }}></div>
         </div>
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#e0f2fe" />
         <div className="container mx-auto px-4 relative z-10">
           <motion.p
             initial={{ opacity: 0, y: 16 }}
