@@ -86,7 +86,8 @@ export default function Home() {
         <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#e0f2fe" />
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl relative">
+            <div className="absolute -inset-x-8 -inset-y-10 bg-black/50 blur-3xl rounded-3xl -z-10 pointer-events-none" aria-hidden="true"></div>
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -101,7 +102,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.08 }}
-              className="text-5xl md:text-7xl font-display font-bold text-white leading-[1.05] mb-6 uppercase"
+              className="text-5xl md:text-7xl font-display font-bold text-white leading-[1.05] mb-6 uppercase [text-shadow:0_2px_20px_rgba(0,0,0,0.9),0_1px_4px_rgba(0,0,0,0.7)]"
             >
               The Drain Experts{" "}
               <span className="text-accent">Hampshire</span>{" "}
@@ -112,7 +113,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.16 }}
-              className="text-lg md:text-xl text-foreground/80 mb-8 max-w-xl leading-relaxed"
+              className="text-lg md:text-xl text-white/85 mb-8 max-w-xl leading-relaxed [text-shadow:0_1px_8px_rgba(0,0,0,0.8)]"
             >
               Blocked drain? Sewage backing up? We answer at 2am and arrive typically within 1 hour. 33 years solving Hampshire's toughest drainage problems.
             </motion.p>

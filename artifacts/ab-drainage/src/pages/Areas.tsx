@@ -63,42 +63,45 @@ export default function Areas() {
         </div>
         <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#e0f2fe" />
         <div className="container mx-auto px-4 relative z-10">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-4"
-          >
-            Hampshire-Wide Coverage
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.08 }}
-            className="text-5xl md:text-7xl font-display font-bold text-white uppercase mb-6 leading-tight"
-          >
-            Areas We <span className="text-accent">Cover</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.16 }}
-            className="text-xl text-foreground/70 max-w-xl leading-relaxed mb-10"
-          >
-            Based centrally in Hampshire, we provide rapid response drainage services across the county and into surrounding areas — typically on-site within one hour.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.24 }}
-          >
-            <a
-              href="tel:01256688650"
-              className="inline-flex items-center gap-3 bg-accent hover:bg-accent/90 text-white px-8 py-4 font-bold uppercase tracking-wider text-sm transition-all"
+          <div className="relative max-w-3xl">
+            <div className="absolute -inset-x-8 -inset-y-10 bg-black/50 blur-3xl rounded-3xl -z-10 pointer-events-none" aria-hidden="true"></div>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-4"
             >
-              <Phone size={18} /> Call for Availability
-            </a>
-          </motion.div>
+              Hampshire-Wide Coverage
+            </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.08 }}
+              className="text-5xl md:text-7xl font-display font-bold text-white uppercase mb-6 leading-tight [text-shadow:0_2px_20px_rgba(0,0,0,0.9),0_1px_4px_rgba(0,0,0,0.7)]"
+            >
+              Areas We <span className="text-accent">Cover</span>
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.16 }}
+              className="text-xl text-white/85 max-w-xl leading-relaxed mb-10 [text-shadow:0_1px_8px_rgba(0,0,0,0.8)]"
+            >
+              Based centrally in Hampshire, we provide rapid response drainage services across the county and into surrounding areas — typically on-site within one hour.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.24 }}
+            >
+              <a
+                href="tel:01256688650"
+                className="inline-flex items-center gap-3 bg-accent hover:bg-accent/90 text-white px-8 py-4 font-bold uppercase tracking-wider text-sm transition-all"
+              >
+                <Phone size={18} /> Call for Availability
+              </a>
+            </motion.div>
+          </div>
         </div>
       </section>
 

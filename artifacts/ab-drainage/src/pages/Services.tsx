@@ -95,30 +95,33 @@ export default function Services() {
         </div>
         <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#e0f2fe" />
         <div className="container mx-auto px-4 relative z-10">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-4"
-          >
-            Industry Experts for 33 Years
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.08 }}
-            className="text-5xl md:text-7xl font-display font-bold text-white uppercase mb-6 leading-tight"
-          >
-            Our <span className="text-accent">Services</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.16 }}
-            className="text-xl text-foreground/70 max-w-2xl leading-relaxed"
-          >
-            We have the equipment, the experience, and the manpower to tackle any drainage issue — from a domestic blocked sink to full industrial site maintenance.
-          </motion.p>
+          <div className="relative max-w-3xl">
+            <div className="absolute -inset-x-8 -inset-y-10 bg-black/50 blur-3xl rounded-3xl -z-10 pointer-events-none" aria-hidden="true"></div>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-4"
+            >
+              Industry Experts for 33 Years
+            </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.08 }}
+              className="text-5xl md:text-7xl font-display font-bold text-white uppercase mb-6 leading-tight [text-shadow:0_2px_20px_rgba(0,0,0,0.9),0_1px_4px_rgba(0,0,0,0.7)]"
+            >
+              Our <span className="text-accent">Services</span>
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.16 }}
+              className="text-xl text-white/85 max-w-2xl leading-relaxed [text-shadow:0_1px_8px_rgba(0,0,0,0.8)]"
+            >
+              We have the equipment, the experience, and the manpower to tackle any drainage issue — from a domestic blocked sink to full industrial site maintenance.
+            </motion.p>
+          </div>
         </div>
         <WaterWave className="absolute bottom-0 left-0 w-full z-20 -mb-px" fill="#e0f2fe" />
       </section>
