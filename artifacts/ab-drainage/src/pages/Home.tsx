@@ -22,6 +22,9 @@ import nhsLogo from "@assets/site_files_1/National_Health_Service_(England)_logo
 import ccLogo from "@assets/site_files_1/CC-Multi-Disciplinary-Strap-White-BG-Full-Col-RGB-Trans.png";
 import imgCctv from "@assets/blog/cctv-survey.png";
 import imgJetting from "@assets/blog/drain-jetting.png";
+import divConstruction from "@assets/construction/const-about.png";
+import divFencing from "@assets/fencing/fence-hero.png";
+import divFacilities from "@assets/facilities/fac-gallery-lobby.png";
 
 const services = [
   { img: work3, title: "Emergency Drainage", features: ["24/7 Rapid Response", "Typically 1 Hour ETA", "Sewage & Flooding"], href: "/services#emergency" },
@@ -408,165 +411,184 @@ export default function Home() {
 
       {/* ── THE AB GROUP ── */}
       <section id="ab-group" className="py-24 bg-zinc-950 relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-          <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-[#5392B6]/5 blur-3xl"></div>
-          <div className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full bg-accent/5 blur-3xl"></div>
-        </div>
+        {/* Subtle grid lines */}
+        <div
+          className="absolute inset-0 opacity-[0.025] pointer-events-none"
+          style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.6) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.6) 1px,transparent 1px)", backgroundSize: "72px 72px" }}
+          aria-hidden="true"
+        />
         <div className="container mx-auto px-4 relative z-10">
+
+          {/* Section heading */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-16"
+            className="text-center mb-14"
           >
             <p className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-4">Part of Something Bigger</p>
-            <h2 className="text-4xl md:text-6xl font-display font-bold text-white uppercase leading-tight mb-6">
+            <h2 className="text-4xl md:text-6xl font-display font-bold text-white uppercase leading-tight mb-5">
               The <span className="text-accent">AB Group</span>
             </h2>
-            <p className="text-lg text-white/60 max-w-2xl mx-auto">
-              A&B Drainage Solutions is one of four specialist divisions within the AB Group — 33 years of combined expertise across drainage, construction, fencing and facilities management.
+            <p className="text-lg text-white/55 max-w-2xl mx-auto">
+              A&amp;B Drainage is one of four specialist divisions within the AB Group — 33 years of combined expertise across drainage, construction, fencing and facilities management.
             </p>
           </motion.div>
 
+          {/* Cinematic image cards */}
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1 } } }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.12 } } }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5"
           >
+
             {/* Construction */}
             <motion.div
-              variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
-              className="bg-zinc-900 border border-zinc-800 flex flex-col group hover:border-red-600/40 transition-colors duration-300"
+              variants={{ hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
+              className="relative overflow-hidden group min-h-[580px] flex flex-col"
             >
-              <div className="h-1.5 bg-red-600 w-full"></div>
-              <div className="p-8 flex flex-col flex-1">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-red-600/10 border border-red-600/30 flex items-center justify-center shrink-0">
-                    <span className="text-red-500 font-display font-bold text-lg">AB</span>
-                  </div>
-                  <div>
-                    <p className="text-red-500 text-[10px] font-bold uppercase tracking-[0.2em]">Division</p>
-                    <h3 className="text-white font-display font-bold text-xl uppercase leading-tight">Construction<br />Solutions Ltd</h3>
-                  </div>
-                </div>
-                <p className="text-white/55 text-sm leading-relaxed mb-8">
-                  Reliable construction solutions with clear communication, strong project oversight and skilled workmanship across sites of every scale — residential, commercial and infrastructure.
+              <img
+                src={divConstruction}
+                alt="AB Construction Solutions Ltd — site work"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+              {/* Gradient: transparent top → heavy bottom */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30 transition-all duration-500" />
+              {/* Accent bar top */}
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-red-600 z-10" />
+
+              <div className="relative z-10 flex flex-col h-full p-7 pt-9">
+                <p className="text-red-400 text-[10px] font-bold uppercase tracking-[0.28em] mb-3">Division</p>
+                <h3 className="text-white font-display font-bold text-2xl uppercase leading-tight mb-4">
+                  Construction<br />Solutions Ltd
+                </h3>
+                <p className="text-white/65 text-sm leading-relaxed mb-7">
+                  Reliable construction across residential, commercial and infrastructure sites — strong project oversight, skilled workmanship, clear communication from start to finish.
                 </p>
-                <ul className="space-y-2.5 mt-auto">
-                  {["Commercial Construction", "Residential Projects", "Project Management", "Specialist Labour Supply", "Site RAMS & Method Statements", "Health &amp; Safety Advice"].map((s) => (
-                    <li key={s} className="flex items-center gap-2.5 text-sm text-white/75">
-                      <span className="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0"></span>
-                      <span dangerouslySetInnerHTML={{ __html: s }} />
+                <ul className="space-y-2.5 mb-auto">
+                  {["Commercial Construction", "Residential Projects", "Project Management", "Specialist Labour Supply", "Site RAMS & Method Statements", "Health & Safety Advice"].map((s) => (
+                    <li key={s} className="flex items-center gap-2.5 text-sm text-white/80">
+                      <span className="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0" />
+                      {s}
                     </li>
                   ))}
                 </ul>
-                <div className="mt-8 pt-6 border-t border-zinc-800">
-                  <Link href="/ab-group/construction" className="inline-flex items-center gap-2 text-red-500 hover:text-red-400 text-xs font-bold uppercase tracking-[0.15em] transition-colors">
-                    Learn More <ArrowRight size={13} />
-                  </Link>
-                </div>
+                <Link
+                  href="/ab-group/construction"
+                  className="mt-8 flex items-center justify-center gap-2 bg-red-600 hover:bg-red-500 text-white text-xs font-bold uppercase tracking-[0.18em] py-4 transition-all duration-300 shadow-lg shadow-red-950/50"
+                >
+                  Learn More <ArrowRight size={14} />
+                </Link>
               </div>
             </motion.div>
 
             {/* Fencing */}
             <motion.div
-              variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
-              className="bg-zinc-900 border border-zinc-800 flex flex-col group hover:border-green-600/40 transition-colors duration-300"
+              variants={{ hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
+              className="relative overflow-hidden group min-h-[580px] flex flex-col"
             >
-              <div className="h-1.5 bg-green-600 w-full"></div>
-              <div className="p-8 flex flex-col flex-1">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-green-600/10 border border-green-600/30 flex items-center justify-center shrink-0">
-                    <span className="text-green-500 font-display font-bold text-lg">AB</span>
-                  </div>
-                  <div>
-                    <p className="text-green-500 text-[10px] font-bold uppercase tracking-[0.2em]">Division</p>
-                    <h3 className="text-white font-display font-bold text-xl uppercase leading-tight">Fencing<br />Solutions Ltd</h3>
-                  </div>
-                </div>
-                <p className="text-white/55 text-sm leading-relaxed mb-8">
-                  Expert fencing and landscaping services tailored to homes and businesses nationwide — durable, well-crafted and designed to enhance outdoor spaces with a practical, no-nonsense approach.
+              <img
+                src={divFencing}
+                alt="AB Fencing Solutions Ltd — installed fencing"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30 transition-all duration-500" />
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-green-600 z-10" />
+
+              <div className="relative z-10 flex flex-col h-full p-7 pt-9">
+                <p className="text-green-400 text-[10px] font-bold uppercase tracking-[0.28em] mb-3">Division</p>
+                <h3 className="text-white font-display font-bold text-2xl uppercase leading-tight mb-4">
+                  Fencing<br />Solutions Ltd
+                </h3>
+                <p className="text-white/65 text-sm leading-relaxed mb-7">
+                  Expert fencing and landscaping tailored to homes and businesses — durable, well-crafted, designed to enhance outdoor spaces with a practical no-nonsense approach.
                 </p>
-                <ul className="space-y-2.5 mt-auto">
-                  {["Secure Fencing Installations", "Garden Landscaping", "Pathway &amp; Patio Laying", "Boundary Solutions", "Outdoor Design &amp; Planning", "Nationwide Coverage"].map((s) => (
-                    <li key={s} className="flex items-center gap-2.5 text-sm text-white/75">
-                      <span className="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0"></span>
-                      <span dangerouslySetInnerHTML={{ __html: s }} />
+                <ul className="space-y-2.5 mb-auto">
+                  {["Secure Fencing Installations", "Garden Landscaping", "Pathway & Patio Laying", "Boundary Solutions", "Outdoor Design & Planning", "Nationwide Coverage"].map((s) => (
+                    <li key={s} className="flex items-center gap-2.5 text-sm text-white/80">
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0" />
+                      {s}
                     </li>
                   ))}
                 </ul>
-                <div className="mt-8 pt-6 border-t border-zinc-800">
-                  <Link href="/ab-group/fencing" className="inline-flex items-center gap-2 text-green-500 hover:text-green-400 text-xs font-bold uppercase tracking-[0.15em] transition-colors">
-                    Learn More <ArrowRight size={13} />
-                  </Link>
-                </div>
+                <Link
+                  href="/ab-group/fencing"
+                  className="mt-8 flex items-center justify-center gap-2 bg-green-700 hover:bg-green-600 text-white text-xs font-bold uppercase tracking-[0.18em] py-4 transition-all duration-300 shadow-lg shadow-green-950/50"
+                >
+                  Learn More <ArrowRight size={14} />
+                </Link>
               </div>
             </motion.div>
 
             {/* Facilities */}
             <motion.div
-              variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
-              className="bg-zinc-900 border border-zinc-800 flex flex-col group hover:border-slate-400/40 transition-colors duration-300"
+              variants={{ hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
+              className="relative overflow-hidden group min-h-[580px] flex flex-col"
             >
-              <div className="h-1.5 bg-slate-400 w-full"></div>
-              <div className="p-8 flex flex-col flex-1">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-slate-400/10 border border-slate-400/30 flex items-center justify-center shrink-0">
-                    <span className="text-slate-300 font-display font-bold text-lg">AB</span>
-                  </div>
-                  <div>
-                    <p className="text-slate-400 text-[10px] font-bold uppercase tracking-[0.2em]">Division</p>
-                    <h3 className="text-white font-display font-bold text-xl uppercase leading-tight">Facilities<br />Management Ltd</h3>
-                  </div>
-                </div>
-                <p className="text-white/55 text-sm leading-relaxed mb-8">
-                  Safe and compliant facilities management keeping commercial buildings operating efficiently — from planned maintenance programmes to rapid reactive support and ongoing compliance solutions.
+              <img
+                src={divFacilities}
+                alt="AB Facilities Management Ltd — commercial building"
+                className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30 transition-all duration-500" />
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#5392B6] z-10" />
+
+              <div className="relative z-10 flex flex-col h-full p-7 pt-9">
+                <p className="text-[#5392B6] text-[10px] font-bold uppercase tracking-[0.28em] mb-3">Division</p>
+                <h3 className="text-white font-display font-bold text-2xl uppercase leading-tight mb-4">
+                  Facilities<br />Management Ltd
+                </h3>
+                <p className="text-white/65 text-sm leading-relaxed mb-7">
+                  Keeping commercial buildings operating safely and efficiently — from planned maintenance programmes to rapid reactive support and ongoing compliance.
                 </p>
-                <ul className="space-y-2.5 mt-auto">
-                  {["Planned Maintenance", "Reactive Callouts", "Compliance &amp; Safety Checks", "Multi-Site Management", "Efficiency Monitoring", "Reporting &amp; Transparency"].map((s) => (
-                    <li key={s} className="flex items-center gap-2.5 text-sm text-white/75">
-                      <span className="w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0"></span>
-                      <span dangerouslySetInnerHTML={{ __html: s }} />
+                <ul className="space-y-2.5 mb-auto">
+                  {["Planned Maintenance", "Reactive Callouts", "Compliance & Safety Checks", "Multi-Site Management", "Efficiency Monitoring", "Reporting & Transparency"].map((s) => (
+                    <li key={s} className="flex items-center gap-2.5 text-sm text-white/80">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#5392B6] shrink-0" />
+                      {s}
                     </li>
                   ))}
                 </ul>
-                <div className="mt-8 pt-6 border-t border-zinc-800">
-                  <Link href="/ab-group/facilities" className="inline-flex items-center gap-2 text-slate-400 hover:text-slate-300 text-xs font-bold uppercase tracking-[0.15em] transition-colors">
-                    Learn More <ArrowRight size={13} />
-                  </Link>
-                </div>
+                <Link
+                  href="/ab-group/facilities"
+                  className="mt-8 flex items-center justify-center gap-2 bg-[#5392B6] hover:bg-[#4a82a4] text-white text-xs font-bold uppercase tracking-[0.18em] py-4 transition-all duration-300 shadow-lg shadow-blue-950/50"
+                >
+                  Learn More <ArrowRight size={14} />
+                </Link>
               </div>
             </motion.div>
+
           </motion.div>
 
-          {/* AB Group banner */}
+          {/* AB Group footer banner */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="mt-12 bg-zinc-900 border border-zinc-800 p-8 flex flex-col md:flex-row items-center justify-between gap-6"
+            className="mt-8 border border-zinc-800 bg-zinc-900/60 backdrop-blur-sm p-7 flex flex-col md:flex-row items-center justify-between gap-6"
           >
             <div>
-              <p className="text-[#5392B6] text-xs font-bold uppercase tracking-[0.2em] mb-1">Currently Viewing</p>
-              <h4 className="text-white font-display font-bold text-xl uppercase">A&amp;B Drainage Solutions Ltd — Part of the AB Group</h4>
-              <p className="text-white/50 text-sm mt-1">Hampshire's leading drainage specialists for over 33 years. Rapid response, 24/7.</p>
+              <p className="text-[#5392B6] text-[10px] font-bold uppercase tracking-[0.22em] mb-1">Currently Viewing</p>
+              <h4 className="text-white font-display font-bold text-lg uppercase">A&amp;B Drainage Solutions Ltd — Part of the AB Group</h4>
+              <p className="text-white/45 text-sm mt-1">Hampshire's leading drainage specialists for over 33 years. Rapid response, 24/7.</p>
             </div>
             <div className="flex flex-wrap gap-3 shrink-0">
-              <Link href="/ab-group/construction" className="inline-flex items-center gap-2 border border-red-600/40 hover:border-red-500 text-white/70 hover:text-red-400 px-5 py-3 font-bold uppercase tracking-wider text-xs transition-all">
+              <Link href="/ab-group/construction" className="inline-flex items-center gap-2 border-l-2 border-l-red-600 border border-zinc-700 hover:border-red-600/60 bg-zinc-800/60 hover:bg-red-950/30 text-white/70 hover:text-red-300 px-5 py-3 font-bold uppercase tracking-wider text-xs transition-all duration-200">
                 Construction <ArrowRight size={13} />
               </Link>
-              <Link href="/ab-group/fencing" className="inline-flex items-center gap-2 border border-green-600/40 hover:border-green-500 text-white/70 hover:text-green-400 px-5 py-3 font-bold uppercase tracking-wider text-xs transition-all">
+              <Link href="/ab-group/fencing" className="inline-flex items-center gap-2 border-l-2 border-l-green-600 border border-zinc-700 hover:border-green-600/60 bg-zinc-800/60 hover:bg-green-950/30 text-white/70 hover:text-green-300 px-5 py-3 font-bold uppercase tracking-wider text-xs transition-all duration-200">
                 Fencing <ArrowRight size={13} />
               </Link>
-              <Link href="/ab-group/facilities" className="inline-flex items-center gap-2 border border-slate-500/40 hover:border-slate-400 text-white/70 hover:text-slate-300 px-5 py-3 font-bold uppercase tracking-wider text-xs transition-all">
+              <Link href="/ab-group/facilities" className="inline-flex items-center gap-2 border-l-2 border-l-[#5392B6] border border-zinc-700 hover:border-[#5392B6]/60 bg-zinc-800/60 hover:bg-blue-950/30 text-white/70 hover:text-[#5392B6] px-5 py-3 font-bold uppercase tracking-wider text-xs transition-all duration-200">
                 Facilities <ArrowRight size={13} />
               </Link>
             </div>
           </motion.div>
+
         </div>
       </section>
 
