@@ -78,8 +78,8 @@ export const Navbar = () => {
       <header
         className={`sticky top-0 w-full z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-background/96 backdrop-blur-md shadow-lg shadow-black/30 border-b border-white/5 py-1"
-            : "bg-background py-2"
+            ? "bg-background/96 backdrop-blur-md shadow-lg shadow-black/30 border-b border-white/5 py-2"
+            : "bg-background py-4"
         }`}
       >
         <div className="container mx-auto px-4 lg:px-8">
@@ -100,7 +100,7 @@ export const Navbar = () => {
                   <img
                     src={logoMain}
                     alt="A&B Drainage Solutions Ltd Logo"
-                    className="h-20 md:h-24 lg:h-20 xl:h-24 2xl:h-28 w-auto object-contain transition-[filter] duration-300 group-hover:drop-shadow-[0_0_18px_rgba(234,88,12,0.45)]"
+                    className="h-24 md:h-28 lg:h-24 xl:h-28 2xl:h-32 w-auto object-contain transition-[filter] duration-300 group-hover:drop-shadow-[0_0_18px_rgba(234,88,12,0.45)]"
                   />
                   {/* Recurring gleam — a light streak clipped to the exact logo shape */}
                   <span
