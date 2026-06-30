@@ -1,3 +1,7 @@
 <svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="180" height="180" rx="36" fill="#FF3C00"/>
+  <rect width="180" height="180" rx="28" fill="#5392B6"/>
+  <!-- A -->
+  <path d="M28 138 L58 48 L72 48 L102 138 H84 L77 116 H53 L46 138 Z M57 102 H73 L65 76 Z" fill="white"/>
+  <!-- B -->
+  <path d="M110 48 H144 C156 48 164 55 164 67 C164 75 160 81 153 84 C162 87 167 94 167 104 C167 118 158 138 143 138 H110 Z M127 78 H141 C146 78 149 74 149 69 C149 64 146 62 141 62 H127 Z M127 124 H142 C148 124 152 119 152 113 C152 107 148 103 142 103 H127 Z" fill="white"/>
 </svg>
