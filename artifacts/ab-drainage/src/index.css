@@ -147,8 +147,8 @@
 
 /* ── Keyframe animations ── */
 @keyframes heropan {
-  0%   { object-position: 70% bottom; }
-  100% { object-position: 30% bottom; }
+  0%   { object-position: 70% center; }
+  100% { object-position: 30% center; }
 }
 .animate-heropan {
   animation: heropan 28s linear infinite alternate;
