@@ -76,8 +76,13 @@ export default function Home() {
       {/* ── HERO (dark) ── */}
       <section className="relative min-h-[80vh] flex items-center pt-28 pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src={heroImg} alt="A&B Drainage Solutions Ltd Fleet" className="w-full h-full object-cover object-center animate-heropan saturate-[1.55] brightness-[1.05] contrast-[1.18]" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/65 to-transparent"></div>
+          <img src={heroImg} alt="A&B Drainage Solutions Ltd Fleet" className="w-full h-full object-cover object-center animate-heropan saturate-[1.6] brightness-[1.1] contrast-[1.14]" />
+          {/* Left text-legibility fade */}
+          <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/60 to-transparent"></div>
+          {/* Warm amber grade — softens white logos, gives cinematic tone */}
+          <div className="absolute inset-0 bg-gradient-to-l from-amber-800/45 via-amber-900/20 to-transparent mix-blend-multiply"></div>
+          {/* Subtle vignette — dark corners */}
+          <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.45) 100%)" }}></div>
         </div>
 
         <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#e0f2fe" />
