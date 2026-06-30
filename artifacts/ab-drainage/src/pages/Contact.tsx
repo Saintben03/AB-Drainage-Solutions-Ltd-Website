@@ -5,7 +5,7 @@ import { SocialLinks } from "@/components/SocialLinks";
 import { motion } from "framer-motion";
 import { WaterWave } from "@/components/WaterWave";
 
-import heroImg from "@assets/site_files_1/AB Drainage background_logos.jpg";
+import heroImg from "@assets/Designer_(1)_1782807579036.png";
 
 const contactItems = [
   {

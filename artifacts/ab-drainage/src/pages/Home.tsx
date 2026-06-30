@@ -6,7 +6,7 @@ import { CountUp } from "@/components/CountUp";
 import { LogoMarquee } from "@/components/LogoMarquee";
 import { WaterWave } from "@/components/WaterWave";
 
-import heroImg from "@assets/site_files_1/AB Drainage background_logos.jpg";
+import heroImg from "@assets/Designer_(1)_1782807579036.png";
 import work1 from "@assets/site_files_1/369541839_240515012286429_2194496784194718742_n.jpg";
 import work2 from "@assets/site_files_1/468849454_17949583832886709_2702370064044539379_n.jpg";
 import work3 from "@assets/site_files_1/472171552_560083023662958_8976223963179451031_n.jpg";

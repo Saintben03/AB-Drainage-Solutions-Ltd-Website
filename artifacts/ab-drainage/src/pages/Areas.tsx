@@ -4,7 +4,7 @@ import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
 import { WaterWave } from "@/components/WaterWave";
 
-import heroImg from "@assets/site_files_1/AB Drainage background_logos.jpg";
+import heroImg from "@assets/Designer_(1)_1782807579036.png";
 import vanImg from "@assets/site_files_1/g-01u.jpg";
 import crewArea from "@assets/ab_group_gallery/worker-9.33.26.jpeg";
 
