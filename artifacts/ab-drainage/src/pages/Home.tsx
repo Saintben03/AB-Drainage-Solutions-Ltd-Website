@@ -1,17 +1,14 @@
 import { Link } from "wouter";
-import { ArrowRight, Phone, Check, Clock, MapPin, ShieldCheck, Star, ThumbsUp, ExternalLink } from "lucide-react";
+import { ArrowRight, Phone, Clock, MapPin, ShieldCheck, Star, ThumbsUp, ExternalLink, Siren, Video, Droplets, Wrench, Building2, Layers } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
 import { CountUp } from "@/components/CountUp";
 import { LogoMarquee } from "@/components/LogoMarquee";
 import { WaterWave } from "@/components/WaterWave";
 import { useBookNow } from "@/contexts/BookNowContext";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 
 import heroImg from "@assets/Designer_(1)_1782807579036.png";
-import work1 from "@assets/site_files_1/369541839_240515012286429_2194496784194718742_n.jpg";
-import work2 from "@assets/site_files_1/468849454_17949583832886709_2702370064044539379_n.jpg";
-import work3 from "@assets/site_files_1/472171552_560083023662958_8976223963179451031_n.jpg";
-import work4 from "@assets/site_files_1/g-01u.jpg";
 import crewTeam from "@assets/ab_group_gallery/worker-9.33.16.jpeg";
 import crewManhole from "@assets/ab_group_gallery/worker-9.33.30.jpeg";
 import crewChain from "@assets/ab_group_gallery/worker-9.33.26.jpeg";
@@ -21,19 +18,26 @@ import workSurvey from "@assets/site_files_1/survey-01a.jpg";
 import lanesLogo from "@assets/site_files_1/LanesGroup-1000-px.png";
 import nhsLogo from "@assets/site_files_1/National_Health_Service_(England)_logo.svg.png";
 import ccLogo from "@assets/site_files_1/CC-Multi-Disciplinary-Strap-White-BG-Full-Col-RGB-Trans.png";
-import imgCctv from "@assets/blog/cctv-survey.png";
-import imgJetting from "@assets/blog/drain-jetting.png";
 import divConstruction from "@assets/construction/const-about.png";
 import divFencing from "@assets/fencing/fence-hero.png";
 import divFacilities from "@assets/facilities/fac-gallery-lobby.png";
 
 const services = [
-  { img: work3, title: "Emergency Drainage", features: ["24/7 Rapid Response", "Typically 1 Hour ETA", "Sewage & Flooding"], href: "/services#emergency" },
-  { img: imgCctv, title: "CCTV Drain Surveys", features: ["HD Camera Inspection", "Pre-Purchase Surveys", "Pinpoint Diagnosis"], href: "/services#cctv-surveys" },
-  { img: imgJetting, title: "Drain Cleaning & Jetting", features: ["Up to 4,000 PSI", "Grease & Root Clearance", "Fully Cleared Pipes"], href: "/services#cleaning-jetting" },
-  { img: work2, title: "Drain Repairs", features: ["No-Dig Relining", "Traditional Excavation", "Full Reinstatement"], href: "/services#drain-repairs" },
-  { img: work1, title: "Commercial Drainage", features: ["Grease Trap Cleaning", "Planned Maintenance", "Industrial Tankers"], href: "/services#commercial" },
-  { img: work4, title: "Soakaway Installation", features: ["Building Regs Compliant", "Soil Percolation Testing", "Modern Crate Systems"], href: "/services#soakaways" },
+  { icon: <Siren size={26} />, title: "Emergency Drainage", subtitle: "24/7 rapid response — typically on site within the hour for blockages, sewage and flooding.", href: "/services#emergency" },
+  { icon: <Video size={26} />, title: "CCTV Drain Surveys", subtitle: "HD camera inspections that pinpoint the exact problem, plus pre-purchase survey reports.", href: "/services#cctv-surveys" },
+  { icon: <Droplets size={26} />, title: "Drain Cleaning & Jetting", subtitle: "High-pressure jetting up to 4,000 PSI to clear grease, roots and stubborn blockages.", href: "/services#cleaning-jetting" },
+  { icon: <Wrench size={26} />, title: "Drain Repairs", subtitle: "No-dig relining and traditional excavation, with full reinstatement once we're done.", href: "/services#drain-repairs" },
+  { icon: <Building2 size={26} />, title: "Commercial Drainage", subtitle: "Planned maintenance, grease-trap cleaning and tanker services for businesses.", href: "/services#commercial" },
+  { icon: <Layers size={26} />, title: "Soakaway Installation", subtitle: "Building-regs compliant soakaways with soil percolation testing and modern crate systems.", href: "/services#soakaways" },
+];
+
+const faqs = [
+  { q: "How quickly can you reach me in an emergency?", a: "We aim to be on site typically within the hour, 24/7 — including evenings, weekends and bank holidays, right across Hampshire." },
+  { q: "Do you charge a call-out fee?", a: "No hidden fees. We give you a clear, upfront price before any work begins, so there are never any surprises on the final bill." },
+  { q: "Which areas do you cover?", a: "We're based centrally and cover all of Hampshire — Basingstoke, Winchester, Southampton, Portsmouth, Andover, Eastleigh and everywhere in between." },
+  { q: "Can you tell me exactly what's wrong with my drains?", a: "Yes. Our HD CCTV surveys pinpoint the precise problem and its location, and we'll explain the findings and your options in plain English." },
+  { q: "Do you handle both domestic and commercial work?", a: "Absolutely. From a single blocked household drain to planned maintenance contracts for large commercial sites, our team handles it all." },
+  { q: "Are you fully insured and accredited?", a: "Yes. We're fully insured, health & safety compliant, and approved to work for the NHS and major UK contractors." },
 ];
 
 const REVIEWS_URL = "https://www.google.com/search?q=A%26B+Drainage+Solutions+Ltd+Basingstoke+Reviews";
@@ -270,28 +274,26 @@ export default function Home() {
           </p>
           <LogoMarquee logos={trustLogos} />
         </div>
-        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#ffffff" />
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="hsl(0 0% 11%)" />
       </section>
 
-      {/* ── SERVICES (light + colourful) ── */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      {/* ── SERVICES (dark, flat blue cards — reference style) ── */}
+      <section className="py-24 bg-background relative overflow-hidden">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mb-14"
+            className="max-w-2xl mb-14"
           >
-            <p className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-3">What We Do</p>
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-              <h2 className="text-4xl md:text-5xl font-display font-bold uppercase text-zinc-900 leading-tight max-w-xl">
-                Complete Drainage Solutions
-              </h2>
-              <Link href="/services" className="text-accent font-bold hover:text-accent/80 flex items-center gap-2 uppercase tracking-widest text-sm whitespace-nowrap">
-                All Services <ArrowRight size={18} />
-              </Link>
-            </div>
+            <p className="text-[#5392B6] text-xs font-bold uppercase tracking-[0.25em] mb-3">What We Do</p>
+            <h2 className="text-4xl md:text-5xl font-display font-bold uppercase text-white leading-tight mb-4">
+              Complete Drainage Solutions
+            </h2>
+            <p className="text-foreground/60 text-lg leading-relaxed">
+              From emergency blockages to full installations — one expert team covering every drainage need across Hampshire, domestic and commercial.
+            </p>
           </motion.div>
 
           <motion.div
@@ -299,31 +301,34 @@ export default function Home() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
           >
             {services.map((s, i) => (
-              <motion.div key={i} variants={fadeUp}>
-                <Link href={s.href} className="group block bg-white border border-zinc-200 rounded-xl overflow-hidden h-full shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                  <div className="overflow-hidden h-52 relative">
-                    <img src={s.img} alt={s.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <motion.div key={i} variants={fadeUp} className="h-full">
+                <Link href={s.href} className="group relative flex flex-col h-full bg-[#5392B6] hover:bg-[#4a82a4] p-8 overflow-hidden transition-colors duration-300">
+                  <div className="w-14 h-14 rounded-xl bg-white/15 group-hover:bg-white/25 flex items-center justify-center text-white mb-6 transition-colors duration-300">
+                    {s.icon}
                   </div>
-                  <div className="p-8 border-t-4 border-t-accent">
-                    <h3 className="text-2xl font-display font-bold text-zinc-900 uppercase mb-4 group-hover:text-accent transition-colors">{s.title}</h3>
-                    <ul className="space-y-2 mb-8">
-                      {s.features.map((f, fi) => (
-                        <li key={fi} className="flex items-center gap-3 text-sm text-zinc-600 font-medium">
-                          <Check size={14} className="text-accent shrink-0" />
-                          {f}
-                        </li>
-                      ))}
-                    </ul>
-                    <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.15em] text-accent group-hover:gap-4 transition-all">
-                      Find Out More <ArrowRight size={14} />
-                    </span>
-                  </div>
+                  <h3 className="text-2xl font-display font-bold text-white uppercase mb-3 leading-tight">{s.title}</h3>
+                  <p className="text-white/80 text-sm leading-relaxed mb-8 flex-grow">{s.subtitle}</p>
+                  <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-white group-hover:gap-4 transition-all">
+                    Learn More <ArrowRight size={14} />
+                  </span>
                 </Link>
               </motion.div>
             ))}
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center mt-12"
+          >
+            <Link href="/services" className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-white px-8 py-4 font-bold uppercase tracking-wider text-sm transition-all">
+              View All Services <ArrowRight size={16} />
+            </Link>
           </motion.div>
         </div>
 
@@ -479,6 +484,64 @@ export default function Home() {
               See verified feedback from Facebook, Checkatrade, Yell, MyBuilder, TrustATrader and more.
             </p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* ── TRUSTED ADVICE / FAQ (light) ── */}
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-start">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="lg:col-span-2"
+            >
+              <p className="text-[#5392B6] text-xs font-bold uppercase tracking-[0.25em] mb-3">Trusted Advice</p>
+              <h2 className="text-4xl md:text-5xl font-display font-bold uppercase text-zinc-900 leading-tight mb-5">
+                Answers For Your Drainage Needs
+              </h2>
+              <p className="text-zinc-600 leading-relaxed mb-8 text-lg">
+                Not sure where to start? Here are the questions we're asked most. Still stuck? Pick up the phone — honest advice, no obligation.
+              </p>
+              <div className="flex items-center gap-3 mb-8 p-4 bg-zinc-50 border border-zinc-100 rounded-xl">
+                <div className="flex gap-0.5 shrink-0">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={16} className="text-yellow-400 fill-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-sm font-bold text-zinc-900">Highly rated with 5-star reviews right across Hampshire</p>
+              </div>
+              <a
+                href="tel:01256688650"
+                className="inline-flex items-center gap-3 bg-accent hover:bg-accent/90 text-white px-8 py-4 font-bold uppercase tracking-wider text-sm transition-all"
+              >
+                <Phone size={18} /> Call 01256 688 650
+              </a>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="lg:col-span-3"
+            >
+              <Accordion type="single" collapsible className="w-full">
+                {faqs.map((f, i) => (
+                  <AccordionItem key={i} value={`faq-${i}`} className="border-zinc-200">
+                    <AccordionTrigger className="text-lg font-display font-bold uppercase text-zinc-900 hover:no-underline py-5 text-left gap-4">
+                      {f.q}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-zinc-600 text-base leading-relaxed pb-5 pr-6">
+                      {f.a}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </motion.div>
+          </div>
         </div>
       </section>
 
