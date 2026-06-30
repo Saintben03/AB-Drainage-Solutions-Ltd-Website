@@ -25,7 +25,13 @@ function LogoGroup({ logos, ariaHidden }: { logos: MarqueeLogo[]; ariaHidden?: b
 
 export function LogoMarquee({ logos }: { logos: MarqueeLogo[] }) {
   return (
-    <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+    <div
+      className="relative w-full overflow-hidden"
+      style={{
+        WebkitMaskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+        maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+      }}
+    >
       <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
         <LogoGroup logos={logos} />
         <LogoGroup logos={logos} ariaHidden />

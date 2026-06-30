@@ -36,14 +36,25 @@ export const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [groupDropdownOpen, setGroupDropdownOpen] = useState(false);
   const [mobileGroupOpen, setMobileGroupOpen] = useState(false);
+  const [headerHeight, setHeaderHeight] = useState(80);
   const { openBookNow } = useBookNow();
   const dropdownRef = useRef<HTMLDivElement>(null);
   const leaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const measure = () => {
+      if (headerRef.current) setHeaderHeight(headerRef.current.getBoundingClientRect().height);
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
   }, []);
 
   useEffect(() => {
@@ -129,6 +140,7 @@ export const Navbar = () => {
       </div>
 
       <header
+        ref={headerRef}
         className={`sticky top-0 w-full z-50 transition-all duration-300 ${
           isScrolled
             ? "bg-background/96 backdrop-blur-md shadow-lg shadow-black/30 border-b border-white/5 py-0"
@@ -328,7 +340,8 @@ export const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.25 }}
-              className="fixed inset-0 top-[120px] bg-[#080808]/98 backdrop-blur-xl z-40 lg:hidden flex flex-col p-6 overflow-y-auto"
+              className="fixed inset-x-0 bottom-0 bg-[#080808]/98 backdrop-blur-xl z-40 lg:hidden flex flex-col p-6 overflow-y-auto"
+          style={{ top: headerHeight }}
             >
               <nav className="flex flex-col gap-0 bg-border mt-4">
                 {navLinks.map((link, i) => {

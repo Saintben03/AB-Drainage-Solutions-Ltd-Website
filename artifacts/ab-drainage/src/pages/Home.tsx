@@ -77,18 +77,19 @@ export default function Home() {
       />
 
       {/* ── HERO (dark) ── */}
-      <section className="relative min-h-[80vh] flex items-center pt-28 pb-20 overflow-hidden">
-        <div className="absolute inset-0 z-0">
+      <section className="relative md:min-h-[80vh] flex flex-col md:items-center md:justify-center md:pt-28 md:pb-20 overflow-hidden pt-10 pb-0">
+        {/* Desktop-only background image */}
+        <div className="absolute inset-0 z-0 hidden md:block">
           <img src={heroImg} alt="A&B Drainage Solutions Ltd Fleet" className="w-full h-full object-cover object-center animate-heropan saturate-[1.6] brightness-[1.12] contrast-[1.15]" />
-          {/* Left text-legibility fade — stops well before centre */}
           <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/15 to-transparent"></div>
-          {/* Subtle brand-blue wash — right edge only, very light */}
           <div className="absolute inset-0 bg-gradient-to-l from-[#5392B6]/8 via-[#5392B6]/2 to-transparent" style={{ mixBlendMode: "multiply" }}></div>
         </div>
+        {/* Mobile-only solid dark bg so text is always legible */}
+        <div className="absolute inset-0 z-0 bg-background md:hidden"></div>
 
-        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#e0f2fe" />
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px hidden md:block" fill="#e0f2fe" />
 
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 relative z-10 pb-8 md:pb-0">
           <div className="max-w-3xl relative">
             <div className="absolute -inset-x-8 -inset-y-10 bg-black/50 blur-3xl rounded-3xl -z-10 pointer-events-none" aria-hidden="true"></div>
             <motion.p
@@ -172,6 +173,17 @@ export default function Home() {
               <span className="flex items-center gap-2"><MapPin size={15} className="text-accent" /> Hampshire Wide</span>
             </motion.div>
           </div>
+        </div>
+
+        {/* Mobile-only van image panel */}
+        <div className="md:hidden relative w-full mt-6 z-10">
+          <img
+            src={heroImg}
+            alt="A&B Drainage Solutions Ltd fleet of vans"
+            className="w-full h-56 object-cover object-[60%_55%] saturate-[1.5] brightness-[1.1] contrast-[1.1]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+          <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#e0f2fe" />
         </div>
       </section>
 
