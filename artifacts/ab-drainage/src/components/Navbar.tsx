@@ -1,10 +1,11 @@
 import { Link, useLocation } from "wouter";
-import { Phone, Smartphone, Mail, Menu, X, ArrowRight, ChevronDown } from "lucide-react";
+import { Phone, Smartphone, Mail, Menu, X, ArrowRight, ChevronDown, AlertTriangle } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import logoMain from "@assets/site_files_1/AB Drainage logo.png";
 import { SocialLinks } from "./SocialLinks";
 import { useBookNow } from "@/contexts/BookNowContext";
+import { EmergencyModal } from "./EmergencyModal";
 
 const groupCompanies = [
   {
@@ -36,6 +37,7 @@ export const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [groupDropdownOpen, setGroupDropdownOpen] = useState(false);
   const [mobileGroupOpen, setMobileGroupOpen] = useState(false);
+  const [emergencyOpen, setEmergencyOpen] = useState(false);
   const [headerHeight, setHeaderHeight] = useState(80);
   const { openBookNow } = useBookNow();
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -89,59 +91,68 @@ export const Navbar = () => {
 
   return (
     <>
-      {/* ── Emergency Bar (expands on hover) ── */}
-      <div className="group relative bg-accent text-white px-4 py-2 text-[10px] xl:text-xs font-bold uppercase tracking-[0.12em] 2xl:tracking-[0.18em] transition-all duration-300 hover:py-4 hover:shadow-lg hover:shadow-accent/40">
+      {/* ── Emergency Bar — click to open emergency modal ── */}
+      <button
+        onClick={() => setEmergencyOpen(true)}
+        className="group relative w-full bg-accent text-white px-4 py-2 text-[10px] xl:text-xs font-bold uppercase tracking-[0.12em] 2xl:tracking-[0.18em] transition-all duration-200 hover:py-3 hover:brightness-110 hover:shadow-lg hover:shadow-accent/50 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60 active:scale-[0.995]"
+        aria-label="Open emergency call panel"
+      >
+        {/* Animated border-bottom pulse on hover to hint interactivity */}
+        <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/30 group-hover:bg-white/60 transition-colors duration-200 pointer-events-none" />
 
-        {/* Mobile layout: phones + 24/7 message in one compact row */}
+        {/* Mobile layout */}
         <div className="xl:hidden flex items-center justify-between gap-2">
-          <a href="tel:01256688650" className="flex items-center gap-1 whitespace-nowrap hover:text-white/70 transition-colors shrink-0">
-            <Phone size={11} className="shrink-0" /> 01256 688 650
-          </a>
+          <span className="flex items-center gap-1 whitespace-nowrap shrink-0">
+            <AlertTriangle size={11} className="shrink-0 animate-pulse" /> EMERGENCY
+          </span>
           <span className="text-white/30 shrink-0">|</span>
           <span className="flex items-center gap-1.5 shrink-0">
             <span className="animate-pulse w-1.5 h-1.5 rounded-full bg-white block shrink-0"></span>
-            <span className="hidden sm:inline">24/7 Emergency — Within 1 Hour</span>
-            <span className="sm:hidden">24/7 Emergency</span>
+            <span className="hidden sm:inline">24/7 — Tap to Call Now</span>
+            <span className="sm:hidden">Tap to Call</span>
           </span>
           <span className="text-white/30 shrink-0">|</span>
-          <a href="tel:07498062710" className="flex items-center gap-1 whitespace-nowrap hover:text-white/70 transition-colors shrink-0">
-            <Smartphone size={11} className="shrink-0" /> 07498 062 710
-          </a>
+          <span className="flex items-center gap-1 whitespace-nowrap shrink-0">
+            <Phone size={11} className="shrink-0" /> 01256 688 650
+          </span>
         </div>
 
         {/* xl+ layout: left phones | center message | right socials */}
         <div className="hidden xl:flex items-center justify-center gap-4">
           {/* Left contact group */}
-          <div className="flex flex-1 items-center gap-3 2xl:gap-5 pl-2 2xl:pl-6 transition-all duration-300 group-hover:text-sm">
-            <a href="tel:01256688650" className="flex items-center gap-1.5 whitespace-nowrap shrink-0 hover:text-white/70 transition-colors">
-              <Phone size={13} className="shrink-0 transition-all duration-300 group-hover:w-[18px] group-hover:h-[18px]" /> 01256 688 650
-            </a>
+          <div className="flex flex-1 items-center gap-3 2xl:gap-5 pl-2 2xl:pl-6">
+            <span className="flex items-center gap-1.5 whitespace-nowrap shrink-0">
+              <Phone size={13} className="shrink-0" /> 01256 688 650
+            </span>
             <span className="text-white/30 shrink-0">|</span>
-            <a href="tel:07498062710" className="flex items-center gap-1.5 whitespace-nowrap shrink-0 hover:text-white/70 transition-colors">
-              <Smartphone size={13} className="shrink-0 transition-all duration-300 group-hover:w-[18px] group-hover:h-[18px]" /> 07498 062 710
-            </a>
+            <span className="flex items-center gap-1.5 whitespace-nowrap shrink-0">
+              <Smartphone size={13} className="shrink-0" /> 07498 062 710
+            </span>
             <span className="hidden 2xl:inline text-white/30 shrink-0">|</span>
-            <a href="mailto:info@abdrainage.co.uk" className="hidden 2xl:flex items-center gap-1.5 whitespace-nowrap shrink-0 normal-case tracking-normal hover:text-white/70 transition-colors">
-              <Mail size={13} className="shrink-0 transition-all duration-300 group-hover:w-[18px] group-hover:h-[18px]" /> info@abdrainage.co.uk
-            </a>
+            <span className="hidden 2xl:flex items-center gap-1.5 whitespace-nowrap shrink-0 normal-case tracking-normal">
+              <Mail size={13} className="shrink-0" /> info@abdrainage.co.uk
+            </span>
           </div>
 
-          {/* Center: 24/7 message */}
-          <span className="flex items-center gap-2 px-6 border-x border-white/30 whitespace-nowrap shrink-0 transition-all duration-300 group-hover:text-sm">
-            <span className="animate-pulse w-2 h-2 rounded-full bg-white block shrink-0 transition-all duration-300 group-hover:w-3 group-hover:h-3"></span>
-            24/7 Emergency Callout — Typically Within 1 Hour
+          {/* Center: 24/7 message + click hint */}
+          <span className="flex items-center gap-2 px-6 border-x border-white/30 whitespace-nowrap shrink-0">
+            <AlertTriangle size={14} className="shrink-0 animate-pulse" />
+            24/7 Emergency — Click to Call Now
+            <AlertTriangle size={14} className="shrink-0 animate-pulse" />
           </span>
 
           {/* Right: Follow Us + social icons */}
           <div className="flex flex-1 items-center justify-end gap-3 pr-4 xl:pr-6">
-            <span className="text-white/80 tracking-[0.18em] transition-all duration-300 group-hover:text-sm">Follow Us</span>
+            <span className="text-white/80 tracking-[0.18em]">Follow Us</span>
             <SocialLinks
               iconSize={24}
-              itemClassName="text-white hover:-translate-y-0.5 [&_svg]:transition-all [&_svg]:duration-300 [&_svg]:w-6 [&_svg]:h-6 group-hover:[&_svg]:w-9 group-hover:[&_svg]:h-9"
+              itemClassName="text-white hover:-translate-y-0.5 [&_svg]:w-6 [&_svg]:h-6"
             />
           </div>
         </div>
-      </div>
+      </button>
+
+      <EmergencyModal open={emergencyOpen} onClose={() => setEmergencyOpen(false)} />
 
       <header
         ref={headerRef}
