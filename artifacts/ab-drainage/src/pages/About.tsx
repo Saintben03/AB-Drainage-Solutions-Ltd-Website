@@ -58,7 +58,7 @@ export default function About() {
         <div className="absolute inset-0 z-0">
           <img src={heroImg} alt="A&B Drainage Fleet" className="w-full h-full object-cover object-center animate-heropan saturate-[1.2] brightness-[1.02] contrast-[1.1]" />
           <div className="absolute inset-0 bg-[#0e4a78]/45" style={{ mixBlendMode: "color" }}></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0c3e57] via-[#0c3e57]/75 to-[#0c3e57]/12"></div>
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#0c3e57_0%,rgba(12,62,87,0.92)_22%,rgba(12,62,87,0.68)_45%,rgba(12,62,87,0.4)_65%,rgba(12,62,87,0.18)_85%,rgba(12,62,87,0.08)_100%)]"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-[#06182a]/45 via-transparent to-transparent"></div>
           <div className="absolute inset-0 bg-[radial-gradient(100%_100%_at_0%_0%,#0b2942_0%,rgba(11,41,66,0.55)_30%,transparent_68%)]"></div>
         </div>
