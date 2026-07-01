@@ -201,7 +201,7 @@ export default function Home() {
         </div>
 
         {/* ── Desktop hero (background image) ── */}
-        <div className="hidden md:flex relative min-h-[80vh] items-center pt-20 pb-16">
+        <div className="hidden md:flex relative min-h-[62vh] items-center pt-16 pb-14">
           <div className="absolute inset-0 z-0">
             <img src={heroImg} alt="A&B Drainage Solutions Ltd Fleet" className="w-full h-full object-cover object-center animate-heropan saturate-[1.2] brightness-[1.02] contrast-[1.1]" />
             {/* AB-blue hue unify + directional #0c3e57 filter: solid on the left, lighter to the right */}
