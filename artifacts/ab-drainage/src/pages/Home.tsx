@@ -356,11 +356,11 @@ export default function Home() {
           </motion.div>
         </div>
 
-        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="hsl(0 0% 11%)" />
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#0f2a44" />
       </section>
 
-      {/* ── WHY CHOOSE US (dark) ── */}
-      <section className="relative pt-24 pb-40 bg-background overflow-hidden">
+      {/* ── WHY CHOOSE US (deep navy — differentiated from the services section above) ── */}
+      <section className="relative pt-24 pb-40 bg-gradient-to-b from-[#0f2a44] via-[#0b1e30] to-[#0a1622] overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -385,7 +385,7 @@ export default function Home() {
                 className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-10"
               >
                 {whyUs.map((item, i) => (
-                  <motion.div key={i} variants={fadeUp} className="flex items-start gap-4 p-5 bg-card border border-border rounded-lg">
+                  <motion.div key={i} variants={fadeUp} className="flex items-start gap-4 p-5 bg-white/[0.05] border border-white/10 rounded-lg backdrop-blur-sm">
                     <div className={`w-10 h-10 ${item.color} rounded-lg flex items-center justify-center text-white shrink-0`}>
                       {item.icon}
                     </div>
