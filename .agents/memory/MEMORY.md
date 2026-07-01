@@ -5,6 +5,7 @@
 - [ab-drainage hero overlay](ab-drainage-hero-overlay.md) — client wants bright heros: keep multiply /22 + light gradients; legibility comes from text-shadow + blur panel, not heavy overlays.
 - [ab-drainage BookNow modal](ab-drainage-booknow.md) — single global BookNowModal via BookNowContext; trigger from any page with useBookNow().openBookNow(), don't add per-page modal instances.
 - [ab-drainage services tiles + detail modal](ab-drainage-services-tiles.md) — Home tiles: blue-gradient + short tagline + whileTap click (not flat cards). Service detail is a rich modal that can't be zero-scroll; use object-[center_25%] so worker faces show.
+- [ab-drainage colour direction](ab-drainage-colour-direction.md) — RESOLVED blue-led: --accent token in index.css = 202 40% 52% (#5392B6). Token flips whole site; hand-fix only WaterWave fills + BlogPost gradient. Stars stay gold.
 - [ab-drainage modal scroll lock](ab-drainage-scroll-lock.md) — modals must use ref-counted lockBodyScroll/unlockBodyScroll in lib/utils; direct body.overflow breaks when one modal opens another.
 - [ab-drainage emergency modal + email](ab-drainage-emergency-modal.md) — red compact EmergencyModal; static site has no backend so emergency email goes via Web3Forms client-side (info@ + louis@ cc).
 - [ab-drainage favicon/deploy](ab-drainage-favicon-deploy.md) — build/favicon verified correct; red favicon = browser cache (use ?v=N); outbound to live site blocked; worf.replit.dev is dev not live.

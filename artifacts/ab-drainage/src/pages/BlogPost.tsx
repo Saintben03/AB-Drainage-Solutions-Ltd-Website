@@ -57,7 +57,7 @@ export default function BlogPost() {
   const getCategoryColor = (category: string) => {
     switch (category) {
       case "Emergency":
-        return "from-accent to-orange-400";
+        return "from-accent to-blue-300";
       case "CCTV Surveys":
         return "from-primary to-blue-400";
       case "Drain Repairs":

@@ -70,8 +70,8 @@
   --muted: 0 0% 16%;
   --muted-foreground: 0 0% 58%;
 
-  /* Orange — dominant action colour */
-  --accent: 32 98% 50%;
+  /* AB Blue — dominant action colour */
+  --accent: 202 40% 52%;
   --accent-foreground: 0 0% 100%;
   
   --orange: 32 98% 50%;

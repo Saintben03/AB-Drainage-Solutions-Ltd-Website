@@ -128,7 +128,7 @@ export default function Home() {
             <div className="flex flex-col gap-3 mb-5">
               <a
                 href="tel:01256688650"
-                className="bg-[#5392B6] text-white px-6 py-4 text-base font-bold uppercase tracking-wider flex items-center justify-center gap-3"
+                className="bg-accent text-white px-6 py-4 text-base font-bold uppercase tracking-wider flex items-center justify-center gap-3"
               >
                 <Phone size={20} /> Call 01256 688 650
               </a>
@@ -215,7 +215,7 @@ export default function Home() {
               >
                 <a
                   href="tel:01256688650"
-                  className="bg-[#5392B6] hover:bg-[#5392B6]/90 text-white px-8 py-5 text-lg font-bold uppercase tracking-wider flex items-center justify-center gap-3 transition-all"
+                  className="bg-accent hover:bg-accent/90 text-white px-8 py-5 text-lg font-bold uppercase tracking-wider flex items-center justify-center gap-3 transition-all"
                 >
                   <Phone size={22} />
                   Call 01256 688 650
@@ -415,7 +415,7 @@ export default function Home() {
             </motion.div>
           </div>
         </div>
-        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="hsl(32 98% 50%)" />
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#5392B6" />
       </section>
 
       {/* ── STATS (orange band — colour pop) ── */}
