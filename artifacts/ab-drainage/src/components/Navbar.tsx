@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Phone, Smartphone, Mail, Menu, X, ArrowRight, ChevronDown, AlertTriangle } from "lucide-react";
+import { Phone, Mail, Menu, X, ArrowRight, ChevronDown, AlertTriangle } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import logoMain from "@assets/site_files_1/AB Drainage logo.png";
@@ -121,10 +121,6 @@ export const Navbar = () => {
           <div className="flex items-center gap-3 2xl:gap-5 min-w-0">
             <a href="tel:01256688650" className="flex items-center gap-1.5 whitespace-nowrap hover:text-accent transition-colors">
               <Phone size={13} className="shrink-0" /> 01256 688 650
-            </a>
-            <span className="text-white/25 shrink-0">|</span>
-            <a href="tel:07498062710" className="flex items-center gap-1.5 whitespace-nowrap hover:text-accent transition-colors">
-              <Smartphone size={13} className="shrink-0" /> 07498 062 710
             </a>
             <span className="hidden md:inline text-white/25 shrink-0">|</span>
             <a href="mailto:info@abdrainage.co.uk" className="hidden md:flex items-center gap-1.5 whitespace-nowrap normal-case tracking-normal hover:text-accent transition-colors">
@@ -286,18 +282,8 @@ export const Navbar = () => {
               </div>
             </nav>
 
-            {/* Desktop Emergency CTA */}
-            <div className="hidden lg:flex items-center gap-6 xl:gap-10 shrink-0">
-              <div className="hidden 2xl:flex flex-col items-center 2xl:ml-8 2xl:pl-8 2xl:border-l 2xl:border-white/15">
-                <span className="text-[10px] text-muted-foreground uppercase tracking-[0.18em] font-bold">Emergency Response</span>
-                <a
-                  href="tel:07498062710"
-                  className="text-lg font-display font-bold text-white hover:text-accent transition-colors flex items-center gap-2"
-                >
-                  <Phone size={17} className="text-accent" />
-                  07498 062 710
-                </a>
-              </div>
+            {/* Desktop CTA */}
+            <div className="hidden lg:flex items-center shrink-0">
               <button
                 onClick={openBookNow}
                 className="bg-accent hover:bg-accent/90 text-white px-6 py-3 text-sm font-bold uppercase tracking-wider flex items-center gap-2 transition-all"

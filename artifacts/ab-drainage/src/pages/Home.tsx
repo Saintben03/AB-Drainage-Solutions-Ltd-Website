@@ -151,6 +151,8 @@ export default function Home() {
             <div className="absolute inset-0 bg-[#0b2f52]/35" />
             <div className="absolute inset-0 bg-gradient-to-b from-[#06182a]/25 via-[#06182a]/40 to-[#06182a]/85" />
             <div className="absolute inset-0 bg-[radial-gradient(110%_90%_at_0%_0%,#0b2942_0%,rgba(11,41,66,0.5)_32%,transparent_70%)]" />
+            {/* Bottom fade into the blue CTA band below */}
+            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#01618E] via-[#01618E]/70 to-transparent" />
           </div>
 
           {/* Text content — sits over the image */}
@@ -209,6 +211,8 @@ export default function Home() {
             {/* AB-blue hue unify + directional #0c3e57 filter: solid on the left, lighter to the right */}
             <div className="absolute inset-0 bg-[#0e4a78]/45" style={{ mixBlendMode: "color" }}></div>
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#0c3e57_0%,rgba(12,62,87,0.95)_46%,rgba(12,62,87,0.65)_60%,rgba(12,62,87,0.38)_75%,rgba(12,62,87,0.16)_90%,rgba(12,62,87,0.06)_100%)]"></div>
+            {/* Stronger dark gradient behind the text block (left ~55%) for readability */}
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(4,14,24,0.9)_0%,rgba(4,14,24,0.72)_28%,rgba(4,14,24,0.42)_48%,rgba(4,14,24,0.14)_62%,transparent_74%)]"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-[#06182a]/45 via-transparent to-transparent"></div>
             <div className="absolute inset-0 bg-[radial-gradient(100%_100%_at_0%_0%,#0b2942_0%,rgba(11,41,66,0.55)_30%,transparent_68%)]"></div>
             <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#01618E] via-[#01618E]/70 to-transparent"></div>
@@ -298,7 +302,6 @@ export default function Home() {
           </div>
         </div>
 
-        <AngledEdge position="bottom" fill="#01618E" className="absolute bottom-0 left-0 w-full z-[6] -mb-px" />
       </section>
 
       {/* ── SCHEDULE STRIP (brand-blue band, reference-style) ── */}
