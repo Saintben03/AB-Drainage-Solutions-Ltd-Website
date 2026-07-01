@@ -157,13 +157,13 @@ export default function Home() {
           <div className="relative z-10 px-4">
             <p className="text-[#5392B6] text-[10px] font-bold uppercase tracking-[0.12em] mb-3 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#5392B6] animate-pulse inline-block"></span>
-              Hampshire's Drainage Specialists — 33 Years Experience
+              South England's Drainage Specialists — 33 Years Experience
             </p>
             <h1 className="text-4xl font-display font-light text-white leading-[1.1] tracking-normal mb-3 uppercase [text-shadow:0_2px_20px_rgba(0,0,0,0.6)]">
               The Drain Experts <span className="text-[#5392B6]">South England</span> Relies On.
             </h1>
             <p className="text-sm text-white/85 mb-5 leading-relaxed [text-shadow:0_1px_8px_rgba(0,0,0,0.9)]">
-              Blocked drain? Sewage backing up? We answer at 2am and arrive typically within 1 hour. 33 years solving Hampshire's toughest drainage problems.
+              Blocked drain? Sewage backing up? We answer at 2am and arrive typically within 1 hour. 33 years solving South England's toughest drainage problems.
             </p>
             <a
               href={REVIEWS_URL}
@@ -196,7 +196,7 @@ export default function Home() {
             <div className="flex gap-5 text-[10px] font-bold text-white/70 uppercase tracking-wide">
               <span className="flex items-center gap-1.5"><Clock size={13} className="text-[#5392B6]" /> 1 Hour ETA</span>
               <span className="flex items-center gap-1.5"><ShieldCheck size={13} className="text-[#5392B6]" /> 33+ Yrs Exp</span>
-              <span className="flex items-center gap-1.5"><MapPin size={13} className="text-[#5392B6]" /> Hampshire Wide</span>
+              <span className="flex items-center gap-1.5"><MapPin size={13} className="text-[#5392B6]" /> Across South England</span>
             </div>
           </div>
 
@@ -225,7 +225,7 @@ export default function Home() {
                 className="text-[#5392B6] text-xs font-bold uppercase tracking-[0.25em] mb-5 flex items-center gap-3"
               >
                 <span className="w-2 h-2 rounded-full bg-[#5392B6] animate-pulse inline-block"></span>
-                Hampshire's Drainage Specialists — 33 Years Experience
+                South England's Drainage Specialists — 33 Years Experience
               </motion.p>
               <motion.h1
                 initial={{ opacity: 0, y: 16 }}
@@ -243,7 +243,7 @@ export default function Home() {
                 transition={{ duration: 0.55, delay: 0.16 }}
                 className="text-xl text-white/85 mb-8 max-w-xl leading-relaxed [text-shadow:0_1px_8px_rgba(0,0,0,0.8)]"
               >
-                Blocked drain? Sewage backing up? We answer at 2am and arrive typically within 1 hour. 33 years solving Hampshire's toughest drainage problems.
+                Blocked drain? Sewage backing up? We answer at 2am and arrive typically within 1 hour. 33 years solving South England's toughest drainage problems.
               </motion.p>
               <motion.a
                 href={REVIEWS_URL}
@@ -291,7 +291,7 @@ export default function Home() {
               >
                 <span className="flex items-center gap-2"><Clock size={15} className="text-[#5392B6]" /> 1 Hour ETA</span>
                 <span className="flex items-center gap-2"><ShieldCheck size={15} className="text-[#5392B6]" /> 33+ Yrs Exp</span>
-                <span className="flex items-center gap-2"><MapPin size={15} className="text-[#5392B6]" /> Hampshire Wide</span>
+                <span className="flex items-center gap-2"><MapPin size={15} className="text-[#5392B6]" /> Across South England</span>
               </motion.div>
               </div>
             </div>
