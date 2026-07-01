@@ -93,12 +93,11 @@ export default function BlogPost() {
           <img
             src={imageMap[post.imageKey] ?? imageMap.fallback}
             alt={post.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover saturate-[1.2] brightness-[1.02] contrast-[1.1]"
           />
-          <div className="absolute inset-0 bg-[#0a2c47]/45" style={{ mixBlendMode: "multiply" }}></div>
-          <div className="absolute inset-0 bg-[#0e4a78]/38" style={{ mixBlendMode: "color" }}></div>
-          <div className="absolute inset-0 bg-[#06182a]/40"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#06182a]/70 via-[#06182a]/30 to-transparent"></div>
+          <div className="absolute inset-0 bg-[#0e4a78]/45" style={{ mixBlendMode: "color" }}></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0c3e57] via-[#0c3e57]/75 to-[#0c3e57]/12"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#06182a]/55 via-transparent to-transparent"></div>
           <div className="absolute inset-0 bg-[radial-gradient(100%_100%_at_0%_0%,#0b2942_0%,rgba(11,41,66,0.55)_30%,transparent_68%)]"></div>
         </div>
         

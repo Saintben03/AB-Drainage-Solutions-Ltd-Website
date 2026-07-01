@@ -564,11 +564,10 @@ export default function Services() {
       {/* Hero */}
       <section className="relative overflow-hidden min-h-[80vh] flex items-center pt-28 pb-20">
         <div className="absolute inset-0 z-0">
-          <img src={heroBg} alt="A&B Drainage fleet" className="w-full h-full object-cover object-center animate-heropan saturate-[1.6] brightness-[1.12] contrast-[1.15]" />
-          <div className="absolute inset-0 bg-[#0a2c47]/45" style={{ mixBlendMode: "multiply" }}></div>
-          <div className="absolute inset-0 bg-[#0e4a78]/38" style={{ mixBlendMode: "color" }}></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#06182a]/85 via-[#06182a]/40 to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#06182a]/55 via-transparent to-transparent"></div>
+          <img src={heroBg} alt="A&B Drainage fleet" className="w-full h-full object-cover object-center animate-heropan saturate-[1.2] brightness-[1.02] contrast-[1.1]" />
+          <div className="absolute inset-0 bg-[#0e4a78]/45" style={{ mixBlendMode: "color" }}></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0c3e57] via-[#0c3e57]/75 to-[#0c3e57]/12"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#06182a]/45 via-transparent to-transparent"></div>
           <div className="absolute inset-0 bg-[radial-gradient(100%_100%_at_0%_0%,#0b2942_0%,rgba(11,41,66,0.55)_30%,transparent_68%)]"></div>
         </div>
         <div className="container mx-auto px-4 relative z-10">
