@@ -11,3 +11,4 @@
 - [ab-drainage hero typography](ab-drainage-hero-typography.md) — all page hero H1s use font-light + md:text-6xl + tracking-normal (not heavy bold); display font (Oswald) never actually loads.
 - [ab-drainage home section differentiation](ab-drainage-home-sections.md) — adjacent dark home sections must differ in tone (services=neutral, why-choose=navy); WaterWave fill = next section's top color.
 - [ab-drainage favicon/deploy](ab-drainage-favicon-deploy.md) — build/favicon verified correct; red favicon = browser cache (use ?v=N); outbound to live site blocked; worf.replit.dev is dev not live.
+- [ab-drainage dividers](ab-drainage-dividers.md) — WaterWave/AngledEdge/Diagonal/Stepped motifs; divider fill MUST equal the section it transitions into or it reads as a mismatched band.

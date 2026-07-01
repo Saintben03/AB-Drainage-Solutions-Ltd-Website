@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { CountUp } from "@/components/CountUp";
 import { LogoMarquee } from "@/components/LogoMarquee";
 import { WaterWave } from "@/components/WaterWave";
+import { AngledEdge } from "@/components/AngledEdge";
 import { useBookNow } from "@/contexts/BookNowContext";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 
@@ -618,7 +619,7 @@ export default function Home() {
       </section>
 
       {/* ── PHOTO STRIP ── */}
-      <div className="grid grid-cols-3 h-64 md:h-96 overflow-hidden">
+      <div className="relative grid grid-cols-3 h-64 md:h-96 overflow-hidden">
         {[
           { src: workGroundwork, pos: "object-center", alt: "A&B Drainage groundwork excavation with mini-digger on site" },
           { src: heroImg, pos: "object-[center_55%]", alt: "A&B Drainage fleet of vans and tanker" },
@@ -629,6 +630,9 @@ export default function Home() {
             <div className="absolute inset-0 bg-black/20"></div>
           </div>
         ))}
+        {/* Diagonal transitions blending the white FAQ above and the dark AB Group below */}
+        <AngledEdge position="top" fill="#ffffff" line="#5392B6" className="absolute top-0 left-0 w-full z-20 -mt-px" />
+        <AngledEdge position="bottom" fill="#09090b" line="#5392B6" className="absolute bottom-0 left-0 w-full z-20 -mb-px" />
       </div>
 
       {/* ── THE AB GROUP ── */}
