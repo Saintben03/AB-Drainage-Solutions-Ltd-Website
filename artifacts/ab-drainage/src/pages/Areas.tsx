@@ -26,7 +26,7 @@ const areas = [
   { name: "Havant", tag: "" },
 ];
 
-const borderAreas = ["Berkshire", "Surrey", "West Sussex", "Dorset", "Wiltshire"];
+const borderAreas = ["Berkshire", "Surrey", "Sussex", "Kent", "London", "Dorset", "Wiltshire"];
 
 const stats = [
   { value: "33+", label: "Years Serving Hampshire" },
@@ -50,7 +50,7 @@ export default function Areas() {
     <>
       <SEO
         title="Areas We Cover | Drainage Solutions Hampshire"
-        description="A&B Drainage Solutions covers all of Hampshire and surrounding areas including Basingstoke, Southampton, Winchester, Aldershot and Reading."
+        description="A&B Drainage Solutions covers all of Hampshire and surrounding areas including Basingstoke, Southampton, Winchester, Berkshire, Surrey, Kent, Sussex, and London."
         canonicalUrl="/areas"
       />
 
@@ -178,15 +178,18 @@ export default function Areas() {
           >
             <h3 className="text-xl font-display font-bold text-zinc-900 uppercase mb-3">We Also Operate In</h3>
             <p className="text-zinc-600 mb-5">
-              We frequently cover towns and villages bordering Hampshire. If you are unsure whether we serve your area, call us — we will always try.
+              We frequently take on projects across neighbouring counties, particularly larger commercial and CCTV survey work. If you are unsure whether we serve your area, call us — we will always try.
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 mb-6">
               {borderAreas.map((county, i) => (
                 <span key={i} className="px-4 py-2 border border-zinc-300 text-sm font-bold text-zinc-600 uppercase tracking-wider hover:border-accent hover:text-accent transition-colors">
                   {county}
                 </span>
               ))}
             </div>
+            <p className="text-zinc-500 text-sm border-t border-zinc-200 pt-5">
+              <span className="font-bold text-zinc-700">Don't see your location listed?</span> Get in touch anyway — tell us about your project and we'll always look into whether we can help.
+            </p>
           </motion.div>
         </div>
         <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#fafafa" />
