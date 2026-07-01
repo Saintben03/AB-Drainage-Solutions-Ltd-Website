@@ -95,7 +95,8 @@ export default function BlogPost() {
             alt={post.title}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-[#0a2c47]/22" style={{ mixBlendMode: "multiply" }}></div>
+          <div className="absolute inset-0 bg-[#0a2c47]/45" style={{ mixBlendMode: "multiply" }}></div>
+          <div className="absolute inset-0 bg-[#0e4a78]/38" style={{ mixBlendMode: "color" }}></div>
           <div className="absolute inset-0 bg-[#06182a]/40"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-[#06182a]/70 via-[#06182a]/30 to-transparent"></div>
         </div>
