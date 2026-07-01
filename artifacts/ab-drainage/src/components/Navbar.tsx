@@ -243,37 +243,39 @@ export const Navbar = () => {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 6, scale: 0.97 }}
                       transition={{ duration: 0.18, ease: "easeOut" }}
-                      className="absolute top-full right-0 mt-3 w-72 bg-[#0d0d0d] border border-white/10 shadow-2xl shadow-black/60 z-50"
+                      className="absolute top-full right-0 mt-3 w-[22rem] bg-[#111418] border border-white/10 shadow-2xl shadow-black/70 z-50 rounded-xl overflow-hidden"
                       onMouseEnter={handleGroupEnter}
                       onMouseLeave={handleGroupLeave}
                     >
-                      <div className="px-4 pt-4 pb-2">
-                        <p className="text-white/30 text-[10px] font-bold uppercase tracking-[0.2em]">AB Group Divisions</p>
+                      <div className="px-5 pt-4 pb-3 bg-white/[0.03]">
+                        <p className="text-white/40 text-[10px] font-bold uppercase tracking-[0.22em]">AB Group Divisions</p>
                       </div>
                       {groupCompanies.map((co) => (
                         <Link
                           key={co.href}
                           href={co.href}
-                          className="flex items-start gap-3 px-4 py-3.5 hover:bg-white/5 transition-colors group/item border-t border-white/5"
+                          className="flex items-center gap-4 px-5 py-4 hover:bg-white/[0.06] transition-colors group/item border-t border-white/5"
                         >
                           <span
-                            className="w-2.5 h-2.5 rounded-full shrink-0 mt-1"
+                            className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-display font-bold text-white text-lg tracking-tight shadow-lg ring-2 ring-white/15 group-hover/item:scale-105 transition-transform"
                             style={{ backgroundColor: co.color }}
-                          />
-                          <div>
-                            <p className="text-white font-bold text-sm uppercase tracking-wide leading-tight group-hover/item:text-white transition-colors" style={{ color: "inherit" }}>
+                          >
+                            AB
+                          </span>
+                          <div className="min-w-0">
+                            <p className="text-white font-bold text-sm uppercase tracking-wide leading-tight">
                               {co.name}
                             </p>
-                            <p className="text-white/45 text-xs mt-0.5">{co.sub}</p>
+                            <p className="text-white/50 text-xs mt-0.5 leading-snug">{co.sub}</p>
                           </div>
                           <ArrowRight
-                            size={13}
-                            className="ml-auto shrink-0 mt-1 text-white/20 group-hover/item:text-white/60 transition-colors"
+                            size={15}
+                            className="ml-auto shrink-0 text-white/25 group-hover/item:text-white/70 group-hover/item:translate-x-0.5 transition-all"
                           />
                         </Link>
                       ))}
-                      <div className="px-4 py-3 border-t border-white/10">
-                        <p className="text-white/25 text-[10px] uppercase tracking-[0.15em]">A&B Drainage — Currently Viewing</p>
+                      <div className="px-5 py-3 border-t border-white/10 bg-white/[0.02]">
+                        <p className="text-white/30 text-[10px] uppercase tracking-[0.15em]">A&B Drainage — Currently Viewing</p>
                       </div>
                     </motion.div>
                   )}
@@ -408,12 +410,14 @@ export const Navbar = () => {
                             key={co.href}
                             href={co.href}
                             onClick={() => setMobileMenuOpen(false)}
-                            className="flex items-center gap-3 px-8 py-4 border-t border-zinc-800 hover:bg-zinc-900 transition-colors"
+                            className="flex items-center gap-4 px-8 py-4 border-t border-zinc-800 hover:bg-zinc-900 transition-colors"
                           >
                             <span
-                              className="w-2 h-2 rounded-full shrink-0"
+                              className="shrink-0 w-11 h-11 rounded-full flex items-center justify-center font-display font-bold text-white text-base tracking-tight shadow-lg ring-2 ring-white/15"
                               style={{ backgroundColor: co.color }}
-                            />
+                            >
+                              AB
+                            </span>
                             <div className="flex-1">
                               <p className="text-white font-bold text-sm uppercase tracking-wide">{co.name}</p>
                               <p className="text-white/40 text-xs">{co.sub}</p>
