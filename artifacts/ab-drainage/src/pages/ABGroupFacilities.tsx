@@ -17,9 +17,9 @@ import imgWhyUs      from "@assets/facilities/fac-whyus.png";
 
 const heroImg = "https://images.unsplash.com/photo-1497366216548-37526070297c?w=2560&q=90&auto=format&fit=crop";
 
-const BG     = "#1c1c1c";
-const DARK   = "#09090b";
-const ACCENT = "#94a3b8";
+const WHITE  = "#ffffff";
+const LIGHT  = "#f5f6f7";
+const ACCENT = "#475569";
 
 /* ── Stepped / battlements geometric divider — corporate feel ── */
 function SteppedDivider({ from, to, flip = false }: { from: string; to: string; flip?: boolean }) {
@@ -105,11 +105,10 @@ export default function ABGroupFacilities() {
       {/* ── HERO ── */}
       <section className="relative min-h-[92vh] flex items-end overflow-hidden bg-background">
         <div className="absolute inset-0">
-          <img src={heroImg} alt="Modern commercial building — AB Facilities Management" className="w-full h-full object-cover animate-heropan saturate-[1.5] brightness-[1.1] contrast-[1.12]" draggable={false} />
-          <div className="absolute inset-0 bg-[#64748b]/50" style={{ mixBlendMode: "color" }} />
-          <div className="absolute inset-0 bg-black/45" style={{ mixBlendMode: "multiply" }} />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/15 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-500/10 via-slate-500/2 to-transparent mix-blend-multiply" />
+          <img src={heroImg} alt="Modern commercial building — AB Facilities Management" className="w-full h-full object-cover animate-heropan saturate-[1.35] brightness-[1.08] contrast-[1.1]" draggable={false} />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/10 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-500/40 via-slate-500/5 to-transparent" style={{ mixBlendMode: "color" }} />
         </div>
 
         <div className="relative z-10 container mx-auto px-4 lg:px-8 pb-28 pt-16">
@@ -120,22 +119,22 @@ export default function ABGroupFacilities() {
             <div className="flex items-center gap-3 mb-6">
               <div className="w-1 h-12 bg-slate-400" />
               <div>
-                <p className="text-slate-400 text-xs font-bold uppercase tracking-[0.25em]">Other Services</p>
-                <p className="text-white/40 text-xs uppercase tracking-[0.18em]">Facilities Division</p>
+                <p className="text-slate-300 text-xs font-bold uppercase tracking-[0.25em]">Other Services</p>
+                <p className="text-white/50 text-xs uppercase tracking-[0.18em]">Facilities Division</p>
               </div>
             </div>
             <h1 className="text-5xl md:text-7xl xl:text-8xl font-display font-black uppercase text-white leading-[0.9] mb-6 relative">
               <span className="relative">AB Facilities<span className="absolute -inset-x-8 -inset-y-10 bg-black/50 blur-3xl rounded-3xl -z-10" /></span>
-              <br /><span className="text-slate-400">Management</span>
+              <br /><span className="text-slate-300">Management</span>
             </h1>
-            <p className="text-xl text-white/70 leading-relaxed mb-10 max-w-xl">
+            <p className="text-xl text-white/85 leading-relaxed mb-10 max-w-xl">
               Hampshire's trusted facilities management partner. Keeping commercial buildings safe, compliant and operating at their best — every day.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a href="#enquire" className="inline-flex items-center gap-2 px-10 py-5 bg-slate-600 hover:bg-slate-500 text-white font-bold uppercase tracking-wider text-sm transition-all">
                 Get a Quote <ArrowRight size={16} />
               </a>
-              <a href="#services" className="inline-flex items-center gap-2 px-10 py-5 border border-white/25 text-white font-bold uppercase tracking-wider text-sm hover:border-white/60 transition-all">
+              <a href="#services" className="inline-flex items-center gap-2 px-10 py-5 border border-white/40 text-white font-bold uppercase tracking-wider text-sm hover:border-white/70 hover:bg-white/10 transition-all">
                 Our Services
               </a>
             </div>
@@ -145,39 +144,39 @@ export default function ABGroupFacilities() {
         {/* Hero → About: stepped geometric cut */}
         <div aria-hidden="true" className="absolute bottom-0 left-0 right-0 overflow-hidden pointer-events-none h-20">
           <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="absolute bottom-0 w-full h-full">
-            <polygon points="0,80 0,55 360,80" fill={DARK} />
-            <polygon points="480,40 960,80 960,80 480,80" fill={DARK} />
-            <polygon points="1080,55 1440,80 1440,80 1080,80" fill={DARK} />
+            <polygon points="0,80 0,55 360,80" fill={WHITE} />
+            <polygon points="480,40 960,80 960,80 480,80" fill={WHITE} />
+            <polygon points="1080,55 1440,80 1440,80 1080,80" fill={WHITE} />
             <polyline points="0,55 360,80 480,40 960,80 1080,55 1440,80" stroke={ACCENT} strokeWidth="1.5" fill="none" strokeOpacity="0.5" />
           </svg>
         </div>
       </section>
 
       {/* ── ABOUT ── */}
-      <section className="py-24 bg-zinc-950">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-              <p className="text-slate-400 text-xs font-bold uppercase tracking-[0.25em] mb-4">About The Division</p>
-              <h2 className="text-4xl md:text-5xl font-display font-bold text-white uppercase leading-tight mb-6">Buildings That<br />Work Better</h2>
-              <p className="text-white/60 leading-relaxed mb-6">
+              <p className="text-slate-500 text-xs font-bold uppercase tracking-[0.25em] mb-4">About The Division</p>
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-zinc-900 uppercase leading-tight mb-6">Buildings That<br />Work Better</h2>
+              <p className="text-zinc-600 leading-relaxed mb-6">
                 AB Facilities Management delivers comprehensive building and facilities management services to commercial, public sector and multi-site clients across Hampshire.
               </p>
-              <p className="text-white/60 leading-relaxed mb-10">
+              <p className="text-zinc-600 leading-relaxed mb-10">
                 We take the complexity out of running and maintaining commercial premises, acting as your dedicated partner from day-to-day reactive works through to long-term strategic asset planning.
               </p>
-              <div className="grid grid-cols-3 gap-6 border-t border-white/10 pt-8">
+              <div className="grid grid-cols-3 gap-6 border-t border-zinc-200 pt-8">
                 {[{ val: "20+", label: "Years Experience" }, { val: "50+", label: "Managed Sites" }, { val: "24/7", label: "Reactive Cover" }].map((s) => (
                   <div key={s.label}>
-                    <p className="text-3xl font-display font-black text-slate-400">{s.val}</p>
-                    <p className="text-white/50 text-xs uppercase tracking-[0.15em] mt-1">{s.label}</p>
+                    <p className="text-3xl font-display font-black text-slate-600">{s.val}</p>
+                    <p className="text-zinc-500 text-xs uppercase tracking-[0.15em] mt-1">{s.label}</p>
                   </div>
                 ))}
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
-              <img src={imgAbout} alt="AB Facilities Management — commercial building" className="w-full aspect-[4/3] object-cover" draggable={false} />
-              <div className="absolute -bottom-4 -left-4 bg-slate-600 text-white p-6 hidden md:block">
+              <img src={imgAbout} alt="AB Facilities Management — commercial building" className="w-full aspect-[4/3] object-cover shadow-xl" draggable={false} />
+              <div className="absolute -bottom-4 -left-4 bg-slate-600 text-white p-6 hidden md:block shadow-lg">
                 <p className="text-2xl font-display font-black uppercase">ISO</p>
                 <p className="text-xs uppercase tracking-[0.15em] text-white/80">Standards</p>
               </div>
@@ -186,41 +185,41 @@ export default function ABGroupFacilities() {
         </div>
       </section>
 
-      <SteppedDivider from={DARK} to={BG} flip />
+      <SteppedDivider from={WHITE} to={LIGHT} flip />
 
       {/* ── SERVICES ── */}
-      <section id="services" className="py-24 bg-background">
+      <section id="services" className="py-24" style={{ backgroundColor: LIGHT }}>
         <div className="container mx-auto px-4 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="text-center mb-16">
-            <p className="text-slate-400 text-xs font-bold uppercase tracking-[0.25em] mb-3">What We Manage</p>
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-white uppercase">Our Services</h2>
+            <p className="text-slate-500 text-xs font-bold uppercase tracking-[0.25em] mb-3">What We Manage</p>
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-zinc-900 uppercase">Our Services</h2>
           </motion.div>
           <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((s) => (
-              <motion.div key={s.title} variants={fadeUp} className="bg-zinc-900 border border-zinc-800 p-8 group hover:border-slate-500/40 transition-all duration-300">
-                <div className="w-12 h-12 bg-slate-500/10 border border-slate-500/30 flex items-center justify-center text-slate-400 mb-6 group-hover:bg-slate-600 group-hover:text-white transition-all duration-300">
+              <motion.div key={s.title} variants={fadeUp} className="bg-white border border-zinc-200 shadow-sm p-8 group hover:border-slate-400/60 hover:shadow-md transition-all duration-300">
+                <div className="w-12 h-12 bg-slate-500/10 border border-slate-500/30 flex items-center justify-center text-slate-500 mb-6 group-hover:bg-slate-600 group-hover:text-white transition-all duration-300">
                   {s.icon}
                 </div>
-                <h3 className="text-white font-display font-bold text-lg uppercase mb-3">{s.title}</h3>
-                <p className="text-white/55 text-sm leading-relaxed">{s.desc}</p>
+                <h3 className="text-zinc-900 font-display font-bold text-lg uppercase mb-3">{s.title}</h3>
+                <p className="text-zinc-600 text-sm leading-relaxed">{s.desc}</p>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      <SteppedDivider from={BG} to={DARK} />
+      <SteppedDivider from={LIGHT} to={WHITE} />
 
       {/* ── GALLERY ── */}
-      <section className="py-24 bg-zinc-950">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-14">
-            <p className="text-slate-400 text-xs font-bold uppercase tracking-[0.25em] mb-3">Meet The Team</p>
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-white uppercase">Our People</h2>
+            <p className="text-slate-500 text-xs font-bold uppercase tracking-[0.25em] mb-3">Meet The Team</p>
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-zinc-900 uppercase">Our People</h2>
           </motion.div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             {gallery.map((item, i) => (
-              <motion.div key={i} initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.07 }} className="relative overflow-hidden group">
+              <motion.div key={i} initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.07 }} className="relative overflow-hidden group shadow-sm">
                 <img src={item.src} alt={item.caption} className="w-full h-full object-cover aspect-square group-hover:scale-105 transition-transform duration-700" draggable={false} />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                   <p className="text-white text-xs font-bold uppercase tracking-wide">{item.caption}</p>
@@ -231,85 +230,85 @@ export default function ABGroupFacilities() {
         </div>
       </section>
 
-      <SteppedDivider from={DARK} to={BG} flip />
+      <SteppedDivider from={WHITE} to={LIGHT} flip />
 
       {/* ── WHY US ── */}
-      <section className="py-24 bg-background">
+      <section className="py-24" style={{ backgroundColor: LIGHT }}>
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
-              <p className="text-slate-400 text-xs font-bold uppercase tracking-[0.25em] mb-4">The Difference</p>
-              <h2 className="text-4xl md:text-5xl font-display font-bold text-white uppercase leading-tight mb-10">Why Choose<br />AB Facilities?</h2>
+              <p className="text-slate-500 text-xs font-bold uppercase tracking-[0.25em] mb-4">The Difference</p>
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-zinc-900 uppercase leading-tight mb-10">Why Choose<br />AB Facilities?</h2>
               <div className="space-y-6">
                 {whyUs.map((w, i) => (
                   <motion.div key={w.title} initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }} className="flex gap-4">
-                    <CheckCircle2 size={22} className="shrink-0 mt-0.5 text-slate-400" />
+                    <CheckCircle2 size={22} className="shrink-0 mt-0.5 text-slate-500" />
                     <div>
-                      <h4 className="text-white font-bold uppercase tracking-wide text-sm mb-1">{w.title}</h4>
-                      <p className="text-white/55 text-sm leading-relaxed">{w.desc}</p>
+                      <h4 className="text-zinc-900 font-bold uppercase tracking-wide text-sm mb-1">{w.title}</h4>
+                      <p className="text-zinc-600 text-sm leading-relaxed">{w.desc}</p>
                     </div>
                   </motion.div>
                 ))}
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-              <img src={imgWhyUs} alt="Modern commercial building — AB Facilities" className="w-full aspect-[4/3] object-cover" draggable={false} />
+              <img src={imgWhyUs} alt="Modern commercial building — AB Facilities" className="w-full aspect-[4/3] object-cover shadow-xl" draggable={false} />
             </motion.div>
           </div>
         </div>
       </section>
 
-      <SteppedDivider from={BG} to={DARK} />
+      <SteppedDivider from={LIGHT} to={WHITE} />
 
       {/* ── ENQUIRY FORM ── */}
-      <section id="enquire" className="py-24 bg-zinc-950 relative overflow-hidden">
+      <section id="enquire" className="py-24 bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-500/5 via-transparent to-transparent pointer-events-none" />
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
-              <p className="text-slate-400 text-xs font-bold uppercase tracking-[0.25em] mb-4">Get Started</p>
-              <h2 className="text-4xl md:text-5xl font-display font-bold text-white uppercase leading-tight mb-6">Request a<br />Quote</h2>
-              <p className="text-white/60 leading-relaxed mb-10">
+              <p className="text-slate-500 text-xs font-bold uppercase tracking-[0.25em] mb-4">Get Started</p>
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-zinc-900 uppercase leading-tight mb-6">Request a<br />Quote</h2>
+              <p className="text-zinc-600 leading-relaxed mb-10">
                 Tell us about your building or portfolio and we will be in touch promptly with expert advice and a tailored service proposal.
               </p>
               <div className="space-y-4">
-                <a href="tel:01256688650" className="flex items-center gap-3 text-white hover:text-slate-300 transition-colors">
-                  <div className="w-10 h-10 bg-slate-500/10 border border-slate-500/30 flex items-center justify-center"><Phone size={16} className="text-slate-400" /></div>
+                <a href="tel:01256688650" className="flex items-center gap-3 text-zinc-800 hover:text-slate-600 transition-colors">
+                  <div className="w-10 h-10 bg-slate-500/10 border border-slate-500/30 flex items-center justify-center"><Phone size={16} className="text-slate-500" /></div>
                   <span className="font-bold">01256 688 650</span>
                 </a>
-                <a href="mailto:info@abdrainage.co.uk" className="flex items-center gap-3 text-white hover:text-slate-300 transition-colors">
-                  <div className="w-10 h-10 bg-slate-500/10 border border-slate-500/30 flex items-center justify-center"><Mail size={16} className="text-slate-400" /></div>
+                <a href="mailto:info@abdrainage.co.uk" className="flex items-center gap-3 text-zinc-800 hover:text-slate-600 transition-colors">
+                  <div className="w-10 h-10 bg-slate-500/10 border border-slate-500/30 flex items-center justify-center"><Mail size={16} className="text-slate-500" /></div>
                   <span className="font-bold">info@abdrainage.co.uk</span>
                 </a>
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.15 }}>
               {sent ? (
-                <div className="bg-zinc-900 border border-slate-500/40 p-12 text-center">
-                  <CheckCircle2 size={48} className="text-slate-400 mx-auto mb-4" />
-                  <h3 className="text-white font-display font-bold text-2xl uppercase mb-3">Enquiry Sent</h3>
-                  <p className="text-white/60">Thank you — your email client should have opened. We will be in touch shortly.</p>
-                  <button onClick={() => setSent(false)} className="mt-6 text-slate-400 text-sm font-bold uppercase tracking-wider hover:underline">Send Another</button>
+                <div className="bg-white border border-slate-400/50 shadow-lg p-12 text-center">
+                  <CheckCircle2 size={48} className="text-slate-500 mx-auto mb-4" />
+                  <h3 className="text-zinc-900 font-display font-bold text-2xl uppercase mb-3">Enquiry Sent</h3>
+                  <p className="text-zinc-600">Thank you — your email client should have opened. We will be in touch shortly.</p>
+                  <button onClick={() => setSent(false)} className="mt-6 text-slate-600 text-sm font-bold uppercase tracking-wider hover:underline">Send Another</button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="bg-zinc-900 border border-zinc-800 p-8 space-y-5">
+                <form onSubmit={handleSubmit} className="bg-white border border-zinc-200 shadow-lg p-8 space-y-5">
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-white/60 text-xs uppercase tracking-[0.15em] font-bold mb-2">Full Name *</label>
-                      <input name="name" value={form.name} onChange={handleChange} required className="w-full bg-zinc-800 border border-zinc-700 text-white px-4 py-3 text-sm focus:outline-none focus:border-slate-400 transition-colors" placeholder="Your name" />
+                      <label className="block text-zinc-600 text-xs uppercase tracking-[0.15em] font-bold mb-2">Full Name *</label>
+                      <input name="name" value={form.name} onChange={handleChange} required className="w-full bg-white border border-zinc-300 text-zinc-900 px-4 py-3 text-sm focus:outline-none focus:border-slate-500 transition-colors" placeholder="Your name" />
                     </div>
                     <div>
-                      <label className="block text-white/60 text-xs uppercase tracking-[0.15em] font-bold mb-2">Phone</label>
-                      <input name="phone" value={form.phone} onChange={handleChange} className="w-full bg-zinc-800 border border-zinc-700 text-white px-4 py-3 text-sm focus:outline-none focus:border-slate-400 transition-colors" placeholder="Your number" />
+                      <label className="block text-zinc-600 text-xs uppercase tracking-[0.15em] font-bold mb-2">Phone</label>
+                      <input name="phone" value={form.phone} onChange={handleChange} className="w-full bg-white border border-zinc-300 text-zinc-900 px-4 py-3 text-sm focus:outline-none focus:border-slate-500 transition-colors" placeholder="Your number" />
                     </div>
                   </div>
                   <div>
-                    <label className="block text-white/60 text-xs uppercase tracking-[0.15em] font-bold mb-2">Email Address *</label>
-                    <input name="email" type="email" value={form.email} onChange={handleChange} required className="w-full bg-zinc-800 border border-zinc-700 text-white px-4 py-3 text-sm focus:outline-none focus:border-slate-400 transition-colors" placeholder="your@email.com" />
+                    <label className="block text-zinc-600 text-xs uppercase tracking-[0.15em] font-bold mb-2">Email Address *</label>
+                    <input name="email" type="email" value={form.email} onChange={handleChange} required className="w-full bg-white border border-zinc-300 text-zinc-900 px-4 py-3 text-sm focus:outline-none focus:border-slate-500 transition-colors" placeholder="your@email.com" />
                   </div>
                   <div>
-                    <label className="block text-white/60 text-xs uppercase tracking-[0.15em] font-bold mb-2">Service Required</label>
-                    <select name="service" value={form.service} onChange={handleChange} className="w-full bg-zinc-800 border border-zinc-700 text-white px-4 py-3 text-sm focus:outline-none focus:border-slate-400 transition-colors">
+                    <label className="block text-zinc-600 text-xs uppercase tracking-[0.15em] font-bold mb-2">Service Required</label>
+                    <select name="service" value={form.service} onChange={handleChange} className="w-full bg-white border border-zinc-300 text-zinc-900 px-4 py-3 text-sm focus:outline-none focus:border-slate-500 transition-colors">
                       <option value="">Select a service...</option>
                       <option>Planned Maintenance</option>
                       <option>Reactive Callouts</option>
@@ -321,13 +320,13 @@ export default function ABGroupFacilities() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-white/60 text-xs uppercase tracking-[0.15em] font-bold mb-2">Project Details *</label>
-                    <textarea name="message" value={form.message} onChange={handleChange} required rows={5} className="w-full bg-zinc-800 border border-zinc-700 text-white px-4 py-3 text-sm focus:outline-none focus:border-slate-400 transition-colors resize-none" placeholder="Describe your building, portfolio or requirement..." />
+                    <label className="block text-zinc-600 text-xs uppercase tracking-[0.15em] font-bold mb-2">Project Details *</label>
+                    <textarea name="message" value={form.message} onChange={handleChange} required rows={5} className="w-full bg-white border border-zinc-300 text-zinc-900 px-4 py-3 text-sm focus:outline-none focus:border-slate-500 transition-colors resize-none" placeholder="Describe your building, portfolio or requirement..." />
                   </div>
                   <button type="submit" className="w-full py-4 bg-slate-600 hover:bg-slate-500 text-white font-bold uppercase tracking-wider text-sm flex items-center justify-center gap-2 transition-all">
                     Send Enquiry <ArrowRight size={16} />
                   </button>
-                  <p className="text-white/30 text-xs text-center">Enquiries are sent to info@abdrainage.co.uk</p>
+                  <p className="text-zinc-400 text-xs text-center">Enquiries are sent to info@abdrainage.co.uk</p>
                 </form>
               )}
             </motion.div>
@@ -335,21 +334,19 @@ export default function ABGroupFacilities() {
         </div>
       </section>
 
-      <SteppedDivider from={DARK} to={BG} flip />
-
-      {/* ── AB GROUP FOOTER BANNER ── */}
-      <section className="py-16 bg-background border-t border-zinc-800">
+      {/* ── AB GROUP FOOTER BANNER (solid accent) ── */}
+      <section className="py-16 bg-slate-600">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div>
-              <p className="text-white/30 text-xs uppercase tracking-[0.2em] font-bold mb-2">Part of The AB Group</p>
+              <p className="text-white/70 text-xs uppercase tracking-[0.2em] font-bold mb-2">Part of The AB Group</p>
               <h3 className="text-2xl font-display font-black text-white uppercase">Multi-Discipline Contractors</h3>
-              <p className="text-white/50 text-sm mt-1">Facilities, drainage, construction and fencing — all under one roof</p>
+              <p className="text-white/80 text-sm mt-1">Facilities, drainage, construction and fencing — all under one roof</p>
             </div>
             <div className="flex gap-4 flex-wrap">
-              <Link href="/ab-group/construction" className="px-6 py-3 border border-zinc-700 text-white/70 text-xs font-bold uppercase tracking-wider hover:border-zinc-500 hover:text-white transition-all">Construction</Link>
-              <Link href="/ab-group/fencing" className="px-6 py-3 border border-zinc-700 text-white/70 text-xs font-bold uppercase tracking-wider hover:border-zinc-500 hover:text-white transition-all">Fencing</Link>
-              <Link href="/" className="px-6 py-3 text-xs font-bold uppercase tracking-wider text-white bg-slate-600 hover:bg-slate-500 transition-all">AB Drainage</Link>
+              <Link href="/ab-group/construction" className="px-6 py-3 border border-white/40 text-white text-xs font-bold uppercase tracking-wider hover:border-white hover:bg-white/10 transition-all">Construction</Link>
+              <Link href="/ab-group/fencing" className="px-6 py-3 border border-white/40 text-white text-xs font-bold uppercase tracking-wider hover:border-white hover:bg-white/10 transition-all">Fencing</Link>
+              <Link href="/" className="px-6 py-3 text-xs font-bold uppercase tracking-wider text-slate-700 bg-white hover:opacity-90 transition-all">AB Drainage</Link>
             </div>
           </div>
         </div>
