@@ -140,12 +140,13 @@ export default function Home() {
             <img
               src={heroImg}
               alt="A&B Drainage Solutions Ltd fleet of vans"
-              className="w-full h-full object-cover object-[62%_40%] saturate-[1.5] brightness-[1.05] contrast-[1.1]"
+              className="w-full h-full object-cover object-[62%_40%] saturate-[1.15] brightness-[0.98] contrast-[1.1]"
             />
-            {/* Navy cinematic filter — overall blue cast + bottom darken for legibility */}
-            <div className="absolute inset-0 bg-[#0a2c47]/48" style={{ mixBlendMode: "multiply" }} />
-            <div className="absolute inset-0 bg-[#0e4a78]/38" style={{ mixBlendMode: "color" }} />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#06182a]/35 to-[#06182a]/80" />
+            {/* Navy duotone filter — strong uniform blue wash + bottom darken for legibility */}
+            <div className="absolute inset-0 bg-[#0a2c47]/60" style={{ mixBlendMode: "multiply" }} />
+            <div className="absolute inset-0 bg-[#0e4a78]/60" style={{ mixBlendMode: "color" }} />
+            <div className="absolute inset-0 bg-[#0b2f52]/35" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#06182a]/25 via-[#06182a]/40 to-[#06182a]/85" />
             <div className="absolute inset-0 bg-[radial-gradient(110%_90%_at_0%_0%,#0b2942_0%,rgba(11,41,66,0.5)_32%,transparent_70%)]" />
           </div>
 
@@ -201,12 +202,13 @@ export default function Home() {
         {/* ── Desktop hero (background image) ── */}
         <div className="hidden md:flex relative min-h-[80vh] items-center pt-20 pb-16">
           <div className="absolute inset-0 z-0">
-            <img src={heroImg} alt="A&B Drainage Solutions Ltd Fleet" className="w-full h-full object-cover object-center animate-heropan saturate-[1.6] brightness-[1.12] contrast-[1.15]" />
-            {/* Navy cinematic filter — blue cast over the whole frame, strong navy on the left for text, truck stays visible on the right */}
-            <div className="absolute inset-0 bg-[#0a2c47]/45" style={{ mixBlendMode: "multiply" }}></div>
-            <div className="absolute inset-0 bg-[#0e4a78]/38" style={{ mixBlendMode: "color" }}></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#06182a]/85 via-[#06182a]/40 to-transparent"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-[#06182a]/55 via-transparent to-transparent"></div>
+            <img src={heroImg} alt="A&B Drainage Solutions Ltd Fleet" className="w-full h-full object-cover object-center animate-heropan saturate-[1.15] brightness-[0.98] contrast-[1.12]" />
+            {/* Navy duotone filter — strong uniform blue wash across the whole frame */}
+            <div className="absolute inset-0 bg-[#0a2c47]/60" style={{ mixBlendMode: "multiply" }}></div>
+            <div className="absolute inset-0 bg-[#0e4a78]/60" style={{ mixBlendMode: "color" }}></div>
+            <div className="absolute inset-0 bg-[#0b2f52]/35"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#06182a]/85 via-[#06182a]/45 to-[#06182a]/15"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#06182a]/60 via-transparent to-transparent"></div>
             <div className="absolute inset-0 bg-[radial-gradient(100%_100%_at_0%_0%,#0b2942_0%,rgba(11,41,66,0.55)_30%,transparent_68%)]"></div>
           </div>
 

@@ -7,10 +7,12 @@ description: How the hero image overlays are tuned — now a deliberate strong m
 
 Every page hero (Home, Services, Areas, About, Gallery, Blog, Contact, BlogPost) layers overlays over the fleet photo. Taste has CHANGED over time — read the history before adjusting.
 
-**Current direction (latest): strong AB-blue haze.** The client asked for a "stronger AB blue haze filter like the other website" (the AB Group site, which tints its hero a deep monochrome blue). The haze layer is now TWO stacked layers per hero:
-- `bg-[#0a2c47]/45` `mixBlendMode: multiply` (Home main hero uses /48) — depth/darkening.
-- `bg-[#0e4a78]/38` `mixBlendMode: color` — this is the key: `color` blend forces the whole image to the AB-blue HUE, giving the monochrome-blue "haze" look (not just darker). Without the `color` layer you only get a darker image, not a blue one.
-- The directional gradients (`from-[#06182a]/85 ...` left, `from-[#06182a]/55 ...` bottom) are unchanged.
+**Current direction (latest): strong AB-blue DUOTONE.** The client repeatedly asked for the deep monochrome-blue wash of the AB Group reference site. The Home hero (desktop + mobile) now uses a heavier stack:
+- `bg-[#0a2c47]/60` `mixBlendMode: multiply` — depth/darkening.
+- `bg-[#0e4a78]/60` `mixBlendMode: color` — the key: `color` blend forces the whole image to the AB-blue HUE (monochrome-blue look, not just darker). Without it you only get a darker image, not a blue one.
+- `bg-[#0b2f52]/35` plain normal-blend tint — unifies the whole frame into one blue field (this uniform layer is what finally matched the reference; the blend layers alone weren't enough).
+- Also dial the IMAGE filters DOWN (`saturate-[1.15] brightness-[0.98]`, not the old `saturate-[1.6] brightness-[1.12]`) — a bright/saturated photo fights the duotone and reads grey-blue instead of deep navy.
+- Directional gradients: left `from-[#06182a]/85 via/45 to/15`, bottom `from-[#06182a]/60`. Other page heroes still use the lighter /45+/38 stack — only Home was pushed to the heavy duotone.
 
 **Why:** the earlier direction (below) was "keep heros bright"; the client reversed it and now explicitly wants the saturated blue treatment. Legibility still holds because white h1/p carry text-shadows + a blurred dark panel behind the copy, and the left gradient stays dark where text sits.
 
