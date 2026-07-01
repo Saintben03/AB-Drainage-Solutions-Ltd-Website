@@ -76,7 +76,7 @@ export const BookNowModal = ({ open, onClose }: BookNowModalProps) => {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.25 }}
           onClick={onClose}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 backdrop-blur-lg p-4"
           aria-modal="true"
           role="dialog"
           aria-label="Book a drainage callout"

@@ -398,7 +398,7 @@ function ServiceModal({ service, onClose }: { service: Service; onClose: () => v
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <div className="absolute inset-0 bg-[#06182a]/70 backdrop-blur-md" onClick={onClose} />
+      <div className="absolute inset-0 bg-[#06182a]/70 backdrop-blur-lg" onClick={onClose} />
 
       <motion.div
         className="relative bg-white w-full sm:max-w-6xl h-full sm:h-auto sm:max-h-[94vh] overflow-y-auto sm:rounded-2xl shadow-2xl border-2 border-accent/70 ring-4 ring-black/25"
