@@ -163,7 +163,7 @@ export default function Home() {
           </div>
 
           <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-3xl relative">
+            <div className="max-w-4xl relative">
               <div className="absolute -inset-x-8 -inset-y-10 bg-[#06182a]/55 blur-3xl rounded-3xl pointer-events-none" aria-hidden="true"></div>
               <div className="relative z-10">
               <motion.p
@@ -179,7 +179,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, delay: 0.08 }}
-                className="text-4xl sm:text-5xl md:text-6xl font-display font-light text-white leading-[1.1] tracking-normal mb-6 uppercase [text-shadow:0_2px_20px_rgba(0,0,0,0.6)]"
+                className="text-5xl sm:text-6xl md:text-6xl lg:text-7xl font-display font-light text-white leading-[1.08] tracking-normal mb-6 uppercase [text-shadow:0_2px_20px_rgba(0,0,0,0.6)]"
               >
                 The Drain Experts{" "}
                 <span className="text-[#5392B6]">Hampshire</span>{" "}
