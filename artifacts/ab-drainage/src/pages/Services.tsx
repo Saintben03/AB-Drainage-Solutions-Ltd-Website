@@ -603,7 +603,7 @@ export default function Services() {
             {services.map((s) => (
               <button key={s.id} onClick={() => setActive(s)}
                 className="group text-left flex flex-col gap-4 p-6 border border-zinc-200 rounded-xl hover:border-accent hover:shadow-xl hover:-translate-y-1 transition-all bg-white">
-                <div className="relative overflow-hidden h-52 rounded-lg">
+                <div className="relative overflow-hidden h-64 rounded-lg">
                   <img src={s.img} alt={s.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                   <div className="absolute inset-0 bg-[#0a2c47]/40 mix-blend-multiply" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#06182a]/75 via-[#06182a]/15 to-transparent" />
