@@ -210,6 +210,7 @@ export default function Home() {
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#0c3e57_0%,rgba(12,62,87,0.95)_46%,rgba(12,62,87,0.65)_60%,rgba(12,62,87,0.38)_75%,rgba(12,62,87,0.16)_90%,rgba(12,62,87,0.06)_100%)]"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-[#06182a]/45 via-transparent to-transparent"></div>
             <div className="absolute inset-0 bg-[radial-gradient(100%_100%_at_0%_0%,#0b2942_0%,rgba(11,41,66,0.55)_30%,transparent_68%)]"></div>
+            <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#01618E] via-[#01618E]/70 to-transparent"></div>
           </div>
 
           <div className="container mx-auto px-4 relative z-10">
@@ -296,11 +297,11 @@ export default function Home() {
           </div>
         </div>
 
-        <AngledEdge position="bottom" fill="#5392B6" className="absolute bottom-0 left-0 w-full z-[6] -mb-px" />
+        <AngledEdge position="bottom" fill="#01618E" className="absolute bottom-0 left-0 w-full z-[6] -mb-px" />
       </section>
 
       {/* ── SCHEDULE STRIP (brand-blue band, reference-style) ── */}
-      <section className="relative bg-[#5392B6] overflow-hidden">
+      <section className="relative bg-[#01618E] overflow-hidden">
         <img
           src={scheduleBg}
           alt=""
