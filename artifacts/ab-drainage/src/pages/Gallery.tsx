@@ -118,7 +118,7 @@ export default function Gallery() {
       />
 
       {/* ── HERO (dark) ── */}
-      <section className="relative overflow-hidden min-h-[80vh] flex items-center pt-28 pb-20">
+      <section className="relative overflow-hidden min-h-[62vh] flex items-center pt-16 pb-14">
         <div className="absolute inset-0 z-0">
           <img src={heroImg} alt="A&B Drainage fleet and engineers" className="w-full h-full object-cover object-center animate-heropan saturate-[1.2] brightness-[1.02] contrast-[1.1]" />
           <div className="absolute inset-0 bg-[#0e4a78]/45" style={{ mixBlendMode: "color" }}></div>
