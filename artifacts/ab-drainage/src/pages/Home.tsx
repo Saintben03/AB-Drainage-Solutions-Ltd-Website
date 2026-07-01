@@ -136,35 +136,32 @@ export default function Home() {
       {/* ── HERO (dark) ── */}
       <section className="relative overflow-hidden bg-background">
 
-        {/* ── Mobile hero (text overlaid on image) ── */}
-        <div className="md:hidden relative min-h-[65vh] flex flex-col justify-end pb-10">
-          {/* Background image */}
-          <div className="absolute inset-0 z-0">
+        {/* ── Mobile hero (stacked: image banner on top, text below) ── */}
+        <div className="md:hidden bg-background">
+          {/* Image banner — full fleet visible, not cropped tall */}
+          <div className="relative w-full aspect-[16/10] overflow-hidden">
             <img
               src={heroImg}
               alt="A&B Drainage Solutions Ltd fleet of vans"
-              className="w-full h-full object-cover object-[62%_40%] saturate-[1.15] brightness-[0.98] contrast-[1.1]"
+              className="w-full h-full object-cover object-center saturate-[1.12] contrast-[1.05]"
             />
-            {/* Navy duotone filter — strong uniform blue wash + bottom darken for legibility */}
-            <div className="absolute inset-0 bg-[#0a2c47]/60" style={{ mixBlendMode: "multiply" }} />
-            <div className="absolute inset-0 bg-[#0e4a78]/60" style={{ mixBlendMode: "color" }} />
-            <div className="absolute inset-0 bg-[#0b2f52]/35" />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#06182a]/25 via-[#06182a]/40 to-[#06182a]/85" />
-            <div className="absolute inset-0 bg-[radial-gradient(110%_90%_at_0%_0%,#0b2942_0%,rgba(11,41,66,0.5)_32%,transparent_70%)]" />
-            {/* Bottom fade into the blue CTA band below */}
-            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#01618E] via-[#01618E]/70 to-transparent" />
+            {/* Light navy tint to unify with brand without hiding the vehicles */}
+            <div className="absolute inset-0 bg-[#0a2c47]/25" style={{ mixBlendMode: "multiply" }} />
+            <div className="absolute inset-0 bg-[#0e4a78]/25" style={{ mixBlendMode: "color" }} />
+            {/* Bottom fade into the dark text area below */}
+            <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-background to-transparent" />
           </div>
 
-          {/* Text content — sits over the image */}
-          <div className="relative z-10 px-4">
+          {/* Text content — below the image */}
+          <div className="relative z-10 px-4 -mt-4 pb-10">
             <p className="text-[#5392B6] text-[10px] font-bold uppercase tracking-[0.12em] mb-3 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#5392B6] animate-pulse inline-block"></span>
               South England's Drainage Specialists — 33 Years Experience
             </p>
-            <h1 className="text-4xl font-display font-light text-white leading-[1.1] tracking-normal mb-3 uppercase [text-shadow:0_2px_20px_rgba(0,0,0,0.6)]">
+            <h1 className="text-4xl font-display font-light text-white leading-[1.1] tracking-normal mb-3 uppercase">
               The Drain Experts <span className="text-[#5392B6]">South England</span> Relies On.
             </h1>
-            <p className="text-sm text-white/85 mb-5 leading-relaxed [text-shadow:0_1px_8px_rgba(0,0,0,0.9)]">
+            <p className="text-sm text-white/85 mb-5 leading-relaxed">
               Blocked drain? Sewage backing up? We answer at 2am and arrive typically within 1 hour. 33 years solving South England's toughest drainage problems.
             </p>
             <a
@@ -310,9 +307,9 @@ export default function Home() {
           src={scheduleBg}
           alt=""
           aria-hidden="true"
-          className="absolute right-4 md:right-16 top-1/2 -translate-y-1/2 h-[88%] md:h-[96%] w-auto max-w-none pointer-events-none select-none"
+          className="hidden sm:block absolute right-4 md:right-16 top-1/2 -translate-y-1/2 h-[80%] md:h-[96%] w-auto max-w-none opacity-90 pointer-events-none select-none"
         />
-        <div className="container mx-auto px-4 pt-6 pb-16 md:pt-8 md:pb-24 relative z-10 flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-5">
+        <div className="container mx-auto px-4 py-12 md:pt-8 md:pb-24 relative z-10 flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-6">
           <p className="text-white font-display font-bold uppercase tracking-wide text-xl md:text-3xl text-center sm:text-left leading-tight">
             Need Drainage Support?{" "}
             <span className="text-[#06182a]">Schedule Your Service</span>
