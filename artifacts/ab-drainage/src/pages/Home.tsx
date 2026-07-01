@@ -251,7 +251,7 @@ export default function Home() {
       {/* ── SCHEDULE STRIP (brand-blue band, reference-style) ── */}
       <section className="relative bg-[#5392B6] overflow-hidden">
         <div
-          className="absolute right-3 md:right-14 top-1/2 -translate-y-1/2 text-white/10 font-display font-bold text-[8rem] md:text-[13rem] leading-none select-none pointer-events-none"
+          className="absolute right-3 md:right-14 top-1/2 -translate-y-1/2 text-white/10 font-display font-bold text-[8rem] md:text-[13rem] leading-none tracking-[-0.08em] select-none pointer-events-none"
           aria-hidden="true"
         >
           AB
