@@ -15,7 +15,7 @@ import imgGHardstand  from "@assets/construction/const-gallery-hardstanding.png"
 import imgGBrickwork  from "@assets/construction/const-gallery-brickwork.png";
 import imgWhyUs       from "@assets/construction/const-whyus.png";
 
-const heroImg = "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=2560&q=90&auto=format&fit=crop";
+const heroImg = imgGExcavation;
 
 const BG   = "#1c1c1c";
 const DARK = "#09090b";
