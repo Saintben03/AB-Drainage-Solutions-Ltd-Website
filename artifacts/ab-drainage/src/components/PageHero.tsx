@@ -38,14 +38,15 @@ export function PageHero({
           src={image}
           alt={imageAlt}
           style={objectPosition ? { objectPosition } : undefined}
-          className="w-full h-full object-cover object-center animate-heropan saturate-[1.15] brightness-[1.04] contrast-[1.05]"
+          className="w-full h-full object-cover object-center saturate-[1.1] brightness-[0.95] contrast-[1.05]"
         />
-        {/* Subtle brand-blue hue — a light wash, not a heavy overlay */}
-        <div className="absolute inset-0 bg-[#0e4a78]/22" style={{ mixBlendMode: "multiply" }} />
-        {/* Gentle left scrim so overlaid text stays readable while the fleet still shows through */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(6,24,42,0.6)_0%,rgba(6,24,42,0.34)_34%,rgba(6,24,42,0.12)_58%,transparent_80%)]" />
+        {/* Brand-blue filter — darkens and unifies the whole photo to the AB blue (same on mobile + desktop) */}
+        <div className="absolute inset-0 bg-[#0a2c47]/45" style={{ mixBlendMode: "multiply" }} />
+        <div className="absolute inset-0 bg-[#0e4a78]/35" />
+        {/* Left scrim so overlaid text stays readable */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(6,24,42,0.72)_0%,rgba(6,24,42,0.45)_38%,rgba(6,24,42,0.18)_64%,transparent_88%)]" />
         {/* Soft bottom fade for lower content + blends into the wave */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#06182a]/60 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#06182a]/65 via-transparent to-transparent" />
       </div>
 
       {waveFillMobile ? (
@@ -67,7 +68,7 @@ export function PageHero({
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-accent text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] mb-4 flex items-center gap-2"
+              className="text-sky-200 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] mb-4 flex items-center gap-2 [text-shadow:0_1px_6px_rgba(0,0,0,0.7)]"
             >
               {eyebrow}
             </motion.div>

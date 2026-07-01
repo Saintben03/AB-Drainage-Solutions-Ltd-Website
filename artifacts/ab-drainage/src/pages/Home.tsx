@@ -148,7 +148,7 @@ export default function Home() {
         }
         title={
           <>
-            The Drain Experts <span className="text-[#5392B6]">South England</span> Relies On.
+            The Drain Experts <span className="text-sky-300">South England</span> Relies On.
           </>
         }
         description="Blocked drain? Sewage backing up? We answer at 2am and arrive typically within 1 hour. 33 years solving South England's toughest drainage problems."

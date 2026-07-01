@@ -3,20 +3,23 @@ name: ab-drainage hero overlay
 description: How the content-page hero image overlays are tuned — taste has flip-flopped bright<->heavy several times
 ---
 
-## Current direction (LATEST): one shared bright PageHero
-All 7 content-page heroes (Home, Areas, Services, About, Contact, Gallery, Blog) now render from a single shared component `components/PageHero.tsx`. Do NOT re-inline per-page hero markup — edit PageHero to change all of them at once.
+## Current direction (LATEST): one shared PageHero WITH a clear blue filter
+All 7 content-page heroes (Home, Areas, Services, About, Contact, Gallery, Blog) render from a single shared component `components/PageHero.tsx`. Do NOT re-inline per-page hero markup — edit PageHero to change all of them at once.
 
-The client reversed the earlier "heavy blue duotone" taste and again wants BRIGHT heros where the whole van fleet is visible (complaint was: other pages too dark, only the right van showed; Home mobile text sat below the image instead of over it). PageHero's stack, kept deliberately light:
-- image `object-cover object-center` + `saturate-[1.15] brightness-[1.04] contrast-[1.05]` (+ optional `objectPosition` prop for framing).
-- blue hue wash `bg-[#0e4a78]/22` `mixBlendMode: multiply` — a light tint, NOT the old heavy `color`-blend duotone.
-- gentle LEFT scrim `linear-gradient(to_right, rgba(6,24,42,0.6) → transparent by 80%)` so left-aligned white text stays legible while the right/fleet stays clear.
-- soft bottom fade `from-[#06182a]/60` for lower-content legibility + wave blend.
-- localized blurred panel behind the copy `bg-black/40 blur-3xl -z-10` + white text-shadows carry legibility (per the standing rule below).
-- The old top-left navy radial and the heavy `#0c3e57` directional left gradient were REMOVED (they were the "too dark / only right van" culprits).
+Taste flip-flops constantly. The bright/light version was rejected (client: "no blue filter like the desktop version, image not sized right"). Current stack has a definite but not-black blue filter, identical on mobile + desktop:
+- image `object-cover object-center` + `saturate-[1.1] brightness-[0.95] contrast-[1.05]` (+ optional `objectPosition` prop). NO `animate-heropan` — see gotcha below.
+- `bg-[#0a2c47]/45` `mixBlendMode: multiply` (darken) + `bg-[#0e4a78]/35` normal blend (blue hue unify).
+- LEFT scrim `linear-gradient(to_right, rgba(6,24,42,0.72) → transparent by 88%)` for text legibility.
+- soft bottom fade `from-[#06182a]/65` + localized `bg-black/40 blur-3xl -z-10` panel behind copy + white text-shadows.
 
-**Why:** legibility must come from the local blur panel + text-shadow, not from darkening the whole photo — that lets the fleet stay bright. This is the recurring client preference; it has been overridden twice then restored.
+**Why:** client compares the NEW build's mobile against the OLD LIVE desktop (still heavier blue). When they say "match the desktop," they mean add MORE blue filter, not less. The lighter version always gets rejected.
 
-**How to apply:** to go brighter, lower the `/22` tint and the left-scrim opacities together. To go darker (if taste flips again), raise them together — do not restore the heavy `color`-blend duotone unless the client explicitly asks for the "AB Group monochrome-blue" look again.
+**How to apply:** to go bluer/darker raise the two tint layers together; to lighten lower both. Do not restore the old heavy `color`-blend monochrome duotone unless they explicitly ask for the "AB Group monochrome-blue" look.
+
+## Gotchas that got the client annoyed (do NOT reintroduce)
+- **No hero pan animation.** The `animate-heropan` class (keyframe still in index.css) makes the image drift left↔right; the client did not ask for it and disliked it. Keep it off PageHero's img.
+- **No blue text in the hero.** Blue accent words over the blue filter vanish. Home's "South England" span is `text-sky-300` and PageHero's eyebrow is `text-sky-200` (both light blue + text-shadow), NOT `text-accent`/`#5392B6`. Keep hero accent text a LIGHT sky tone.
+- **Logo marquee must ANIMATE on mobile too.** `components/LogoMarquee.tsx` used to render a static row on mobile (iOS Safari width:max-content worry); the client noticed the logos stopped moving. It now uses the animated marquee (two identical LogoGroups, `w-max animate-marquee`, right→left) on ALL breakpoints. Do not revert to a static mobile row.
 
 **Home wave-fill is breakpoint-split:** Home's next section differs by breakpoint (desktop = `#01618E` schedule strip which is `hidden md:block`; mobile = `#e0f2fe` Trusted band). PageHero supports `waveFill` + `waveFillMobile` and renders two breakpoint-scoped WaterWaves for exactly this. Other pages pass a single `waveFill` matching their next section (Areas/About/Contact `#5392B6`, Services/Gallery/Blog `#ffffff`).
 
