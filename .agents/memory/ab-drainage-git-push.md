@@ -1,18 +1,24 @@
 ---
-name: ab-drainage shell git push blocked
-description: shell `git push` against this repo's GitHub remote hangs/fails auth; use Replit's Git panel UI instead.
+name: ab-drainage shell git push hangs (askpass password)
+description: shell `git push` hangs because replit-git-askpass returns no password token; GitHub connection not authorized. Fix via Git panel.
 ---
 
-Shell `git push` (even with the origin remote already configured to
-`https://github.com/Saintben03/AB-Drainage-Solutions-Ltd-Website.git`) does not work in this
-environment: it either times out with no output or errors with "Invalid username or token.
-Password authentication is not supported for Git operations." This is a credential/auth
-limitation of the shell environment, not a code or remote-config problem.
+Shell `git push` on this repo hangs forever (times out with no output), even with
+`GIT_TERMINAL_PROMPT=0` and `--no-verify`. Root cause was diagnosed precisely:
 
-**Why:** Replit's shell has no interactive credential helper for this GitHub remote, so `git
-push` hangs waiting for auth input instead of using Replit's managed GitHub connection.
+- Remote `origin` = `https://github.com/Saintben03/AB-Drainage-Solutions-Ltd-Website.git`.
+- `git ls-remote` (read) succeeds instantly — network/remote are fine.
+- No `credential.helper` is set, but `GIT_ASKPASS=replit-git-askpass`.
+- Testing the helper directly: `replit-git-askpass "Username..."` returns `token` instantly (exit 0),
+  but `replit-git-askpass "Password..."` **hangs** (times out). The password step is the hang point.
+- There is also a Git LFS `pre-push` hook (two LFS-tracked ZIPs in attached_assets), but the hang
+  persists with `--no-verify`, so LFS is NOT the cause — the credential (askpass password) is.
 
-**How to apply:** Do not keep retrying `git push` from the shell/bash tool. Tell the user to use
-Replit's Git panel (sidebar) and click its **Push** button — that path uses Replit's managed
-GitHub connection and has worked for this project before (including getting past a "Branch
-already exists" dialog via "Set upstream to origin/main").
+**Why:** the Replit-managed GitHub connection for this Repl is not returning an auth token, so the
+push's password lookup blocks indefinitely. Read works (public), write (push) needs the token.
+
+**How to apply:** Do NOT keep retrying `git push` from the shell — it will hang every time until the
+GitHub connection is authorized. Tell the user to open Replit's **Git panel** (sidebar) and use its
+**Push** button; if offered, (re)connect/authorize GitHub there. Authorizing the connection is what
+makes the askpass password resolve, after which shell `git push` also works. This is why other Repls
+with an authorized GitHub connection push fine from the shell.
