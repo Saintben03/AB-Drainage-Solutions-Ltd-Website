@@ -8,4 +8,5 @@
 - [ab-drainage colour direction](ab-drainage-colour-direction.md) — RESOLVED blue-led: --accent token in index.css = 202 40% 52% (#5392B6). Token flips whole site; hand-fix only WaterWave fills + BlogPost gradient. Stars stay gold.
 - [ab-drainage modal scroll lock](ab-drainage-scroll-lock.md) — modals must use ref-counted lockBodyScroll/unlockBodyScroll in lib/utils; direct body.overflow breaks when one modal opens another.
 - [ab-drainage emergency modal + email](ab-drainage-emergency-modal.md) — red compact EmergencyModal; static site has no backend so emergency email goes via Web3Forms client-side (info@ + louis@ cc).
+- [ab-drainage hero typography](ab-drainage-hero-typography.md) — all page hero H1s use font-light + md:text-6xl + tracking-normal (not heavy bold); display font (Oswald) never actually loads.
 - [ab-drainage favicon/deploy](ab-drainage-favicon-deploy.md) — build/favicon verified correct; red favicon = browser cache (use ?v=N); outbound to live site blocked; worf.replit.dev is dev not live.

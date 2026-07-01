@@ -79,7 +79,7 @@ export default function Blog() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.08 }}
-              className="text-4xl md:text-6xl font-display font-bold text-white uppercase leading-tight mb-6 [text-shadow:0_2px_20px_rgba(0,0,0,0.9),0_1px_4px_rgba(0,0,0,0.7)]"
+              className="text-4xl sm:text-5xl md:text-6xl font-display font-light text-white uppercase tracking-normal leading-[1.1] mb-6 [text-shadow:0_2px_20px_rgba(0,0,0,0.6)]"
             >
               Drainage Advice &amp; <span className="text-accent">Expert Guides</span>
             </motion.h1>

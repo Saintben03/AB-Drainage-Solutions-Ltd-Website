@@ -106,7 +106,7 @@ export default function Home() {
               <span className="w-2 h-2 rounded-full bg-[#5392B6] animate-pulse inline-block"></span>
               Hampshire's Drainage Specialists — 33 Years Experience
             </p>
-            <h1 className="text-[2.4rem] font-display font-bold text-white leading-[1.05] mb-3 uppercase [text-shadow:0_2px_20px_rgba(0,0,0,0.9),0_1px_6px_rgba(0,0,0,0.8)]">
+            <h1 className="text-4xl font-display font-light text-white leading-[1.1] tracking-normal mb-3 uppercase [text-shadow:0_2px_20px_rgba(0,0,0,0.6)]">
               The Drain Experts <span className="text-[#5392B6]">Hampshire</span> Relies On.
             </h1>
             <p className="text-sm text-white/85 mb-5 leading-relaxed [text-shadow:0_1px_8px_rgba(0,0,0,0.9)]">
@@ -177,7 +177,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, delay: 0.08 }}
-                className="text-5xl md:text-7xl font-display font-bold text-white leading-[1.05] mb-6 uppercase [text-shadow:0_2px_20px_rgba(0,0,0,0.9),0_1px_4px_rgba(0,0,0,0.7)]"
+                className="text-4xl sm:text-5xl md:text-6xl font-display font-light text-white leading-[1.1] tracking-normal mb-6 uppercase [text-shadow:0_2px_20px_rgba(0,0,0,0.6)]"
               >
                 The Drain Experts{" "}
                 <span className="text-[#5392B6]">Hampshire</span>{" "}
