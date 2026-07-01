@@ -91,66 +91,55 @@ export const Navbar = () => {
 
   return (
     <>
-      {/* ── Emergency Bar — click to open emergency modal ── */}
+      {/* ── Emergency Bar — bright Ferrari-red scrolling banner, click to open emergency modal ── */}
       <button
         onClick={() => setEmergencyOpen(true)}
-        className="group relative w-full bg-accent text-white px-4 py-2 text-[10px] xl:text-xs font-bold uppercase tracking-[0.12em] 2xl:tracking-[0.18em] transition-all duration-200 hover:py-3 hover:brightness-110 hover:shadow-lg hover:shadow-accent/50 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60 active:scale-[0.995]"
-        aria-label="Open emergency call panel"
+        className="group relative w-full overflow-hidden bg-[#FF2800] text-white py-2 xl:py-2.5 text-[11px] xl:text-xs font-bold uppercase tracking-[0.18em] cursor-pointer transition-[filter] duration-200 hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/70"
+        aria-label="24/7 Emergency — open emergency call panel"
       >
-        {/* Animated border-bottom pulse on hover to hint interactivity */}
-        <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/30 group-hover:bg-white/60 transition-colors duration-200 pointer-events-none" />
-
-        {/* Mobile layout */}
-        <div className="xl:hidden flex items-center justify-between gap-2">
-          <span className="flex items-center gap-1 whitespace-nowrap shrink-0">
-            <AlertTriangle size={11} className="shrink-0 animate-pulse" /> EMERGENCY
-          </span>
-          <span className="text-white/30 shrink-0">|</span>
-          <span className="flex items-center gap-1.5 shrink-0">
-            <span className="animate-pulse w-1.5 h-1.5 rounded-full bg-white block shrink-0"></span>
-            <span className="hidden sm:inline">24/7 — Tap to Call Now</span>
-            <span className="sm:hidden">Tap to Call</span>
-          </span>
-          <span className="text-white/30 shrink-0">|</span>
-          <span className="flex items-center gap-1 whitespace-nowrap shrink-0">
-            <Phone size={11} className="shrink-0" /> 01256 688 650
-          </span>
+        <span className="sr-only">24/7 Emergency — Click to Call Now</span>
+        <div aria-hidden="true" className="flex w-max animate-marquee whitespace-nowrap will-change-transform">
+          {[0, 1].map((dup) => (
+            <div key={dup} className="flex shrink-0 items-center">
+              {[0, 1, 2, 3, 4, 5].map((i) => (
+                <span key={i} className="flex items-center gap-2.5 px-6">
+                  <AlertTriangle size={13} className="shrink-0 animate-pulse" />
+                  24/7 Emergency — Click to Call Now
+                </span>
+              ))}
+            </div>
+          ))}
         </div>
+      </button>
 
-        {/* xl+ layout: left phones | center message | right socials */}
-        <div className="hidden xl:flex items-center justify-center gap-4">
-          {/* Left contact group */}
-          <div className="flex flex-1 items-center gap-3 2xl:gap-5 pl-2 2xl:pl-6">
-            <span className="flex items-center gap-1.5 whitespace-nowrap shrink-0">
+      {/* ── Contact details strip — moved out of the emergency bar, sits immediately below it ── */}
+      <div className="w-full bg-zinc-900 border-b border-white/5 text-white/75 text-[10px] xl:text-xs font-bold uppercase tracking-[0.12em] 2xl:tracking-[0.18em]">
+        <div className="container mx-auto px-4 lg:px-8 py-2 flex items-center justify-between gap-3">
+          {/* Left: contact details */}
+          <div className="flex items-center gap-3 2xl:gap-5 min-w-0">
+            <a href="tel:01256688650" className="flex items-center gap-1.5 whitespace-nowrap hover:text-accent transition-colors">
               <Phone size={13} className="shrink-0" /> 01256 688 650
-            </span>
-            <span className="text-white/30 shrink-0">|</span>
-            <span className="flex items-center gap-1.5 whitespace-nowrap shrink-0">
+            </a>
+            <span className="text-white/25 shrink-0">|</span>
+            <a href="tel:07498062710" className="flex items-center gap-1.5 whitespace-nowrap hover:text-accent transition-colors">
               <Smartphone size={13} className="shrink-0" /> 07498 062 710
-            </span>
-            <span className="hidden 2xl:inline text-white/30 shrink-0">|</span>
-            <span className="hidden 2xl:flex items-center gap-1.5 whitespace-nowrap shrink-0 normal-case tracking-normal">
+            </a>
+            <span className="hidden md:inline text-white/25 shrink-0">|</span>
+            <a href="mailto:info@abdrainage.co.uk" className="hidden md:flex items-center gap-1.5 whitespace-nowrap normal-case tracking-normal hover:text-accent transition-colors">
               <Mail size={13} className="shrink-0" /> info@abdrainage.co.uk
-            </span>
+            </a>
           </div>
 
-          {/* Center: 24/7 message + click hint */}
-          <span className="flex items-center gap-2 px-6 border-x border-white/30 whitespace-nowrap shrink-0">
-            <AlertTriangle size={14} className="shrink-0 animate-pulse" />
-            24/7 Emergency — Click to Call Now
-            <AlertTriangle size={14} className="shrink-0 animate-pulse" />
-          </span>
-
           {/* Right: Follow Us + social icons */}
-          <div className="flex flex-1 items-center justify-end gap-3 pr-4 xl:pr-6">
-            <span className="text-white/80 tracking-[0.18em]">Follow Us</span>
+          <div className="flex items-center gap-3 shrink-0">
+            <span className="hidden sm:inline text-white/60 tracking-[0.18em]">Follow Us</span>
             <SocialLinks
-              iconSize={24}
-              itemClassName="text-white hover:-translate-y-0.5 [&_svg]:w-6 [&_svg]:h-6"
+              iconSize={20}
+              itemClassName="text-white/80 hover:text-accent hover:-translate-y-0.5 [&_svg]:w-5 [&_svg]:h-5"
             />
           </div>
         </div>
-      </button>
+      </div>
 
       <EmergencyModal open={emergencyOpen} onClose={() => setEmergencyOpen(false)} />
 
