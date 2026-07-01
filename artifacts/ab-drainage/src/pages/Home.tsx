@@ -136,32 +136,31 @@ export default function Home() {
       {/* ── HERO (dark) ── */}
       <section className="relative overflow-hidden bg-background">
 
-        {/* ── Mobile hero (stacked: image banner on top, text below) ── */}
-        <div className="md:hidden bg-background">
-          {/* Image banner — full fleet visible, not cropped tall */}
-          <div className="relative w-full aspect-[16/10] overflow-hidden">
+        {/* ── Mobile hero (text overlaid on image; top kept light so the fleet shows) ── */}
+        <div className="md:hidden relative flex flex-col justify-end pt-[44vh] pb-16 overflow-hidden">
+          {/* Background image */}
+          <div className="absolute inset-0 z-0">
             <img
               src={heroImg}
               alt="A&B Drainage Solutions Ltd fleet of vans"
-              className="w-full h-full object-cover object-center saturate-[1.12] contrast-[1.05]"
+              className="w-full h-full object-cover object-[50%_32%] saturate-[1.15] contrast-[1.08]"
             />
-            {/* Light navy tint to unify with brand without hiding the vehicles */}
-            <div className="absolute inset-0 bg-[#0a2c47]/25" style={{ mixBlendMode: "multiply" }} />
-            <div className="absolute inset-0 bg-[#0e4a78]/25" style={{ mixBlendMode: "color" }} />
-            {/* Bottom fade into the dark text area below */}
-            <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-background to-transparent" />
+            {/* Brand navy filter — light at top (vehicles visible), deep at bottom (text legible) */}
+            <div className="absolute inset-0 bg-[#0a2c47]/30" style={{ mixBlendMode: "multiply" }} />
+            <div className="absolute inset-0 bg-[#0e4a78]/35" style={{ mixBlendMode: "color" }} />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#06182a]/10 via-[#06182a]/55 to-[#06182a]/95" />
           </div>
 
-          {/* Text content — below the image */}
-          <div className="relative z-10 px-4 -mt-4 pb-10">
+          {/* Text content — sits over the image */}
+          <div className="relative z-10 px-4">
             <p className="text-[#5392B6] text-[10px] font-bold uppercase tracking-[0.12em] mb-3 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#5392B6] animate-pulse inline-block"></span>
               South England's Drainage Specialists — 33 Years Experience
             </p>
-            <h1 className="text-4xl font-display font-light text-white leading-[1.1] tracking-normal mb-3 uppercase">
+            <h1 className="text-4xl font-display font-light text-white leading-[1.1] tracking-normal mb-3 uppercase [text-shadow:0_2px_20px_rgba(0,0,0,0.6)]">
               The Drain Experts <span className="text-[#5392B6]">South England</span> Relies On.
             </h1>
-            <p className="text-sm text-white/85 mb-5 leading-relaxed">
+            <p className="text-sm text-white/85 mb-5 leading-relaxed [text-shadow:0_1px_8px_rgba(0,0,0,0.9)]">
               Blocked drain? Sewage backing up? We answer at 2am and arrive typically within 1 hour. 33 years solving South England's toughest drainage problems.
             </p>
             <a
@@ -199,6 +198,8 @@ export default function Home() {
             </div>
           </div>
 
+          {/* Mobile-only wave into the Trusted section (blue schedule bar is hidden on mobile) */}
+          <WaterWave className="absolute bottom-0 left-0 w-full z-[6] -mb-px" fill="#e0f2fe" />
         </div>
 
         {/* ── Desktop hero (background image) ── */}
@@ -301,8 +302,8 @@ export default function Home() {
 
       </section>
 
-      {/* ── SCHEDULE STRIP (brand-blue band, reference-style) ── */}
-      <section className="relative bg-[#01618E] overflow-hidden">
+      {/* ── SCHEDULE STRIP (brand-blue band, reference-style — hidden on mobile) ── */}
+      <section className="relative bg-[#01618E] overflow-hidden hidden md:block">
         <img
           src={scheduleBg}
           alt=""
