@@ -23,12 +23,12 @@ import divFencing from "@assets/fencing/fence-hero.png";
 import divFacilities from "@assets/facilities/fac-gallery-lobby.png";
 
 const services = [
-  { icon: <Siren size={26} />, title: "Emergency Drainage", subtitle: "24/7 rapid response — typically on site within the hour for blockages, sewage and flooding.", href: "/services#emergency" },
-  { icon: <Video size={26} />, title: "CCTV Drain Surveys", subtitle: "HD camera inspections that pinpoint the exact problem, plus pre-purchase survey reports.", href: "/services#cctv-surveys" },
-  { icon: <Droplets size={26} />, title: "Drain Cleaning & Jetting", subtitle: "High-pressure jetting up to 4,000 PSI to clear grease, roots and stubborn blockages.", href: "/services#cleaning-jetting" },
-  { icon: <Wrench size={26} />, title: "Drain Repairs", subtitle: "No-dig relining and traditional excavation, with full reinstatement once we're done.", href: "/services#drain-repairs" },
-  { icon: <Building2 size={26} />, title: "Commercial Drainage", subtitle: "Planned maintenance, grease-trap cleaning and tanker services for businesses.", href: "/services#commercial" },
-  { icon: <Layers size={26} />, title: "Soakaway Installation", subtitle: "Building-regs compliant soakaways with soil percolation testing and modern crate systems.", href: "/services#soakaways" },
+  { icon: <Siren size={32} />, title: "Emergency Drainage", tagline: "24/7 Rapid Response", href: "/services#emergency" },
+  { icon: <Video size={32} />, title: "CCTV Drain Surveys", tagline: "Pinpoint Accuracy", href: "/services#cctv-surveys" },
+  { icon: <Droplets size={32} />, title: "Cleaning & Jetting", tagline: "Powerful Clearance", href: "/services#cleaning-jetting" },
+  { icon: <Wrench size={32} />, title: "Drain Repairs", tagline: "No-Dig Solutions", href: "/services#drain-repairs" },
+  { icon: <Building2 size={32} />, title: "Commercial Drainage", tagline: "Trusted Professional", href: "/services#commercial" },
+  { icon: <Layers size={32} />, title: "Soakaway Installation", tagline: "Building-Regs Compliant", href: "/services#soakaways" },
 ];
 
 const faqs = [
@@ -306,16 +306,35 @@ export default function Home() {
           >
             {services.map((s, i) => (
               <motion.div key={i} variants={fadeUp} className="h-full">
-                <Link href={s.href} className="group relative flex flex-col h-full bg-[#5392B6] hover:bg-[#4a82a4] p-8 overflow-hidden transition-colors duration-300">
-                  <div className="w-14 h-14 rounded-xl bg-white/15 group-hover:bg-white/25 flex items-center justify-center text-white mb-6 transition-colors duration-300">
-                    {s.icon}
-                  </div>
-                  <h3 className="text-2xl font-display font-bold text-white uppercase mb-3 leading-tight">{s.title}</h3>
-                  <p className="text-white/80 text-sm leading-relaxed mb-8 flex-grow">{s.subtitle}</p>
-                  <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-white group-hover:gap-4 transition-all">
-                    Learn More <ArrowRight size={14} />
-                  </span>
-                </Link>
+                <motion.div
+                  whileHover={{ y: -8 }}
+                  whileTap={{ scale: 0.96 }}
+                  transition={{ type: "spring", stiffness: 320, damping: 22 }}
+                  className="h-full"
+                >
+                  <Link
+                    href={s.href}
+                    className="group relative flex flex-col h-full min-h-[220px] overflow-hidden rounded-xl p-8 bg-gradient-to-br from-[#4d8bb0] via-[#2c6188] to-[#123f61] ring-1 ring-white/10 hover:ring-white/25 shadow-lg shadow-black/30 hover:shadow-2xl hover:shadow-[#5392B6]/25 transition-shadow duration-300"
+                  >
+                    {/* hover brighten wash */}
+                    <span aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#5fa2c8] via-[#377bab] to-[#164f79] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                    {/* diagonal shine sweep on hover */}
+                    <span aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+                      <span className="absolute top-0 -left-2/3 h-full w-1/2 rotate-12 bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover:translate-x-[320%] transition-transform duration-[900ms] ease-out"></span>
+                    </span>
+
+                    <div className="relative z-[1] flex flex-col h-full">
+                      <div className="mb-8 text-white/90 transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1">
+                        {s.icon}
+                      </div>
+                      <h3 className="text-2xl md:text-[1.7rem] font-display font-bold text-white uppercase leading-none mb-3">{s.title}</h3>
+                      <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-white/55">{s.tagline}</p>
+                      <span className="mt-auto pt-8 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-white">
+                        Learn More <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1.5" />
+                      </span>
+                    </div>
+                  </Link>
+                </motion.div>
               </motion.div>
             ))}
           </motion.div>

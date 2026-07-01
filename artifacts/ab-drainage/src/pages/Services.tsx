@@ -434,8 +434,8 @@ function ServiceModal({ service, onClose }: { service: Service; onClose: () => v
         </button>
 
         {/* Header image */}
-        <div className="relative h-52 sm:h-64">
-          <img src={service.img} alt={service.title} className="w-full h-full object-cover" />
+        <div className="relative h-44 sm:h-56">
+          <img src={service.img} alt={service.title} className="w-full h-full object-cover object-[center_25%]" />
           <div className="absolute inset-0 bg-[#0a2c47]/35 mix-blend-multiply" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#06182a] via-[#06182a]/45 to-transparent" />
           {service.detail.stat && (
@@ -451,7 +451,7 @@ function ServiceModal({ service, onClose }: { service: Service; onClose: () => v
         </div>
 
         {/* Body */}
-        <div className="p-6 sm:p-8 space-y-10">
+        <div className="p-6 sm:p-8 space-y-6">
           <div className="space-y-4">
             {service.detail.intro.map((p, i) => (
               <p key={i} className="text-zinc-600 leading-relaxed text-sm">{p}</p>
@@ -479,7 +479,7 @@ function ServiceModal({ service, onClose }: { service: Service; onClose: () => v
                 <Wrench size={18} className="text-accent shrink-0" />
                 <h3 className="font-display font-bold text-white uppercase text-sm tracking-wide">What's Included</h3>
               </div>
-              <ul className="space-y-4">
+              <ul className="space-y-3">
                 {service.detail.included.map((item, i) => (
                   <li key={i}>
                     <p className="text-accent text-xs font-bold uppercase tracking-wide mb-1 flex items-center gap-1.5">
@@ -493,11 +493,11 @@ function ServiceModal({ service, onClose }: { service: Service; onClose: () => v
           </div>
 
           <div>
-            <div className="flex items-center gap-2 mb-6">
+            <div className="flex items-center gap-2 mb-4">
               <Clock size={18} className="text-accent shrink-0" />
               <h3 className="font-display font-bold text-zinc-900 uppercase text-sm tracking-wide">How It Works</h3>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {service.detail.process.map((step, i) => (
                 <div key={i} className="flex gap-3">
                   <div className="w-7 h-7 rounded-full bg-accent text-white text-xs font-bold flex items-center justify-center shrink-0">
