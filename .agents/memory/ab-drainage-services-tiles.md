@@ -11,7 +11,16 @@ Client rejected the original flat `bg-[#5392B6]` cards with a full-sentence desc
 - Interaction: framer `whileHover={{y:-8}}` lift + `whileTap={{scale:0.96}}` press ("cool click animation"), plus a group-hover diagonal shine sweep, ring glow, and arrow slide.
 **Why:** client said the gradient/short-tagline look "looks better than ours." Keep tiles concise; don't reintroduce long per-tile descriptions.
 
-## Services detail is a MODAL, not a page
-Clicking a service (tile on Home, or card on the Services page) opens an in-page modal (`bg-white max-w-4xl max-h-[90vh] overflow-y-auto`) with header image + intro + Signs / What's Included / How It Works / FAQ / CTA.
-- The content is genuinely rich, so it **cannot fully fit one viewport without scrolling** — compaction (tighter `space-y`, shorter header) reduces scroll but zero-scroll would require trimming content. Flag this tradeoff before cutting copy.
-- Header images are worker photos: a centered `object-cover` on the short header band **crops the face out**. Use `object-[center_25%]` (faces sit ~20-25% from top) so the person's face stays visible.
+## Services page tile grid
+Client said the 4-col grid looked "cramped." Now `lg:grid-cols-3` (was `lg:grid-cols-4`), taller image `h-52` (was h-40), `p-6` + `rounded-xl` cards, `text-lg` title / `text-sm` desc, and a `hover:-translate-y-1` lift. Keep it at 3 columns — do not go back to 4.
+
+## Services detail MODAL — single-tile "everything visible" layout
+Client explicitly rejected the old tall scrolling modal (drew a red X over it) and the FAQ accordion. Requirement: **all info visible in ONE tile, no slider/accordion.**
+Current design (live): wide panel `sm:max-w-6xl max-h-[94vh]`, laid out as a compact dashboard:
+- **Slim** header banner (`h-28 sm:h-32`) with title + stat badge overlaid (not the old tall h-56 banner) — saves vertical space.
+- Overview intro flows in `sm:columns-2` (CSS multi-column) at `text-[13px]` — compact height.
+- One row of 3 cards: Signs You Need This | What's Included (dark) | How It Works — `lg:grid-cols-3`, `text-[11px]/[12px]`.
+- FAQ rendered as a `lg:grid-cols-3` of small cards with **question + answer both always shown** (NO accordion — the FaqItem component was deleted).
+- On a 1080p desktop this fits in ~one viewport; `overflow-y-auto` is kept only as a safety for short laptops/mobile. Mobile necessarily stacks+scrolls — unavoidable given content volume.
+- **Why:** the accordion + long vertical scroll felt clunky; client wants a scannable single panel. If asked to "fit everything" harder, shrink text/spacing or drop an intro paragraph — do NOT reintroduce the accordion or a stacked single-column scroll.
+- Header images are worker photos: centered `object-cover` on the short band **crops the face out**. Use `object-[center_30%]` so the face stays visible.

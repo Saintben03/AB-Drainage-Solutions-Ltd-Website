@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Phone, ArrowRight, Check, ChevronDown, ChevronUp, Clock, ShieldCheck, Wrench, AlertCircle, X } from "lucide-react";
+import { Phone, ArrowRight, Check, Clock, ShieldCheck, Wrench, AlertCircle, X } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
@@ -373,24 +373,6 @@ const services: Service[] = [
   },
 ];
 
-function FaqItem({ q, a }: { q: string; a: string }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div className="border-b border-zinc-200 last:border-0">
-      <button
-        onClick={() => setOpen(!open)}
-        className="flex items-center justify-between gap-4 w-full py-4 text-left"
-      >
-        <span className="font-bold text-zinc-800 text-sm">{q}</span>
-        {open ? <ChevronUp size={16} className="text-accent shrink-0" /> : <ChevronDown size={16} className="text-zinc-400 shrink-0" />}
-      </button>
-      {open && (
-        <p className="text-zinc-600 text-sm leading-relaxed pb-4">{a}</p>
-      )}
-    </div>
-  );
-}
-
 function ServiceModal({ service, onClose }: { service: Service; onClose: () => void }) {
   const { openBookNow } = useBookNow();
 
@@ -419,7 +401,7 @@ function ServiceModal({ service, onClose }: { service: Service; onClose: () => v
       <div className="absolute inset-0 bg-[#06182a]/80 backdrop-blur-sm" onClick={onClose} />
 
       <motion.div
-        className="relative bg-white w-full sm:max-w-4xl h-full sm:h-auto sm:max-h-[90vh] overflow-y-auto sm:rounded-xl shadow-2xl"
+        className="relative bg-white w-full sm:max-w-6xl h-full sm:h-auto sm:max-h-[94vh] overflow-y-auto sm:rounded-2xl shadow-2xl"
         initial={{ opacity: 0, y: 30, scale: 0.98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 30, scale: 0.98 }}
@@ -428,115 +410,123 @@ function ServiceModal({ service, onClose }: { service: Service; onClose: () => v
         <button
           onClick={onClose}
           aria-label="Close"
-          className="absolute top-4 right-4 z-30 w-10 h-10 flex items-center justify-center bg-black/40 hover:bg-black/70 text-white rounded-full transition-colors"
+          className="absolute top-4 right-4 z-30 w-9 h-9 flex items-center justify-center bg-black/40 hover:bg-black/70 text-white rounded-full transition-colors"
         >
-          <X size={20} />
+          <X size={18} />
         </button>
 
-        {/* Header image */}
-        <div className="relative h-44 sm:h-56">
-          <img src={service.img} alt={service.title} className="w-full h-full object-cover object-[center_25%]" />
-          <div className="absolute inset-0 bg-[#0a2c47]/35 mix-blend-multiply" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#06182a] via-[#06182a]/45 to-transparent" />
-          {service.detail.stat && (
-            <div className="absolute top-4 left-6 bg-accent text-white px-4 py-2">
-              <p className="text-xl font-display font-bold leading-none">{service.detail.stat.value}</p>
-              <p className="text-[10px] uppercase tracking-widest text-white/80 mt-0.5">{service.detail.stat.label}</p>
+        {/* Compact header banner */}
+        <div className="relative h-28 sm:h-32">
+          <img src={service.img} alt={service.title} className="w-full h-full object-cover object-[center_30%]" />
+          <div className="absolute inset-0 bg-[#0a2c47]/45" style={{ mixBlendMode: "multiply" }} />
+          <div className="absolute inset-0 bg-[#0e4a78]/38" style={{ mixBlendMode: "color" }} />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#06182a] via-[#06182a]/70 to-[#06182a]/25" />
+          <div className="absolute inset-0 flex items-center justify-between px-6 sm:px-8">
+            <div>
+              <p className="text-accent text-[11px] font-bold uppercase tracking-[0.2em] mb-1">A&amp;B Drainage Solutions</p>
+              <h2 className="text-2xl sm:text-3xl font-display font-bold text-white uppercase leading-tight">{service.title}</h2>
             </div>
-          )}
-          <div className="absolute bottom-0 left-0 p-6 sm:p-8">
-            <p className="text-accent text-xs font-bold uppercase tracking-[0.2em] mb-2">A&amp;B Drainage Solutions</p>
-            <h2 className="text-2xl sm:text-4xl font-display font-bold text-white uppercase leading-tight">{service.title}</h2>
+            {service.detail.stat && (
+              <div className="hidden sm:block text-center bg-accent px-5 py-2.5 rounded-lg shrink-0 mr-10">
+                <p className="text-2xl font-display font-bold text-white leading-none">{service.detail.stat.value}</p>
+                <p className="text-[10px] uppercase tracking-widest text-white/85 mt-1">{service.detail.stat.label}</p>
+              </div>
+            )}
           </div>
         </div>
 
-        {/* Body */}
-        <div className="p-6 sm:p-8 space-y-6">
-          <div className="space-y-4">
+        {/* Body — every section visible in a single tile, no scroll on desktop */}
+        <div className="p-5 sm:p-7 space-y-5">
+          {/* Overview */}
+          <div className="sm:columns-2 sm:gap-8">
             {service.detail.intro.map((p, i) => (
-              <p key={i} className="text-zinc-600 leading-relaxed text-sm">{p}</p>
+              <p key={i} className="text-zinc-600 leading-relaxed text-[13px] mb-3 break-inside-avoid">{p}</p>
             ))}
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="bg-zinc-50 border border-zinc-200 rounded-xl p-6">
-              <div className="flex items-center gap-2 mb-4">
-                <AlertCircle size={18} className="text-accent shrink-0" />
-                <h3 className="font-display font-bold text-zinc-900 uppercase text-sm tracking-wide">Signs You Need This</h3>
+          {/* Signs | What's Included | How It Works */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+            <div className="bg-zinc-50 border border-zinc-200 rounded-xl p-5">
+              <div className="flex items-center gap-2 mb-3">
+                <AlertCircle size={16} className="text-accent shrink-0" />
+                <h3 className="font-display font-bold text-zinc-900 uppercase text-[13px] tracking-wide">Signs You Need This</h3>
               </div>
-              <ul className="space-y-2.5">
+              <ul className="space-y-2">
                 {service.detail.signs.map((sign, i) => (
-                  <li key={i} className="flex items-start gap-2.5 text-sm text-zinc-600">
-                    <Check size={14} className="text-accent shrink-0 mt-0.5" />
+                  <li key={i} className="flex items-start gap-2 text-[12px] text-zinc-600 leading-snug">
+                    <Check size={13} className="text-accent shrink-0 mt-0.5" />
                     {sign}
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="bg-zinc-900 rounded-xl p-6">
-              <div className="flex items-center gap-2 mb-4">
-                <Wrench size={18} className="text-accent shrink-0" />
-                <h3 className="font-display font-bold text-white uppercase text-sm tracking-wide">What's Included</h3>
+            <div className="bg-zinc-900 rounded-xl p-5">
+              <div className="flex items-center gap-2 mb-3">
+                <Wrench size={16} className="text-accent shrink-0" />
+                <h3 className="font-display font-bold text-white uppercase text-[13px] tracking-wide">What's Included</h3>
               </div>
-              <ul className="space-y-3">
+              <ul className="space-y-2.5">
                 {service.detail.included.map((item, i) => (
                   <li key={i}>
-                    <p className="text-accent text-xs font-bold uppercase tracking-wide mb-1 flex items-center gap-1.5">
-                      <Check size={12} /> {item.label}
+                    <p className="text-accent text-[11px] font-bold uppercase tracking-wide flex items-center gap-1.5">
+                      <Check size={11} className="shrink-0" /> {item.label}
                     </p>
-                    <p className="text-zinc-400 text-xs leading-relaxed">{item.desc}</p>
+                    <p className="text-zinc-400 text-[11px] leading-snug">{item.desc}</p>
                   </li>
                 ))}
               </ul>
             </div>
+
+            <div className="bg-zinc-50 border border-zinc-200 rounded-xl p-5">
+              <div className="flex items-center gap-2 mb-3">
+                <Clock size={16} className="text-accent shrink-0" />
+                <h3 className="font-display font-bold text-zinc-900 uppercase text-[13px] tracking-wide">How It Works</h3>
+              </div>
+              <ol className="space-y-2.5">
+                {service.detail.process.map((step, i) => (
+                  <li key={i} className="flex gap-2.5">
+                    <div className="w-6 h-6 rounded-full bg-accent text-white text-[11px] font-bold flex items-center justify-center shrink-0">{i + 1}</div>
+                    <div>
+                      <p className="font-bold text-zinc-900 text-[12px] uppercase tracking-wide">{step.step}</p>
+                      <p className="text-zinc-500 text-[11px] leading-snug">{step.desc}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
           </div>
 
+          {/* FAQ — all answers shown, no accordion */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <Clock size={18} className="text-accent shrink-0" />
-              <h3 className="font-display font-bold text-zinc-900 uppercase text-sm tracking-wide">How It Works</h3>
+            <div className="flex items-center gap-2 mb-3">
+              <ShieldCheck size={16} className="text-accent shrink-0" />
+              <h3 className="font-display font-bold text-zinc-900 uppercase text-[13px] tracking-wide">Frequently Asked Questions</h3>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {service.detail.process.map((step, i) => (
-                <div key={i} className="flex gap-3">
-                  <div className="w-7 h-7 rounded-full bg-accent text-white text-xs font-bold flex items-center justify-center shrink-0">
-                    {i + 1}
-                  </div>
-                  <div>
-                    <p className="font-bold text-zinc-900 text-sm uppercase tracking-wide mb-1">{step.step}</p>
-                    <p className="text-zinc-500 text-xs leading-relaxed">{step.desc}</p>
-                  </div>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+              {service.detail.faq.map((f, i) => (
+                <div key={i} className="bg-zinc-50 border border-zinc-200 rounded-xl p-4">
+                  <p className="font-bold text-zinc-900 text-[12px] mb-1.5 leading-snug">{f.q}</p>
+                  <p className="text-zinc-600 text-[11px] leading-snug">{f.a}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div>
-            <div className="flex items-center gap-2 mb-2">
-              <ShieldCheck size={18} className="text-accent shrink-0" />
-              <h3 className="font-display font-bold text-zinc-900 uppercase text-sm tracking-wide">Frequently Asked Questions</h3>
-            </div>
-            <div className="divide-y divide-zinc-100">
-              {service.detail.faq.map((f, i) => (
-                <FaqItem key={i} q={f.q} a={f.a} />
-              ))}
-            </div>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-3 pt-6 border-t border-zinc-100">
+          {/* CTA */}
+          <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-zinc-100">
             <button
               onClick={() => {
                 onClose();
                 openBookNow();
               }}
-              className="flex-1 bg-accent hover:bg-accent/90 text-white px-8 py-4 font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all text-sm"
+              className="flex-1 bg-accent hover:bg-accent/90 text-white px-8 py-3.5 font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all text-sm rounded-lg"
             >
               Book This Service <ArrowRight size={16} />
             </button>
             <a
               href="tel:01256688650"
-              className="flex-1 bg-zinc-900 hover:bg-zinc-800 text-white px-8 py-4 font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all text-sm"
+              className="flex-1 bg-zinc-900 hover:bg-zinc-800 text-white px-8 py-3.5 font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all text-sm rounded-lg"
             >
               <Phone size={16} /> 01256 688 650
             </a>
@@ -608,19 +598,19 @@ export default function Services() {
           <p className="text-accent text-xs font-bold uppercase tracking-[0.2em] mb-2">What We Do</p>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-zinc-900 uppercase mb-3">Complete Drainage Solutions</h2>
           <p className="text-zinc-500 text-sm max-w-2xl mb-10">Select any service below to open the full details — what's included, how it works, and answers to common questions.</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
             {services.map((s) => (
               <button key={s.id} onClick={() => setActive(s)}
-                className="group text-left flex flex-col gap-3 p-5 border border-zinc-200 hover:border-accent hover:shadow-xl transition-all bg-white">
-                <div className="relative overflow-hidden h-40 rounded">
+                className="group text-left flex flex-col gap-4 p-6 border border-zinc-200 rounded-xl hover:border-accent hover:shadow-xl hover:-translate-y-1 transition-all bg-white">
+                <div className="relative overflow-hidden h-52 rounded-lg">
                   <img src={s.img} alt={s.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                   <div className="absolute inset-0 bg-[#0a2c47]/40 mix-blend-multiply" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#06182a]/75 via-[#06182a]/15 to-transparent" />
                 </div>
-                <h3 className="text-sm font-display font-bold text-zinc-900 uppercase group-hover:text-accent transition-colors">{s.title}</h3>
-                <p className="text-xs text-zinc-500 leading-relaxed flex-1">{s.shortDesc}</p>
-                <span className="text-accent text-xs font-bold uppercase tracking-wider flex items-center gap-1">
-                  View Full Details <ArrowRight size={12} />
+                <h3 className="text-lg font-display font-bold text-zinc-900 uppercase group-hover:text-accent transition-colors">{s.title}</h3>
+                <p className="text-sm text-zinc-500 leading-relaxed flex-1">{s.shortDesc}</p>
+                <span className="text-accent text-sm font-bold uppercase tracking-wider flex items-center gap-1.5">
+                  View Full Details <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </span>
               </button>
             ))}
