@@ -295,6 +295,7 @@ export default function Home() {
           </div>
         </div>
 
+        <AngledEdge position="bottom" fill="#5392B6" className="absolute bottom-0 left-0 w-full z-[6] -mb-px" />
       </section>
 
       {/* ── SCHEDULE STRIP (brand-blue band, reference-style) ── */}
