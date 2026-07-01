@@ -2,7 +2,7 @@
 - [ab-drainage hero livery](ab-drainage-hero-livery.md) — van livery is navy #013D85 + white AB (not the light-blue brand asset); how to composite decals that don't look like stickers.
 - [framer-motion nested stagger invisible](ab-drainage-framer-stagger.md) — stagger list inside an animating motion.div renders items at opacity 0; decouple with per-item whileInView.
 - [ab-drainage theme tokens](ab-drainage-theme-tokens.md) — dark-first theme: text-foreground/bg-card/border-border render light-on-light in light sections; use explicit zinc values.
-- [ab-drainage hero overlay](ab-drainage-hero-overlay.md) — client wants bright heros: keep multiply /22 + light gradients; legibility comes from text-shadow + blur panel, not heavy overlays.
+- [ab-drainage hero overlay](ab-drainage-hero-overlay.md) — all 7 content heros share one bright PageHero.tsx (edit there, not per-page); Home wave-fill is breakpoint-split; taste keeps flip-flopping bright<->heavy.
 - [ab-drainage BookNow modal](ab-drainage-booknow.md) — single global BookNowModal via BookNowContext; trigger from any page with useBookNow().openBookNow(), don't add per-page modal instances.
 - [ab-drainage services tiles + detail modal](ab-drainage-services-tiles.md) — Home tiles: blue-gradient + short tagline + whileTap click (not flat cards). Service detail is a rich modal that can't be zero-scroll; use object-[center_25%] so worker faces show.
 - [ab-drainage colour direction](ab-drainage-colour-direction.md) — RESOLVED blue-led: --accent token in index.css = 202 40% 52% (#5392B6). Token flips whole site; hand-fix only WaterWave fills + BlogPost gradient. Stars stay gold.

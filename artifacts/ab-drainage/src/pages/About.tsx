@@ -3,6 +3,7 @@ import { ShieldCheck, Check, Phone, ArrowRight, Award, Users, Clock, Zap } from 
 import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
 import { WaterWave } from "@/components/WaterWave";
+import { PageHero } from "@/components/PageHero";
 import { LogoMarquee } from "@/components/LogoMarquee";
 
 import heroImg from "@assets/Designer_(1)_1782807579036.png";
@@ -54,45 +55,14 @@ export default function About() {
       />
 
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden min-h-[62vh] flex items-center pt-16 pb-14">
-        <div className="absolute inset-0 z-0">
-          <img src={heroImg} alt="A&B Drainage Fleet" className="w-full h-full object-cover object-center animate-heropan saturate-[1.2] brightness-[1.02] contrast-[1.1]" />
-          <div className="absolute inset-0 bg-[#0e4a78]/45" style={{ mixBlendMode: "color" }}></div>
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#0c3e57_0%,rgba(12,62,87,0.95)_46%,rgba(12,62,87,0.65)_60%,rgba(12,62,87,0.38)_75%,rgba(12,62,87,0.16)_90%,rgba(12,62,87,0.06)_100%)]"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#06182a]/45 via-transparent to-transparent"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(100%_100%_at_0%_0%,#0b2942_0%,rgba(11,41,66,0.55)_30%,transparent_68%)]"></div>
-        </div>
-        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#5392B6" />
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="relative max-w-3xl">
-            <div className="absolute -inset-x-8 -inset-y-10 bg-black/60 blur-3xl rounded-3xl pointer-events-none -z-10" aria-hidden="true"></div>
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-4"
-            >
-              Hampshire's Trusted Drainage Specialists
-            </motion.p>
-            <motion.h1
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.08 }}
-              className="text-4xl sm:text-5xl md:text-6xl font-display font-light text-white uppercase tracking-normal mb-6 leading-[1.1] [text-shadow:0_2px_20px_rgba(0,0,0,0.6)]"
-            >
-              About <span className="text-accent">A&amp;B</span> Drainage
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.16 }}
-              className="text-base sm:text-xl text-white/85 max-w-2xl leading-relaxed [text-shadow:0_1px_8px_rgba(0,0,0,0.8)]"
-            >
-              For over three decades, A&amp;B Drainage Solutions Ltd has been the name Hampshire trusts when things go wrong underground.
-            </motion.p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        image={heroImg}
+        imageAlt="A&B Drainage Fleet"
+        eyebrow="Hampshire's Trusted Drainage Specialists"
+        title={<>About <span className="text-accent">A&amp;B</span> Drainage</>}
+        description="For over three decades, A&B Drainage Solutions Ltd has been the name Hampshire trusts when things go wrong underground."
+        waveFill="#5392B6"
+      />
 
       {/* ── STATS (accent-blue band — matches Home) ── */}
       <section className="bg-accent pt-14 pb-16 relative overflow-hidden">

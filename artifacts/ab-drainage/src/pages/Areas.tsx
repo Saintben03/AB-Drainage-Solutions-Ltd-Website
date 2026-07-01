@@ -3,6 +3,7 @@ import { MapPin, Phone, ArrowRight, Check, Clock, ShieldCheck } from "lucide-rea
 import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
 import { WaterWave } from "@/components/WaterWave";
+import { PageHero } from "@/components/PageHero";
 
 import heroImg from "@assets/Designer_(1)_1782807579036.png";
 import vanImg from "@assets/site_files_1/g-01u.jpg";
@@ -55,57 +56,22 @@ export default function Areas() {
       />
 
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden min-h-[62vh] flex items-center pt-16 pb-14">
-        <div className="absolute inset-0 z-0">
-          <img src={heroImg} alt="A&B Drainage Fleet" className="w-full h-full object-cover object-center animate-heropan saturate-[1.2] brightness-[1.02] contrast-[1.1]" />
-          <div className="absolute inset-0 bg-[#0e4a78]/45" style={{ mixBlendMode: "color" }}></div>
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#0c3e57_0%,rgba(12,62,87,0.95)_46%,rgba(12,62,87,0.65)_60%,rgba(12,62,87,0.38)_75%,rgba(12,62,87,0.16)_90%,rgba(12,62,87,0.06)_100%)]"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#06182a]/45 via-transparent to-transparent"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(100%_100%_at_0%_0%,#0b2942_0%,rgba(11,41,66,0.55)_30%,transparent_68%)]"></div>
-        </div>
-        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#5392B6" />
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="relative max-w-3xl">
-            <div className="absolute -inset-x-8 -inset-y-10 bg-black/60 blur-3xl rounded-3xl pointer-events-none -z-10" aria-hidden="true"></div>
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-4"
-            >
-              Hampshire-Wide Coverage
-            </motion.p>
-            <motion.h1
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.08 }}
-              className="text-4xl sm:text-5xl md:text-6xl font-display font-light text-white uppercase tracking-normal mb-6 leading-[1.1] [text-shadow:0_2px_20px_rgba(0,0,0,0.6)]"
-            >
-              Areas We <span className="text-accent">Cover</span>
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.16 }}
-              className="text-base sm:text-xl text-white/85 max-w-xl leading-relaxed mb-10 [text-shadow:0_1px_8px_rgba(0,0,0,0.8)]"
-            >
-              Based centrally in Hampshire, we provide rapid response drainage services across the county and into surrounding areas — typically on-site within one hour.
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.24 }}
-            >
-              <a
-                href="tel:01256688650"
-                className="inline-flex items-center gap-3 bg-accent hover:bg-accent/90 text-white px-8 py-4 font-bold uppercase tracking-wider text-sm transition-all"
-              >
-                <Phone size={18} /> Call for Availability
-              </a>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        image={heroImg}
+        imageAlt="A&B Drainage Fleet"
+        eyebrow="Hampshire-Wide Coverage"
+        title={<>Areas We <span className="text-accent">Cover</span></>}
+        description="Based centrally in Hampshire, we provide rapid response drainage services across the county and into surrounding areas — typically on-site within one hour."
+        waveFill="#5392B6"
+        actions={
+          <a
+            href="tel:01256688650"
+            className="inline-flex items-center justify-center gap-3 bg-accent hover:bg-accent/90 text-white px-8 py-4 font-bold uppercase tracking-wider text-sm transition-all"
+          >
+            <Phone size={18} /> Call for Availability
+          </a>
+        }
+      />
 
       {/* ── STATS (accent-blue band — matches Home) ── */}
       <section className="bg-accent pt-14 pb-16 relative overflow-hidden">

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { CountUp } from "@/components/CountUp";
 import { LogoMarquee } from "@/components/LogoMarquee";
 import { WaterWave } from "@/components/WaterWave";
+import { PageHero } from "@/components/PageHero";
 import { AngledEdge } from "@/components/AngledEdge";
 import { useBookNow } from "@/contexts/BookNowContext";
 import { SOCIALS } from "@/components/SocialLinks";
@@ -133,174 +134,73 @@ export default function Home() {
         canonicalUrl="/"
       />
 
-      {/* ── HERO (dark) ── */}
-      <section className="relative overflow-hidden bg-background">
-
-        {/* ── Mobile hero (text overlaid on image; top kept light so the fleet shows) ── */}
-        <div className="md:hidden relative overflow-hidden bg-background">
-          {/* Background image — fixed proportion so the whole fleet shows consistently on every phone */}
-          <div className="relative w-full aspect-[4/3]">
-            <img
-              src={heroImg}
-              alt="A&B Drainage Solutions Ltd fleet of vans"
-              className="w-full h-full object-cover object-center saturate-[1.15] contrast-[1.08]"
-            />
-            {/* Brand navy filter — light at top (vehicles visible), deep at bottom (text legible) */}
-            <div className="absolute inset-0 bg-[#0a2c47]/30" style={{ mixBlendMode: "multiply" }} />
-            <div className="absolute inset-0 bg-[#0e4a78]/35" style={{ mixBlendMode: "color" }} />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#06182a]/10 via-[#06182a]/55 to-[#06182a]/95" />
+      {/* ── HERO ── */}
+      <PageHero
+        image={heroImg}
+        imageAlt="A&B Drainage Solutions Ltd fleet of vans"
+        waveFill="#01618E"
+        waveFillMobile="#e0f2fe"
+        eyebrow={
+          <>
+            <span className="w-2 h-2 rounded-full bg-accent animate-pulse inline-block"></span>
+            South England's Drainage Specialists — 33 Years Experience
+          </>
+        }
+        title={
+          <>
+            The Drain Experts <span className="text-[#5392B6]">South England</span> Relies On.
+          </>
+        }
+        description="Blocked drain? Sewage backing up? We answer at 2am and arrive typically within 1 hour. 33 years solving South England's toughest drainage problems."
+      >
+        <motion.a
+          href={REVIEWS_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.22 }}
+          className="mt-8 inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 hover:border-white/40 px-5 py-3 rounded-lg transition-all"
+        >
+          <div className="flex gap-0.5">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} size={16} className="text-yellow-400 fill-yellow-400" />
+            ))}
           </div>
-
-          {/* Text content — sits over the image */}
-          <div className="relative z-10 px-4 -mt-24 pb-16">
-            <p className="text-[#5392B6] text-[10px] font-bold uppercase tracking-[0.12em] mb-3 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#5392B6] animate-pulse inline-block"></span>
-              South England's Drainage Specialists — 33 Years Experience
-            </p>
-            <h1 className="text-4xl font-display font-light text-white leading-[1.1] tracking-normal mb-3 uppercase [text-shadow:0_2px_20px_rgba(0,0,0,0.6)]">
-              The Drain Experts <span className="text-[#5392B6]">South England</span> Relies On.
-            </h1>
-            <p className="text-sm text-white/85 mb-5 leading-relaxed [text-shadow:0_1px_8px_rgba(0,0,0,0.9)]">
-              Blocked drain? Sewage backing up? We answer at 2am and arrive typically within 1 hour. 33 years solving South England's toughest drainage problems.
-            </p>
-            <a
-              href={REVIEWS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-black/40 backdrop-blur-sm border border-white/20 px-4 py-2.5 rounded-lg mb-5 transition-all"
-            >
-              <div className="flex gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={13} className="text-yellow-400 fill-yellow-400" />
-                ))}
-              </div>
-              <span className="text-white font-bold text-sm">Rated Excellent</span>
-              <ExternalLink size={12} className="text-white/60" />
-            </a>
-            <div className="flex flex-col gap-3 mb-5">
-              <a
-                href="tel:01256688650"
-                className="bg-accent text-white px-6 py-4 text-base font-bold uppercase tracking-wider flex items-center justify-center gap-3"
-              >
-                <Phone size={20} /> Call 01256 688 650
-              </a>
-              <Link
-                href="/services"
-                className="border-2 border-white/40 text-white px-6 py-4 text-base font-bold uppercase tracking-wider flex items-center justify-center gap-2"
-              >
-                Our Services <ArrowRight size={18} />
-              </Link>
-            </div>
-            <div className="flex gap-5 text-[10px] font-bold text-white/70 uppercase tracking-wide">
-              <span className="flex items-center gap-1.5"><Clock size={13} className="text-[#5392B6]" /> 1 Hour ETA</span>
-              <span className="flex items-center gap-1.5"><ShieldCheck size={13} className="text-[#5392B6]" /> 33+ Yrs Exp</span>
-              <span className="flex items-center gap-1.5"><MapPin size={13} className="text-[#5392B6]" /> Across South England</span>
-            </div>
-          </div>
-
-          {/* Mobile-only wave into the Trusted section (blue schedule bar is hidden on mobile) */}
-          <WaterWave className="absolute bottom-0 left-0 w-full z-[6] -mb-px" fill="#e0f2fe" />
-        </div>
-
-        {/* ── Desktop hero (background image) ── */}
-        <div className="hidden md:flex relative min-h-[62vh] items-center pt-16 pb-14">
-          <div className="absolute inset-0 z-0">
-            <img src={heroImg} alt="A&B Drainage Solutions Ltd Fleet" className="w-full h-full object-cover object-center animate-heropan saturate-[1.2] brightness-[1.02] contrast-[1.1]" />
-            {/* AB-blue hue unify + directional #0c3e57 filter: solid on the left, lighter to the right */}
-            <div className="absolute inset-0 bg-[#0e4a78]/45" style={{ mixBlendMode: "color" }}></div>
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#0c3e57_0%,rgba(12,62,87,0.95)_46%,rgba(12,62,87,0.65)_60%,rgba(12,62,87,0.38)_75%,rgba(12,62,87,0.16)_90%,rgba(12,62,87,0.06)_100%)]"></div>
-            {/* Stronger dark gradient behind the text block (left ~55%) for readability */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(4,14,24,0.9)_0%,rgba(4,14,24,0.72)_28%,rgba(4,14,24,0.42)_48%,rgba(4,14,24,0.14)_62%,transparent_74%)]"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-[#06182a]/45 via-transparent to-transparent"></div>
-            <div className="absolute inset-0 bg-[radial-gradient(100%_100%_at_0%_0%,#0b2942_0%,rgba(11,41,66,0.55)_30%,transparent_68%)]"></div>
-            <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#01618E] via-[#01618E]/70 to-transparent"></div>
-          </div>
-
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-4xl relative">
-              <div className="absolute -inset-x-8 -inset-y-10 bg-[#06182a]/55 blur-3xl rounded-3xl pointer-events-none" aria-hidden="true"></div>
-              <div className="relative z-10">
-              <motion.p
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="text-[#5392B6] text-xs font-bold uppercase tracking-[0.25em] mb-5 flex items-center gap-3"
-              >
-                <span className="w-2 h-2 rounded-full bg-[#5392B6] animate-pulse inline-block"></span>
-                South England's Drainage Specialists — 33 Years Experience
-              </motion.p>
-              <motion.h1
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, delay: 0.08 }}
-                className="text-5xl sm:text-6xl md:text-6xl lg:text-7xl font-display font-light text-white leading-[1.08] tracking-normal mb-6 uppercase [text-shadow:0_2px_20px_rgba(0,0,0,0.6)]"
-              >
-                The Drain Experts{" "}
-                <span className="text-[#5392B6]">South England</span>{" "}
-                Relies On.
-              </motion.h1>
-              <motion.p
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, delay: 0.16 }}
-                className="text-xl text-white/85 mb-8 max-w-xl leading-relaxed [text-shadow:0_1px_8px_rgba(0,0,0,0.8)]"
-              >
-                Blocked drain? Sewage backing up? We answer at 2am and arrive typically within 1 hour. 33 years solving South England's toughest drainage problems.
-              </motion.p>
-              <motion.a
-                href={REVIEWS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.22 }}
-                className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 hover:border-white/40 px-5 py-3 rounded-lg mb-8 transition-all"
-              >
-                <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={16} className="text-yellow-400 fill-yellow-400" />
-                  ))}
-                </div>
-                <span className="text-white font-bold text-sm">Rated Excellent</span>
-                <span className="text-white/60 text-sm">· See our reviews</span>
-                <ExternalLink size={14} className="text-white/60" />
-              </motion.a>
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, delay: 0.28 }}
-                className="flex flex-row gap-4 mb-12"
-              >
-                <a
-                  href="tel:01256688650"
-                  className="bg-accent hover:bg-accent/90 text-white px-8 py-5 text-lg font-bold uppercase tracking-wider flex items-center justify-center gap-3 transition-all"
-                >
-                  <Phone size={22} />
-                  Call 01256 688 650
-                </a>
-                <Link
-                  href="/services"
-                  className="bg-transparent border-2 border-white/30 hover:border-white text-white px-8 py-5 text-lg font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all"
-                >
-                  Our Services <ArrowRight size={20} />
-                </Link>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="flex flex-wrap gap-8 text-sm font-bold text-white/70 uppercase tracking-widest"
-              >
-                <span className="flex items-center gap-2"><Clock size={15} className="text-[#5392B6]" /> 1 Hour ETA</span>
-                <span className="flex items-center gap-2"><ShieldCheck size={15} className="text-[#5392B6]" /> 33+ Yrs Exp</span>
-                <span className="flex items-center gap-2"><MapPin size={15} className="text-[#5392B6]" /> Across South England</span>
-              </motion.div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </section>
+          <span className="text-white font-bold text-sm">Rated Excellent</span>
+          <span className="hidden sm:inline text-white/60 text-sm">· See our reviews</span>
+          <ExternalLink size={14} className="text-white/60" />
+        </motion.a>
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.28 }}
+          className="mt-8 flex flex-col sm:flex-row gap-4"
+        >
+          <a
+            href="tel:01256688650"
+            className="w-full sm:w-auto bg-accent hover:bg-accent/90 text-white px-8 py-4 text-base font-bold uppercase tracking-wider flex items-center justify-center gap-3 transition-all"
+          >
+            <Phone size={20} /> Call 01256 688 650
+          </a>
+          <Link
+            href="/services"
+            className="w-full sm:w-auto bg-transparent border-2 border-white/30 hover:border-white text-white px-8 py-4 text-base font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all"
+          >
+            Our Services <ArrowRight size={20} />
+          </Link>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-10 flex flex-wrap gap-6 sm:gap-8 text-xs sm:text-sm font-bold text-white/75 uppercase tracking-widest"
+        >
+          <span className="flex items-center gap-2"><Clock size={15} className="text-[#5392B6]" /> 1 Hour ETA</span>
+          <span className="flex items-center gap-2"><ShieldCheck size={15} className="text-[#5392B6]" /> 33+ Yrs Exp</span>
+          <span className="flex items-center gap-2"><MapPin size={15} className="text-[#5392B6]" /> Across South England</span>
+        </motion.div>
+      </PageHero>
 
       {/* ── SCHEDULE STRIP (brand-blue band, reference-style — hidden on mobile) ── */}
       <section className="relative bg-[#01618E] overflow-hidden hidden md:block">
