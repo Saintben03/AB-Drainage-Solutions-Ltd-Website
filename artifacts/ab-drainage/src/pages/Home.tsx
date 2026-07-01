@@ -756,7 +756,10 @@ export default function Home() {
       </section>
 
       {/* ── FOLLOW US (social) ── */}
-      <section className="py-20 bg-[#01618E] relative overflow-hidden">
+      <section className="py-24 md:py-28 bg-[#01618E] relative overflow-hidden">
+        {/* Diagonal wedges blending the dark AB Group above and the dark Final CTA below */}
+        <AngledEdge position="top" fill="#09090b" line="#5392B6" className="absolute top-0 left-0 w-full z-[6] -mt-px" />
+        <AngledEdge position="bottom" fill="#1c1c1c" line="#5392B6" className="absolute bottom-0 left-0 w-full z-[6] -mb-px" />
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
