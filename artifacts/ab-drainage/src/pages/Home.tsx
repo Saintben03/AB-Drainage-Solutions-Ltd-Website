@@ -145,7 +145,7 @@ export default function Home() {
               <span className="flex items-center gap-1.5"><MapPin size={13} className="text-accent" /> Hampshire Wide</span>
             </div>
           </div>
-          <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#5392B6" />
+
         </div>
 
         {/* ── Desktop hero (background image) ── */}
@@ -157,7 +157,7 @@ export default function Home() {
             <div className="absolute inset-0 bg-gradient-to-r from-[#06182a] via-[#06182a]/75 to-[#06182a]/15"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-[#06182a]/85 via-transparent to-[#06182a]/30"></div>
           </div>
-          <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#5392B6" />
+
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-3xl relative">
               <div className="absolute -inset-x-8 -inset-y-10 bg-[#06182a]/55 blur-3xl rounded-3xl pointer-events-none" aria-hidden="true"></div>
