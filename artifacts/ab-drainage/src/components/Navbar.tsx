@@ -77,6 +77,8 @@ export const Navbar = () => {
     leaveTimer.current = setTimeout(() => setGroupDropdownOpen(false), 180);
   };
 
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "Services", href: "/services" },
@@ -155,7 +157,7 @@ export const Navbar = () => {
           <div className="flex items-center justify-between gap-6">
 
             {/* Logo */}
-            <Link href="/" className="group flex-shrink-0 relative z-50 block">
+            <Link href="/" onClick={scrollToTop} className="group flex-shrink-0 relative z-50 block">
               <motion.div
                 initial={{ opacity: 0, scale: 0.92 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -203,6 +205,7 @@ export const Navbar = () => {
                   <Link
                     key={link.name}
                     href={link.href}
+                    onClick={link.href === "/" ? scrollToTop : undefined}
                     className={`whitespace-nowrap text-[13px] xl:text-sm font-bold uppercase tracking-tight xl:tracking-wide transition-colors relative group ${
                       isActive ? "text-accent" : "text-foreground/80 hover:text-accent"
                     }`}
@@ -363,7 +366,10 @@ export const Navbar = () => {
                     >
                       <Link
                         href={link.href}
-                        onClick={() => setMobileMenuOpen(false)}
+                        onClick={() => {
+                          setMobileMenuOpen(false);
+                          if (link.href === "/") scrollToTop();
+                        }}
                         className={`flex items-center justify-between bg-card px-6 py-5 text-xl font-display uppercase font-bold border-l-4 transition-colors ${
                           isActive
                             ? "border-accent text-accent"
