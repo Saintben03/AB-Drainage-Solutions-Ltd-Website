@@ -106,8 +106,8 @@ export default function ABGroupFacilities() {
       <section className="relative min-h-[92vh] flex items-end overflow-hidden bg-background">
         <div className="absolute inset-0">
           <img src={heroImg} alt="Modern commercial building — AB Facilities Management" className="w-full h-full object-cover animate-heropan saturate-[1.5] brightness-[1.1] contrast-[1.12]" draggable={false} />
-          <div className="absolute inset-0 bg-[#64748b]/25" style={{ mixBlendMode: "color" }} />
-          <div className="absolute inset-0 bg-black/25" style={{ mixBlendMode: "multiply" }} />
+          <div className="absolute inset-0 bg-[#64748b]/50" style={{ mixBlendMode: "color" }} />
+          <div className="absolute inset-0 bg-black/45" style={{ mixBlendMode: "multiply" }} />
           <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/15 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-500/10 via-slate-500/2 to-transparent mix-blend-multiply" />
         </div>
