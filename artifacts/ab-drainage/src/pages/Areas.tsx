@@ -109,19 +109,19 @@ export default function Areas() {
       </section>
 
       {/* ── STATS ── */}
-      <section className="bg-[#0a0a0a] py-14 relative overflow-hidden">
+      <section className="bg-gradient-to-b from-[#0f2a44] via-[#0b1e30] to-[#0a1622] py-14 relative overflow-hidden">
         <div className="container mx-auto px-4">
           <motion.div
             variants={stagger}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-0.5 bg-border"
+            className="grid grid-cols-2 md:grid-cols-4 gap-0.5 bg-white/10 rounded-2xl overflow-hidden ring-1 ring-white/10"
           >
             {stats.map((s, i) => (
-              <motion.div key={i} variants={fadeUp} className="bg-[#0a0a0a] text-center py-10 px-6">
+              <motion.div key={i} variants={fadeUp} className="bg-white/[0.04] text-center py-10 px-6">
                 <p className="text-5xl md:text-6xl font-display font-bold text-accent mb-2">{s.value}</p>
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">{s.label}</p>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/60">{s.label}</p>
               </motion.div>
             ))}
           </motion.div>
