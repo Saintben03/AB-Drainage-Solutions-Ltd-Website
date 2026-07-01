@@ -10,6 +10,7 @@ import { useBookNow } from "@/contexts/BookNowContext";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 
 import heroImg from "@assets/Designer_(1)_1782807579036.png";
+import scheduleBg from "@assets/background-2_1782919186057.webp";
 import crewTeam from "@assets/ab_group_gallery/worker-9.33.16.jpeg";
 import crewManhole from "@assets/ab_group_gallery/worker-9.33.30.jpeg";
 import crewChain from "@assets/ab_group_gallery/worker-9.33.26.jpeg";
@@ -300,12 +301,12 @@ export default function Home() {
 
       {/* ── SCHEDULE STRIP (brand-blue band, reference-style) ── */}
       <section className="relative bg-[#5392B6] overflow-hidden">
-        <div
-          className="absolute right-3 md:right-14 top-1/2 -translate-y-1/2 text-white/10 font-display font-bold text-[8rem] md:text-[13rem] leading-none tracking-[-0.08em] select-none pointer-events-none"
+        <img
+          src={scheduleBg}
+          alt=""
           aria-hidden="true"
-        >
-          AB
-        </div>
+          className="absolute inset-0 w-full h-full object-cover object-right pointer-events-none select-none"
+        />
         <div className="container mx-auto px-4 pt-6 pb-16 md:pt-8 md:pb-24 relative z-10 flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-5">
           <p className="text-white font-display font-bold uppercase tracking-wide text-xl md:text-3xl text-center sm:text-left leading-tight">
             Need Drainage Support?{" "}
