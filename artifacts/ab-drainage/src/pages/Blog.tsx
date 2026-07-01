@@ -65,7 +65,7 @@ export default function Blog() {
         <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#ffffff" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="relative max-w-3xl">
-            <div className="absolute -inset-x-8 -inset-y-10 bg-black/60 blur-3xl rounded-3xl pointer-events-none" aria-hidden="true"></div>
+            <div className="absolute -inset-x-8 -inset-y-10 bg-black/60 blur-3xl rounded-3xl pointer-events-none -z-10" aria-hidden="true"></div>
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
