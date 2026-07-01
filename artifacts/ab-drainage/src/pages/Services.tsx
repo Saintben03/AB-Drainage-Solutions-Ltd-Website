@@ -8,13 +8,12 @@ import { lockBodyScroll, unlockBodyScroll } from "@/lib/utils";
 import { FlexiPayForm } from "@/components/FlexiPayForm";
 import { WaterWave } from "@/components/WaterWave";
 
-import heroImg from "@assets/site_files_1/AB Drainage background_edited.jpg";
 import heroBg from "@assets/Designer_(1)_1782807579036.png";
-import work1 from "@assets/site_files_1/369541839_240515012286429_2194496784194718742_n.jpg";
-import work2 from "@assets/site_files_1/468849454_17949583832886709_2702370064044539379_n.jpg";
-import work3 from "@assets/site_files_1/472171552_560083023662958_8976223963179451031_n.jpg";
-import work4 from "@assets/site_files_1/g-01u.jpg";
-import work5 from "@assets/site_files_1/g-01w.jpg";
+import imgEmergency from "@assets/blog/emergency-response.png";
+import imgBlocked from "@assets/blog/blocked-drain.png";
+import imgRepair from "@assets/blog/drain-repair.png";
+import imgCommercial from "@assets/blog/commercial-drainage.png";
+import imgGuttering from "@assets/blog/guttering.png";
 import imgCctv from "@assets/blog/cctv-survey.png";
 import imgJetting from "@assets/blog/drain-jetting.png";
 import imgSoakaway from "@assets/blog/soakaway-install.png";
@@ -40,7 +39,7 @@ const services: Service[] = [
     id: "emergency",
     title: "24/7 Emergency Drainage",
     shortDesc: "We answer at any hour — day, night, weekend, or bank holiday.",
-    img: heroImg,
+    img: imgEmergency,
     features: ["24/7 Rapid Response", "Typically Within 1 Hour", "Sewage & Flooding"],
     detail: {
       intro: [
@@ -82,7 +81,7 @@ const services: Service[] = [
     id: "blocked-drains",
     title: "Blocked Drains",
     shortDesc: "Fast, guaranteed clearance for domestic and commercial blocked drains.",
-    img: work5,
+    img: imgBlocked,
     features: ["High-Pressure Jetting", "Electro-Mechanical Coring", "Full Clearance Guaranteed"],
     detail: {
       intro: [
@@ -166,7 +165,7 @@ const services: Service[] = [
     id: "drain-repairs",
     title: "Drain Repairs",
     shortDesc: "Structural repairs using no-dig relining or traditional excavation — with a 12-month guarantee.",
-    img: work2,
+    img: imgRepair,
     features: ["No-Dig Patch Relining", "Traditional Excavation", "Full Reinstatement"],
     detail: {
       intro: [
@@ -208,7 +207,7 @@ const services: Service[] = [
     id: "commercial",
     title: "Commercial & Industrial Drainage",
     shortDesc: "Planned maintenance contracts and rapid reactive response for businesses across Hampshire.",
-    img: work1,
+    img: imgCommercial,
     features: ["Grease Trap Cleaning", "Planned Maintenance Contracts", "Heavy-Duty Tanker Units"],
     detail: {
       intro: [
@@ -334,7 +333,7 @@ const services: Service[] = [
     id: "guttering",
     title: "Guttering & Downpipes",
     shortDesc: "Gutter clearing, downpipe unblocking, and repairs to protect your property from water damage.",
-    img: work3,
+    img: imgGuttering,
     features: ["Full Gutter Clearing", "Downpipe Unblocking", "Repairs & Replacement"],
     detail: {
       intro: [
@@ -437,6 +436,7 @@ function ServiceModal({ service, onClose }: { service: Service; onClose: () => v
         {/* Header image */}
         <div className="relative h-52 sm:h-64">
           <img src={service.img} alt={service.title} className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-[#0a2c47]/35 mix-blend-multiply" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#06182a] via-[#06182a]/45 to-transparent" />
           {service.detail.stat && (
             <div className="absolute top-4 left-6 bg-accent text-white px-4 py-2">
@@ -611,8 +611,10 @@ export default function Services() {
             {services.map((s) => (
               <button key={s.id} onClick={() => setActive(s)}
                 className="group text-left flex flex-col gap-3 p-5 border border-zinc-200 hover:border-accent hover:shadow-xl transition-all bg-white">
-                <div className="overflow-hidden h-40 rounded">
+                <div className="relative overflow-hidden h-40 rounded">
                   <img src={s.img} alt={s.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                  <div className="absolute inset-0 bg-[#0a2c47]/40 mix-blend-multiply" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#06182a]/75 via-[#06182a]/15 to-transparent" />
                 </div>
                 <h3 className="text-sm font-display font-bold text-zinc-900 uppercase group-hover:text-accent transition-colors">{s.title}</h3>
                 <p className="text-xs text-zinc-500 leading-relaxed flex-1">{s.shortDesc}</p>
