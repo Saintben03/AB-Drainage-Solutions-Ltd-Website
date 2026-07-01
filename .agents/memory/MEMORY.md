@@ -2,6 +2,7 @@
 - [ab-drainage hero livery](ab-drainage-hero-livery.md) — van livery is navy #013D85 + white AB (not the light-blue brand asset); how to composite decals that don't look like stickers.
 - [framer-motion nested stagger invisible](ab-drainage-framer-stagger.md) — stagger list inside an animating motion.div renders items at opacity 0; decouple with per-item whileInView.
 - [ab-drainage theme tokens](ab-drainage-theme-tokens.md) — dark-first theme: text-foreground/bg-card/border-border render light-on-light in light sections; use explicit zinc values.
+- [ab-drainage hero overlay](ab-drainage-hero-overlay.md) — client wants bright heros: keep multiply /22 + light gradients; legibility comes from text-shadow + blur panel, not heavy overlays.
 - [ab-drainage BookNow modal](ab-drainage-booknow.md) — single global BookNowModal via BookNowContext; trigger from any page with useBookNow().openBookNow(), don't add per-page modal instances.
 - [ab-drainage modal scroll lock](ab-drainage-scroll-lock.md) — modals must use ref-counted lockBodyScroll/unlockBodyScroll in lib/utils; direct body.overflow breaks when one modal opens another.
 - [ab-drainage emergency modal + email](ab-drainage-emergency-modal.md) — red compact EmergencyModal; static site has no backend so emergency email goes via Web3Forms client-side (info@ + louis@ cc).

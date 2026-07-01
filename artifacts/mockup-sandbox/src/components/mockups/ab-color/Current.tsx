@@ -91,17 +91,17 @@ export function Current() {
       <section className="relative min-h-[70vh] flex items-center">
         <div className="absolute inset-0 z-0">
           <img src="/__mockup/images/hero.png" alt="Fleet" className="w-full h-full object-cover" />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(6, 24, 42, 0.95), rgba(10, 44, 71, 0.7))" }}></div>
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(6, 24, 42, 0.78) 0%, rgba(6, 24, 42, 0.45) 48%, rgba(10, 44, 71, 0.15) 100%)" }}></div>
         </div>
         <div className="container mx-auto px-4 lg:px-8 relative z-10 py-20">
           <div className="max-w-3xl">
             <div className="inline-block px-3 py-1 mb-6 text-xs font-bold uppercase tracking-widest border" style={{ color: "#fe9a01", borderColor: "rgba(254, 154, 1, 0.3)", backgroundColor: "rgba(254, 154, 1, 0.1)" }}>
               Hampshire's Drainage Specialists
             </div>
-            <h1 className="text-5xl md:text-7xl font-['Oswald'] font-bold uppercase leading-[1.05] mb-6" style={{ color: "#ffffff" }}>
+            <h1 className="text-5xl md:text-7xl font-['Oswald'] font-bold uppercase leading-[1.05] mb-6" style={{ color: "#ffffff", textShadow: "0 2px 14px rgba(0,0,0,0.5)" }}>
               The Drain Experts <span style={{ color: "#fe9a01" }}>Hampshire</span> Relies On.
             </h1>
-            <p className="text-lg md:text-xl mb-10 max-w-2xl leading-relaxed" style={{ color: "rgba(255,255,255,0.85)" }}>
+            <p className="text-lg md:text-xl mb-10 max-w-2xl leading-relaxed" style={{ color: "rgba(255,255,255,0.95)", textShadow: "0 1px 10px rgba(0,0,0,0.5)" }}>
               Blocked drain? Sewage backing up? We answer at 2am and arrive typically within 1 hour. 33 years solving Hampshire's toughest drainage problems.
             </p>
             <div className="flex flex-wrap items-center gap-4 mb-12">
@@ -112,7 +112,7 @@ export function Current() {
                 Our Services
               </button>
             </div>
-            <div className="flex flex-wrap items-center gap-6 text-sm font-bold uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.7)" }}>
+            <div className="flex flex-wrap items-center gap-6 text-sm font-bold uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.9)", textShadow: "0 1px 8px rgba(0,0,0,0.5)" }}>
               <span className="flex items-center gap-2"><Clock size={16} style={{ color: "#fe9a01" }} /> 24/7 Response</span>
               <span className="flex items-center gap-2"><ShieldCheck size={16} style={{ color: "#fe9a01" }} /> Fully Insured</span>
               <span className="flex items-center gap-2"><CheckCircle2 size={16} style={{ color: "#fe9a01" }} /> Checkatrade Approved</span>

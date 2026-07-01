@@ -69,8 +69,8 @@ export function Blue() {
             className="w-full h-full object-cover object-center"
           />
           {/* Blue Haze Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#06182a] via-[#06182a]/80 to-[#0a2c47]/50 mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-[#013D85]/20"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#06182a]/78 via-[#06182a]/45 to-[#0a2c47]/15"></div>
+          <div className="absolute inset-0 bg-[#013D85]/8"></div>
         </div>
 
         <div className="max-w-[1280px] mx-auto px-4 lg:px-8 relative z-10 w-full">
