@@ -1,7 +1,9 @@
 ---
-name: ab-drainage hero overlay tint
+name: ab-drainage hero overlay
 description: How the hero image overlays are tuned — now a deliberate strong monochrome-blue haze
 ---
+
+**Top-left navy (client "really likes" it):** All 8 hero overlays END with a top-left radial `bg-[radial-gradient(100%_100%_at_0%_0%,#0b2942_0%,rgba(11,41,66,0.55)_30%,transparent_68%)]` — deep navy #0b2942 filling the top-left corner, fading to reveal the fleet on the right (matches the AB Group reference). Keep this layer.
 
 Every page hero (Home, Services, Areas, About, Gallery, Blog, Contact, BlogPost) layers overlays over the fleet photo. Taste has CHANGED over time — read the history before adjusting.
 

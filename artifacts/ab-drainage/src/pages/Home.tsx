@@ -98,6 +98,7 @@ export default function Home() {
             <div className="absolute inset-0 bg-[#0a2c47]/48" style={{ mixBlendMode: "multiply" }} />
             <div className="absolute inset-0 bg-[#0e4a78]/38" style={{ mixBlendMode: "color" }} />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#06182a]/35 to-[#06182a]/80" />
+            <div className="absolute inset-0 bg-[radial-gradient(110%_90%_at_0%_0%,#0b2942_0%,rgba(11,41,66,0.5)_32%,transparent_70%)]" />
           </div>
 
           {/* Text content — sits over the image */}
@@ -158,6 +159,7 @@ export default function Home() {
             <div className="absolute inset-0 bg-[#0e4a78]/38" style={{ mixBlendMode: "color" }}></div>
             <div className="absolute inset-0 bg-gradient-to-r from-[#06182a]/85 via-[#06182a]/40 to-transparent"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-[#06182a]/55 via-transparent to-transparent"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(100%_100%_at_0%_0%,#0b2942_0%,rgba(11,41,66,0.55)_30%,transparent_68%)]"></div>
           </div>
 
           <div className="container mx-auto px-4 relative z-10">

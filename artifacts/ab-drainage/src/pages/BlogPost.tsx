@@ -99,6 +99,7 @@ export default function BlogPost() {
           <div className="absolute inset-0 bg-[#0e4a78]/38" style={{ mixBlendMode: "color" }}></div>
           <div className="absolute inset-0 bg-[#06182a]/40"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-[#06182a]/70 via-[#06182a]/30 to-transparent"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(100%_100%_at_0%_0%,#0b2942_0%,rgba(11,41,66,0.55)_30%,transparent_68%)]"></div>
         </div>
         
         <div className="container mx-auto px-4 relative z-10">
