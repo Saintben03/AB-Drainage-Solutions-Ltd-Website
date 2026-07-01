@@ -252,7 +252,7 @@ export default function Home() {
         >
           AB
         </div>
-        <div className="container mx-auto px-4 py-6 md:py-8 relative z-10 flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-5">
+        <div className="container mx-auto px-4 pt-6 pb-16 md:pt-8 md:pb-24 relative z-10 flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-5">
           <p className="text-white font-display font-bold uppercase tracking-wide text-xl md:text-3xl text-center sm:text-left leading-tight">
             Need Drainage Support?{" "}
             <span className="text-[#06182a]">Schedule Your Service</span>
@@ -264,6 +264,7 @@ export default function Home() {
             Book Now <ArrowRight size={16} />
           </button>
         </div>
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#e0f2fe" />
       </section>
 
       {/* ── TRUSTED BY (light band, animated wave at its base) ── */}
