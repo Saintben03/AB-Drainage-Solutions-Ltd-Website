@@ -137,13 +137,13 @@ export default function Home() {
       <section className="relative overflow-hidden bg-background">
 
         {/* ── Mobile hero (text overlaid on image; top kept light so the fleet shows) ── */}
-        <div className="md:hidden relative flex flex-col justify-end pt-[44vh] pb-16 overflow-hidden">
-          {/* Background image */}
-          <div className="absolute inset-0 z-0">
+        <div className="md:hidden relative overflow-hidden bg-background">
+          {/* Background image — fixed proportion so the whole fleet shows consistently on every phone */}
+          <div className="relative w-full aspect-[4/3]">
             <img
               src={heroImg}
               alt="A&B Drainage Solutions Ltd fleet of vans"
-              className="w-full h-full object-cover object-[50%_32%] saturate-[1.15] contrast-[1.08]"
+              className="w-full h-full object-cover object-center saturate-[1.15] contrast-[1.08]"
             />
             {/* Brand navy filter — light at top (vehicles visible), deep at bottom (text legible) */}
             <div className="absolute inset-0 bg-[#0a2c47]/30" style={{ mixBlendMode: "multiply" }} />
@@ -152,7 +152,7 @@ export default function Home() {
           </div>
 
           {/* Text content — sits over the image */}
-          <div className="relative z-10 px-4">
+          <div className="relative z-10 px-4 -mt-24 pb-16">
             <p className="text-[#5392B6] text-[10px] font-bold uppercase tracking-[0.12em] mb-3 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#5392B6] animate-pulse inline-block"></span>
               South England's Drainage Specialists — 33 Years Experience
