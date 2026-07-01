@@ -105,7 +105,8 @@ export default function ABGroupFencing() {
       <section className="relative min-h-[92vh] flex items-end overflow-hidden bg-background">
         <div className="absolute inset-0">
           <img src={heroImg} alt="Vibrant green garden and fencing" className="w-full h-full object-cover animate-heropan saturate-[1.5] brightness-[1.1] contrast-[1.12]" draggable={false} />
-          <div className="absolute inset-0 bg-[#16a34a]/8" style={{ mixBlendMode: "color" }} />
+          <div className="absolute inset-0 bg-[#16a34a]/25" style={{ mixBlendMode: "color" }} />
+          <div className="absolute inset-0 bg-black/25" style={{ mixBlendMode: "multiply" }} />
           <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/15 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#16a34a]/10 via-[#16a34a]/2 to-transparent mix-blend-multiply" />
         </div>
