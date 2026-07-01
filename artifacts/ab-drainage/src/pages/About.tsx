@@ -96,20 +96,20 @@ export default function About() {
       </section>
 
       {/* ── STATS BAR ── */}
-      <section className="bg-[#0a0a0a] relative overflow-hidden pb-20">
+      <section className="bg-gradient-to-b from-[#0f2a44] via-[#0b1e30] to-[#0a1622] relative overflow-hidden pb-20">
         <div className="container mx-auto px-4">
           <motion.div
             variants={stagger}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-0.5 bg-border"
+            className="grid grid-cols-2 md:grid-cols-4 gap-0.5 bg-white/10 rounded-2xl overflow-hidden ring-1 ring-white/10"
           >
             {stats.map((s, i) => (
-              <motion.div key={i} variants={fadeUp} className="bg-[#0a0a0a] py-12 px-8 flex flex-col items-center text-center gap-3">
+              <motion.div key={i} variants={fadeUp} className="bg-white/[0.04] py-12 px-8 flex flex-col items-center text-center gap-3">
                 <span className="text-accent">{s.icon}</span>
                 <p className="text-5xl font-display font-bold text-accent">{s.value}</p>
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">{s.label}</p>
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/60">{s.label}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -229,11 +229,11 @@ export default function About() {
             </div>
           </div>
         </div>
-        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#e2e8f0" />
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#e0f2fe" />
       </section>
 
       {/* ── TRUSTED BY (light band) ── */}
-      <section className="pt-4 pb-28 bg-slate-200 relative overflow-hidden">
+      <section className="pt-4 pb-28 bg-sky-100 relative overflow-hidden">
         <div className="container mx-auto px-4">
           <p className="text-center text-xs text-zinc-500 uppercase tracking-[0.2em] font-semibold mb-10">
             Trusted by major UK institutions &amp; businesses
