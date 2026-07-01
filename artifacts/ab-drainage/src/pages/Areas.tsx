@@ -63,7 +63,7 @@ export default function Areas() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#06182a]/45 via-transparent to-transparent"></div>
           <div className="absolute inset-0 bg-[radial-gradient(100%_100%_at_0%_0%,#0b2942_0%,rgba(11,41,66,0.55)_30%,transparent_68%)]"></div>
         </div>
-        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#e0f2fe" />
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#5392B6" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="relative max-w-3xl">
             <div className="absolute -inset-x-8 -inset-y-10 bg-black/60 blur-3xl rounded-3xl pointer-events-none -z-10" aria-hidden="true"></div>
