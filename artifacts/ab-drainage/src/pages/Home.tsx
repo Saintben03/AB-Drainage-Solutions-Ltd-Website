@@ -7,6 +7,7 @@ import { LogoMarquee } from "@/components/LogoMarquee";
 import { WaterWave } from "@/components/WaterWave";
 import { AngledEdge } from "@/components/AngledEdge";
 import { useBookNow } from "@/contexts/BookNowContext";
+import { SOCIALS } from "@/components/SocialLinks";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 
 import heroImg from "@assets/Designer_(1)_1782807579036.png";
@@ -159,7 +160,7 @@ export default function Home() {
               Hampshire's Drainage Specialists — 33 Years Experience
             </p>
             <h1 className="text-4xl font-display font-light text-white leading-[1.1] tracking-normal mb-3 uppercase [text-shadow:0_2px_20px_rgba(0,0,0,0.6)]">
-              The Drain Experts <span className="text-[#5392B6]">Hampshire</span> Relies On.
+              The Drain Experts <span className="text-[#5392B6]">South England</span> Relies On.
             </h1>
             <p className="text-sm text-white/85 mb-5 leading-relaxed [text-shadow:0_1px_8px_rgba(0,0,0,0.9)]">
               Blocked drain? Sewage backing up? We answer at 2am and arrive typically within 1 hour. 33 years solving Hampshire's toughest drainage problems.
@@ -233,7 +234,7 @@ export default function Home() {
                 className="text-5xl sm:text-6xl md:text-6xl lg:text-7xl font-display font-light text-white leading-[1.08] tracking-normal mb-6 uppercase [text-shadow:0_2px_20px_rgba(0,0,0,0.6)]"
               >
                 The Drain Experts{" "}
-                <span className="text-[#5392B6]">Hampshire</span>{" "}
+                <span className="text-[#5392B6]">South England</span>{" "}
                 Relies On.
               </motion.h1>
               <motion.p
@@ -751,6 +752,43 @@ export default function Home() {
             </div>
           </motion.div>
 
+        </div>
+      </section>
+
+      {/* ── FOLLOW US (social) ── */}
+      <section className="py-20 bg-[#01618E] relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="max-w-3xl mx-auto text-center"
+          >
+            <p className="text-white/70 text-xs font-bold uppercase tracking-[0.25em] mb-4">Stay Connected</p>
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-white uppercase leading-tight mb-5">
+              Follow Us On <span className="text-[#06182a]">Socials</span>
+            </h2>
+            <p className="text-lg text-white/85 max-w-2xl mx-auto mb-10">
+              Catch our latest jobs, before-and-after transformations, handy drainage tips and behind-the-scenes from the A&amp;B crew. Give us a follow and stay in the loop.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              {SOCIALS.map(({ name, href, Icon }) => (
+                <a
+                  key={name}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Follow A&B Drainage Solutions on ${name}`}
+                  className="group flex items-center gap-3 bg-white text-[#06182a] px-8 py-4 font-bold uppercase tracking-wider text-sm transition-all hover:bg-[#06182a] hover:text-white"
+                >
+                  <Icon size={22} />
+                  {name}
+                  <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                </a>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 
