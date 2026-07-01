@@ -398,10 +398,10 @@ function ServiceModal({ service, onClose }: { service: Service; onClose: () => v
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <div className="absolute inset-0 bg-[#06182a]/80 backdrop-blur-sm" onClick={onClose} />
+      <div className="absolute inset-0 bg-[#06182a]/70 backdrop-blur-md" onClick={onClose} />
 
       <motion.div
-        className="relative bg-white w-full sm:max-w-6xl h-full sm:h-auto sm:max-h-[94vh] overflow-y-auto sm:rounded-2xl shadow-2xl"
+        className="relative bg-white w-full sm:max-w-6xl h-full sm:h-auto sm:max-h-[94vh] overflow-y-auto sm:rounded-2xl shadow-2xl border-2 border-accent/70 ring-4 ring-black/25"
         initial={{ opacity: 0, y: 30, scale: 0.98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 30, scale: 0.98 }}
