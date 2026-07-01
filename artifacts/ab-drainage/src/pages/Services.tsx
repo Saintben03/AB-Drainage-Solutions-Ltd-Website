@@ -1,9 +1,10 @@
 import { Link } from "wouter";
-import { Phone, ArrowRight, Check, ChevronDown, ChevronUp, Clock, ShieldCheck, Wrench, AlertCircle } from "lucide-react";
+import { Phone, ArrowRight, Check, ChevronDown, ChevronUp, Clock, ShieldCheck, Wrench, AlertCircle, X } from "lucide-react";
 import { SEO } from "@/components/SEO";
-import { motion } from "framer-motion";
-import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 import { useBookNow } from "@/contexts/BookNowContext";
+import { lockBodyScroll, unlockBodyScroll } from "@/lib/utils";
 import { FlexiPayForm } from "@/components/FlexiPayForm";
 import { WaterWave } from "@/components/WaterWave";
 
@@ -391,8 +392,176 @@ function FaqItem({ q, a }: { q: string; a: string }) {
   );
 }
 
+function ServiceModal({ service, onClose }: { service: Service; onClose: () => void }) {
+  const { openBookNow } = useBookNow();
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", onKey);
+    lockBodyScroll();
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      unlockBodyScroll();
+    };
+  }, [onClose]);
+
+  return (
+    <motion.div
+      className="fixed inset-0 z-[100] flex items-start sm:items-center justify-center sm:p-6"
+      role="dialog"
+      aria-modal="true"
+      aria-label={service.title}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <div className="absolute inset-0 bg-[#06182a]/80 backdrop-blur-sm" onClick={onClose} />
+
+      <motion.div
+        className="relative bg-white w-full sm:max-w-4xl h-full sm:h-auto sm:max-h-[90vh] overflow-y-auto sm:rounded-xl shadow-2xl"
+        initial={{ opacity: 0, y: 30, scale: 0.98 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: 30, scale: 0.98 }}
+        transition={{ duration: 0.25 }}
+      >
+        <button
+          onClick={onClose}
+          aria-label="Close"
+          className="absolute top-4 right-4 z-30 w-10 h-10 flex items-center justify-center bg-black/40 hover:bg-black/70 text-white rounded-full transition-colors"
+        >
+          <X size={20} />
+        </button>
+
+        {/* Header image */}
+        <div className="relative h-52 sm:h-64">
+          <img src={service.img} alt={service.title} className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#06182a] via-[#06182a]/45 to-transparent" />
+          {service.detail.stat && (
+            <div className="absolute top-4 left-6 bg-accent text-white px-4 py-2">
+              <p className="text-xl font-display font-bold leading-none">{service.detail.stat.value}</p>
+              <p className="text-[10px] uppercase tracking-widest text-white/80 mt-0.5">{service.detail.stat.label}</p>
+            </div>
+          )}
+          <div className="absolute bottom-0 left-0 p-6 sm:p-8">
+            <p className="text-accent text-xs font-bold uppercase tracking-[0.2em] mb-2">A&amp;B Drainage Solutions</p>
+            <h2 className="text-2xl sm:text-4xl font-display font-bold text-white uppercase leading-tight">{service.title}</h2>
+          </div>
+        </div>
+
+        {/* Body */}
+        <div className="p-6 sm:p-8 space-y-10">
+          <div className="space-y-4">
+            {service.detail.intro.map((p, i) => (
+              <p key={i} className="text-zinc-600 leading-relaxed text-sm">{p}</p>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="bg-zinc-50 border border-zinc-200 rounded-xl p-6">
+              <div className="flex items-center gap-2 mb-4">
+                <AlertCircle size={18} className="text-accent shrink-0" />
+                <h3 className="font-display font-bold text-zinc-900 uppercase text-sm tracking-wide">Signs You Need This</h3>
+              </div>
+              <ul className="space-y-2.5">
+                {service.detail.signs.map((sign, i) => (
+                  <li key={i} className="flex items-start gap-2.5 text-sm text-zinc-600">
+                    <Check size={14} className="text-accent shrink-0 mt-0.5" />
+                    {sign}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-zinc-900 rounded-xl p-6">
+              <div className="flex items-center gap-2 mb-4">
+                <Wrench size={18} className="text-accent shrink-0" />
+                <h3 className="font-display font-bold text-white uppercase text-sm tracking-wide">What's Included</h3>
+              </div>
+              <ul className="space-y-4">
+                {service.detail.included.map((item, i) => (
+                  <li key={i}>
+                    <p className="text-accent text-xs font-bold uppercase tracking-wide mb-1 flex items-center gap-1.5">
+                      <Check size={12} /> {item.label}
+                    </p>
+                    <p className="text-zinc-400 text-xs leading-relaxed">{item.desc}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <div className="flex items-center gap-2 mb-6">
+              <Clock size={18} className="text-accent shrink-0" />
+              <h3 className="font-display font-bold text-zinc-900 uppercase text-sm tracking-wide">How It Works</h3>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              {service.detail.process.map((step, i) => (
+                <div key={i} className="flex gap-3">
+                  <div className="w-7 h-7 rounded-full bg-accent text-white text-xs font-bold flex items-center justify-center shrink-0">
+                    {i + 1}
+                  </div>
+                  <div>
+                    <p className="font-bold text-zinc-900 text-sm uppercase tracking-wide mb-1">{step.step}</p>
+                    <p className="text-zinc-500 text-xs leading-relaxed">{step.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <div className="flex items-center gap-2 mb-2">
+              <ShieldCheck size={18} className="text-accent shrink-0" />
+              <h3 className="font-display font-bold text-zinc-900 uppercase text-sm tracking-wide">Frequently Asked Questions</h3>
+            </div>
+            <div className="divide-y divide-zinc-100">
+              {service.detail.faq.map((f, i) => (
+                <FaqItem key={i} q={f.q} a={f.a} />
+              ))}
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-3 pt-6 border-t border-zinc-100">
+            <button
+              onClick={() => {
+                onClose();
+                openBookNow();
+              }}
+              className="flex-1 bg-accent hover:bg-accent/90 text-white px-8 py-4 font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all text-sm"
+            >
+              Book This Service <ArrowRight size={16} />
+            </button>
+            <a
+              href="tel:01256688650"
+              className="flex-1 bg-zinc-900 hover:bg-zinc-800 text-white px-8 py-4 font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all text-sm"
+            >
+              <Phone size={16} /> 01256 688 650
+            </a>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
 export default function Services() {
   const { openBookNow } = useBookNow();
+  const [active, setActive] = useState<Service | null>(null);
+
+  useEffect(() => {
+    const openFromHash = () => {
+      const hash = window.location.hash.replace("#", "");
+      if (!hash) return;
+      const match = services.find((s) => s.id === hash);
+      if (match) setActive(match);
+    };
+    openFromHash();
+    window.addEventListener("hashchange", openFromHash);
+    return () => window.removeEventListener("hashchange", openFromHash);
+  }, []);
 
   return (
     <>
@@ -410,7 +579,6 @@ export default function Services() {
           <div className="absolute inset-0 bg-gradient-to-r from-[#06182a] via-[#06182a]/75 to-[#06182a]/15"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-[#06182a]/85 via-transparent to-[#06182a]/30"></div>
         </div>
-        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#e0f2fe" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="relative max-w-3xl">
             <div className="absolute -inset-x-8 -inset-y-10 bg-black/60 blur-3xl rounded-3xl pointer-events-none" aria-hidden="true"></div>
@@ -430,178 +598,37 @@ export default function Services() {
             </div>
           </div>
         </div>
-        <WaterWave className="absolute bottom-0 left-0 w-full z-20 -mb-px" fill="#e0f2fe" />
+        <WaterWave className="absolute bottom-0 left-0 w-full z-20 -mb-px" fill="#ffffff" />
       </section>
 
-      {/* Jump nav */}
-      <section className="relative pt-8 pb-28 bg-sky-100 overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center gap-2">
-            {services.map((s) => (
-              <a key={s.id} href={`#${s.id}`}
-                className="px-4 py-2 text-xs font-bold uppercase tracking-widest text-zinc-600 hover:text-accent hover:border-accent border border-transparent transition-all whitespace-nowrap">
-                {s.title}
-              </a>
-            ))}
-          </div>
-        </div>
-        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#ffffff" />
-      </section>
-
-      {/* Overview cards */}
-      <section className="py-16 bg-white">
+      {/* Services grid */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <p className="text-accent text-xs font-bold uppercase tracking-[0.2em] mb-2">What We Do</p>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-zinc-900 uppercase mb-10">Complete Drainage Solutions</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-zinc-900 uppercase mb-3">Complete Drainage Solutions</h2>
+          <p className="text-zinc-500 text-sm max-w-2xl mb-10">Select any service below to open the full details — what's included, how it works, and answers to common questions.</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {services.map((s) => (
-              <a key={s.id} href={`#${s.id}`}
-                className="group flex flex-col gap-3 p-5 border border-zinc-200 hover:border-accent hover:shadow-lg transition-all">
-                <div className="overflow-hidden h-36 rounded">
+              <button key={s.id} onClick={() => setActive(s)}
+                className="group text-left flex flex-col gap-3 p-5 border border-zinc-200 hover:border-accent hover:shadow-xl transition-all bg-white">
+                <div className="overflow-hidden h-40 rounded">
                   <img src={s.img} alt={s.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                 </div>
                 <h3 className="text-sm font-display font-bold text-zinc-900 uppercase group-hover:text-accent transition-colors">{s.title}</h3>
                 <p className="text-xs text-zinc-500 leading-relaxed flex-1">{s.shortDesc}</p>
                 <span className="text-accent text-xs font-bold uppercase tracking-wider flex items-center gap-1">
-                  Full Details <ArrowRight size={12} />
+                  View Full Details <ArrowRight size={12} />
                 </span>
-              </a>
+              </button>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Detailed service sections */}
-      {services.map((s, i) => (
-        <section
-          key={s.id}
-          id={s.id}
-          className={`scroll-mt-24 py-20 relative overflow-hidden ${i % 2 === 0 ? "bg-zinc-50" : "bg-white"}`}
-        >
-          {i % 2 === 0 && i < services.length - 1 && (
-            <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill={i % 2 === 0 ? "#ffffff" : "#f9fafb"} />
-          )}
-          <div className="container mx-auto px-4">
-
-            {/* Header */}
-            <div className="flex flex-col lg:flex-row lg:items-start gap-10 mb-14">
-              {/* Left: image */}
-              <div className="lg:w-2/5 shrink-0">
-                <div className="overflow-hidden rounded-xl shadow-lg">
-                  <img src={s.img} alt={s.title} className="w-full h-64 lg:h-80 object-cover" loading="lazy" />
-                </div>
-                {s.detail.stat && (
-                  <div className="mt-4 bg-accent text-white p-5 flex items-center gap-4">
-                    <div>
-                      <p className="text-2xl font-display font-bold leading-none">{s.detail.stat.value}</p>
-                      <p className="text-xs uppercase tracking-widest text-white/70 mt-1">{s.detail.stat.label}</p>
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* Right: intro */}
-              <div className="flex-1 min-w-0">
-                <p className="text-accent text-xs font-bold uppercase tracking-[0.2em] mb-3">A&B Drainage Solutions</p>
-                <h2 className="text-3xl md:text-4xl font-display font-bold text-zinc-900 uppercase leading-tight mb-6">
-                  {s.title}
-                </h2>
-                <div className="space-y-4">
-                  {s.detail.intro.map((p, pi) => (
-                    <p key={pi} className="text-zinc-600 leading-relaxed text-sm">{p}</p>
-                  ))}
-                </div>
-                <div className="flex flex-col sm:flex-row gap-3 mt-8">
-                  <button onClick={openBookNow}
-                    className="bg-accent hover:bg-accent/90 text-white px-8 py-4 font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all text-sm">
-                    Book This Service
-                  </button>
-                  <a href="tel:01256688650"
-                    className="bg-zinc-900 hover:bg-zinc-800 text-white px-8 py-4 font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all text-sm">
-                    <Phone size={16} /> 01256 688 650
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Signs / Included / Process / FAQ grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
-
-              {/* Signs you need it */}
-              <div className="bg-white border border-zinc-200 rounded-xl p-7">
-                <div className="flex items-center gap-2 mb-5">
-                  <AlertCircle size={18} className="text-accent shrink-0" />
-                  <h3 className="font-display font-bold text-zinc-900 uppercase text-sm tracking-wide">Signs You Need This Service</h3>
-                </div>
-                <ul className="space-y-2.5">
-                  {s.detail.signs.map((sign, si) => (
-                    <li key={si} className="flex items-start gap-2.5 text-sm text-zinc-600">
-                      <Check size={14} className="text-accent shrink-0 mt-0.5" />
-                      {sign}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* What's included */}
-              <div className="bg-zinc-900 rounded-xl p-7">
-                <div className="flex items-center gap-2 mb-5">
-                  <Wrench size={18} className="text-accent shrink-0" />
-                  <h3 className="font-display font-bold text-white uppercase text-sm tracking-wide">What's Included</h3>
-                </div>
-                <ul className="space-y-4">
-                  {s.detail.included.map((item, ii) => (
-                    <li key={ii}>
-                      <p className="text-accent text-xs font-bold uppercase tracking-wide mb-1 flex items-center gap-1.5">
-                        <Check size={12} /> {item.label}
-                      </p>
-                      <p className="text-zinc-400 text-xs leading-relaxed">{item.desc}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            {/* Process steps */}
-            <div className="mb-10">
-              <div className="flex items-center gap-2 mb-6">
-                <Clock size={18} className="text-accent shrink-0" />
-                <h3 className="font-display font-bold text-zinc-900 uppercase text-sm tracking-wide">How It Works</h3>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                {s.detail.process.map((step, si) => (
-                  <div key={si} className="relative">
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="w-7 h-7 rounded-full bg-accent text-white text-xs font-bold flex items-center justify-center shrink-0">
-                        {si + 1}
-                      </div>
-                      <p className="font-bold text-zinc-900 text-sm uppercase tracking-wide">{step.step}</p>
-                    </div>
-                    <p className="text-zinc-500 text-xs leading-relaxed pl-10">{step.desc}</p>
-                    {si < s.detail.process.length - 1 && (
-                      <div className="hidden lg:block absolute top-3.5 left-[calc(100%+0.5rem)] w-4 h-px bg-accent/30" />
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* FAQ */}
-            <div className="bg-white border border-zinc-200 rounded-xl p-7">
-              <div className="flex items-center gap-2 mb-4">
-                <ShieldCheck size={18} className="text-accent shrink-0" />
-                <h3 className="font-display font-bold text-zinc-900 uppercase text-sm tracking-wide">Frequently Asked Questions</h3>
-              </div>
-              <div className="divide-y divide-zinc-100">
-                {s.detail.faq.map((f, fi) => (
-                  <FaqItem key={fi} q={f.q} a={f.a} />
-                ))}
-              </div>
-            </div>
-
-          </div>
-        </section>
-      ))}
+      {/* Service detail modal */}
+      <AnimatePresence>
+        {active && <ServiceModal service={active} onClose={() => setActive(null)} />}
+      </AnimatePresence>
 
       {/* CTA Banner */}
       <section className="bg-background py-20 relative overflow-hidden">

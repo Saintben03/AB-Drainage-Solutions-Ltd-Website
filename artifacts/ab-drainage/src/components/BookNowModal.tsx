@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Phone, X } from "lucide-react";
 import { SocialLinks } from "./SocialLinks";
+import { lockBodyScroll, unlockBodyScroll } from "@/lib/utils";
 
 interface BookNowModalProps {
   open: boolean;
@@ -58,10 +59,10 @@ export const BookNowModal = ({ open, onClose }: BookNowModalProps) => {
     };
 
     document.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
+    lockBodyScroll();
     return () => {
       document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
+      unlockBodyScroll();
       previouslyFocused?.focus?.();
     };
   }, [open, onClose]);
