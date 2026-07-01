@@ -101,12 +101,12 @@ export default function Home() {
 
           {/* Text content — sits over the image */}
           <div className="relative z-10 px-4">
-            <p className="text-accent text-[10px] font-bold uppercase tracking-[0.12em] mb-3 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-accent animate-pulse inline-block"></span>
+            <p className="text-[#5392B6] text-[10px] font-bold uppercase tracking-[0.12em] mb-3 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#5392B6] animate-pulse inline-block"></span>
               Hampshire's Drainage Specialists — 33 Years Experience
             </p>
             <h1 className="text-[2.4rem] font-display font-bold text-white leading-[1.05] mb-3 uppercase [text-shadow:0_2px_20px_rgba(0,0,0,0.9),0_1px_6px_rgba(0,0,0,0.8)]">
-              The Drain Experts <span className="text-accent">Hampshire</span> Relies On.
+              The Drain Experts <span className="text-[#5392B6]">Hampshire</span> Relies On.
             </h1>
             <p className="text-sm text-white/85 mb-5 leading-relaxed [text-shadow:0_1px_8px_rgba(0,0,0,0.9)]">
               Blocked drain? Sewage backing up? We answer at 2am and arrive typically within 1 hour. 33 years solving Hampshire's toughest drainage problems.
@@ -128,7 +128,7 @@ export default function Home() {
             <div className="flex flex-col gap-3 mb-5">
               <a
                 href="tel:01256688650"
-                className="bg-accent text-white px-6 py-4 text-base font-bold uppercase tracking-wider flex items-center justify-center gap-3"
+                className="bg-[#5392B6] text-white px-6 py-4 text-base font-bold uppercase tracking-wider flex items-center justify-center gap-3"
               >
                 <Phone size={20} /> Call 01256 688 650
               </a>
@@ -140,9 +140,9 @@ export default function Home() {
               </Link>
             </div>
             <div className="flex gap-5 text-[10px] font-bold text-white/70 uppercase tracking-wide">
-              <span className="flex items-center gap-1.5"><Clock size={13} className="text-accent" /> 1 Hour ETA</span>
-              <span className="flex items-center gap-1.5"><ShieldCheck size={13} className="text-accent" /> 33+ Yrs Exp</span>
-              <span className="flex items-center gap-1.5"><MapPin size={13} className="text-accent" /> Hampshire Wide</span>
+              <span className="flex items-center gap-1.5"><Clock size={13} className="text-[#5392B6]" /> 1 Hour ETA</span>
+              <span className="flex items-center gap-1.5"><ShieldCheck size={13} className="text-[#5392B6]" /> 33+ Yrs Exp</span>
+              <span className="flex items-center gap-1.5"><MapPin size={13} className="text-[#5392B6]" /> Hampshire Wide</span>
             </div>
           </div>
 
@@ -166,9 +166,9 @@ export default function Home() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-5 flex items-center gap-3"
+                className="text-[#5392B6] text-xs font-bold uppercase tracking-[0.25em] mb-5 flex items-center gap-3"
               >
-                <span className="w-2 h-2 rounded-full bg-accent animate-pulse inline-block"></span>
+                <span className="w-2 h-2 rounded-full bg-[#5392B6] animate-pulse inline-block"></span>
                 Hampshire's Drainage Specialists — 33 Years Experience
               </motion.p>
               <motion.h1
@@ -178,7 +178,7 @@ export default function Home() {
                 className="text-5xl md:text-7xl font-display font-bold text-white leading-[1.05] mb-6 uppercase [text-shadow:0_2px_20px_rgba(0,0,0,0.9),0_1px_4px_rgba(0,0,0,0.7)]"
               >
                 The Drain Experts{" "}
-                <span className="text-accent">Hampshire</span>{" "}
+                <span className="text-[#5392B6]">Hampshire</span>{" "}
                 Relies On.
               </motion.h1>
               <motion.p
@@ -215,7 +215,7 @@ export default function Home() {
               >
                 <a
                   href="tel:01256688650"
-                  className="bg-accent hover:bg-accent/90 text-white px-8 py-5 text-lg font-bold uppercase tracking-wider flex items-center justify-center gap-3 transition-all"
+                  className="bg-[#5392B6] hover:bg-[#5392B6]/90 text-white px-8 py-5 text-lg font-bold uppercase tracking-wider flex items-center justify-center gap-3 transition-all"
                 >
                   <Phone size={22} />
                   Call 01256 688 650
@@ -233,9 +233,9 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="flex flex-wrap gap-8 text-sm font-bold text-white/70 uppercase tracking-widest"
               >
-                <span className="flex items-center gap-2"><Clock size={15} className="text-accent" /> 1 Hour ETA</span>
-                <span className="flex items-center gap-2"><ShieldCheck size={15} className="text-accent" /> 33+ Yrs Exp</span>
-                <span className="flex items-center gap-2"><MapPin size={15} className="text-accent" /> Hampshire Wide</span>
+                <span className="flex items-center gap-2"><Clock size={15} className="text-[#5392B6]" /> 1 Hour ETA</span>
+                <span className="flex items-center gap-2"><ShieldCheck size={15} className="text-[#5392B6]" /> 33+ Yrs Exp</span>
+                <span className="flex items-center gap-2"><MapPin size={15} className="text-[#5392B6]" /> Hampshire Wide</span>
               </motion.div>
               </div>
             </div>
