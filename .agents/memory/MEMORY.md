@@ -11,5 +11,6 @@
 - [ab-drainage hero typography](ab-drainage-hero-typography.md) — all page hero H1s use font-light + md:text-6xl + tracking-normal (not heavy bold); display font (Oswald) never actually loads.
 - [ab-drainage home section differentiation](ab-drainage-home-sections.md) — adjacent dark home sections must differ in tone (services=neutral, why-choose=navy); WaterWave fill = next section's top color.
 - [ab-drainage favicon/deploy](ab-drainage-favicon-deploy.md) — build/favicon verified correct; red favicon = browser cache (use ?v=N); outbound to live site blocked; worf.replit.dev is dev not live.
+- [ab-drainage shell git push blocked](ab-drainage-git-push.md) — shell `git push` hangs/fails auth on this repo's GitHub remote; use Replit's Git panel Push button instead.
 - [ab-drainage dividers](ab-drainage-dividers.md) — WaterWave/AngledEdge/Diagonal/Stepped motifs; divider fill MUST equal the section it transitions into or it reads as a mismatched band.
 - [ab-drainage AB Group sub-brand pages](ab-drainage-ab-group-pages.md) — Construction/Fencing/Facilities pages: bright directional-gradient hero (no flat dark veil) + white/light body sections with accent pops, not all-dark.
