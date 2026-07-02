@@ -179,7 +179,7 @@ export default function Home() {
         >
           <a
             href="tel:01256688650"
-            className="w-full sm:w-auto bg-accent hover:bg-accent/90 text-white px-8 py-4 text-base font-bold uppercase tracking-wider flex items-center justify-center gap-3 transition-all"
+            className="w-full sm:w-auto bg-accent/50 backdrop-blur-md border border-white/30 md:bg-accent md:border-0 md:backdrop-blur-none hover:bg-accent/70 md:hover:bg-accent/90 text-white px-8 py-4 text-base font-bold uppercase tracking-wider flex items-center justify-center gap-3 transition-all [text-shadow:0_1px_6px_rgba(0,0,0,0.45)] md:[text-shadow:none]"
           >
             <Phone size={20} /> Call 01256 688 650
           </a>

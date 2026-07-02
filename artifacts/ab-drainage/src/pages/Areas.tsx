@@ -66,7 +66,7 @@ export default function Areas() {
         actions={
           <a
             href="tel:01256688650"
-            className="inline-flex items-center justify-center gap-3 bg-accent hover:bg-accent/90 text-white px-8 py-4 font-bold uppercase tracking-wider text-sm transition-all"
+            className="inline-flex items-center justify-center gap-3 bg-accent/50 backdrop-blur-md border border-white/30 md:bg-accent md:border-0 md:backdrop-blur-none hover:bg-accent/70 md:hover:bg-accent/90 text-white px-8 py-4 font-bold uppercase tracking-wider text-sm transition-all [text-shadow:0_1px_6px_rgba(0,0,0,0.45)] md:[text-shadow:none]"
           >
             <Phone size={18} /> Call for Availability
           </a>
