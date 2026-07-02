@@ -1,12 +1,15 @@
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { motion } from "framer-motion";
 import { WaterWave } from "@/components/WaterWave";
 import heroBurstMobile from "@assets/hero-burst-mobile.png";
+import heroBurstVideo from "@assets/generated_videos/drain_water_burst_loop.mp4";
 
 interface PageHeroProps {
   image: string;
   /** Phone-shaped (portrait) version of the hero image so text can sit over it without extreme zoom. */
   mobileImage?: string;
+  /** Looping background video for the MOBILE hero only. Pass null to fall back to mobileImage. */
+  mobileVideo?: string | null;
   imageAlt?: string;
   eyebrow?: ReactNode;
   title: ReactNode;
@@ -21,9 +24,35 @@ interface PageHeroProps {
   objectPosition?: string;
 }
 
+/** True only on phone viewports where the user allows motion — gates mounting the hero video. */
+function useMobileVideoEnabled() {
+  const [enabled, setEnabled] = useState(
+    () =>
+      typeof window !== "undefined" &&
+      window.matchMedia("(max-width: 767px)").matches &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+  );
+
+  useEffect(() => {
+    const mqMobile = window.matchMedia("(max-width: 767px)");
+    const mqReduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setEnabled(mqMobile.matches && !mqReduce.matches);
+    update();
+    mqMobile.addEventListener("change", update);
+    mqReduce.addEventListener("change", update);
+    return () => {
+      mqMobile.removeEventListener("change", update);
+      mqReduce.removeEventListener("change", update);
+    };
+  }, []);
+
+  return enabled;
+}
+
 export function PageHero({
   image,
   mobileImage = heroBurstMobile,
+  mobileVideo = heroBurstVideo,
   imageAlt = "A&B Drainage Solutions Ltd fleet",
   eyebrow,
   title,
@@ -34,22 +63,44 @@ export function PageHero({
   waveFillMobile,
   objectPosition,
 }: PageHeroProps) {
+  // Only mount the <video> on phone viewports with motion allowed — CSS-hiding it on
+  // desktop would still download the ~5MB clip. Everyone else gets the still image.
+  const videoEnabled = useMobileVideoEnabled();
+  const showVideo = Boolean(mobileVideo) && videoEnabled;
+
   return (
     <section className="relative overflow-hidden min-h-[92vh] md:min-h-[64vh] flex items-end md:items-center pt-24 md:pt-16 pb-24 md:pb-16 bg-background">
       {/* Background image — full-bleed behind the text. Mobile uses a portrait crop so the
           text sits over the fleet without cropping down to a single van. A <picture> with a
           media source means the browser downloads only ONE asset per viewport. */}
       <div className="absolute inset-0 z-0">
-        <picture className="block w-full h-full">
+        <picture className={showVideo ? "hidden md:block w-full h-full" : "block w-full h-full"}>
           <source media="(min-width: 768px)" srcSet={image} />
           <img
             src={mobileImage}
             alt=""
             aria-hidden="true"
             style={objectPosition ? { objectPosition } : undefined}
-            className="w-full h-full object-cover object-center animate-heropan-mobile saturate-[1.35] brightness-[1.08] contrast-[1.1] md:saturate-[1.1] md:brightness-[0.95] md:contrast-[1.05]"
+            className={`w-full h-full object-cover object-center saturate-[1.35] brightness-[1.08] contrast-[1.1] md:saturate-[1.1] md:brightness-[0.95] md:contrast-[1.05]${showVideo ? "" : " animate-heropan-mobile"}`}
           />
         </picture>
+        {/* MOBILE ONLY — looping background video of water bursting from the drain.
+            Rendered only on phone viewports with motion allowed (reduced-motion users
+            keep the still image). Poster shows instantly while the clip buffers. */}
+        {showVideo && mobileVideo ? (
+          <video
+            src={mobileVideo}
+            poster={mobileImage}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-hidden="true"
+            tabIndex={-1}
+            className="md:hidden absolute inset-0 w-full h-full object-cover object-center saturate-[1.35] brightness-[1.08] contrast-[1.1]"
+          />
+        ) : null}
         {/* MOBILE — fencing-division-style hero: bright dramatic image, text anchored at the
             bottom over dark gradients + a soft brand-blue colour cast. No heavy tint. */}
         <div className="absolute inset-0 md:hidden bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
