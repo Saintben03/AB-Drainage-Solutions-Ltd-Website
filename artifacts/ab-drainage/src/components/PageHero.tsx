@@ -50,9 +50,10 @@ export function PageHero({
             className="w-full h-full object-cover object-center saturate-[1.1] brightness-[0.95] contrast-[1.05]"
           />
         </picture>
-        {/* Brand-blue filter — darkens and unifies the whole photo to the AB blue (same on mobile + desktop) */}
-        <div className="absolute inset-0 bg-[#0a2c47]/45" style={{ mixBlendMode: "multiply" }} />
-        <div className="absolute inset-0 bg-[#0e4a78]/35" />
+        {/* Brand-blue filter — much heavier on mobile so the portrait image reads as a subtle
+            backdrop behind the text; desktop keeps the brighter fleet look */}
+        <div className="absolute inset-0 bg-[#0a2c47]/70 md:bg-[#0a2c47]/45" style={{ mixBlendMode: "multiply" }} />
+        <div className="absolute inset-0 bg-[#0e4a78]/60 md:bg-[#0e4a78]/35" />
         {/* Left scrim so overlaid text stays readable */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(6,24,42,0.72)_0%,rgba(6,24,42,0.45)_38%,rgba(6,24,42,0.18)_64%,transparent_88%)]" />
         {/* Soft bottom fade for lower content + blends into the wave */}

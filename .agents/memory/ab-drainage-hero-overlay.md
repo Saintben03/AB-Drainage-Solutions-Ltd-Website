@@ -6,15 +6,15 @@ description: How the content-page hero image overlays are tuned — taste has fl
 ## Current direction (LATEST): one shared PageHero WITH a clear blue filter
 All 7 content-page heroes (Home, Areas, Services, About, Contact, Gallery, Blog) render from a single shared component `components/PageHero.tsx`. Do NOT re-inline per-page hero markup — edit PageHero to change all of them at once.
 
-Taste flip-flops constantly. The bright/light version was rejected (client: "no blue filter like the desktop version, image not sized right"). Current stack has a definite but not-black blue filter, identical on mobile + desktop:
+Taste flip-flops constantly. The bright/light version was rejected (client: "no blue filter like the desktop version, image not sized right"). Current stack has a definite but not-black blue filter, HEAVIER on mobile than desktop (client: "make sure the filter is strong enough so it sort of hides the image behind" — that was about the mobile workers image; desktop fleet stays brighter):
 - image `object-cover object-center` + `saturate-[1.1] brightness-[0.95] contrast-[1.05]` (+ optional `objectPosition` prop). NO `animate-heropan` — see gotcha below.
-- `bg-[#0a2c47]/45` `mixBlendMode: multiply` (darken) + `bg-[#0e4a78]/35` normal blend (blue hue unify).
+- `bg-[#0a2c47]/70 md:bg-[#0a2c47]/45` `mixBlendMode: multiply` (darken) + `bg-[#0e4a78]/60 md:bg-[#0e4a78]/35` normal blend (blue hue unify).
 - LEFT scrim `linear-gradient(to_right, rgba(6,24,42,0.72) → transparent by 88%)` for text legibility.
 - soft bottom fade `from-[#06182a]/65` + localized `bg-black/40 blur-3xl -z-10` panel behind copy + white text-shadows.
 
 **Why:** client compares the NEW build's mobile against the OLD LIVE desktop (still heavier blue). When they say "match the desktop," they mean add MORE blue filter, not less. The lighter version always gets rejected.
 
-**How to apply:** to go bluer/darker raise the two tint layers together; to lighten lower both. Do not restore the old heavy `color`-blend monochrome duotone unless they explicitly ask for the "AB Group monochrome-blue" look.
+**How to apply:** to go bluer/darker raise the two tint layers together; to lighten lower both — but keep the mobile values HIGHER than md: values (mobile is meant to near-hide the image). Do not restore the old heavy `color`-blend monochrome duotone unless they explicitly ask for the "AB Group monochrome-blue" look.
 
 ## Mobile hero image: separate PORTRAIT crop (do NOT full-bleed the wide photo on mobile)
 The fleet photo is wide (vans side by side); a narrow phone can't both put text OVER it and show the fleet — object-cover zoomed to one van ("too zoomed"), and a short bottom band looked "outside the text". Solution the client accepted: a DIFFERENT portrait mobile image. PageHero uses a `<picture>`: `<source media="(min-width:768px)" srcSet={image}>` (wide desktop fleet) + `<img src={mobileImage}>` fallback (portrait, decorative alt="" aria-hidden). Picture = only ONE asset downloads per viewport. `mobileImage` prop defaults to `@assets/hero-workers-mobile.png` (an AI-generated 3:4 aerial/birdseye of 2 workers in hard hats + hi-vis over an open manhole — client asked for this "like the old site"). Older fleet portrait crop `hero-fleet-mobile.png` still exists (from `magick "<wide>" -crop 768x1024+520+0 +repage`) if they want vans back on mobile. All 7 pages share PageHero + pass the same wide `image`, so changing the default fixes/changes them all at once.
