@@ -29,7 +29,13 @@ export function LogoMarquee({ logos, fadeColor = "#e0f2fe" }: { logos: MarqueeLo
     <div className="relative w-full overflow-hidden">
       {/* Two identical halves so translateX(-50%) loops seamlessly. Animated on all
           breakpoints (right → left) — the user wants the logos in constant motion. */}
-      <div className="flex w-max animate-marquee [animation-duration:14s] will-change-transform hover:[animation-play-state:paused]">
+      {/* Inline animationDuration — the .animate-marquee shorthand in index.css is unlayered
+          CSS and beats Tailwind utility classes, so a [animation-duration:...] class silently
+          loses. Inline style wins over everything. */}
+      <div
+        className="flex w-max animate-marquee will-change-transform hover:[animation-play-state:paused]"
+        style={{ animationDuration: "10s" }}
+      >
         <LogoGroup logos={logos} />
         <LogoGroup logos={logos} ariaHidden />
       </div>

@@ -145,6 +145,26 @@
   }
 }
 
+/* ── iOS Safari zoom prevention ──
+   1. touch-action: manipulation disables double-tap-to-zoom on interactive elements
+      (double-tap zoom persists across reloads, making the site "load zoomed in").
+   2. Form fields under 16px trigger Safari's auto-zoom on focus — force 16px on phones. */
+a,
+button,
+input,
+select,
+textarea,
+label {
+  touch-action: manipulation;
+}
+@media (max-width: 767px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
+
 /* ── Keyframe animations ── */
 @keyframes heropan {
   0%   { object-position: 70% center; }
