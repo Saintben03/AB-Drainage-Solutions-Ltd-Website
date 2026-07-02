@@ -34,7 +34,7 @@ export function LogoMarquee({ logos, fadeColor = "#e0f2fe" }: { logos: MarqueeLo
           loses. Inline style wins over everything. */}
       <div
         className="flex w-max animate-marquee will-change-transform hover:[animation-play-state:paused]"
-        style={{ animationDuration: "10s" }}
+        style={{ animationDuration: "6s" }}
       >
         <LogoGroup logos={logos} />
         <LogoGroup logos={logos} ariaHidden />
