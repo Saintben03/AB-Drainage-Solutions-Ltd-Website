@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 import { WaterWave } from "@/components/WaterWave";
-import heroFleetMobile from "@assets/hero-fleet-mobile.png";
+import heroWorkersMobile from "@assets/hero-workers-mobile.png";
 
 interface PageHeroProps {
   image: string;
@@ -23,7 +23,7 @@ interface PageHeroProps {
 
 export function PageHero({
   image,
-  mobileImage = heroFleetMobile,
+  mobileImage = heroWorkersMobile,
   imageAlt = "A&B Drainage Solutions Ltd fleet",
   eyebrow,
   title,

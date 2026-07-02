@@ -198,6 +198,12 @@ uri = "file://attached_assets/blog/guttering.png"
 type = "image"
 title = "generated_image"
 
+[[generated]]
+id = "GbQZ5aOHgCOt-y3JRMl2g"
+uri = "file://attached_assets/hero-workers-mobile.png"
+type = "image"
+title = "aerial workers hard hats"
+
 [[outputs]]
 id = "XDj-vFcGSpHIPNB20N4wa"
 uri = "file://attached_assets/site_files_1/AB Drainage background.png"
