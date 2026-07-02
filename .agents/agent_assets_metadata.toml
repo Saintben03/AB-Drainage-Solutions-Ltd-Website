@@ -204,6 +204,12 @@ uri = "file://attached_assets/hero-workers-mobile.png"
 type = "image"
 title = "aerial workers hard hats"
 
+[[generated]]
+id = "Yx_rwjRIhbRsu7iCY7bxY"
+uri = "file://attached_assets/hero-burst-mobile.png"
+type = "image"
+title = "drain water burst explosion"
+
 [[outputs]]
 id = "XDj-vFcGSpHIPNB20N4wa"
 uri = "file://attached_assets/site_files_1/AB Drainage background.png"

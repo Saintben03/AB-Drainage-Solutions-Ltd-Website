@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 import { WaterWave } from "@/components/WaterWave";
-import heroWorkersMobile from "@assets/hero-workers-mobile.png";
+import heroBurstMobile from "@assets/hero-burst-mobile.png";
 
 interface PageHeroProps {
   image: string;
@@ -23,7 +23,7 @@ interface PageHeroProps {
 
 export function PageHero({
   image,
-  mobileImage = heroWorkersMobile,
+  mobileImage = heroBurstMobile,
   imageAlt = "A&B Drainage Solutions Ltd fleet",
   eyebrow,
   title,
@@ -35,7 +35,7 @@ export function PageHero({
   objectPosition,
 }: PageHeroProps) {
   return (
-    <section className="relative overflow-hidden min-h-[72vh] md:min-h-[64vh] flex items-center pt-24 md:pt-16 pb-20 md:pb-16 bg-background">
+    <section className="relative overflow-hidden min-h-[92vh] md:min-h-[64vh] flex items-end md:items-center pt-24 md:pt-16 pb-24 md:pb-16 bg-background">
       {/* Background image — full-bleed behind the text. Mobile uses a portrait crop so the
           text sits over the fleet without cropping down to a single van. A <picture> with a
           media source means the browser downloads only ONE asset per viewport. */}
@@ -47,19 +47,19 @@ export function PageHero({
             alt=""
             aria-hidden="true"
             style={objectPosition ? { objectPosition } : undefined}
-            className="w-full h-full object-cover object-center saturate-[1.1] brightness-[0.95] contrast-[1.05]"
+            className="w-full h-full object-cover object-center animate-heropan-mobile saturate-[1.35] brightness-[1.08] contrast-[1.1] md:saturate-[1.1] md:brightness-[0.95] md:contrast-[1.05]"
           />
         </picture>
-        {/* Brand-blue filter — slightly heavier on mobile than desktop, but light enough
-            that the workers stay clearly visible behind the text */}
-        <div className="absolute inset-0 bg-[#0a2c47]/55 md:bg-[#0a2c47]/45" style={{ mixBlendMode: "multiply" }} />
-        <div className="absolute inset-0 bg-[#0e4a78]/40 md:bg-[#0e4a78]/35" />
-        {/* Scrim so overlaid text stays readable — on mobile the desktop left-gradient would
-            cover the whole narrow screen and hide the image, so use a light top wash instead */}
-        <div className="absolute inset-0 md:hidden bg-[linear-gradient(to_bottom,rgba(6,24,42,0.55)_0%,rgba(6,24,42,0.30)_40%,rgba(6,24,42,0.12)_70%,rgba(6,24,42,0.05)_100%)]" />
+        {/* MOBILE — fencing-division-style hero: bright dramatic image, text anchored at the
+            bottom over dark gradients + a soft brand-blue colour cast. No heavy tint. */}
+        <div className="absolute inset-0 md:hidden bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
+        <div className="absolute inset-0 md:hidden bg-gradient-to-r from-black/55 via-black/10 to-transparent" />
+        <div className="absolute inset-0 md:hidden bg-gradient-to-r from-[#01618E]/40 via-[#01618E]/5 to-transparent" style={{ mixBlendMode: "color" }} />
+        {/* DESKTOP — unchanged brand-blue filter stack */}
+        <div className="absolute inset-0 hidden md:block bg-[#0a2c47]/45" style={{ mixBlendMode: "multiply" }} />
+        <div className="absolute inset-0 hidden md:block bg-[#0e4a78]/35" />
         <div className="absolute inset-0 hidden md:block bg-[linear-gradient(to_right,rgba(6,24,42,0.72)_0%,rgba(6,24,42,0.45)_38%,rgba(6,24,42,0.18)_64%,transparent_88%)]" />
-        {/* Soft bottom fade for lower content + blends into the wave */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#06182a]/65 via-transparent to-transparent" />
+        <div className="absolute inset-0 hidden md:block bg-gradient-to-t from-[#06182a]/65 via-transparent to-transparent" />
       </div>
 
       {waveFillMobile ? (

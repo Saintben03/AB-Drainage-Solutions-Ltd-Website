@@ -153,6 +153,12 @@
 .animate-heropan {
   animation: heropan 28s linear infinite alternate;
 }
+/* Mobile-only slow pan for the hero image (fencing-division style); desktop stays static */
+@media (max-width: 767px) {
+  .animate-heropan-mobile {
+    animation: heropan 28s linear infinite alternate;
+  }
+}
 
 @keyframes marquee {
   0% {
@@ -198,6 +204,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .animate-heropan,
+  .animate-heropan-mobile,
   .animate-marquee,
   .animate-wavedrift,
   .animate-pipeflow,
