@@ -16,6 +16,10 @@ Taste flip-flops constantly. The bright/light version was rejected (client: "no 
 
 **How to apply:** to go bluer/darker raise the two tint layers together; to lighten lower both. Do not restore the old heavy `color`-blend monochrome duotone unless they explicitly ask for the "AB Group monochrome-blue" look.
 
+## Mobile hero image: separate PORTRAIT crop (do NOT full-bleed the wide photo on mobile)
+The fleet photo is wide (vans side by side); a narrow phone can't both put text OVER it and show the fleet — object-cover zoomed to one van ("too zoomed"), and a short bottom band looked "outside the text". Solution the client accepted: a DIFFERENT mobile image. PageHero renders two full-bleed `object-cover` bg images — `mobileImage` (`md:hidden`, defaults to `@assets/hero-fleet-mobile.png`, a 768x1024 portrait crop of the 1536x1024 desktop photo) and the wide `image` (`hidden md:block`). All 7 pages pass the same wide `image`, so the default crop fixes them all at once. Regenerate the crop with `magick "<wide>" -crop 768x1024+520+0 +repage "<out>"`. Never regenerate the fleet via AI — real branded vans/plates/numbers.
+**Why:** wide-in-tall is geometrically unsolvable; only a portrait-framed image lets text sit over visible vehicles on mobile.
+
 ## Gotchas that got the client annoyed (do NOT reintroduce)
 - **No hero pan animation.** The `animate-heropan` class (keyframe still in index.css) makes the image drift left↔right; the client did not ask for it and disliked it. Keep it off PageHero's img.
 - **No blue text in the hero.** Blue accent words over the blue filter vanish. Home's "South England" span is `text-sky-300` and PageHero's eyebrow is `text-sky-200` (both light blue + text-shadow), NOT `text-accent`/`#5392B6`. Keep hero accent text a LIGHT sky tone.

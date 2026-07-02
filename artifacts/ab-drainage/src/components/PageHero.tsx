@@ -1,9 +1,12 @@
 import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 import { WaterWave } from "@/components/WaterWave";
+import heroFleetMobile from "@assets/hero-fleet-mobile.png";
 
 interface PageHeroProps {
   image: string;
+  /** Phone-shaped (portrait) version of the hero image so text can sit over it without extreme zoom. */
+  mobileImage?: string;
   imageAlt?: string;
   eyebrow?: ReactNode;
   title: ReactNode;
@@ -20,6 +23,7 @@ interface PageHeroProps {
 
 export function PageHero({
   image,
+  mobileImage = heroFleetMobile,
   imageAlt = "A&B Drainage Solutions Ltd fleet",
   eyebrow,
   title,
@@ -32,14 +36,20 @@ export function PageHero({
 }: PageHeroProps) {
   return (
     <section className="relative overflow-hidden min-h-[72vh] md:min-h-[64vh] flex items-center pt-24 md:pt-16 pb-20 md:pb-16 bg-background">
-      {/* Background image — kept bright so the whole fleet is clearly visible */}
+      {/* Background image — full-bleed behind the text. Mobile uses a portrait crop so the
+          text sits over the fleet without cropping down to a single van. A <picture> with a
+          media source means the browser downloads only ONE asset per viewport. */}
       <div className="absolute inset-0 z-0">
-        <img
-          src={image}
-          alt={imageAlt}
-          style={objectPosition ? { objectPosition } : undefined}
-          className="absolute bottom-0 left-0 w-full h-[34vh] object-cover object-center md:static md:h-full md:object-center saturate-[1.1] brightness-[0.95] contrast-[1.05]"
-        />
+        <picture className="block w-full h-full">
+          <source media="(min-width: 768px)" srcSet={image} />
+          <img
+            src={mobileImage}
+            alt=""
+            aria-hidden="true"
+            style={objectPosition ? { objectPosition } : undefined}
+            className="w-full h-full object-cover object-center saturate-[1.1] brightness-[0.95] contrast-[1.05]"
+          />
+        </picture>
         {/* Brand-blue filter — darkens and unifies the whole photo to the AB blue (same on mobile + desktop) */}
         <div className="absolute inset-0 bg-[#0a2c47]/45" style={{ mixBlendMode: "multiply" }} />
         <div className="absolute inset-0 bg-[#0e4a78]/35" />
