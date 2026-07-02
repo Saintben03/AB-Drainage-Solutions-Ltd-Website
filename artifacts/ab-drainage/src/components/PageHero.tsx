@@ -38,7 +38,7 @@ export function PageHero({
           src={image}
           alt={imageAlt}
           style={objectPosition ? { objectPosition } : undefined}
-          className="w-full h-full object-cover object-center saturate-[1.1] brightness-[0.95] contrast-[1.05]"
+          className="w-full h-full object-contain object-bottom md:object-cover md:object-center saturate-[1.1] brightness-[0.95] contrast-[1.05]"
         />
         {/* Brand-blue filter — darkens and unifies the whole photo to the AB blue (same on mobile + desktop) */}
         <div className="absolute inset-0 bg-[#0a2c47]/45" style={{ mixBlendMode: "multiply" }} />
