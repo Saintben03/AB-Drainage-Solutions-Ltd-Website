@@ -74,7 +74,10 @@ export function PageHero({
           text sits over the fleet without cropping down to a single van. A <picture> with a
           media source means the browser downloads only ONE asset per viewport. */}
       <div className="absolute inset-0 z-0">
-        <picture className={showVideo ? "hidden md:block w-full h-full" : "block w-full h-full"}>
+        {/* The still image ALWAYS renders — on mobile it sits underneath the video as a
+            hand-rolled poster. iOS Safari letterboxes the native poster attribute (it
+            ignores object-fit on posters), which showed as a black strip under the nav. */}
+        <picture className="block w-full h-full">
           <source media="(min-width: 768px)" srcSet={image} />
           <img
             src={mobileImage}
@@ -90,7 +93,6 @@ export function PageHero({
         {showVideo && mobileVideo ? (
           <video
             src={mobileVideo}
-            poster={mobileImage}
             autoPlay
             muted
             loop
