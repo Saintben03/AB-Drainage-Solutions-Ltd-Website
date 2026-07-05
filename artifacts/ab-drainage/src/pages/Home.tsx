@@ -12,6 +12,8 @@ import { SOCIALS } from "@/components/SocialLinks";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 
 import heroImg from "@assets/Designer_(1)_1782807579036.png";
+import heroPipePoster from "@assets/generated_images/hero-pipe-burst.png";
+import heroPipeVideo from "@assets/generated_videos/pipe_burst_street_loop.mp4";
 import scheduleBg from "@assets/ab-mark-trimmed_1782919186057.webp";
 import crewTeam from "@assets/ab_group_gallery/worker-9.33.16.jpeg";
 import crewManhole from "@assets/ab_group_gallery/worker-9.33.30.jpeg";
@@ -136,8 +138,9 @@ export default function Home() {
 
       {/* ── HERO ── */}
       <PageHero
-        image={heroImg}
-        imageAlt="A&B Drainage Solutions Ltd fleet of vans"
+        image={heroPipePoster}
+        desktopVideo={heroPipeVideo}
+        imageAlt="A burst water main gushing across a South England street"
         waveFill="#01618E"
         waveFillMobile="#e0f2fe"
         eyebrow={
@@ -658,6 +661,16 @@ export default function Home() {
 
       {/* ── FOLLOW US (social) ── */}
       <section className="py-24 md:py-28 bg-[#01618E] relative overflow-hidden">
+        {/* Filtered fleet backdrop — desaturated + heavy brand-blue wash so the vans read as
+            texture behind the solid #01618E block without hurting white-text legibility. */}
+        <img
+          src={heroImg}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover object-[center_55%] opacity-25 saturate-0"
+        />
+        <div className="absolute inset-0 bg-[#01618E]/80" style={{ mixBlendMode: "multiply" }} />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#01618E] via-[#01618E]/70 to-[#01618E]/90" />
         {/* Diagonal wedges blending the dark AB Group above and the dark Final CTA below */}
         <AngledEdge position="top" fill="#09090b" line="#5392B6" className="absolute top-0 left-0 w-full z-[6] -mt-px" />
         <AngledEdge position="bottom" fill="#1c1c1c" line="#5392B6" className="absolute bottom-0 left-0 w-full z-[6] -mb-px" />

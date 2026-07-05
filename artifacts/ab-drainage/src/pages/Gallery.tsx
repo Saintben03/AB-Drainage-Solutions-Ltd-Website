@@ -86,6 +86,7 @@ const items: GalleryItem[] = [
   { src: job4, caption: "Reactive callout handled swiftly and professionally", tag: "On the Job" },
   // Fleet
   { src: crew2, caption: "The A&B crew, ready to mobilise", tag: "Our Team" },
+  { src: heroImg, caption: "The full A&B fleet — vans and tanker ready to respond", tag: "Our Fleet" },
   { src: vanBlue, caption: "Part of our fully-equipped A&B fleet", tag: "Our Fleet" },
   { src: vanG, caption: "A&B van — one of many across Hampshire", tag: "Our Fleet" },
   { src: vanH, caption: "Fully-stocked service van ready for deployment", tag: "Our Fleet" },

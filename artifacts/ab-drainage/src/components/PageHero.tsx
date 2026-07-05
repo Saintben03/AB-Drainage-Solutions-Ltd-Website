@@ -11,6 +11,8 @@ interface PageHeroProps {
   mobileImage?: string;
   /** Looping background video for the MOBILE hero only. Pass null to fall back to mobileImage. */
   mobileVideo?: string | null;
+  /** Looping background video for the DESKTOP hero only (landscape). Omit to keep the still `image`. */
+  desktopVideo?: string | null;
   imageAlt?: string;
   eyebrow?: ReactNode;
   title: ReactNode;
@@ -51,10 +53,36 @@ function useMobileVideoEnabled() {
   return enabled;
 }
 
+/** True only on desktop/tablet viewports where the user allows motion — gates mounting the desktop hero video. */
+function useDesktopVideoEnabled() {
+  const [enabled, setEnabled] = useState(
+    () =>
+      typeof window !== "undefined" &&
+      window.matchMedia("(min-width: 768px)").matches &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+  );
+
+  useEffect(() => {
+    const mqDesktop = window.matchMedia("(min-width: 768px)");
+    const mqReduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setEnabled(mqDesktop.matches && !mqReduce.matches);
+    update();
+    mqDesktop.addEventListener("change", update);
+    mqReduce.addEventListener("change", update);
+    return () => {
+      mqDesktop.removeEventListener("change", update);
+      mqReduce.removeEventListener("change", update);
+    };
+  }, []);
+
+  return enabled;
+}
+
 export function PageHero({
   image,
   mobileImage = heroBurstMobile,
   mobileVideo = heroBurstVideo,
+  desktopVideo = null,
   imageAlt = "A&B Drainage Solutions Ltd fleet",
   eyebrow,
   title,
@@ -69,6 +97,8 @@ export function PageHero({
   // desktop would still download the ~5MB clip. Everyone else gets the still image.
   const videoEnabled = useMobileVideoEnabled();
   const showVideo = Boolean(mobileVideo) && videoEnabled;
+  const desktopVideoEnabled = useDesktopVideoEnabled();
+  const showDesktopVideo = Boolean(desktopVideo) && desktopVideoEnabled;
 
   return (
     <section className="relative overflow-hidden min-h-[92vh] md:min-h-[64vh] flex items-end md:items-center pt-24 md:pt-16 pb-24 md:pb-16 bg-background">
@@ -97,6 +127,17 @@ export function PageHero({
             <HeroVideoLoop
               src={mobileVideo}
               filterClass="saturate-[1.35] brightness-[1.08] contrast-[1.1]"
+            />
+          </div>
+        ) : null}
+        {/* DESKTOP ONLY — landscape looping background video (e.g. a burst street main).
+            Mounted only on tablet/desktop with motion allowed; the still `image` above acts
+            as the poster while it buffers and for reduced-motion users. */}
+        {showDesktopVideo && desktopVideo ? (
+          <div className="hidden md:block absolute inset-0 overflow-hidden">
+            <HeroVideoLoop
+              src={desktopVideo}
+              filterClass="saturate-[1.1] brightness-[0.95] contrast-[1.05]"
             />
           </div>
         ) : null}
