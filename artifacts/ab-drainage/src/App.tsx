@@ -59,7 +59,7 @@ function Router() {
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={location}
-            initial={reduced ? false : { opacity: 0, y: 10 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             exit={reduced ? { opacity: 0 } : { opacity: 0, y: -10 }}
             transition={{ duration: reduced ? 0 : 0.3, ease: "easeOut" }}
