@@ -12,8 +12,8 @@ import { SOCIALS } from "@/components/SocialLinks";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 
 import heroImg from "@assets/Designer_(1)_1782807579036.png";
-import heroPipePoster from "@assets/generated_images/hero-street-digger-workman.jpg";
-import heroPipeVideo from "@assets/generated_videos/street_digger_workman_head_in_hands_compressed.mp4";
+import heroPipePoster from "@assets/generated_images/hero-sidestreet-digger.jpg";
+import heroPipeVideo from "@assets/generated_videos/sidestreet_digger_operator_compressed.mp4";
 import scheduleBg from "@assets/ab-mark-trimmed_1782919186057.webp";
 import crewTeam from "@assets/ab_group_gallery/worker-9.33.16.jpeg";
 import crewManhole from "@assets/ab_group_gallery/worker-9.33.30.jpeg";
@@ -140,7 +140,7 @@ export default function Home() {
       <PageHero
         image={heroPipePoster}
         desktopVideo={heroPipeVideo}
-        imageAlt="A workman in a hard hat sitting in a digger with his head in his hands beside a burst water main gushing across a residential South England street lined with houses"
+        imageAlt="A workman in a hi-vis vest and hard hat operating a yellow excavator digger on a residential South England side street, hi-vis safety barriers closing the road, with a burst water main gushing across the tarmac"
         waveFill="#01618E"
         waveFillMobile="#e0f2fe"
         eyebrow={

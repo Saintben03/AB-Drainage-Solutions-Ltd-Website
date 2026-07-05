@@ -103,6 +103,9 @@ export function PageHero({
 
   return (
     <section className="relative overflow-hidden min-h-[92vh] md:min-h-[64vh] flex items-end md:items-center pt-24 md:pt-16 pb-24 md:pb-16 bg-background">
+      {/* Screen-reader-only description of the hero visual — the background image/video are
+          decorative (aria-hidden), so this is the one place the scene is described for a11y. */}
+      <span className="sr-only">{imageAlt}</span>
       {/* Background image — full-bleed behind the text. Mobile uses a portrait crop so the
           text sits over the fleet without cropping down to a single van. A <picture> with a
           media source means the browser downloads only ONE asset per viewport. */}
