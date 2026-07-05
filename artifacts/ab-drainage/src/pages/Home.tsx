@@ -228,18 +228,14 @@ export default function Home() {
         <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#e0f2fe" />
       </section>
 
-      {/* ── MOBILE-ONLY flowing divider INTO Trusted By ──
-           Rendered as a sibling (not inside the section, whose overflow-hidden would
-           clip it) so it can rise up over the bottom of the hero photo. -mt-20 pulls
-           it into the hero; light-blue water crests over the dark image into the light
-           band. Mirrors the light→dark wave at the BASE of the Trusted section (L248):
-           fill = #e0f2fe (destination), light-blue #bae6fd foam crest + shimmer so it
-           reads as flowing light-blue water against the dark hero, not a flat grey band.
-           Desktop uses the schedule strip's wave above instead. */}
-      <WaterWave className="relative z-[5] w-full -mt-20 md:hidden" fill="#e0f2fe" edgeColor="#bae6fd" heightClass="h-20" />
-
-      {/* ── TRUSTED BY (light band, animated wave at its base) ── */}
-      <section className="relative bg-sky-100 pt-4 pb-28 overflow-hidden">
+      {/* ── TRUSTED BY (light band, wave dividers top & bottom on mobile) ── */}
+      <section className="relative bg-sky-100 pt-20 md:pt-4 pb-28 overflow-hidden">
+        {/* MOBILE-ONLY top divider: a DARK wave (vertical mirror of the bottom one) so the
+            dark hero crests DOWN into this light-blue band with a light-blue foam edge.
+            Using a dark wave OVER the light section — instead of a light wave over the dark
+            hero — is what stops the crest reading grey: no pale colour is ever composited
+            over the dark photo. Desktop uses the schedule strip's wave above instead. */}
+        <WaterWave className="absolute -top-px left-0 w-full z-[5] [transform:scaleY(-1)] md:hidden" fill="hsl(0 0% 11%)" edgeColor="#bae6fd" />
         <div className="container mx-auto px-4">
           <p className="text-center text-xs text-zinc-500 uppercase tracking-[0.2em] font-semibold mb-10">
             Trusted by institutions &amp; businesses across the UK
