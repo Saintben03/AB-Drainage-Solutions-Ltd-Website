@@ -160,18 +160,17 @@ export function PageHero({
       {waveFillMobile ? (
         /* Home: on mobile the flowing divider lives at the TOP of the next (Trusted By)
            section — see Home.tsx — so the hero ends cleanly on the dark photo. On DESKTOP
-           the hero → schedule-strip transition is a STATIC angled/stepped cut (echoing the
-           Facilities page's geometric divider, but with its own peak arrangement) instead of
-           an animated wave. Fill matches the schedule strip; a subtle brand hairline traces
-           the cut. */
+           the hero → schedule-strip transition is a SMOOTH curved cut (soft S-wave, no sharp
+           angles) instead of an animated wave. Fill matches the schedule strip; a subtle
+           brand hairline traces the crest. */
         <div
           aria-hidden="true"
           className="hidden md:block absolute bottom-0 left-0 w-full z-[5] -mb-px h-16 lg:h-20 overflow-hidden pointer-events-none leading-none"
         >
           <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="absolute bottom-0 w-full h-full">
-            <polygon points="0,58 520,80 760,34 1180,80 1440,52 1440,80 0,80" fill={waveFill} />
-            <polyline
-              points="0,58 520,80 760,34 1180,80 1440,52"
+            <path d="M0,46 C240,14 480,14 720,40 C960,66 1200,66 1440,38 L1440,80 L0,80 Z" fill={waveFill} />
+            <path
+              d="M0,46 C240,14 480,14 720,40 C960,66 1200,66 1440,38"
               fill="none"
               stroke="#5392B6"
               strokeWidth={2}

@@ -216,6 +216,12 @@ uri = "file://attached_assets/generated_images/hero-pipe-burst.png"
 type = "image"
 title = "generated_image"
 
+[[generated]]
+id = "KDRiRihd4rzfPQE8tFmGw"
+uri = "file://attached_assets/generated_images/hero-sidestreet-digger-v2.png"
+type = "image"
+title = "sidestreet digger no worker"
+
 [[outputs]]
 id = "XDj-vFcGSpHIPNB20N4wa"
 uri = "file://attached_assets/site_files_1/AB Drainage background.png"

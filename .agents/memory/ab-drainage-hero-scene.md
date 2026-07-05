@@ -17,7 +17,13 @@ water main gushes and flows across the wet tarmac.
 believable working scene — operator doing real work, proper site safety (barriers), on a side
 street rather than blocking the main road.
 
+**ONE person only — never a second worker.** Any extra background figure (e.g. a small
+hi-vis worker standing by the bush/central island) comes out badly deformed. Prompt for the
+SINGLE cab operator and negative-prompt "second person / bystander / extra worker in
+background". Keep the operator in the cab, positioned right-of-centre reads best.
+
 **Scenes the client REJECTED — do not drift back to these:**
+- A SECOND background worker anywhere in the scene — always deforms. One operator only.
 - Workman with his HEAD IN HIS HANDS / slumped / dejected in the cab. Looked funny/too AI.
   (This was the prior "stuck" preference — it FLIPPED. Operator must look like he's working.)
 - Digger sitting in the MIDDLE of the road. Must be to the side, on a side street.
