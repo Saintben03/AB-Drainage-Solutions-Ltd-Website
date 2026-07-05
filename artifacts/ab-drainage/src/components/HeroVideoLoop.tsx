@@ -19,7 +19,7 @@ import { useRef, useState, useEffect } from "react";
 const FADE = 0.9; // seconds of crossfade overlap at the loop boundary
 
 const coverClass =
-  "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto max-w-none transition-opacity duration-[900ms] ease-linear";
+  "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-auto max-w-none transition-opacity duration-[900ms] ease-linear";
 
 export function HeroVideoLoop({
   src,

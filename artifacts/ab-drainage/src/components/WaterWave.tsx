@@ -5,6 +5,8 @@ interface WaterWaveProps {
   fill?: string;
   /** Colour of the leading "water" edge that fades into `fill`. */
   edgeColor?: string;
+  /** Render the light shimmer/foam ribbons. Set false for a perfectly flat transition. */
+  shimmer?: boolean;
 }
 
 const WAVE_PATH =
@@ -27,6 +29,7 @@ export function WaterWave({
   className = "",
   fill = "#ffffff",
   edgeColor = "#bae6fd",
+  shimmer = true,
 }: WaterWaveProps) {
   const rawId = useId().replace(/:/g, "");
 
@@ -56,21 +59,25 @@ export function WaterWave({
               {/* Base wave body — gradient from edge colour to destination fill */}
               <path d={WAVE_PATH} fill={`url(#${gradId})`} />
 
-              {/* Shimmer ribbon A — light blue highlight running along the crest */}
-              <path
-                d={SHIMMER_A}
-                fill={edgeColor}
-                fillOpacity={0.45}
-                className="wave-shimmer-a"
-              />
+              {shimmer && (
+                <>
+                  {/* Shimmer ribbon A — light blue highlight running along the crest */}
+                  <path
+                    d={SHIMMER_A}
+                    fill={edgeColor}
+                    fillOpacity={0.45}
+                    className="wave-shimmer-a"
+                  />
 
-              {/* Shimmer ribbon B — near-white foam stripe slightly lower */}
-              <path
-                d={SHIMMER_B}
-                fill="#ffffff"
-                fillOpacity={0.28}
-                className="wave-shimmer-b"
-              />
+                  {/* Shimmer ribbon B — near-white foam stripe slightly lower */}
+                  <path
+                    d={SHIMMER_B}
+                    fill="#ffffff"
+                    fillOpacity={0.28}
+                    className="wave-shimmer-b"
+                  />
+                </>
+              )}
             </svg>
           );
         })}

@@ -89,7 +89,7 @@ export function PageHero({
             alt=""
             aria-hidden="true"
             style={objectPosition ? { objectPosition } : undefined}
-            className={`w-full h-full object-cover object-center saturate-[1.35] brightness-[1.08] contrast-[1.1] md:saturate-[1.1] md:brightness-[0.95] md:contrast-[1.05]${showVideo ? "" : " animate-heropan-mobile"}`}
+            className={`w-full h-full object-cover object-center saturate-[1.35] brightness-[1.08] contrast-[1.1] md:saturate-[1.1] md:brightness-[0.95] md:contrast-[1.05]${showVideo ? " blur-2xl scale-110 md:blur-0 md:scale-100" : " animate-heropan-mobile"}`}
           />
         </picture>
         {/* MOBILE ONLY — looping background video of water bursting from the drain.
@@ -117,7 +117,7 @@ export function PageHero({
 
       {waveFillMobile ? (
         <>
-          <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px md:hidden" fill={waveFillMobile} edgeColor={waveEdgeMobile} />
+          <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px md:hidden" fill={waveFillMobile} edgeColor={waveFillMobile} shimmer={false} />
           <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px hidden md:block" fill={waveFill} />
         </>
       ) : (
