@@ -21,6 +21,9 @@ interface PageHeroProps {
   waveFill?: string;
   /** Optional separate wave colour for mobile when the following section differs by breakpoint. */
   waveFillMobile?: string;
+  /** Optional mobile wave crest/edge colour. Defaults to WaterWave's light-blue highlight;
+      set equal to waveFillMobile to make the transition a single flat colour. */
+  waveEdgeMobile?: string;
   /** CSS object-position for the background image (e.g. "center", "50% 40%") to control fleet framing. */
   objectPosition?: string;
 }
@@ -62,6 +65,7 @@ export function PageHero({
   children,
   waveFill = "#5392B6",
   waveFillMobile,
+  waveEdgeMobile,
   objectPosition,
 }: PageHeroProps) {
   // Only mount the <video> on phone viewports with motion allowed — CSS-hiding it on
@@ -113,7 +117,7 @@ export function PageHero({
 
       {waveFillMobile ? (
         <>
-          <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px md:hidden" fill={waveFillMobile} />
+          <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px md:hidden" fill={waveFillMobile} edgeColor={waveEdgeMobile} />
           <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px hidden md:block" fill={waveFill} />
         </>
       ) : (
