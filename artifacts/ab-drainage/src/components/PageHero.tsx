@@ -155,11 +155,28 @@ export function PageHero({
       </div>
 
       {waveFillMobile ? (
-        /* Home: on mobile the flowing divider now lives at the TOP of the next
-           (Trusted By) section — see Home.tsx — so the hero ends cleanly on the dark
-           photo with no empty light strip. Only the desktop wave (into the schedule
-           strip) renders here. */
-        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px hidden md:block" fill={waveFill} />
+        /* Home: on mobile the flowing divider lives at the TOP of the next (Trusted By)
+           section — see Home.tsx — so the hero ends cleanly on the dark photo. On DESKTOP
+           the hero → schedule-strip transition is a STATIC angled/stepped cut (echoing the
+           Facilities page's geometric divider, but with its own peak arrangement) instead of
+           an animated wave. Fill matches the schedule strip; a subtle brand hairline traces
+           the cut. */
+        <div
+          aria-hidden="true"
+          className="hidden md:block absolute bottom-0 left-0 w-full z-[5] -mb-px h-16 lg:h-20 overflow-hidden pointer-events-none leading-none"
+        >
+          <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="absolute bottom-0 w-full h-full">
+            <polygon points="0,58 520,80 760,34 1180,80 1440,52 1440,80 0,80" fill={waveFill} />
+            <polyline
+              points="0,58 520,80 760,34 1180,80 1440,52"
+              fill="none"
+              stroke="#5392B6"
+              strokeWidth={2}
+              strokeOpacity={0.55}
+              vectorEffect="non-scaling-stroke"
+            />
+          </svg>
+        </div>
       ) : (
         <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill={waveFill} />
       )}

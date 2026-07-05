@@ -3,6 +3,18 @@ name: ab-drainage mobile grey seam (hero → Trusted By)
 description: Why the mobile hero→Trusted-By transition kept looking wrong, and the final layout that fixed it for good.
 ---
 
+# Home hero dividers (desktop + mobile)
+
+**Desktop hero → schedule-strip divider is STATIC, not a wave.** In `PageHero.tsx`, inside the
+Home-only `waveFillMobile ?` branch, the desktop divider is a static angular/stepped SVG cut
+(a `polygon` filled `waveFill` #01618E + a `#5392B6` hairline `polyline`), NOT a `WaterWave`.
+The client wanted it "more like the Facilities page divider, but not identical, and static" —
+so it echoes `ABGroupFacilities.tsx`'s `SteppedDivider`/geometric cut but uses its own peak
+profile. **Why:** flowing wave felt too busy at the top; a crisp geometric cut reads more
+corporate. **How to apply:** the `else` branch still renders `WaterWave` for all other pages —
+only Home's desktop top divider is geometric. To tweak, adjust the polygon/polyline points, do
+not swap back to WaterWave. Mobile is unchanged (see below).
+
 # Mobile hero → Trusted By transition (Home)
 
 **History of the problem:** On mobile only, the seam between the hero and the light-blue
