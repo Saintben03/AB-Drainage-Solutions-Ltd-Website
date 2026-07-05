@@ -228,6 +228,14 @@ export default function Home() {
         <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill="#e0f2fe" />
       </section>
 
+      {/* ── MOBILE-ONLY flowing divider INTO Trusted By ──
+           Rendered as a sibling (not inside the section, whose overflow-hidden would
+           clip it) so it can rise up over the bottom of the hero photo. -mt-20 pulls
+           it into the hero; sky-100 water crests over the dark image into the light
+           band, matching the flowing wave at the base of this section. Desktop uses
+           the schedule strip's wave above instead. */}
+      <WaterWave className="relative z-[5] w-full -mt-20 md:hidden" fill="#e0f2fe" edgeColor="#bae6fd" heightClass="h-20" />
+
       {/* ── TRUSTED BY (light band, animated wave at its base) ── */}
       <section className="relative bg-sky-100 pt-4 pb-28 overflow-hidden">
         <div className="container mx-auto px-4">

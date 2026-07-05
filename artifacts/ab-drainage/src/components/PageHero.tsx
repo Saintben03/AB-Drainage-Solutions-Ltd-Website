@@ -21,8 +21,9 @@ interface PageHeroProps {
   children?: ReactNode;
   /** Colour the base wave blends into — should match the next section's background. */
   waveFill?: string;
-  /** Optional separate wave colour for mobile when the following section differs by breakpoint.
-      The mobile wave renders as a single flat colour (no shimmer) so it blends seamlessly. */
+  /** Home-only flag: when set, the hero renders ONLY the desktop base wave and skips a
+      mobile hero wave — on mobile the flowing divider instead lives at the TOP of the
+      following section (see Home.tsx), so the hero ends cleanly on the dark photo. */
   waveFillMobile?: string;
   /** CSS object-position for the background image (e.g. "center", "50% 40%") to control fleet framing. */
   objectPosition?: string;
@@ -154,15 +155,11 @@ export function PageHero({
       </div>
 
       {waveFillMobile ? (
-        <>
-          {/* z-[11] (above the z-10 content layer) is deliberate: the heading's blurred
-              black legibility scrim (bg-black/40 blur-3xl) lives in the content layer and
-              its blur bleeds DOWN onto this light wave, multiplying #e0f2fe into grey at the
-              seam. Keeping the wave above the content prevents that darkening. No hero
-              content sits inside this bottom strip, so nothing important is covered. */}
-          <WaterWave className="absolute bottom-0 left-0 w-full z-[11] -mb-px md:hidden" fill={waveFillMobile} edgeColor={waveFillMobile} shimmer={false} heightClass="h-24" />
-          <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px hidden md:block" fill={waveFill} />
-        </>
+        /* Home: on mobile the flowing divider now lives at the TOP of the next
+           (Trusted By) section — see Home.tsx — so the hero ends cleanly on the dark
+           photo with no empty light strip. Only the desktop wave (into the schedule
+           strip) renders here. */
+        <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px hidden md:block" fill={waveFill} />
       ) : (
         <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px" fill={waveFill} />
       )}

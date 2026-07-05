@@ -1,42 +1,45 @@
 ---
 name: ab-drainage mobile grey seam (hero → Trusted By)
-description: Root cause + fix for the recurring grey band at the mobile hero/Trusted-By seam.
+description: Why the mobile hero→Trusted-By transition kept looking wrong, and the final layout that fixed it for good.
 ---
 
-# Recurring grey band at mobile hero → Trusted By seam
+# Mobile hero → Trusted By transition (Home)
 
-**Symptom:** On mobile only, a grey band (~rgb(185,199,208), i.e. #e0f2fe darkened ~18%)
-appears at the seam between the hero and the light-blue `bg-sky-100` (#e0f2fe) Trusted By
-section. Has recurred multiple times; earlier "fixes" kept relocating the grey.
+**History of the problem:** On mobile only, the seam between the hero and the light-blue
+`bg-sky-100` Trusted By section looked wrong — first a grey band, then an empty flat
+light-grey strip that read as a dead "empty section". Root cause of the grey tint was the
+hero heading's blurred black legibility scrim (`bg-black/40 blur-3xl`) bleeding DOWN onto a
+light `#e0f2fe` WaterWave that used to sit at the hero's bottom. Re-layering the wave above
+the scrim (z-[11]) killed the grey, but the light wave + hero bottom padding still read as an
+empty light strip the client disliked.
 
-**Confirmed root cause (via red-wave pixel probe):** The hero's mobile WaterWave is filled
-solid #e0f2fe (`waveFillMobile` on Home). The hero heading has a soft legibility scrim in
-PageHero — `div.absolute.-inset-x-8.-inset-y-10.bg-black/40.blur-3xl ... -z-10` — which lives
-inside the **z-10 content layer**. `blur-3xl` (~64px) makes its bottom edge bleed DOWN onto
-the wave. Because the wave was `z-[5]` (below the content layer), the black blur multiplied
-the light-blue wave into grey. On other pages the wave is dark (#01618E) so the same bleed is
-invisible — only Home's light mobile wave exposes it.
+**Final fix (the one that stuck):** stop drawing ANY wave at the bottom of the mobile hero.
+Let the dark hero photo run all the way to the section edge, then render the flowing divider
+as the TOP of the Trusted By section instead.
 
-**Why past fixes failed:** Adding a `#e0f2fe → transparent` fade/backing just moves the
-problem — ANY fade from light-blue into the dark hero renders as a grey-blue gradient.
-WaterWave's own fill is a flat opaque shape when `edgeColor === fill`; it is NOT the source.
+- PageHero: the `waveFillMobile` prop is now just a **Home-only flag** — when set, the hero
+  renders only the desktop base wave (`hidden md:block`) and NO mobile wave.
+- Home: a mobile-only (`md:hidden`) `WaterWave` is rendered as a **sibling immediately before**
+  the Trusted By `<section>`, with `relative -mt-20 h-20`, fill `#e0f2fe`, edgeColor `#bae6fd`.
+  The negative margin pulls it up so sky-100 water crests over the bottom of the dark hero
+  photo, matching the flowing wave at the base of that section.
 
-**Fix that works:** raise the mobile light wave above the content/scrim layer
-(`z-[5]` → `z-[11]`) so nothing composites over it. Verified: wave renders true #e0f2fe
-(224,242,254) at crest peaks AND troughs, clean hard edge to the dark hero, seamless into
-Trusted By. Also shortened h-32 → h-24 (keeps crest clear of stats). Safe because no hero
-content sits in the bottom wave strip.
+**Why a sibling, not inside the section:** the Trusted By section has `overflow-hidden`
+(needed for the logo marquee + its bottom wave), which would CLIP any inner top wave that
+tries to overlap the hero above it. A sibling with negative margin overlaps the hero without
+being clipped, and paints on top because it comes later in the DOM.
 
-**Why (principle):** a light-coloured wave/divider must sit ABOVE any blurred dark scrim in
-the hero, or the blur bleed darkens it into grey. Don't try to fix it with fades — fades over
-dark are grey by definition.
+**Desktop is untouched:** on desktop the Trusted By transition still comes from the schedule
+strip's `#e0f2fe` bottom wave (that strip is `hidden md:block`, i.e. mobile-hidden), so the
+new mobile sibling wave (`md:hidden`) and the desktop strip never both show.
 
-**Debugging tooling that worked:**
-- Preview proxy caches screenshot frames — change the viewport size (e.g. 412x1180 → 414x1180)
-  to bust the cache; identical byte-for-byte pixels across shots = stale cache, not "no change".
-- Sample seam colours with ImageMagick: `convert shot.jpg -format "%[pixel:p{x,y}]" info:`.
-- To locate/diagnose a wave overlay, temporarily set its fill to pure red and sample — if red
-  reads darker than 255, something semi-transparent is compositing over it.
-- The seam is below the fold (hero is min-h-[92vh]) and the fixed cookie banner (SiteNotice)
-  covers it; to capture it, temporarily disable SiteNotice + use a tall viewport (min-h alone
-  won't shrink the hero — its height is content-driven). Revert both after.
+**Principle:** a hero that is a PHOTO can't hand off to a solid-colour section with a solid
+wave without a visible seam. The trick that works is a wave filled with the DESTINATION
+(solid) colour rising UP into the photo — the photo shows through the transparent troughs, so
+the seam reads as organic water, not a mismatched band. Fades from light into the dark photo
+always render grey; don't use them.
+
+**Debugging note:** this seam sits at ~92vh, below the mobile fold, and the fixed cookie
+banner (SiteNotice) covers it. To screenshot it, use a very tall mobile viewport (e.g.
+402x2950) so 92vh pushes the seam just above the banner — or temporarily disable SiteNotice.
+Preview proxy caches frames: vary the viewport size between shots to bust the cache.
