@@ -12,8 +12,8 @@ import { SOCIALS } from "@/components/SocialLinks";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 
 import heroImg from "@assets/Designer_(1)_1782807579036.png";
-import heroPipePoster from "@assets/generated_images/hero-pipe-burst.png";
-import heroPipeVideo from "@assets/generated_videos/pipe_burst_street_loop.mp4";
+import heroPipePoster from "@assets/generated_images/hero-office-digger-burst.jpg";
+import heroPipeVideo from "@assets/generated_videos/office_building_digger_pipe_burst_compressed.mp4";
 import scheduleBg from "@assets/ab-mark-trimmed_1782919186057.webp";
 import crewTeam from "@assets/ab_group_gallery/worker-9.33.16.jpeg";
 import crewManhole from "@assets/ab_group_gallery/worker-9.33.30.jpeg";
@@ -140,7 +140,7 @@ export default function Home() {
       <PageHero
         image={heroPipePoster}
         desktopVideo={heroPipeVideo}
-        imageAlt="A burst water main gushing across a South England street"
+        imageAlt="An excavator striking an underground water main outside a corporate office building, water erupting"
         waveFill="#01618E"
         waveFillMobile="#e0f2fe"
         eyebrow={
