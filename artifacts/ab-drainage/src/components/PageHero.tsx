@@ -155,7 +155,12 @@ export function PageHero({
 
       {waveFillMobile ? (
         <>
-          <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px md:hidden" fill={waveFillMobile} edgeColor={waveFillMobile} shimmer={false} heightClass="h-32" />
+          {/* z-[11] (above the z-10 content layer) is deliberate: the heading's blurred
+              black legibility scrim (bg-black/40 blur-3xl) lives in the content layer and
+              its blur bleeds DOWN onto this light wave, multiplying #e0f2fe into grey at the
+              seam. Keeping the wave above the content prevents that darkening. No hero
+              content sits inside this bottom strip, so nothing important is covered. */}
+          <WaterWave className="absolute bottom-0 left-0 w-full z-[11] -mb-px md:hidden" fill={waveFillMobile} edgeColor={waveFillMobile} shimmer={false} heightClass="h-24" />
           <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px hidden md:block" fill={waveFill} />
         </>
       ) : (

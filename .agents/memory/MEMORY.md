@@ -11,6 +11,7 @@
 - [ab-drainage hero typography](ab-drainage-hero-typography.md) — all page hero H1s use font-light + md:text-6xl + tracking-normal (not heavy bold); display font (Oswald) never actually loads.
 - [ab-drainage home section differentiation](ab-drainage-home-sections.md) — adjacent dark home sections must differ in tone (services=neutral, why-choose=navy); WaterWave fill = next section's top color.
 - [ab-drainage hero video](ab-drainage-hero-video.md) — PageHero has separate gated mobile+desktop hero videos (only Home passes desktopVideo); generated 1080p clips are ~36MB, MUST ffmpeg-compress before import.
+- [ab-drainage mobile grey seam](ab-drainage-mobile-grey-seam.md) — grey band at mobile hero→Trusted seam is the hero's blurred black scrim bleeding onto the light wave; raise wave z above content layer.
 - [ab-drainage favicon/deploy](ab-drainage-favicon-deploy.md) — build/favicon verified correct; red favicon = browser cache (use ?v=N); outbound to live site blocked; worf.replit.dev is dev not live.
 - [ab-drainage canvas viewport](ab-drainage-canvas-viewport.md) — canvas iframe renders desktop (~1920px); user complaints from it are about DESKTOP; keep hero video transform-cover, not fit-width.
 - [ab-drainage marquee iOS glitch](ab-drainage-marquee-ios.md) — CSS mask-image + animated transform disappears on iOS Safari; use gradient overlay divs for edge fades instead.
