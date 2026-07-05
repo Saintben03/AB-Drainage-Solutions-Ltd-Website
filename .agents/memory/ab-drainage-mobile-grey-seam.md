@@ -20,14 +20,22 @@ as the TOP of the Trusted By section instead.
 - PageHero: the `waveFillMobile` prop is now just a **Home-only flag** — when set, the hero
   renders only the desktop base wave (`hidden md:block`) and NO mobile wave.
 - Home: a mobile-only (`md:hidden`) `WaterWave` is rendered as a **sibling immediately before**
-  the Trusted By `<section>`, with `relative -mt-20 h-20`, filled FLAT `#e0f2fe`
-  (`fill="#e0f2fe" edgeColor="#e0f2fe" shimmer={false}`). The negative margin pulls it up so
-  sky-100 water crests over the bottom of the dark hero photo, matching the base of that section.
+  the Trusted By `<section>`, with `relative -mt-20 h-20`. The negative margin pulls it up so
+  the water crests over the bottom of the dark hero photo.
 
-**Two-tone regret:** an earlier version used `edgeColor="#bae6fd"` (a lighter gradient edge)
-which the client read as a grey/two-tone divider. The flat version (edgeColor === fill, shimmer
-off) is what they wanted — WaterWave renders a uniform block when edgeColor equals fill and
-shimmer is false. Don't reintroduce a gradient edge on this divider.
+**Final look the client settled on — FLOWING, not flat:** the top divider must MIRROR the
+flowing wave at the BASE of the Trusted section. Use `fill="#e0f2fe" edgeColor="#bae6fd"` with
+shimmer ON (default) — a light-blue `#bae6fd` foam crest + shimmer reading as flowing water
+against the dark hero. **Do NOT make it flat** (`edgeColor` == `fill`, shimmer off) — the
+client explicitly rejected the flat version as looking "grey", and asked for it to flow like
+the bottom wave.
+
+**Taste flip-flopped here — history:** the client FIRST called the gradient-edge version a
+"grey two-tone" band and I made it flat; then they reversed and said the flat one "looks grey",
+wanting it to flow like the bottom. The resolution that stuck is FLOWING (mirror the bottom).
+The earlier grey complaints traced to the black legibility scrim bleeding onto the wave, which
+the sibling-over-hero layout already fixed — so the `#bae6fd` foam crest now reads as light
+blue, not grey. Verify visually against the bottom wave before declaring done.
 
 **Why a sibling, not inside the section:** the Trusted By section has `overflow-hidden`
 (needed for the logo marquee + its bottom wave), which would CLIP any inner top wave that

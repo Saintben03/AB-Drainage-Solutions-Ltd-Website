@@ -231,11 +231,12 @@ export default function Home() {
       {/* ── MOBILE-ONLY flowing divider INTO Trusted By ──
            Rendered as a sibling (not inside the section, whose overflow-hidden would
            clip it) so it can rise up over the bottom of the hero photo. -mt-20 pulls
-           it into the hero; sky-100 water crests over the dark image into the light
-           band. Flat #e0f2fe (no gradient edge / no shimmer) so the whole divider is
-           exactly the same colour as the section — a gradient edge read as a grey
-           two-tone band. Desktop uses the schedule strip's wave above instead. */}
-      <WaterWave className="relative z-[5] w-full -mt-20 md:hidden" fill="#e0f2fe" edgeColor="#e0f2fe" shimmer={false} heightClass="h-20" />
+           it into the hero; light-blue water crests over the dark image into the light
+           band. Mirrors the light→dark wave at the BASE of the Trusted section (L248):
+           fill = #e0f2fe (destination), light-blue #bae6fd foam crest + shimmer so it
+           reads as flowing light-blue water against the dark hero, not a flat grey band.
+           Desktop uses the schedule strip's wave above instead. */}
+      <WaterWave className="relative z-[5] w-full -mt-20 md:hidden" fill="#e0f2fe" edgeColor="#bae6fd" heightClass="h-20" />
 
       {/* ── TRUSTED BY (light band, animated wave at its base) ── */}
       <section className="relative bg-sky-100 pt-4 pb-28 overflow-hidden">
