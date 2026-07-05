@@ -19,11 +19,9 @@ interface PageHeroProps {
   children?: ReactNode;
   /** Colour the base wave blends into — should match the next section's background. */
   waveFill?: string;
-  /** Optional separate wave colour for mobile when the following section differs by breakpoint. */
+  /** Optional separate wave colour for mobile when the following section differs by breakpoint.
+      The mobile wave renders as a single flat colour (no shimmer) so it blends seamlessly. */
   waveFillMobile?: string;
-  /** Optional mobile wave crest/edge colour. Defaults to WaterWave's light-blue highlight;
-      set equal to waveFillMobile to make the transition a single flat colour. */
-  waveEdgeMobile?: string;
   /** CSS object-position for the background image (e.g. "center", "50% 40%") to control fleet framing. */
   objectPosition?: string;
 }
@@ -65,7 +63,6 @@ export function PageHero({
   children,
   waveFill = "#5392B6",
   waveFillMobile,
-  waveEdgeMobile,
   objectPosition,
 }: PageHeroProps) {
   // Only mount the <video> on phone viewports with motion allowed — CSS-hiding it on
@@ -89,7 +86,7 @@ export function PageHero({
             alt=""
             aria-hidden="true"
             style={objectPosition ? { objectPosition } : undefined}
-            className={`w-full h-full object-cover object-center saturate-[1.35] brightness-[1.08] contrast-[1.1] md:saturate-[1.1] md:brightness-[0.95] md:contrast-[1.05]${showVideo ? " blur-2xl scale-110 md:blur-0 md:scale-100" : " animate-heropan-mobile"}`}
+            className={`w-full h-full object-cover object-center saturate-[1.35] brightness-[1.08] contrast-[1.1] md:saturate-[1.1] md:brightness-[0.95] md:contrast-[1.05]${showVideo ? "" : " animate-heropan-mobile"}`}
           />
         </picture>
         {/* MOBILE ONLY — looping background video of water bursting from the drain.

@@ -140,7 +140,6 @@ export default function Home() {
         imageAlt="A&B Drainage Solutions Ltd fleet of vans"
         waveFill="#01618E"
         waveFillMobile="#e0f2fe"
-        waveEdgeMobile="#e0f2fe"
         eyebrow={
           <>
             <span className="w-2 h-2 rounded-full bg-accent animate-pulse inline-block"></span>
