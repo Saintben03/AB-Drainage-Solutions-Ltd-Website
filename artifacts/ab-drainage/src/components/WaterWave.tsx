@@ -7,6 +7,9 @@ interface WaterWaveProps {
   edgeColor?: string;
   /** Render the light shimmer/foam ribbons. Set false for a perfectly flat transition. */
   shimmer?: boolean;
+  /** Tailwind height classes for the wave SVG. Taller waves cover more of the
+      section above them — useful for hiding a misty/gradient background edge. */
+  heightClass?: string;
 }
 
 const WAVE_PATH =
@@ -30,6 +33,7 @@ export function WaterWave({
   fill = "#ffffff",
   edgeColor = "#bae6fd",
   shimmer = true,
+  heightClass = "h-12 md:h-20",
 }: WaterWaveProps) {
   const rawId = useId().replace(/:/g, "");
 
@@ -46,7 +50,7 @@ export function WaterWave({
               key={i}
               viewBox="0 0 1440 120"
               preserveAspectRatio="none"
-              className="w-1/2 h-12 md:h-20"
+              className={`w-1/2 ${heightClass}`}
             >
               <defs>
                 <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="1">

@@ -114,7 +114,7 @@ export function PageHero({
 
       {waveFillMobile ? (
         <>
-          <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px md:hidden" fill={waveFillMobile} edgeColor={waveFillMobile} shimmer={false} />
+          <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px md:hidden" fill={waveFillMobile} edgeColor={waveFillMobile} shimmer={false} heightClass="h-32" />
           <WaterWave className="absolute bottom-0 left-0 w-full z-[5] -mb-px hidden md:block" fill={waveFill} />
         </>
       ) : (
