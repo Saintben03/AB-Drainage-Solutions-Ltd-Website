@@ -3,6 +3,9 @@ import { Phone, Mail, Menu, X, ArrowRight, ChevronDown, AlertTriangle } from "lu
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import logoMain from "@assets/site_files_1/AB Drainage logo.png";
+import logoConstruction from "@assets/AB-Construction-300x54_1783288669800.png";
+import logoFencing from "@assets/AB-Fencing-300x56_1783288689329.png";
+import logoFacilities from "@assets/AB-Facilities-scaled-1-300x52_1783288632041.png";
 import { SocialLinks } from "./SocialLinks";
 import { useBookNow } from "@/contexts/BookNowContext";
 import { EmergencyModal } from "./EmergencyModal";
@@ -12,22 +15,19 @@ const groupCompanies = [
     name: "AB Construction Solutions",
     sub: "Civil Engineering & Groundworks",
     href: "/ab-group/construction",
-    color: "#dc2626",
-    dot: "bg-red-600",
+    logo: logoConstruction,
   },
   {
     name: "AB Fencing Solutions",
     sub: "Residential, Commercial & Agricultural",
     href: "/ab-group/fencing",
-    color: "#16a34a",
-    dot: "bg-green-600",
+    logo: logoFencing,
   },
   {
     name: "AB Facilities Management",
     sub: "Buildings & Compliance",
     href: "/ab-group/facilities",
-    color: "#64748b",
-    dot: "bg-slate-500",
+    logo: logoFacilities,
   },
 ];
 
@@ -255,17 +255,13 @@ export const Navbar = () => {
                           href={co.href}
                           className="flex items-center gap-4 px-5 py-4 hover:bg-white/[0.06] transition-colors group/item border-t border-white/5"
                         >
-                          <span
-                            className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-display font-bold text-white text-lg tracking-tight shadow-lg ring-2 ring-white/15 group-hover/item:scale-105 transition-transform"
-                            style={{ backgroundColor: co.color }}
-                          >
-                            AB
-                          </span>
-                          <div className="min-w-0">
-                            <p className="text-white font-bold text-sm uppercase tracking-wide leading-tight">
-                              {co.name}
-                            </p>
-                            <p className="text-white/50 text-xs mt-0.5 leading-snug">{co.sub}</p>
+                          <div className="min-w-0 flex-1">
+                            <img
+                              src={co.logo}
+                              alt={co.name}
+                              className="h-7 w-auto object-contain group-hover/item:scale-[1.03] origin-left transition-transform"
+                            />
+                            <p className="text-white/50 text-xs mt-2 leading-snug">{co.sub}</p>
                           </div>
                           <ArrowRight
                             size={15}
@@ -404,15 +400,13 @@ export const Navbar = () => {
                             onClick={() => setMobileMenuOpen(false)}
                             className="flex items-center gap-4 px-8 py-4 border-t border-zinc-800 hover:bg-zinc-900 transition-colors"
                           >
-                            <span
-                              className="shrink-0 w-11 h-11 rounded-full flex items-center justify-center font-display font-bold text-white text-base tracking-tight shadow-lg ring-2 ring-white/15"
-                              style={{ backgroundColor: co.color }}
-                            >
-                              AB
-                            </span>
-                            <div className="flex-1">
-                              <p className="text-white font-bold text-sm uppercase tracking-wide">{co.name}</p>
-                              <p className="text-white/40 text-xs">{co.sub}</p>
+                            <div className="flex-1 min-w-0">
+                              <img
+                                src={co.logo}
+                                alt={co.name}
+                                className="h-6 w-auto object-contain"
+                              />
+                              <p className="text-white/40 text-xs mt-1.5">{co.sub}</p>
                             </div>
                             <ArrowRight size={14} className="text-white/30" />
                           </Link>
