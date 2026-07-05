@@ -1,6 +1,7 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { motion } from "framer-motion";
 import { WaterWave } from "@/components/WaterWave";
+import { HeroVideoLoop } from "@/components/HeroVideoLoop";
 import heroBurstMobile from "@assets/hero-burst-mobile.png";
 import heroBurstVideo from "@assets/generated_videos/drain_water_burst_loop.mp4";
 
@@ -91,17 +92,12 @@ export function PageHero({
             Rendered only on phone viewports with motion allowed (reduced-motion users
             keep the still image). Poster shows instantly while the clip buffers. */}
         {showVideo && mobileVideo ? (
-          <video
-            src={mobileVideo}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            aria-hidden="true"
-            tabIndex={-1}
-            className="md:hidden absolute inset-0 w-full h-full object-cover object-center saturate-[1.35] brightness-[1.08] contrast-[1.1]"
-          />
+          <div className="md:hidden absolute inset-0 overflow-hidden">
+            <HeroVideoLoop
+              src={mobileVideo}
+              filterClass="saturate-[1.35] brightness-[1.08] contrast-[1.1]"
+            />
+          </div>
         ) : null}
         {/* MOBILE — fencing-division-style hero: bright dramatic image, text anchored at the
             bottom over dark gradients + a soft brand-blue colour cast. No heavy tint. */}
