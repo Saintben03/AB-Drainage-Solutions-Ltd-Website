@@ -1,5 +1,6 @@
 - [ab-drainage screenshots](ab-drainage-screenshots.md) — Home hero is min-h-[92vh]; vh scales with capture so screenshots can't reach below-fold content.
 - [ab-drainage hero livery](ab-drainage-hero-livery.md) — van livery is navy #013D85 + white AB (not the light-blue brand asset); how to composite decals that don't look like stickers.
+- [ab-drainage hero scene](ab-drainage-hero-scene.md) — client wants residential-street burst-main + dejected workman (head in hands) in digger; rejected corporate/office & shocked-face versions.
 - [framer-motion nested stagger invisible](ab-drainage-framer-stagger.md) — stagger list inside an animating motion.div renders items at opacity 0; decouple with per-item whileInView.
 - [ab-drainage theme tokens](ab-drainage-theme-tokens.md) — dark-first theme: text-foreground/bg-card/border-border render light-on-light in light sections; use explicit zinc values.
 - [ab-drainage hero overlay](ab-drainage-hero-overlay.md) — all 7 content heros share one bright PageHero.tsx (edit there, not per-page); Home wave-fill is breakpoint-split; taste keeps flip-flopping bright<->heavy.
