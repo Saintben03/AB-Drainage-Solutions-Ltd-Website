@@ -30,3 +30,7 @@ bump the `?v=N` on all favicon `<link>`s in index.html and push.
 - Replit preview pane / canvas iframe cache a blank page if the Vite workflow was
   crashed when they first loaded; they do NOT auto-refresh on workflow restart.
   Tell the user to use "open in new tab" or reselect the artifact in the preview dropdown.
+
+## Blank page = ad blocker blocking dev module by filename (ERR_BLOCKED_BY_CLIENT)
+Client's desktop showed a fully blank site (tab title still set) while mobile + other repls worked; antivirus off, cache cleared, multiple browsers — all still blank. Root cause: a browser ad/privacy blocker (uBlock/AdBlock/Ghostery) blocked the Vite dev module `/src/components/CookieBanner.tsx` with `net::ERR_BLOCKED_BY_CLIENT` purely because the filename contained "Cookie"+"Banner" (matches EasyList cosmetic/network filters). In dev each component is its own URL, so blocking one import crashes the whole app → blank. Prod bundles to a hashed file so it wouldn't block the same way, but cosmetic filters can still hide elements by class/aria containing "cookie/banner".
+**Fix:** renamed component/file to `SiteNotice.tsx` (neutral), storage key `ab_site_consent`, aria-labels de-cookied. **Rule:** never name a shipped component/file/class/id with adblock-trigger words (cookie, banner, ad, ads, sponsor, popup, consent, gdpr, tracking, analytics). The F12 Console `ERR_BLOCKED_BY_CLIENT` line is the definitive tell.

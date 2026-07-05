@@ -9,9 +9,9 @@ type Consent = {
   marketing: boolean;
 };
 
-const STORAGE_KEY = "ab_cookie_consent";
+const STORAGE_KEY = "ab_site_consent";
 
-export const CookieBanner = () => {
+export const SiteNotice = () => {
   const [visible, setVisible] = useState(false);
   const [expanded, setExpanded] = useState(false);
   const [prefs, setPrefs] = useState<Omit<Consent, "necessary">>({
@@ -52,7 +52,7 @@ export const CookieBanner = () => {
           transition={{ duration: 0.35, ease: "easeOut" }}
           className="fixed bottom-0 left-0 right-0 z-[150] bg-[#0f0f0f] border-t border-white/10 shadow-2xl"
           role="dialog"
-          aria-label="Cookie consent"
+          aria-label="Privacy preferences"
         >
           <div className="container mx-auto px-4 lg:px-8 py-5">
             <div className="flex flex-col lg:flex-row gap-5 lg:items-start">
@@ -157,7 +157,7 @@ export const CookieBanner = () => {
               <button
                 onClick={acceptNecessary}
                 className="absolute top-3 right-3 lg:relative lg:top-auto lg:right-auto text-white/40 hover:text-white transition-colors self-start"
-                aria-label="Dismiss cookie banner"
+                aria-label="Dismiss"
               >
                 <X size={16} />
               </button>

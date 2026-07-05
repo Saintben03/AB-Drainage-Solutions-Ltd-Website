@@ -10,7 +10,7 @@ import NotFound from "@/pages/not-found";
 
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { CookieBanner } from "@/components/CookieBanner";
+import { SiteNotice } from "@/components/SiteNotice";
 import Home from "@/pages/Home";
 import Services from "@/pages/Services";
 import About from "@/pages/About";
@@ -84,7 +84,7 @@ function Router() {
         </AnimatePresence>
       </main>
       <Footer />
-      <CookieBanner />
+      <SiteNotice />
     </div>
   );
 }
