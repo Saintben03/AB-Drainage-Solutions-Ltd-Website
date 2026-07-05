@@ -12,8 +12,8 @@ import { SOCIALS } from "@/components/SocialLinks";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 
 import heroImg from "@assets/Designer_(1)_1782807579036.png";
-import heroPipePoster from "@assets/generated_images/hero-office-digger-burst.jpg";
-import heroPipeVideo from "@assets/generated_videos/office_building_digger_pipe_burst_compressed.mp4";
+import heroPipePoster from "@assets/generated_images/hero-office-digger-operator.jpg";
+import heroPipeVideo from "@assets/generated_videos/office_digger_operator_shocked_pipe_burst_compressed.mp4";
 import scheduleBg from "@assets/ab-mark-trimmed_1782919186057.webp";
 import crewTeam from "@assets/ab_group_gallery/worker-9.33.16.jpeg";
 import crewManhole from "@assets/ab_group_gallery/worker-9.33.30.jpeg";
@@ -140,7 +140,7 @@ export default function Home() {
       <PageHero
         image={heroPipePoster}
         desktopVideo={heroPipeVideo}
-        imageAlt="An excavator striking an underground water main outside a corporate office building, water erupting"
+        imageAlt="A shocked excavator operator after accidentally striking an underground water main outside a corporate office building, water erupting"
         waveFill="#01618E"
         waveFillMobile="#e0f2fe"
         eyebrow={
@@ -232,9 +232,10 @@ export default function Home() {
            Rendered as a sibling (not inside the section, whose overflow-hidden would
            clip it) so it can rise up over the bottom of the hero photo. -mt-20 pulls
            it into the hero; sky-100 water crests over the dark image into the light
-           band, matching the flowing wave at the base of this section. Desktop uses
-           the schedule strip's wave above instead. */}
-      <WaterWave className="relative z-[5] w-full -mt-20 md:hidden" fill="#e0f2fe" edgeColor="#bae6fd" heightClass="h-20" />
+           band. Flat #e0f2fe (no gradient edge / no shimmer) so the whole divider is
+           exactly the same colour as the section — a gradient edge read as a grey
+           two-tone band. Desktop uses the schedule strip's wave above instead. */}
+      <WaterWave className="relative z-[5] w-full -mt-20 md:hidden" fill="#e0f2fe" edgeColor="#e0f2fe" shimmer={false} heightClass="h-20" />
 
       {/* ── TRUSTED BY (light band, animated wave at its base) ── */}
       <section className="relative bg-sky-100 pt-4 pb-28 overflow-hidden">

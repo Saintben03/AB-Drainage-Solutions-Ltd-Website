@@ -20,9 +20,14 @@ as the TOP of the Trusted By section instead.
 - PageHero: the `waveFillMobile` prop is now just a **Home-only flag** — when set, the hero
   renders only the desktop base wave (`hidden md:block`) and NO mobile wave.
 - Home: a mobile-only (`md:hidden`) `WaterWave` is rendered as a **sibling immediately before**
-  the Trusted By `<section>`, with `relative -mt-20 h-20`, fill `#e0f2fe`, edgeColor `#bae6fd`.
-  The negative margin pulls it up so sky-100 water crests over the bottom of the dark hero
-  photo, matching the flowing wave at the base of that section.
+  the Trusted By `<section>`, with `relative -mt-20 h-20`, filled FLAT `#e0f2fe`
+  (`fill="#e0f2fe" edgeColor="#e0f2fe" shimmer={false}`). The negative margin pulls it up so
+  sky-100 water crests over the bottom of the dark hero photo, matching the base of that section.
+
+**Two-tone regret:** an earlier version used `edgeColor="#bae6fd"` (a lighter gradient edge)
+which the client read as a grey/two-tone divider. The flat version (edgeColor === fill, shimmer
+off) is what they wanted — WaterWave renders a uniform block when edgeColor equals fill and
+shimmer is false. Don't reintroduce a gradient edge on this divider.
 
 **Why a sibling, not inside the section:** the Trusted By section has `overflow-hidden`
 (needed for the logo marquee + its bottom wave), which would CLIP any inner top wave that
