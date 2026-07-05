@@ -17,6 +17,19 @@ water main gushes and flows across the wet tarmac.
 believable working scene — operator doing real work, proper site safety (barriers), on a side
 street rather than blocking the main road.
 
+**SEAMLESS LOOP = locked camera + stationary digger (client's explicit chosen fix).** The clip
+must be generated with a LOCKED-OFF static tripod camera (no pan/zoom/dolly, identical framing
+first→last frame) and the digger BODY/tracks parked stationary in the same position throughout —
+so a plain HTML `loop` never shifts the machine. The arm/boom SHOULD move (digging up/down) and
+the operator's hands work the controls; only the machine base + camera stay fixed. Water flows
+forward only. Post-process is just compress (scale 1280, crf ~31, `-an`) → overwrite
+`sidestreet_digger_operator_compressed.mp4`; also refresh the poster jpg from frame 1 so the
+still matches. Do NOT re-edit the loop yourself.
+**Rejected loop fixes — do not reach for these again:**
+- Boomerang (forward+reverse concat): makes the burst-main water SUCK BACK IN on the reverse. Rejected.
+- Forward-only xfade crossfade loop: client did not want it; he wanted the stationary-digger
+  approach instead. Follow his instruction, don't substitute your own "better" loop trick.
+
 **ONE person only — never a second worker.** Any extra background figure (e.g. a small
 hi-vis worker standing by the bush/central island) comes out badly deformed. Prompt for the
 SINGLE cab operator and negative-prompt "second person / bystander / extra worker in
