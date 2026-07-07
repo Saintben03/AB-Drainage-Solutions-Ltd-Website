@@ -1,18 +1,12 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Phone, Send, Loader2, CheckCircle2, AlertTriangle } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { WEB3FORMS_ACCESS_KEY, isWeb3FormsConfigured } from "@/lib/web3forms";
 
 interface EmergencyModalProps {
   open: boolean;
   onClose: () => void;
 }
-
-// Web3Forms access key (free, client-side email delivery for static sites).
-// Create one at https://web3forms.com using info@abdrainage.co.uk, then paste it here
-// (or set VITE_WEB3FORMS_ACCESS_KEY in the DigitalOcean env). It is a public form key, not a secret.
-const WEB3FORMS_ACCESS_KEY =
-  (import.meta.env.VITE_WEB3FORMS_ACCESS_KEY as string | undefined) ||
-  "YOUR_WEB3FORMS_ACCESS_KEY";
 
 const EMERGENCY_MOBILE = "07498 062 710";
 const EMERGENCY_MOBILE_TEL = "07498062710";
@@ -66,6 +60,11 @@ export const EmergencyModal = ({ open, onClose }: EmergencyModalProps) => {
 
   const handleAlert = async (e: React.FormEvent) => {
     e.preventDefault();
+    // No delivery key installed yet — don't fake a send, show the call-us fallback.
+    if (!isWeb3FormsConfigured()) {
+      setSendState("error");
+      return;
+    }
     setSendState("sending");
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
