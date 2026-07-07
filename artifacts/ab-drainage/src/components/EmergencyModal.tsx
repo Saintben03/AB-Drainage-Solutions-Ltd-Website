@@ -77,8 +77,6 @@ export const EmergencyModal = ({ open, onClose }: EmergencyModalProps) => {
           access_key: WEB3FORMS_ACCESS_KEY,
           subject: "EMERGENCY CALLOUT — A&B Drainage Website",
           from_name: "A&B Drainage Emergency Alert",
-          // Sent to the account email (info@abdrainage.co.uk) and CC'd to Louis.
-          cc: ["louis@abdrainage.co.uk"],
           name: name || "Not provided",
           phone: phone || "Not provided",
           message:

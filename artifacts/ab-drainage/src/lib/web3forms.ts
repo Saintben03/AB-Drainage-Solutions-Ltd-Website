@@ -7,11 +7,16 @@
 //   - paste the key into WEB3FORMS_ACCESS_KEY below, or
 //   - set VITE_WEB3FORMS_ACCESS_KEY in the hosting environment.
 //
-// Every submission is delivered to the email address the key was created with
-// (info@abdrainage.co.uk). The emergency panel additionally CCs louis@abdrainage.co.uk.
+// Every submission is delivered to the email address the key was created with —
+// currently louis@abdrainage.co.uk (the account this key belongs to).
+// NOTE: Web3Forms' free plan delivers to that SINGLE account inbox only. CC to
+// extra recipients (ccemail) is a Pro-only feature ($12/mo), so we do not send it.
+// NOTE: Web3Forms blocks submissions from some temporary domain TLDs (e.g. the
+// *.replit.dev preview URL), so an end-to-end submit test only succeeds from the
+// real production domain (abdrainage.co.uk), where the block does not apply.
 export const WEB3FORMS_ACCESS_KEY =
   (import.meta.env.VITE_WEB3FORMS_ACCESS_KEY as string | undefined) ||
-  "YOUR_WEB3FORMS_ACCESS_KEY";
+  "1fff1011-7ce5-4637-a911-a8636db20080";
 
 // True only once a real key has been installed (guards against silent no-delivery).
 export const isWeb3FormsConfigured = (): boolean =>

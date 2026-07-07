@@ -20,4 +20,8 @@ Red compact card modal (NOT full-screen, NOT orange) triggered by the top emerge
 
 **Config guard:** `isWeb3FormsConfigured()` (same file) returns false while the placeholder is present. Both forms call it first and short-circuit to the "please call/email us" error state instead of attempting a doomed network submit. So a real key is REQUIRED for any delivery.
 
-**Both forms now really send** (as of this wiring): ContactForm POSTs to Web3Forms (was previously a fake setTimeout stub); EmergencyModal POSTs with `cc: [louis@abdrainage.co.uk]`. mailto: links on ABGroup*/FlexiPay pages are unaffected (they open the visitor's mail client, always "worked").
+**Web3Forms FREE plan limits (confirmed):** delivers to the SINGLE account inbox the key was created under — no way to change the "to" without recreating the key under a different email. CC (`ccemail`) is PRO-only ($12/mo); sending a `cc`/`ccemail` field on free does NOT error by itself, but do not rely on it. 250 submissions/month, 30-day storage. The installed key belongs to louis@abdrainage.co.uk, so messages land there (NOT info@, despite info@ being the address shown all over the site).
+
+**CANNOT e2e-test form delivery from the Replit dev preview:** Web3Forms blocks submissions from the `*.replit.dev` preview TLD → HTTP 400 `"Form submissions from this domain TLD is blocked."` This is a per-TLD spam block, NOT a code/key bug. Real domain abdrainage.co.uk (.co.uk) is not blocked, so the forms work in production. Verification of live delivery can only be done on the production domain.
+
+**Both forms now really send** (as of this wiring): ContactForm POSTs to Web3Forms (was previously a fake setTimeout stub); EmergencyModal POSTs too. No `cc`/`ccemail` field is sent (Pro-only). mailto: links on ABGroup*/FlexiPay pages are unaffected (they open the visitor's mail client, always "worked").
