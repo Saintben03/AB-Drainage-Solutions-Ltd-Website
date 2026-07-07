@@ -4,28 +4,11 @@ import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
 import { WaterWave } from "@/components/WaterWave";
 import { PageHero } from "@/components/PageHero";
+import { towns } from "@/data/areas";
 
 import heroImg from "@assets/Designer_(1)_1782807579036.png";
 import vanImg from "@assets/site_files_1/g-01u.jpg";
 import crewArea from "@assets/ab_group_gallery/worker-9.33.26.jpeg";
-
-const areas = [
-  { name: "Basingstoke", tag: "HQ Area" },
-  { name: "Southampton", tag: "Major Hub" },
-  { name: "Winchester", tag: "" },
-  { name: "Aldershot", tag: "" },
-  { name: "Reading", tag: "" },
-  { name: "Farnborough", tag: "" },
-  { name: "Andover", tag: "" },
-  { name: "Fleet", tag: "" },
-  { name: "Alton", tag: "" },
-  { name: "Petersfield", tag: "" },
-  { name: "Portsmouth", tag: "" },
-  { name: "Eastleigh", tag: "" },
-  { name: "Fareham", tag: "" },
-  { name: "Gosport", tag: "" },
-  { name: "Havant", tag: "" },
-];
 
 const borderAreas = ["Berkshire", "Surrey", "Sussex", "Kent", "London", "Dorset", "Wiltshire"];
 
@@ -117,9 +100,12 @@ export default function Areas() {
             viewport={{ once: true }}
             className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-0.5 bg-zinc-200 mb-16"
           >
-            {areas.map((area, i) => (
+            {towns.map((area, i) => (
               <motion.div key={i} variants={fadeUp} className="h-full">
-                <div className="bg-white p-6 flex items-start gap-3 group hover:bg-accent/10 transition-colors cursor-default border-t-2 border-t-transparent hover:border-t-accent h-full">
+                <Link
+                  href={`/areas/${area.slug}`}
+                  className="bg-white p-6 flex items-start gap-3 group hover:bg-accent/10 transition-colors border-t-2 border-t-transparent hover:border-t-accent h-full"
+                >
                   <MapPin size={16} className="text-accent shrink-0 mt-0.5" />
                   <div>
                     <p className="font-bold text-zinc-900 text-sm uppercase tracking-wide group-hover:text-accent transition-colors">
@@ -129,7 +115,7 @@ export default function Areas() {
                       <span className="text-[10px] font-bold text-accent uppercase tracking-widest">{area.tag}</span>
                     )}
                   </div>
-                </div>
+                </Link>
               </motion.div>
             ))}
           </motion.div>

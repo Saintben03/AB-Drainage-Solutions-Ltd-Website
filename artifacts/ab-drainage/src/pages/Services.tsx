@@ -19,7 +19,7 @@ import imgCctv from "@assets/blog/cctv-survey.png";
 import imgJetting from "@assets/blog/drain-jetting.png";
 import imgSoakaway from "@assets/blog/soakaway-install.png";
 
-interface Service {
+export interface Service {
   id: string;
   title: string;
   shortDesc: string;
@@ -35,7 +35,7 @@ interface Service {
   };
 }
 
-const services: Service[] = [
+export const services: Service[] = [
   {
     id: "emergency",
     title: "24/7 Emergency Drainage",

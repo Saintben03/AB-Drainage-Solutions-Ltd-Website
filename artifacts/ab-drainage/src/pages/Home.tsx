@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { ArrowRight, Phone, Clock, MapPin, ShieldCheck, Star, ThumbsUp, ExternalLink, Siren, Video, Droplets, Wrench, Building2, Layers } from "lucide-react";
 import { SEO } from "@/components/SEO";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { CountUp } from "@/components/CountUp";
 import { LogoMarquee } from "@/components/LogoMarquee";
@@ -135,6 +136,19 @@ export default function Home() {
         description="Expert drainage services across Hampshire for domestic, commercial and industrial clients. 24/7 emergency callouts typically within 1 hour. 33+ years experience."
         canonicalUrl="/"
       />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          })}
+        </script>
+      </Helmet>
 
       {/* ── HERO ── */}
       <PageHero

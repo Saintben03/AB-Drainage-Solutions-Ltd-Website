@@ -15,6 +15,7 @@ import Home from "@/pages/Home";
 import Services from "@/pages/Services";
 import About from "@/pages/About";
 import Areas from "@/pages/Areas";
+import TownArea from "@/pages/TownArea";
 import Blog from "@/pages/Blog";
 import BlogPost from "@/pages/BlogPost";
 import Gallery from "@/pages/Gallery";
@@ -69,6 +70,7 @@ function Router() {
               <Route path="/services" component={Services} />
               <Route path="/about" component={About} />
               <Route path="/areas" component={Areas} />
+              <Route path="/areas/:town" component={TownArea} />
               <Route path="/blog" component={Blog} />
               <Route path="/blog/:slug" component={BlogPost} />
               <Route path="/gallery" component={Gallery} />
@@ -89,12 +91,17 @@ function Router() {
   );
 }
 
-function App() {
+interface AppProps {
+  ssrPath?: string;
+  helmetContext?: object;
+}
+
+function App({ ssrPath, helmetContext }: AppProps = {}) {
   return (
-    <HelmetProvider>
+    <HelmetProvider context={helmetContext}>
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
-          <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+          <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")} ssrPath={ssrPath}>
             <BookNowProvider>
               <Router />
             </BookNowProvider>
