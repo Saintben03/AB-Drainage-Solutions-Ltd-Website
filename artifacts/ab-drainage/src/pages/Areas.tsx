@@ -5,12 +5,11 @@ import { motion } from "framer-motion";
 import { WaterWave } from "@/components/WaterWave";
 import { PageHero } from "@/components/PageHero";
 import { towns } from "@/data/areas";
+import { counties } from "@/data/counties";
 
 import heroImg from "@assets/Designer_(1)_1782807579036.png";
 import vanImg from "@assets/site_files_1/g-01u.jpg";
 import crewArea from "@assets/ab_group_gallery/worker-9.33.26.jpeg";
-
-const borderAreas = ["Berkshire", "Surrey", "Sussex", "Kent", "London", "Dorset", "Wiltshire"];
 
 const stats = [
   { value: "33+", label: "Years Serving Hampshire" },
@@ -130,13 +129,17 @@ export default function Areas() {
           >
             <h3 className="text-xl font-display font-bold text-zinc-900 uppercase mb-3">We Also Operate In</h3>
             <p className="text-zinc-600 mb-5">
-              We frequently take on projects across neighbouring counties, particularly larger commercial and CCTV survey work. If you are unsure whether we serve your area, call us — we will always try.
+              We frequently take on projects across neighbouring counties, particularly larger commercial and CCTV survey work. Click a county below to see the coverage we offer there, or call us if you are unsure whether we serve your area.
             </p>
             <div className="flex flex-wrap gap-3 mb-6">
-              {borderAreas.map((county, i) => (
-                <span key={i} className="px-4 py-2 border border-zinc-300 text-sm font-bold text-zinc-600 uppercase tracking-wider hover:border-accent hover:text-accent transition-colors">
-                  {county}
-                </span>
+              {counties.map((county) => (
+                <Link
+                  key={county.slug}
+                  href={`/areas/county/${county.slug}`}
+                  className="inline-flex items-center gap-2 px-4 py-2 border border-zinc-300 text-sm font-bold text-zinc-600 uppercase tracking-wider hover:border-accent hover:text-accent transition-colors"
+                >
+                  <MapPin size={13} /> {county.name}
+                </Link>
               ))}
             </div>
             <p className="text-zinc-500 text-sm border-t border-zinc-200 pt-5">

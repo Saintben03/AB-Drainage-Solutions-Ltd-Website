@@ -2,6 +2,7 @@ import { renderToString } from "react-dom/server";
 import type { HelmetServerState } from "react-helmet-async";
 import App from "./App";
 import { towns } from "./data/areas";
+import { counties } from "./data/counties";
 import { blogPosts } from "./data/blogPosts";
 
 export interface RenderResult {
@@ -29,5 +30,6 @@ export const routes: string[] = [
   "/privacy-policy",
   "/terms",
   ...towns.map((t) => `/areas/${t.slug}`),
+  ...counties.map((c) => `/areas/county/${c.slug}`),
   ...blogPosts.map((p) => `/blog/${p.slug}`),
 ];
