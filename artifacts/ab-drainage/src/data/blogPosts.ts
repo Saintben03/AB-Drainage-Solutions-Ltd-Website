@@ -262,5 +262,149 @@ Large industrial sites also present logistical challenges. Multiple, interconnec
 A robust Scheduled Maintenance Programme is the most effective way to manage these risks. This programme should be tailored to the specific activities of the site. It typically includes scheduled interceptor emptying, regular high-pressure jetting to clear silt and debris from heavy-duty surface water channels, and periodic CCTV surveys of the entire network to identify structural degradation before it leads to a catastrophic collapse under the weight of HGVs.
 
 Even with the best maintenance, emergencies can happen. When a major blockage threatens to halt production or an accidental spill occurs, an immediate response is vital. Partnering with a drainage contractor who offers a genuine 24/7 emergency response, equipped with the heavy plant machinery necessary to handle industrial-scale incidents, is crucial for minimising downtime and mitigating environmental impact.`
+  },
+  {
+    id: "11",
+    slug: "how-to-get-rid-of-smelly-drains",
+    title: "How to Get Rid of Smelly Drains: Causes and Quick Fixes",
+    metaTitle: "How to Get Rid of Smelly Drains | Quick Home Fixes | A&B Drainage",
+    metaDescription: "A bad smell from your sink or plughole? Learn the common causes of smelly drains and simple, safe quick fixes you can try at home before calling a professional.",
+    excerpt: "That foul whiff from the kitchen sink or bathroom plughole is usually easy to fix. Here are the real causes of smelly drains and the safe home remedies that actually work.",
+    date: "2025-01-15",
+    readTime: "5 min read",
+    category: "Advice",
+    imageKey: "blocked-causes",
+    content: `A bad smell drifting up from a sink, shower, or plughole is one of the most common drainage complaints, and thankfully it is usually one of the easiest to sort out yourself. The smell is almost always caused by trapped food, grease, hair, and bacteria breaking down inside the pipe, or by a dried-out water trap letting sewer gases escape back into the room. Here is how to find the cause and fix it safely.
+
+First, understand the U-bend. Every sink, bath, and shower has a curved section of pipe beneath it called a trap or U-bend. It is designed to hold a small pool of water at all times, which acts as a seal against the smells coming up from the main sewer. If a drain that is rarely used, such as a spare bathroom sink or a utility room gully, starts to smell, the water in the trap has probably evaporated. The fix is simple: run the tap for a minute or pour a jug of water down to refill the seal.
+
+For everyday kitchen and bathroom smells caused by build-up, the safest and most effective home remedy is a baking soda and white vinegar flush. Pour a kettle of hot (not boiling, if you have plastic pipes) water down the drain first, then tip in around half a cup of baking soda, followed by a cup of white vinegar. It will fizz. Leave it to work for ten to fifteen minutes, then flush through with another kettle of hot water. This breaks down grease and neutralises odours without the risks that come with harsh chemical cleaners.
+
+Do not forget the parts you can see. A surprising amount of smell comes from the plughole itself and the overflow hole near the top of the basin. Remove and clean the plug, and use an old toothbrush to scrub around the plughole rim. For the overflow, a funnel and the baking soda and vinegar mix work well, as this hidden channel builds up a slimy bacterial layer over time.
+
+If the smell is coming from outside, check your external drains and gully grates. Fallen leaves, silt, and food waste collect around drain covers and rot, especially in Hampshire's leafy suburbs during autumn. Lift the grate, clear any debris by hand while wearing gloves, and rinse the gully through with a hose.
+
+A word of warning: avoid reaching straight for supermarket chemical drain cleaners. They are highly caustic, can damage older pipes and plastic joints, and rarely solve the underlying cause. If the smell keeps returning despite cleaning, or is accompanied by slow drainage and gurgling, it points to a blockage or a structural fault deeper in the system. At that stage a professional drain clean or a CCTV survey will find the real source, and our team covers homes right across Hampshire.`
+  },
+  {
+    id: "12",
+    slug: "how-to-unblock-a-toilet",
+    title: "How to Unblock a Toilet: Quick Fixes That Actually Work",
+    metaTitle: "How to Unblock a Toilet | Quick Fixes Without a Plumber | A&B Drainage",
+    metaDescription: "A blocked toilet is often easy to fix. Learn how to unblock a toilet safely with a plunger, hot water, and simple home methods, plus when to call a pro.",
+    excerpt: "A blocked toilet does not always need a plumber. Here are the safe, step-by-step methods to clear it yourself, and the warning signs that mean you should call for help.",
+    date: "2025-02-10",
+    readTime: "5 min read",
+    category: "Advice",
+    imageKey: "unblock",
+    content: `Few household problems cause panic quite like a toilet that will not flush and starts to fill towards the rim. The good news is that most toilet blockages are caused by too much paper or an item that should never have been flushed, and can be cleared at home with a bit of patience. Here is how to do it safely, step by step.
+
+First, stop the water rising. If the bowl is filling and you are worried it will overflow, take the lid off the cistern and push the flapper valve down to close it, which stops more water entering the bowl. Then wait. If the water level is very high, give it fifteen to twenty minutes to drain down a little before you start, as this reduces the risk of splashing.
+
+The hot water and washing-up liquid method works well for soft blockages. Squirt a generous amount of washing-up liquid into the bowl and leave it for a few minutes to slide down and lubricate the blockage. Then pour in a bucket of hot water from waist height. Use hot, not boiling, water, as boiling water can crack the ceramic. The combination of heat, soap, and the force of the pour is often enough to shift a paper blockage on its own.
+
+If that does not work, reach for a plunger. A flanged toilet plunger with an extended rubber lip is far more effective than a flat cup plunger. Make sure the rubber is fully submerged, as you need to push water, not air, at the blockage. Create a firm seal over the outlet and pump firmly but steadily for around fifteen to twenty pushes. Keep the seal intact and be patient; several rounds may be needed.
+
+For a stubborn clog, a toilet auger, sometimes called a closet snake, is the next step. This is a flexible rod you feed into the bend of the toilet to physically break up or hook the blockage. Turn the handle gently and never force it, as too much pressure can scratch or crack the pan.
+
+There are a few things you should never do. Do not flush repeatedly hoping it will clear, as this simply floods the bathroom. Do not pour caustic chemical drain cleaners into a blocked toilet; they sit in the standing water and create a hazardous, corrosive pool. And do not flush wet wipes, cotton wool, nappies, or sanitary products, as these are the most common cause of serious toilet and sewer blockages.
+
+If the toilet remains blocked after plunging, or if other drains in the house, such as the shower or bath, gurgle or back up when you flush, the problem is likely further down the main soil pipe rather than in the toilet itself. That is a sign of a blockage in the underground system, and it needs professional clearing. Our engineers cover Hampshire and can be on site quickly to clear it with high-pressure jetting.`
+  },
+  {
+    id: "13",
+    slug: "how-to-clear-a-blocked-outside-drain",
+    title: "How to Clear a Blocked Outside Drain Yourself",
+    metaTitle: "How to Clear a Blocked Outside Drain | DIY Guide | A&B Drainage",
+    metaDescription: "Water pooling around an outside drain? Learn how to clear a blocked outside drain yourself with the right tools, and when to call a professional.",
+    excerpt: "An overflowing outside drain is often a job you can tackle yourself. Here is what you need, how to do it safely, and how to know when the blockage is beyond DIY.",
+    date: "2025-03-05",
+    readTime: "6 min read",
+    category: "Advice",
+    imageKey: "drain-repair",
+    content: `An outside drain that is overflowing, pooling with dirty water, or giving off a bad smell is a clear sign of a blockage in your external drainage. While it looks unpleasant, an outside blockage is often more accessible than an internal one, and with the right preparation many homeowners can clear it themselves. Here is how to approach it safely.
+
+Start with the right protective kit. You will be dealing with dirty water that may contain wastewater, so wear heavy-duty rubber gloves, old clothes, and ideally eye protection and rubber boots. Have a bucket, a hose, and drainage rods to hand. Drainage rods are inexpensive, screw together into a long flexible pole, and are the single most useful tool for clearing outside drains.
+
+Next, find the blockage. Lift the drain cover, using a spade or screwdriver for leverage if it is stiff. Look into the chamber. If the chamber is full of water, the blockage is further down the pipe, past that chamber. If the chamber is empty but water is backing up before it, the blockage is between the house and that chamber. Checking two or three chambers lets you narrow down which section of pipe is blocked.
+
+Now clear it with the rods. Feed the drainage rods into the pipe in the direction of the blockage and push firmly, adding sections as you go. Turn the rods clockwise as you push, never anticlockwise, because turning them the wrong way can unscrew a section and leave it stuck in the drain. Work the rods back and forth against the blockage until you feel it break up and the water begins to drain away.
+
+Once the water is flowing, flush the system through. Use a hose on full pressure to rinse the pipe and chambers, and scoop out any silt, leaves, or debris left in the chamber base before replacing the cover securely. This final flush clears loosened material that could otherwise settle and cause the blockage to return.
+
+Prevention is straightforward. Keep drain grates clear of leaves, fit a leaf guard over vulnerable gullies, never pour fat or oil down outside drains, and give external drains a rinse through a couple of times a year. This is especially worthwhile in autumn across Hampshire's tree-lined streets, where falling leaves are a leading cause of blocked gullies.
+
+If the rods do not shift the blockage, if the same drain keeps blocking, or if you notice the ground sinking or foul water surfacing in the garden, the problem is likely a deeper obstruction, tree root ingress, or a collapsed pipe. These need professional high-pressure jetting and a CCTV survey to diagnose properly, and our team covers homes throughout Hampshire.`
+  },
+  {
+    id: "14",
+    slug: "why-are-my-drains-gurgling",
+    title: "Why Are My Drains Gurgling? What the Noise Means",
+    metaTitle: "Why Are My Drains Gurgling? Causes Explained | A&B Drainage",
+    metaDescription: "Gurgling sinks, toilets, or drains are an early warning sign of a drainage problem. Learn what causes the noise, what it means, and what you can do about it.",
+    excerpt: "A gurgling sink or toilet is your drainage system trying to tell you something. Here is what the noise really means and how to act before it becomes a blockage.",
+    date: "2025-04-02",
+    readTime: "5 min read",
+    category: "Advice",
+    imageKey: "cctv",
+    content: `That distinctive gurgling or bubbling sound from a plughole or toilet is easy to ignore, but it is one of the earliest warning signs that something is wrong with your drainage. The noise is caused by trapped air being forced back through the water in your pipes, and it almost always means water and air are not flowing freely through the system. Catching it early can save you from a full blockage. Here is what the different signs mean.
+
+The most common cause is a partial blockage. As grease, hair, or debris build up inside a pipe, they narrow the channel that water and air move through. When water drains past the restriction, it disturbs pockets of trapped air, which bubble back up and create the gurgling sound. At this stage the drain may still work, just more slowly, so it is the ideal time to act before it blocks completely.
+
+A blocked or restricted vent pipe is another frequent culprit. Your drainage system has a vent, often a soil pipe running up the side or through the roof of the house, which lets air in to balance the pressure as water flows away. If this vent becomes blocked by leaves, moss, or a bird's nest, the draining water pulls a vacuum instead, which sucks air through the water traps and causes gurgling across several fixtures.
+
+Pay attention to which fixture gurgles and when. If your sink gurgles when you flush the toilet, or the bath bubbles when the washing machine drains, it points to a shared blockage further down the main line rather than a problem with one individual fixture. The more fixtures affected, the deeper in the system the problem usually lies.
+
+For a single slow, gurgling drain, you can try the same home fixes that work for smells and minor blockages: a hot water flush, a baking soda and vinegar treatment, or gentle plunging to shift the build-up before it hardens. Clearing the restriction early often stops the noise for good.
+
+However, if gurgling is accompanied by slow drainage across several fixtures, bad smells, or water backing up, or if it keeps returning after cleaning, the cause is likely a significant blockage, a vent problem, or a structural fault such as root ingress or a collapsed section. These need professional diagnosis. A CCTV drain survey shows exactly what is happening inside the pipe, and our engineers cover properties throughout Hampshire.`
+  },
+  {
+    id: "15",
+    slug: "who-is-responsible-for-my-drains",
+    title: "Who Is Responsible for My Drains? A Homeowner Guide",
+    metaTitle: "Who Is Responsible for My Drains? | Homeowner Guide | A&B Drainage",
+    metaDescription: "Do you or the water company pay for a drain repair? Learn the difference between drains, lateral drains, and sewers, and who is responsible for each.",
+    excerpt: "One of the most common questions we hear is who actually pays to fix a blocked or broken drain. Here is a plain-English guide to what you own and what the water company looks after.",
+    date: "2025-05-12",
+    readTime: "6 min read",
+    category: "Advice",
+    imageKey: "fallback",
+    content: `When a drain blocks or collapses, the first worry for most homeowners is the cost, quickly followed by the question of who is actually responsible for fixing it. The answer depends on where the problem is, and the rules changed significantly in 2011 when responsibility for many shared drains transferred to the water companies. Here is a clear guide to who looks after what.
+
+The key is understanding three terms. A drain is the pipe that carries wastewater away from a single property, and it sits within that property's boundary. A lateral drain is the section of pipe that carries wastewater away from your property, usually beyond your boundary, and often connects to a shared sewer. A sewer is the larger shared pipe that collects wastewater from several properties. Knowing which type of pipe has the problem tells you who is responsible for it.
+
+As a general rule, you are responsible for the drains inside your property boundary. Any pipework that only serves your home and sits within your land, such as the pipes running from your sinks and toilets to the edge of your property, is your responsibility to maintain and repair. This is the part homeowners most often need to deal with, and it is worth checking whether your buildings insurance covers drain damage, as many policies do.
+
+Your local water company is generally responsible for lateral drains and shared sewers. Since the 2011 transfer, the pipes that run beyond your boundary, and any drain shared with neighbouring properties, are usually maintained by the water and sewerage company for your area. In much of Hampshire that is Southern Water, with some areas served by other providers. If a blockage or collapse is in a shared sewer, they will typically clear or repair it at no direct cost to you.
+
+There is a useful rule of thumb for blockages. If the blockage only affects your home, it is likely in your private drain and therefore your responsibility. If it affects several neighbouring properties at once, it is probably in a shared sewer, which is the water company's responsibility, and you should report it to them.
+
+Private roads, shared driveways, and older properties can complicate matters, and it is not always obvious from the surface which pipe is at fault. This is where a professional CCTV drain survey is invaluable, as it pinpoints the exact location and depth of the problem, which in turn confirms whether it falls on your side of the boundary or the water company's. If you are unsure who is responsible, our team can survey your drains, tell you exactly where the fault lies, and advise on the best course of action anywhere in Hampshire.`
+  },
+  {
+    id: "16",
+    slug: "how-to-prevent-blocked-drains-checklist",
+    title: "How to Prevent Blocked Drains: A Seasonal Checklist",
+    metaTitle: "How to Prevent Blocked Drains | Seasonal Checklist | A&B Drainage",
+    metaDescription: "Stop drain blockages before they start. Follow this simple seasonal checklist to keep your drains flowing freely all year and avoid costly emergencies.",
+    excerpt: "The cheapest drain repair is the one you never need. Follow this simple room-by-room and season-by-season checklist to keep your drains clear all year round.",
+    date: "2025-06-09",
+    readTime: "6 min read",
+    category: "Advice",
+    imageKey: "jetting",
+    content: `The most expensive drainage problems are almost always the ones that could have been prevented. A few simple habits and a little seasonal maintenance will keep your drains flowing freely and save you the stress and cost of an emergency callout. Here is a practical checklist you can follow throughout the year.
+
+In the kitchen, protect against grease. Fats, oils, and grease are the single biggest cause of kitchen blockages, so never pour them down the sink. Let them cool and solidify, then scrape them into the bin. Wipe greasy pans with kitchen roll before washing, fit a sink strainer to catch food scraps, and run the hot tap for a few seconds after washing up to help flush residue through.
+
+In the bathroom, control hair and scum. Hair binding with soap is the leading cause of bath and shower blockages. Fit an inexpensive hair catcher over every plughole and empty it regularly. Only ever flush the three Ps down the toilet, that is pee, poo, and paper, and keep a bin in the bathroom for wet wipes, cotton pads, and sanitary products, none of which break down in the system.
+
+Once a month, give your drains a maintenance flush. Pour a kettle of hot water down each drain, or use the baking soda and white vinegar method followed by a hot water rinse, to break down the early stages of grease and soap build-up before they harden into a blockage. This simple ten-minute routine prevents the vast majority of slow-draining problems.
+
+In autumn, focus on the outside. Falling leaves are the main cause of blocked gullies and surface water drains, a particular issue across Hampshire's leafy streets. Clear leaves and moss from drain grates and gully covers regularly, clean out your guttering, and make sure rainwater downpipes are running freely before the winter rains arrive.
+
+In winter, guard against freezing. Outside pipes and condensate drains from boilers can freeze in cold snaps, causing backups. Insulate exposed outside pipework where you can, and if a boiler condensate pipe freezes, a gentle pour of warm water along its length will usually thaw it.
+
+Finally, book a professional check when it is due. Even with good habits, a periodic high-pressure jetting service and, for older properties, an occasional CCTV survey will clear hidden build-up and catch structural problems like root ingress or cracked pipes long before they become a costly emergency. Homeowners and businesses across Hampshire use planned maintenance to keep their drains trouble-free, and our team is happy to advise on a sensible schedule for your property.`
   }
 ];
