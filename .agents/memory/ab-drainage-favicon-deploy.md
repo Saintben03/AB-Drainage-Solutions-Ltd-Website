@@ -20,6 +20,31 @@ force re-fetch.
 **How to apply:** if the user reports a stale favicon after a real icon change,
 bump the `?v=N` on all favicon `<link>`s in index.html and push.
 
+# Making a circular favicon from a raster asset (ImageMagick)
+
+Client asked for "just the blue circle" from a screenshot-style AB logo (dark
+rounded-square bg + swoosh arcs + centre blue disc). Approach: sample the centre
+row/column with `magick IMG -format "%[pixel:p{x,y}]" info:` to find the disc
+bounds, build a supersampled white-circle-on-black mask, apply it as alpha, then
+export 16/32/48/192 PNGs + multi-res `.ico` + an SVG wrapper embedding the PNG.
+
+**GOTCHA that cost several attempts:** `-compose CopyOpacity` (used to copy the
+mask into the alpha channel) STAYS the active compose operator for every later
+op, so a following `-trim`/`-extent` composites its background with CopyOpacity
+and corrupts the RGB to black/bilevel. FIX: insert `-compose Over` immediately
+after `-composite`, before any `-trim`/`-extent`. Also `-type TrueColor` mid-
+pipeline can collapse to Bilevel — export with `PNG32:` instead. Verify success
+by sampling a known blue pixel AND a corner (must be `srgba(...,0)`).
+
+# Why Google search shows the OLD favicon after you change it
+
+NOT a sitemap problem. Google keeps its OWN favicon cache for search results,
+fetched by Googlebot and refreshed on Google's schedule — often days to weeks,
+and only after it re-crawls the homepage. The live site can be 100% correct while
+search still shows the stale icon. Requirements Google wants: square icon, ideally
+>=48x48 (multiples of 48), stable URL, `rel="icon"` in the homepage <head>, page
+crawlable. Nothing to "fix" beyond shipping a valid icon and waiting for re-crawl.
+
 # Environment boundaries (important)
 
 - Outbound HTTPS from Replit to abdrainage.co.uk is BLOCKED — `curl` returns empty.
