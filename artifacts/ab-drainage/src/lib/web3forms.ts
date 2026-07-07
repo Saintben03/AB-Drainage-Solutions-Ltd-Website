@@ -22,3 +22,18 @@ export const WEB3FORMS_ACCESS_KEY =
 export const isWeb3FormsConfigured = (): boolean =>
   WEB3FORMS_ACCESS_KEY !== "YOUR_WEB3FORMS_ACCESS_KEY" &&
   WEB3FORMS_ACCESS_KEY.trim().length > 10;
+
+// The business's own inbox — used as the safe fallback "reply-to" so replying to a
+// notification can never bounce (e.g. the emergency form collects no email).
+export const BUSINESS_EMAIL = "info@abdrainage.co.uk";
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// Web3Forms sets the notification's Reply-To from this value, so hitting "Reply"
+// in the inbox goes to the customer. If we don't have a valid customer email we
+// fall back to the business's own address — NEVER Web3Forms' no-reply address,
+// which bounces (550 "notify wasn't found at web3forms.com").
+export const resolveReplyTo = (email?: string | null): string => {
+  const e = (email ?? "").trim();
+  return EMAIL_RE.test(e) ? e : BUSINESS_EMAIL;
+};

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { CheckCircle2, AlertTriangle } from "lucide-react";
-import { WEB3FORMS_ACCESS_KEY, isWeb3FormsConfigured } from "@/lib/web3forms";
+import { WEB3FORMS_ACCESS_KEY, isWeb3FormsConfigured, resolveReplyTo } from "@/lib/web3forms";
 
 type SendState = "idle" | "sending" | "sent" | "error";
 
@@ -14,7 +14,8 @@ export const ContactForm = () => {
 
     const name = (fd.get("name") as string) || "Not provided";
     const phone = (fd.get("phone") as string) || "Not provided";
-    const email = (fd.get("email") as string) || "Not provided";
+    const emailRaw = (fd.get("email") as string) || "";
+    const email = emailRaw || "Not provided";
     const postcode = (fd.get("postcode") as string) || "Not provided";
     const service = (fd.get("service") as string) || "Not specified";
     const message = (fd.get("message") as string) || "Not provided";
@@ -37,6 +38,9 @@ export const ContactForm = () => {
           access_key: WEB3FORMS_ACCESS_KEY,
           subject: "New Website Enquiry — A&B Drainage",
           from_name: "A&B Drainage Website",
+          // Reply-To: the customer's email if they gave a valid one, else our own
+          // inbox — so hitting "Reply" always works and never bounces.
+          replyto: resolveReplyTo(emailRaw),
           name,
           phone,
           email,

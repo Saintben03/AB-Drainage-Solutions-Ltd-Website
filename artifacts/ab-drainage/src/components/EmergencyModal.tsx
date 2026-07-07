@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Phone, Send, Loader2, CheckCircle2, AlertTriangle } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { WEB3FORMS_ACCESS_KEY, isWeb3FormsConfigured } from "@/lib/web3forms";
+import { WEB3FORMS_ACCESS_KEY, isWeb3FormsConfigured, resolveReplyTo } from "@/lib/web3forms";
 
 interface EmergencyModalProps {
   open: boolean;
@@ -77,6 +77,9 @@ export const EmergencyModal = ({ open, onClose }: EmergencyModalProps) => {
           access_key: WEB3FORMS_ACCESS_KEY,
           subject: "EMERGENCY CALLOUT — A&B Drainage Website",
           from_name: "A&B Drainage Emergency Alert",
+          // This form collects no email, so replies go to our own inbox rather
+          // than Web3Forms' no-reply address (which bounces). Respond by phone.
+          replyto: resolveReplyTo(null),
           name: name || "Not provided",
           phone: phone || "Not provided",
           message:
