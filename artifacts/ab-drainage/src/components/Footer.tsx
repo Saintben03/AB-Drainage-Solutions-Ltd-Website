@@ -30,12 +30,12 @@ export const Footer = () => {
           <div>
             <h3 className="text-xl font-display font-bold mb-6 text-white">Services</h3>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><Link href="/services#blocked-drains" className="hover:text-primary transition-colors">Blocked Drains</Link></li>
-              <li><Link href="/services#cctv-surveys" className="hover:text-primary transition-colors">CCTV Drain Surveys</Link></li>
-              <li><Link href="/services#drain-repairs" className="hover:text-primary transition-colors">Drain Repairs</Link></li>
-              <li><Link href="/services#emergency" className="hover:text-primary transition-colors">24/7 Emergency Drainage</Link></li>
-              <li><Link href="/services#commercial" className="hover:text-primary transition-colors">Commercial & Industrial</Link></li>
-              <li><Link href="/services#septic-tanks" className="hover:text-primary transition-colors">Septic Tanks</Link></li>
+              <li><Link href="/blocked-drains" className="hover:text-primary transition-colors">Blocked Drains</Link></li>
+              <li><Link href="/drain-unblocking" className="hover:text-primary transition-colors">Drain Unblocking</Link></li>
+              <li><Link href="/cctv-drain-survey" className="hover:text-primary transition-colors">CCTV Drain Surveys</Link></li>
+              <li><Link href="/drain-jetting" className="hover:text-primary transition-colors">Drain Jetting</Link></li>
+              <li><Link href="/drain-lining-repair" className="hover:text-primary transition-colors">Drain Lining & Repair</Link></li>
+              <li><Link href="/emergency-drainage-services" className="hover:text-primary transition-colors">24/7 Emergency Drainage</Link></li>
               <li><Link href="/services" className="hover:text-primary transition-colors">View All Services &rarr;</Link></li>
             </ul>
           </div>
@@ -43,12 +43,12 @@ export const Footer = () => {
           <div>
             <h3 className="text-xl font-display font-bold mb-6 text-white">Coverage Area</h3>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><Link href="/areas" className="hover:text-primary transition-colors">Hampshire</Link></li>
-              <li><Link href="/areas" className="hover:text-primary transition-colors">Southampton</Link></li>
-              <li><Link href="/areas" className="hover:text-primary transition-colors">Basingstoke</Link></li>
-              <li><Link href="/areas" className="hover:text-primary transition-colors">Winchester</Link></li>
-              <li><Link href="/areas" className="hover:text-primary transition-colors">Aldershot</Link></li>
-              <li><Link href="/areas" className="hover:text-primary transition-colors">Reading & Surrounding</Link></li>
+              <li><Link href="/areas/basingstoke" className="hover:text-primary transition-colors">Basingstoke</Link></li>
+              <li><Link href="/areas/southampton" className="hover:text-primary transition-colors">Southampton</Link></li>
+              <li><Link href="/areas/winchester" className="hover:text-primary transition-colors">Winchester</Link></li>
+              <li><Link href="/areas/aldershot" className="hover:text-primary transition-colors">Aldershot</Link></li>
+              <li><Link href="/areas/reading" className="hover:text-primary transition-colors">Reading & Surrounding</Link></li>
+              <li><Link href="/areas" className="hover:text-primary transition-colors">All Areas &rarr;</Link></li>
             </ul>
           </div>
 
@@ -68,6 +68,7 @@ export const Footer = () => {
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} A&B Drainage Solutions Ltd. All rights reserved.</p>
           <div className="flex gap-4">
+            <Link href="/faq" className="hover:text-white transition-colors">FAQs</Link>
             <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms &amp; Conditions</Link>
           </div>

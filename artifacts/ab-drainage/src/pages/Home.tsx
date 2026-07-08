@@ -148,6 +148,40 @@ export default function Home() {
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "@id": "https://www.abdrainage.co.uk/#business",
+            name: "A&B Drainage Solutions Ltd",
+            url: "https://www.abdrainage.co.uk",
+            telephone: "01256 688 650",
+            email: "info@abdrainage.co.uk",
+            founder: { "@type": "Person", name: "Louis Barnett" },
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Basingstoke",
+              addressRegion: "Hampshire",
+              addressCountry: "GB",
+            },
+            areaServed: [
+              { "@type": "AdministrativeArea", name: "Hampshire" },
+              { "@type": "AdministrativeArea", name: "Berkshire" },
+              { "@type": "AdministrativeArea", name: "Surrey" },
+              { "@type": "AdministrativeArea", name: "Wiltshire" },
+            ],
+            openingHoursSpecification: {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+              opens: "00:00",
+              closes: "23:59",
+            },
+            sameAs: [
+              "https://www.instagram.com/ABDrainagesolutions_ltd/",
+              "https://www.facebook.com/people/AB-Drainage-Solutions/100089837958769/",
+            ],
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
             "@type": "FAQPage",
             mainEntity: faqs.map((f) => ({
               "@type": "Question",

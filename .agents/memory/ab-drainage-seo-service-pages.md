@@ -1,0 +1,10 @@
+---
+name: ab-drainage SEO service pages
+description: How the 6 dedicated SEO service pages, FAQ page, and JSON-LD are wired; E-E-A-T bio gap.
+---
+- 6 service pages live at TOP-LEVEL slugs (/blocked-drains etc.), data in src/data/servicePages.ts; rendered by ServicePage.tsx. Add new pages there — routes/prerender/sitemap pick up via servicePages array (App.tsx map + entry-server.tsx + public/sitemap.xml which is manual).
+- **Why:** top-level slugs chosen for SEO; they sit before NotFound route, so any new top-level page slug must not collide with them.
+- Area page (TownArea/CountyArea) service tiles link via servicePageByServiceId(), falling back to /services#id.
+- Site-level LocalBusiness JSON-LD is on Home only; ServicePage emits Service + WebPage(dateModified from CONTENT_UPDATED_ISO). FaqSection auto-emits FAQPage schema.
+- E-E-A-T gap: only verified facts about owner Louis Barnett are name/role/contact — client has NOT supplied bio, credentials, or GBP link; do not fabricate. AggregateRating/Review schema deliberately omitted (no verified review data).
+- Update CONTENT_UPDATED/CONTENT_UPDATED_ISO in servicePages.ts + sitemap lastmod when content changes.

@@ -4,6 +4,7 @@ import App from "./App";
 import { towns } from "./data/areas";
 import { counties } from "./data/counties";
 import { blogPosts } from "./data/blogPosts";
+import { servicePages } from "./data/servicePages";
 
 export interface RenderResult {
   html: string;
@@ -29,6 +30,8 @@ export const routes: string[] = [
   "/ab-group/facilities",
   "/privacy-policy",
   "/terms",
+  "/faq",
+  ...servicePages.map((s) => `/${s.slug}`),
   ...towns.map((t) => `/areas/${t.slug}`),
   ...counties.map((c) => `/areas/county/${c.slug}`),
   ...blogPosts.map((p) => `/blog/${p.slug}`),

@@ -26,6 +26,9 @@ import ABGroupFencing from "@/pages/ABGroupFencing";
 import ABGroupFacilities from "@/pages/ABGroupFacilities";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import Terms from "@/pages/Terms";
+import ServicePage from "@/pages/ServicePage";
+import Faq from "@/pages/Faq";
+import { servicePages } from "@/data/servicePages";
 
 const queryClient = new QueryClient();
 
@@ -82,6 +85,12 @@ function Router() {
               <Route path="/ab-group/facilities" component={ABGroupFacilities} />
               <Route path="/privacy-policy" component={PrivacyPolicy} />
               <Route path="/terms" component={Terms} />
+              <Route path="/faq" component={Faq} />
+              {servicePages.map((s) => (
+                <Route key={s.slug} path={`/${s.slug}`}>
+                  <ServicePage slug={s.slug} />
+                </Route>
+              ))}
               <Route component={NotFound} />
             </Switch>
           </motion.div>

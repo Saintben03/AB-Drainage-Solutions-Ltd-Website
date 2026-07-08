@@ -1,0 +1,62 @@
+Build SEO/GEO-optimized content on the AB Drainage Solutions Ltd site to win Google AI Overview citations and local rankings for core service terms: drain services, drainage services, blocked drains, drain unblocking, CCTV drain survey, drain jetting, drain lining and repair, emergency drainage services, drain clearance, and any closely related terms genuinely relevant to the services actually offered.
+
+IMPORTANT: Do not auto-generate near-duplicate pages per area (e.g. "Blocked Drains in [Town1]", "Blocked Drains in [Town2]" with only the town swapped and no other differentiation). Google penalizes this as doorway/thin content. Instead, follow the structure below.
+
+AREA STRUCTURE (use this real structure — do not invent or guess area names):
+
+Core local town pages (primary service area):
+Basingstoke (HQ), Southampton (major hub), Winchester, Aldershot, Reading, Farnborough, Andover, Fleet, Alton, Petersfield, Portsmouth, Eastleigh, Fareham, Gosport, Havant
+
+Secondary county-level coverage (for larger commercial and CCTV survey work specifically, not routine callouts):
+Berkshire, Surrey, Sussex, Kent, London, Dorset, Wiltshire
+
+1. New dedicated SERVICE pages (not location-specific), one per core service, e.g.:
+   - /blocked-drains
+   - /drain-unblocking
+   - /cctv-drain-survey
+   - /drain-jetting
+   - /drain-lining-repair
+   - /emergency-drainage-services
+   (Check existing site structure first — if any of these already exist as sections, enhance them rather than duplicating.)
+
+   Each page:
+   - H1 matching the service, e.g. "Blocked Drains? Fast, Reliable Clearance Across Hampshire & Surrounding Areas"
+   - Standalone 40-60 word intro answering the query directly: what the service is, who it's for, and a genuine differentiator (response time, equipment, qualifications — use only real details, do not invent)
+   - "Our Process" section as a numbered, extractable list
+   - "Areas We Cover" section:
+     - List and link to the core town pages (Basingstoke, Southampton, Winchester, Aldershot, Reading, Farnborough, Andover, Fleet, Alton, Petersfield, Portsmouth, Eastleigh, Fareham, Gosport, Havant) as the primary coverage area
+     - Add a clearly separate secondary line noting county-level availability (Berkshire, Surrey, Sussex, Kent, London, Dorset, Wiltshire) specifically for larger commercial and CCTV survey work, linking to the relevant county pages — do not present county coverage as identical to core town coverage
+   - FAQ section per service (see below)
+
+2. ENHANCE existing per-location pages (do not replace them) by adding:
+   - A short, genuinely localized paragraph naming which of the core services are available in that area (pulling from the real service list, not fabricated)
+   - A link back to each relevant service page above
+   - Real, area-specific detail only if it exists (e.g. depot proximity, response time claims) — otherwise keep it general rather than inventing local specifics
+   - On county pages specifically, keep language consistent with existing site copy ("we frequently take on projects across neighbouring counties, particularly larger commercial and CCTV survey work") rather than implying full routine coverage there
+
+3. FAQ section (site-wide FAQ page, plus relevant snippets duplicated into each service page), each answer opening with a direct claim:
+   - "What should I do if I have a blocked drain?"
+   - "How much does drain unblocking cost?"
+   - "What is a CCTV drain survey and when do I need one?"
+   - "How quickly can you respond to an emergency drainage callout?"
+   - "What areas does AB Drainage Solutions cover?" — answer distinguishing core towns (routine coverage) from counties (larger commercial/CCTV work)
+
+4. Structured data (JSON-LD):
+   - LocalBusiness schema (or Plumber/HomeAndConstructionBusiness type as most accurate) with name, address, phone, opening hours, areaServed listing the real core towns and counties as described above, sameAs link to Google Business Profile
+   - Service schema per service page
+   - Review/AggregateRating schema using only real Google Business Profile review data — do not fabricate
+   - FAQPage schema matching FAQ content exactly
+   - Validate all schema in Google's Rich Results Test
+
+5. Nav placement (do NOT let this default into the footer only):
+   - Add new service pages under the existing nav pattern used for "Areas Covered" — if Areas Covered is a top-level dropdown, add a matching "Services" dropdown (or nest under an existing Services item if one exists) as a sibling, working correctly on both desktop side-by-side nav and mobile burger menu
+   - Add contextual in-body links between service pages and location pages (service pages link to relevant areas; area pages link to relevant services)
+   - Keep footer links as a secondary path only
+
+6. Technical SEO: confirm all new/enhanced pages are indexed, included in sitemap.xml, no noindex, real crawlable <a> tags throughout.
+
+7. E-E-A-T: attribute site ownership/expertise to Louis Barnett (or correct named owner) with a real bio/credentials, and date key pages for freshness.
+
+Do not fabricate pricing, response times, reviews, ratings, or area-specific claims — flag anywhere real data is needed so it can be filled in before publishing.
+
+Push to main branch per the established deployment workflow (GitHub main → PR review → production). Flag for PR review when ready.

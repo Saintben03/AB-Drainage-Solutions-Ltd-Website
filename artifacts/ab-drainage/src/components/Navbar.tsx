@@ -9,6 +9,7 @@ import logoFacilities from "@assets/AB-Facilities-scaled-1-300x52_1783288632041.
 import { SocialLinks } from "./SocialLinks";
 import { useBookNow } from "@/contexts/BookNowContext";
 import { EmergencyModal } from "./EmergencyModal";
+import { servicePages } from "@/data/servicePages";
 
 const groupCompanies = [
   {
@@ -37,11 +38,14 @@ export const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [groupDropdownOpen, setGroupDropdownOpen] = useState(false);
   const [mobileGroupOpen, setMobileGroupOpen] = useState(false);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [emergencyOpen, setEmergencyOpen] = useState(false);
   const [headerHeight, setHeaderHeight] = useState(80);
   const { openBookNow } = useBookNow();
   const dropdownRef = useRef<HTMLDivElement>(null);
   const leaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const servicesLeaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -66,7 +70,17 @@ export const Navbar = () => {
   useEffect(() => {
     setMobileMenuOpen(false);
     setGroupDropdownOpen(false);
+    setServicesDropdownOpen(false);
   }, [location]);
+
+  const handleServicesEnter = () => {
+    if (servicesLeaveTimer.current) clearTimeout(servicesLeaveTimer.current);
+    setServicesDropdownOpen(true);
+  };
+
+  const handleServicesLeave = () => {
+    servicesLeaveTimer.current = setTimeout(() => setServicesDropdownOpen(false), 180);
+  };
 
   const handleGroupEnter = () => {
     if (leaveTimer.current) clearTimeout(leaveTimer.current);
@@ -81,7 +95,6 @@ export const Navbar = () => {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Services", href: "/services" },
     { name: "Areas Covered", href: "/areas" },
     { name: "About Us", href: "/about" },
     { name: "Gallery", href: "/gallery" },
@@ -195,7 +208,83 @@ export const Navbar = () => {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-4 xl:gap-6 shrink-0">
-              {navLinks.map((link) => {
+              {/* Home first */}
+              <Link
+                href="/"
+                onClick={scrollToTop}
+                className={`whitespace-nowrap text-[13px] xl:text-sm font-bold uppercase tracking-tight xl:tracking-wide transition-colors relative group ${
+                  location === "/" ? "text-accent" : "text-foreground/80 hover:text-accent"
+                }`}
+              >
+                Home
+                <span className={`absolute -bottom-1 left-0 h-0.5 bg-accent transition-all duration-300 ${location === "/" ? "w-full" : "w-0 group-hover:w-full"}`}></span>
+              </Link>
+
+              {/* Services dropdown — sits right after Home */}
+              <div
+                className="relative"
+                onMouseEnter={handleServicesEnter}
+                onMouseLeave={handleServicesLeave}
+              >
+                <Link
+                  href="/services"
+                  className={`whitespace-nowrap text-[13px] xl:text-sm font-bold uppercase tracking-tight xl:tracking-wide transition-colors relative group flex items-center gap-1 ${
+                    location === "/services" || servicePages.some((s) => location === `/${s.slug}`)
+                      ? "text-accent"
+                      : "text-foreground/80 hover:text-accent"
+                  }`}
+                  aria-expanded={servicesDropdownOpen}
+                >
+                  Services
+                  <ChevronDown
+                    size={13}
+                    className={`transition-transform duration-200 ${servicesDropdownOpen ? "rotate-180" : ""}`}
+                  />
+                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-accent transition-all duration-300 ${
+                    location === "/services" ? "w-full" : "w-0 group-hover:w-full"
+                  }`}></span>
+                </Link>
+
+                <AnimatePresence>
+                  {servicesDropdownOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 6, scale: 0.97 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 6, scale: 0.97 }}
+                      transition={{ duration: 0.18, ease: "easeOut" }}
+                      className="absolute top-full left-0 mt-3 w-72 bg-[#111418] border border-white/10 shadow-2xl shadow-black/70 z-50 rounded-xl overflow-hidden"
+                      onMouseEnter={handleServicesEnter}
+                      onMouseLeave={handleServicesLeave}
+                    >
+                      <div className="px-5 pt-4 pb-3 bg-white/[0.03]">
+                        <p className="text-white/40 text-[10px] font-bold uppercase tracking-[0.22em]">Drainage Services</p>
+                      </div>
+                      {servicePages.map((s) => (
+                        <Link
+                          key={s.slug}
+                          href={`/${s.slug}`}
+                          className="flex items-center gap-3 px-5 py-3.5 hover:bg-white/[0.06] transition-colors group/item border-t border-white/5"
+                        >
+                          <span className="text-white/85 text-sm font-semibold flex-1">{s.name}</span>
+                          <ArrowRight
+                            size={14}
+                            className="shrink-0 text-white/25 group-hover/item:text-white/70 group-hover/item:translate-x-0.5 transition-all"
+                          />
+                        </Link>
+                      ))}
+                      <Link
+                        href="/services"
+                        className="flex items-center gap-3 px-5 py-3.5 border-t border-white/10 bg-white/[0.02] hover:bg-white/[0.06] transition-colors group/item"
+                      >
+                        <span className="text-accent text-xs font-bold uppercase tracking-wider flex-1">View All Services</span>
+                        <ArrowRight size={14} className="shrink-0 text-accent" />
+                      </Link>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {navLinks.slice(1).map((link) => {
                 const isActive = location === link.href;
                 return (
                   <Link
@@ -340,28 +429,85 @@ export const Navbar = () => {
                 {navLinks.map((link, i) => {
                   const isActive = location === link.href;
                   return (
-                    <motion.div
-                      key={link.name}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.25, delay: i * 0.05 }}
-                    >
-                      <Link
-                        href={link.href}
-                        onClick={() => {
-                          setMobileMenuOpen(false);
-                          if (link.href === "/") scrollToTop();
-                        }}
-                        className={`flex items-center justify-between bg-card px-6 py-5 text-xl font-display uppercase font-bold border-l-4 transition-colors ${
-                          isActive
-                            ? "border-accent text-accent"
-                            : "border-transparent text-foreground hover:border-accent hover:text-accent"
-                        }`}
+                    <div key={link.name} className="contents">
+                      <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.25, delay: i * 0.05 }}
                       >
-                        {link.name}
-                        <ArrowRight size={18} className="text-accent opacity-60" />
-                      </Link>
-                    </motion.div>
+                        <Link
+                          href={link.href}
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            if (link.href === "/") scrollToTop();
+                          }}
+                          className={`flex items-center justify-between bg-card px-6 py-5 text-xl font-display uppercase font-bold border-l-4 transition-colors ${
+                            isActive
+                              ? "border-accent text-accent"
+                              : "border-transparent text-foreground hover:border-accent hover:text-accent"
+                          }`}
+                        >
+                          {link.name}
+                          <ArrowRight size={18} className="text-accent opacity-60" />
+                        </Link>
+                      </motion.div>
+
+                      {/* Services accordion — directly after Home */}
+                      {i === 0 && (
+                        <motion.div
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.25, delay: 0.05 }}
+                        >
+                          <button
+                            onClick={() => setMobileServicesOpen((o) => !o)}
+                            className={`w-full flex items-center justify-between bg-card px-6 py-5 text-xl font-display uppercase font-bold border-l-4 transition-colors ${
+                              location === "/services" || servicePages.some((s) => location === `/${s.slug}`)
+                                ? "border-accent text-accent"
+                                : "border-transparent text-foreground hover:border-accent hover:text-accent"
+                            }`}
+                          >
+                            Services
+                            <ChevronDown
+                              size={20}
+                              className={`text-accent opacity-60 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`}
+                            />
+                          </button>
+
+                          <AnimatePresence>
+                            {mobileServicesOpen && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.22 }}
+                                className="overflow-hidden bg-zinc-950"
+                              >
+                                {servicePages.map((s) => (
+                                  <Link
+                                    key={s.slug}
+                                    href={`/${s.slug}`}
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="flex items-center gap-4 px-8 py-4 border-t border-zinc-800 hover:bg-zinc-900 transition-colors"
+                                  >
+                                    <span className="flex-1 text-white/85 text-base font-semibold">{s.name}</span>
+                                    <ArrowRight size={14} className="text-white/30" />
+                                  </Link>
+                                ))}
+                                <Link
+                                  href="/services"
+                                  onClick={() => setMobileMenuOpen(false)}
+                                  className="flex items-center gap-4 px-8 py-4 border-t border-zinc-800 hover:bg-zinc-900 transition-colors"
+                                >
+                                  <span className="flex-1 text-accent text-sm font-bold uppercase tracking-wider">View All Services</span>
+                                  <ArrowRight size={14} className="text-accent" />
+                                </Link>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </motion.div>
+                      )}
+                    </div>
                   );
                 })}
 

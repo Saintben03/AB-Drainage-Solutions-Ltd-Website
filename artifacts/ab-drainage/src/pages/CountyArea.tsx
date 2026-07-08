@@ -9,6 +9,7 @@ import { useBookNow } from "@/contexts/BookNowContext";
 import { countyBySlug } from "@/data/counties";
 import { towns } from "@/data/areas";
 import { services } from "@/pages/Services";
+import { servicePageByServiceId } from "@/data/servicePages";
 import NotFound from "@/pages/not-found";
 
 import heroImg from "@assets/Designer_(1)_1782807579036.png";
@@ -170,7 +171,7 @@ export default function CountyArea() {
             {services.map((s) => (
               <motion.div key={s.id} variants={fadeUp} className="h-full">
                 <Link
-                  href={`/services#${s.id}`}
+                  href={servicePageByServiceId(s.id) ? `/${servicePageByServiceId(s.id)!.slug}` : `/services#${s.id}`}
                   className="group flex flex-col gap-3 h-full p-6 bg-white border border-zinc-200 rounded-xl hover:border-accent hover:shadow-lg hover:-translate-y-1 transition-all"
                 >
                   <div className="flex items-center gap-2 text-accent">
