@@ -222,6 +222,12 @@ uri = "file://attached_assets/generated_images/hero-sidestreet-digger-v2.png"
 type = "image"
 title = "sidestreet digger no worker"
 
+[[generated]]
+id = "EPPiLhjHydyM8C5r8EH0h"
+uri = "file://attached_assets/blog/septic-tank.png"
+type = "image"
+title = "septic tank emptying service"
+
 [[outputs]]
 id = "XDj-vFcGSpHIPNB20N4wa"
 uri = "file://attached_assets/site_files_1/AB Drainage background.png"

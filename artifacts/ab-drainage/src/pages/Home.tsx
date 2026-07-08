@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { ArrowRight, Phone, Clock, MapPin, ShieldCheck, Star, ThumbsUp, ExternalLink, Siren, Video, Droplets, Wrench, Building2, Layers } from "lucide-react";
+import { ArrowRight, Phone, Clock, MapPin, ShieldCheck, Star, ThumbsUp, ExternalLink, Siren, Video, Droplets, Wrench, Building2, Layers, Ban, Cylinder } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
@@ -36,6 +36,8 @@ const services = [
   { icon: <Wrench size={32} />, title: "Drain Repairs", tagline: "No-Dig Solutions", href: "/services#drain-repairs" },
   { icon: <Building2 size={32} />, title: "Commercial Drainage", tagline: "Trusted Professional", href: "/services#commercial" },
   { icon: <Layers size={32} />, title: "Soakaway Installation", tagline: "Building-Regs Compliant", href: "/services#soakaways" },
+  { icon: <Ban size={32} />, title: "Blocked Drains", tagline: "Guaranteed Clearance", href: "/services#blocked-drains" },
+  { icon: <Cylinder size={32} />, title: "Septic Tanks", tagline: "Emptying & Maintenance", href: "/services#septic-tanks" },
 ];
 
 const faqs = [
@@ -283,7 +285,7 @@ export default function Home() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
           >
             {services.map((s, i) => (
               <motion.div key={i} variants={fadeUp} className="h-full">

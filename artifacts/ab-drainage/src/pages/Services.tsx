@@ -18,6 +18,7 @@ import imgGuttering from "@assets/blog/guttering.png";
 import imgCctv from "@assets/blog/cctv-survey.png";
 import imgJetting from "@assets/blog/drain-jetting.png";
 import imgSoakaway from "@assets/blog/soakaway-install.png";
+import imgSeptic from "@assets/blog/septic-tank.png";
 
 export interface Service {
   id: string;
@@ -331,6 +332,48 @@ export const services: Service[] = [
     },
   },
   {
+    id: "septic-tanks",
+    title: "Septic Tanks",
+    shortDesc: "Septic tank emptying, maintenance, repairs, and installation for off-mains properties.",
+    img: imgSeptic,
+    features: ["Tank Emptying & De-Sludging", "Repairs & Maintenance", "New Installations"],
+    detail: {
+      intro: [
+        "Properties not connected to the mains sewer rely on a septic tank to collect and treat their wastewater — and like any drainage system, septic tanks need regular attention to keep working properly. A&B Drainage Solutions provides a complete septic tank service: routine emptying, de-sludging, maintenance, repairs, and new installations.",
+        "A neglected septic tank doesn't just stop working — it backs up into the property, floods the drainage field, and can cause serious pollution that the property owner is legally responsible for. Regular emptying (typically every 12 months, depending on tank size and household occupancy) is by far the cheapest way to avoid these problems.",
+        "Our tanker and jetting capacity means we can empty tanks of all sizes, clear blocked inlet and outlet pipework, and carry out CCTV inspections of the connecting drainage to diagnose recurring problems. We also advise on the 2020 General Binding Rules, which affect what older septic tanks are allowed to discharge into.",
+      ],
+      signs: [
+        "Toilets and drains emptying slowly throughout the property",
+        "Sewage smells in the garden or around the tank cover",
+        "Waterlogged or unusually lush grass over the drainage field",
+        "Sewage backing up into the house — the tank is likely full",
+        "It has been more than 12 months since the tank was last emptied",
+        "An older tank discharging to a ditch or watercourse (may not meet current rules)",
+      ],
+      included: [
+        { label: "Tank emptying & de-sludging", desc: "Full removal of sludge and liquor by vacuum tanker, with waste disposed of legally at a licensed treatment facility." },
+        { label: "Inlet & outlet clearing", desc: "High-pressure jetting of blocked inlet pipes, outlet T-pieces, and connecting drainage runs." },
+        { label: "CCTV inspection", desc: "Camera survey of the pipework serving the tank to diagnose recurring backups or drainage field problems." },
+        { label: "Repairs", desc: "Repairs to baffles, dip pipes, lids, and pipework, plus advice where a tank is beyond economic repair." },
+        { label: "New installations", desc: "Supply and installation of new septic tanks and sewage treatment plants where a replacement or upgrade is needed." },
+        { label: "Compliance advice", desc: "Plain-English guidance on the General Binding Rules and what they mean for your existing tank." },
+      ],
+      process: [
+        { step: "Book a visit", desc: "Call us with the tank location and rough size if known — we'll advise the right tanker and schedule a convenient time." },
+        { step: "Empty and inspect", desc: "We empty the tank fully, checking the condition of baffles, walls, and pipework as the level drops." },
+        { step: "Resolve any issues", desc: "Blockages jetted clear, minor repairs carried out, and any larger problems explained with a clear quote before further work." },
+        { step: "Documentation", desc: "Waste transfer documentation provided for your records — useful for compliance and when selling the property." },
+      ],
+      faq: [
+        { q: "How often should a septic tank be emptied?", a: "For most households, once every 12 months. Larger tanks with light use may stretch further; smaller tanks with heavy occupancy may need it more often. Regular emptying is far cheaper than the drainage-field damage caused by an overfull tank." },
+        { q: "Do you dispose of the waste legally?", a: "Yes. All waste is taken to a licensed treatment facility and we provide waste transfer documentation for your records." },
+        { q: "My old tank discharges to a ditch — is that still allowed?", a: "Since the 2020 General Binding Rules, septic tanks may not discharge directly to a watercourse. If yours does, it will need upgrading to a drainage field or a sewage treatment plant — typically by the time the property is sold. We can advise on your options." },
+      ],
+      stat: { value: "12mo", label: "Recommended emptying interval" },
+    },
+  },
+  {
     id: "guttering",
     title: "Guttering & Downpipes",
     shortDesc: "Gutter clearing, downpipe unblocking, and repairs to protect your property from water damage.",
@@ -558,7 +601,7 @@ export default function Services() {
     <>
       <SEO
         title="Drainage Services Hampshire | CCTV Surveys, Repairs & Emergency"
-        description="Comprehensive drainage services across Hampshire: blocked drains, CCTV surveys, structural repairs, soakaway installation, and 24/7 emergency response."
+        description="Comprehensive drainage services across Hampshire: blocked drains, CCTV surveys, structural repairs, soakaways, septic tanks, and 24/7 emergency response."
         canonicalUrl="https://www.abdrainage.co.uk/services"
       />
 
