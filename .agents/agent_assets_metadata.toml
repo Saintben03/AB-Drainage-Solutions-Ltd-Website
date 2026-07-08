@@ -233,3 +233,9 @@ id = "4W4gnb53mEhWTaPJDcAAa"
 uri = "file://attached_assets/site_files_1/AB Drainage background_logos.jpg"
 type = "image"
 title = "Hero image — AB Drainage background_logos.jpg"
+
+[[outputs]]
+id = "x0uY8oOZW4O4501fPWaAC"
+uri = "file://attached_assets/Designer_(1)_1782807579036.png"
+type = "image"
+title = "A&B Drainage Vehicle Fleet Image"
