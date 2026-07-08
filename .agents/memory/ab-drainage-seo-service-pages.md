@@ -7,4 +7,5 @@ description: How the 6 dedicated SEO service pages, FAQ page, and JSON-LD are wi
 - Area page (TownArea/CountyArea) service tiles link via servicePageByServiceId(), falling back to /services#id.
 - Site-level LocalBusiness JSON-LD is on Home only; ServicePage emits Service + WebPage(dateModified from CONTENT_UPDATED_ISO). FaqSection auto-emits FAQPage schema.
 - E-E-A-T gap: only verified facts about owner Louis Barnett are name/role/contact — client has NOT supplied bio, credentials, or GBP link; do not fabricate. AggregateRating/Review schema deliberately omitted (no verified review data).
+- Google reviews status (July 2026): Louis's Google reviews were removed from his profile; client has an open case with Google to reinstate them. Once reinstated, add GBP URL to LocalBusiness sameAs on Home and consider review-related schema — not before.
 - Update CONTENT_UPDATED/CONTENT_UPDATED_ISO in servicePages.ts + sitemap lastmod when content changes.
