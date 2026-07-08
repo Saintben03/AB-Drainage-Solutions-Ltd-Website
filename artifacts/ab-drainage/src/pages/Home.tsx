@@ -25,6 +25,9 @@ import workSurvey from "@assets/site_files_1/survey-01a.jpg";
 import lanesLogo from "@assets/site_files_1/LanesGroup-1000-px.png";
 import nhsLogo from "@assets/site_files_1/National_Health_Service_(England)_logo.svg.png";
 import ccLogo from "@assets/site_files_1/CC-Multi-Disciplinary-Strap-White-BG-Full-Col-RGB-Trans.png";
+import rollsRoyceLogo from "@assets/logos/rolls-royce-trim.png";
+import firstChoiceLogo from "@assets/logos/first-choice-official.png";
+import nimbusLogo from "@assets/logos/nimbus-logo.png";
 import divConstruction from "@assets/construction/const-about.png";
 import divFencing from "@assets/fencing/fence-hero.png";
 import divFacilities from "@assets/facilities/fac-gallery-lobby.png";
@@ -76,6 +79,9 @@ const trustLogos = [
   { src: nhsLogo, alt: "NHS", className: "h-10 md:h-14" },
   { src: lanesLogo, alt: "Lanes Group", className: "h-12 md:h-16" },
   { src: ccLogo, alt: "CC Multi Disciplinary", className: "h-12 md:h-16" },
+  { src: rollsRoyceLogo, alt: "Rolls-Royce", className: "h-12 md:h-16" },
+  { src: firstChoiceLogo, alt: "1st Choice Properties, Milton Keynes", className: "h-12 md:h-16" },
+  { src: nimbusLogo, alt: "Nimbus Engineering Consultants", className: "h-10 md:h-14" },
 ];
 
 const abGroupDivisions = [

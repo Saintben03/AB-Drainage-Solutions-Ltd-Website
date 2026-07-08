@@ -19,6 +19,7 @@
 - [ab-drainage shell git push blocked](ab-drainage-git-push.md) — shell `git push` hangs/fails auth on this repo's GitHub remote; use Replit's Git panel Push button instead.
 - [ab-drainage dividers](ab-drainage-dividers.md) — WaterWave/AngledEdge/Diagonal/Stepped motifs; divider fill MUST equal the section it transitions into or it reads as a mismatched band.
 - [ab-drainage services list surfaces](ab-drainage-services-list.md) — shared array in Services.tsx feeds most pages, but Home tiles, Footer links & Services SEO description are hardcoded; update all when adding a service.
+- [ab-drainage trust marquee logos](ab-drainage-trust-logos.md) — trustLogos duplicated in Home+About; logo sourcing tricks (Nimbus blocks downloads, 1st Choice official URL, use magick).
 - [ab-drainage AB Group sub-brand pages](ab-drainage-ab-group-pages.md) — Construction/Fencing/Facilities pages: bright directional-gradient hero (no flat dark veil) + white/light body sections with accent pops, not all-dark.
 - [ab-drainage prerender/SSG](ab-drainage-prerender-ssg.md) — build now prerenders 37 routes; index.html stripped of per-page SEO tags (Helmet owns them) — re-adding them duplicates meta. DigitalOcean must run full `build`.
 - [ab-drainage town pages](ab-drainage-town-pages.md) — 15 rich /areas/:town SEO pages from data/areas.ts (not 120 thin service×town combos, avoids doorway penalty); FaqSection carries FAQPage schema.
