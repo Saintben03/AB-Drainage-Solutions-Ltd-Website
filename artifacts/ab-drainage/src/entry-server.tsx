@@ -5,6 +5,7 @@ import { towns } from "./data/areas";
 import { counties } from "./data/counties";
 import { blogPosts } from "./data/blogPosts";
 import { servicePages } from "./data/servicePages";
+import { serviceLocationRoutes } from "./data/serviceLocations";
 
 export interface RenderResult {
   html: string;
@@ -35,4 +36,5 @@ export const routes: string[] = [
   ...towns.map((t) => `/areas/${t.slug}`),
   ...counties.map((c) => `/areas/county/${c.slug}`),
   ...blogPosts.map((p) => `/blog/${p.slug}`),
+  ...serviceLocationRoutes,
 ];

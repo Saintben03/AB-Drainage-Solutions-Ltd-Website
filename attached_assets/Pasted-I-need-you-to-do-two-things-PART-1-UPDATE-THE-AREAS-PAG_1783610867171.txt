@@ -1,0 +1,42 @@
+I need you to do two things:
+
+PART 1 - UPDATE THE AREAS PAGE
+Update the areas covered page with this full location list, grouped by county with county headings. Add a county-level page for each county at /areas/[county].
+
+PART 2 - GENERATE ALL SERVICE + LOCATION KEYWORD PAGES
+Create a page for every combination of service AND location below, at the URL /[service-slug]/[location-slug]/
+
+These pages target search terms like "blocked drains basingstoke" or "cctv drain survey southampton"
+
+SERVICES:
+- blocked-drains / "Blocked Drains"
+- drain-unblocking / "Drain Unblocking"
+- cctv-drain-survey / "CCTV Drain Survey"
+- drain-jetting / "Drain Jetting"
+- drain-lining-repair / "Drain Lining & Repair"
+- emergency-drainage / "Emergency Drainage"
+- drain-repairs / "Drain Repairs"
+- commercial-drainage / "Commercial & Industrial Drainage"
+- soakaway-installation / "Soakaway Installation"
+- septic-tanks / "Septic Tanks"
+- guttering-downpipes / "Guttering & Downpipes"
+
+ALL LOCATIONS:
+Basingstoke, Hook, Southampton, Winchester, Aldershot, Farnborough, Fleet, Alton, Petersfield, Andover, Romsey, Eastleigh, Chandler's Ford, Hedge End, Bishops Waltham, Whitchurch, Tadley, Overton, Liphook, Bordon, Yateley, Totton, Hythe, Lymington, New Milton, Ringwood, Fordingbridge, Waterlooville, Portsmouth, Fareham, Gosport, Havant, Emsworth, Guildford, Woking, Farnham, Godalming, Camberley, Haslemere, Reigate, Redhill, Epsom, Leatherhead, Dorking, Chichester, Worthing, Horsham, Crawley, Bognor Regis, Burgess Hill, Haywards Heath, Brighton, Hove, Eastbourne, Lewes, Reading, Newbury, Bracknell, Wokingham, Windsor, Salisbury, Swindon, Chippenham, Bournemouth, Poole, Christchurch, Dorchester, Oxford, Abingdon, Didcot, Maidstone, Tunbridge Wells, Sevenoaks
+
+ALSO create county-level service pages at /[service-slug]/[county]/ for:
+Hampshire, Surrey, West Sussex, East Sussex, Berkshire, Wiltshire, Dorset, Oxfordshire, Kent
+
+Each page must have:
+- Page title: "[Service] in [Location] | A&B Drainage Solutions"
+- Meta description mentioning service, location, 24/7, phone 01256 688 650
+- H1: "[Service] in [Location]"
+- Stats bar: 1hr Response | 33+ Years | 24/7 Emergency | 100% Guaranteed
+- 2 unique paragraphs with local context for that specific town
+- Services list
+- 3 FAQs relevant to that service and location
+- CTA with phone 01256 688 650 and email info@abdrainage.co.uk
+- Internal links back to /areas/[location] and /services/[service]
+
+Update the sitemap to include every new page.
+Use the same styling and components as the existing site.

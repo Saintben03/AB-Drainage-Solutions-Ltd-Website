@@ -15,3 +15,10 @@ description: How the 6 dedicated SEO service pages, FAQ page, and JSON-LD are wi
 - London county lists district labels (Greater London etc.) with no town pages — intentional; CountyArea renders non-matching names as plain chips.
 - sitemap.xml is manual: regenerate by extracting slugs from areas.ts/counties.ts; /privacy-policy and /terms are intentionally excluded.
 - Full build prerenders 130 routes; entry-server derives routes from the data arrays automatically.
+
+## Service x location keyword pages (July 2026)
+- 1,034 pages at /[service]/[location] generated at prerender from src/data/serviceLocations.ts (11 localServices with copy/FAQ generator functions) + ServiceLocationPage.tsx; not stored as static data.
+- Only 6 services have dedicated pages; the other 5 (drain-repairs, commercial-drainage, soakaway-installation, septic-tanks, guttering-downpipes) link to /services#anchor. "emergency-drainage" combo slug differs from dedicated page slug "emergency-drainage-services" (intentional, per client keyword list).
+- SEO component auto-appends "| A&B Drainage Solutions Ltd" to titles — never include a brand suffix in page-level title props or it doubles.
+- Full build now prerenders 1,164 routes (~1 min); sitemap.xml has 1,162 URLs, regenerated via inline node script deriving slugs from data files.
+- County-level service pages cover only the 9 real counties (London excluded from the combo matrix).

@@ -27,8 +27,10 @@ import ABGroupFacilities from "@/pages/ABGroupFacilities";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import Terms from "@/pages/Terms";
 import ServicePage from "@/pages/ServicePage";
+import ServiceLocationPage from "@/pages/ServiceLocationPage";
 import Faq from "@/pages/Faq";
 import { servicePages } from "@/data/servicePages";
+import { localServices } from "@/data/serviceLocations";
 
 const queryClient = new QueryClient();
 
@@ -89,6 +91,11 @@ function Router() {
               {servicePages.map((s) => (
                 <Route key={s.slug} path={`/${s.slug}`}>
                   <ServicePage slug={s.slug} />
+                </Route>
+              ))}
+              {localServices.map((s) => (
+                <Route key={`${s.slug}-loc`} path={`/${s.slug}/:location`}>
+                  <ServiceLocationPage serviceSlug={s.slug} />
                 </Route>
               ))}
               <Route component={NotFound} />
