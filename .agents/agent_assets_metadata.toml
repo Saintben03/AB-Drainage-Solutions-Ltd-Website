@@ -245,3 +245,9 @@ id = "x0uY8oOZW4O4501fPWaAC"
 uri = "file://attached_assets/Designer_(1)_1782807579036.png"
 type = "image"
 title = "A&B Drainage Vehicle Fleet Image"
+
+[[outputs]]
+id = "1cG5a0e-fckyvbVKJalau"
+uri = "file://artifacts/ab-drainage/attached_assets/Designer_(1)_1782807579036.png"
+type = "image"
+title = "A&B Drainage vehicle fleet"
