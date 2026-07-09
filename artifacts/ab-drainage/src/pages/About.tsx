@@ -129,16 +129,16 @@ export default function About() {
                 transition={{ duration: 0.5, delay: 0.05 }}
                 className="pt-12 mt-12 border-t border-zinc-200"
               >
-                <p className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-4">Who's Behind A&amp;B</p>
-                <h2 className="text-3xl font-display font-bold text-zinc-900 uppercase mb-6">Owned &amp; Run by Louis Barnett</h2>
+                <p className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-4">Where We Work From</p>
+                <h2 className="text-3xl font-display font-bold text-zinc-900 uppercase mb-6">Two Bases, One Standard</h2>
                 <div className="bg-zinc-50 border-l-4 border-accent p-7">
                   <p className="text-zinc-700 leading-relaxed mb-4">
-                    A&amp;B Drainage Solutions Ltd is owned and run by Louis Barnett, who leads the team from our
-                    Basingstoke base. Louis oversees every side of the business — from emergency call-outs and
-                    commercial contracts to the standards our engineers work to on site.
+                    A&amp;B Drainage Solutions Ltd operates out of two base locations — one in Hampshire and one in
+                    East Sussex — giving our engineers fast reach across the South of England, from emergency
+                    call-outs to long-running commercial contracts.
                   </p>
                   <p className="text-zinc-700 leading-relaxed">
-                    Have a question about a job, a quote, or anything on this site? You can reach Louis and the team
+                    Have a question about a job, a quote, or anything on this site? You can reach the team
                     directly on{" "}
                     <a href="tel:01256688650" className="text-accent font-semibold hover:underline">01256 688 650</a>{" "}
                     or at{" "}

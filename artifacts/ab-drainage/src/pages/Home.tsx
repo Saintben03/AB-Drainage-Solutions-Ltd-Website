@@ -154,7 +154,6 @@ export default function Home() {
             url: "https://www.abdrainage.co.uk",
             telephone: "01256 688 650",
             email: "info@abdrainage.co.uk",
-            founder: { "@type": "Person", name: "Louis Barnett" },
             address: {
               "@type": "PostalAddress",
               addressLocality: "Basingstoke",
@@ -166,6 +165,7 @@ export default function Home() {
               { "@type": "AdministrativeArea", name: "Berkshire" },
               { "@type": "AdministrativeArea", name: "Surrey" },
               { "@type": "AdministrativeArea", name: "Wiltshire" },
+              { "@type": "AdministrativeArea", name: "East Sussex" },
             ],
             openingHoursSpecification: {
               "@type": "OpeningHoursSpecification",
