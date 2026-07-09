@@ -36,7 +36,7 @@ export default function CountyArea() {
     county.emergency
       ? { value: "24/7", label: "Emergency Coverage" }
       : { value: "HD", label: "CCTV Survey Reports" },
-    { value: "6+", label: `Towns Covered in ${county.name}` },
+    { value: `${county.towns.length}+`, label: `Towns Covered in ${county.name}` },
     { value: "100%", label: "Clearance Guaranteed" },
   ];
 

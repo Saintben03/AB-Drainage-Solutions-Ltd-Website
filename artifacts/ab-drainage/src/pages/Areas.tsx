@@ -11,10 +11,19 @@ import heroImg from "@assets/Designer_(1)_1782807579036.png";
 import vanImg from "@assets/site_files_1/g-01u.jpg";
 import crewArea from "@assets/ab_group_gallery/worker-9.33.26.jpeg";
 
+const hampshireTowns = towns.filter((t) => t.county === "Hampshire");
+
+const countyGroups = counties
+  .map((county) => ({
+    county,
+    groupTowns: towns.filter((t) => t.county === county.name),
+  }))
+  .filter(({ county, groupTowns }) => county.name !== "Hampshire" && groupTowns.length > 0);
+
 const stats = [
   { value: "33+", label: "Years Serving Hampshire" },
   { value: "1hr", label: "Typical Response Time" },
-  { value: "15+", label: "Towns & Cities Covered" },
+  { value: "85+", label: "Towns & Cities Covered" },
   { value: "24/7", label: "Emergency Coverage" },
 ];
 
@@ -33,7 +42,7 @@ export default function Areas() {
     <>
       <SEO
         title="Areas We Cover | Drainage Solutions Hampshire"
-        description="A&B Drainage Solutions covers all of Hampshire and surrounding areas including Basingstoke, Southampton, Winchester, Berkshire, Surrey, Kent, Sussex, and London."
+        description="A&B Drainage Solutions covers 85+ towns across Hampshire, Surrey, West Sussex, East Sussex, Berkshire, Wiltshire, Dorset, Oxfordshire, and Kent — including Basingstoke, Southampton, Winchester, Guildford, and Brighton."
         canonicalUrl="/areas"
       />
 
@@ -99,7 +108,7 @@ export default function Areas() {
             viewport={{ once: true }}
             className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-0.5 bg-zinc-200 mb-16"
           >
-            {towns.map((area, i) => (
+            {hampshireTowns.map((area, i) => (
               <motion.div key={i} variants={fadeUp} className="h-full">
                 <Link
                   href={`/areas/${area.slug}`}
@@ -118,6 +127,58 @@ export default function Areas() {
               </motion.div>
             ))}
           </motion.div>
+
+          {/* Other counties, grouped */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-10"
+          >
+            <p className="text-accent text-xs font-bold uppercase tracking-[0.25em] mb-3">Wider Coverage</p>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-zinc-900 uppercase leading-tight">
+              Beyond Hampshire
+            </h2>
+          </motion.div>
+
+          <div className="space-y-12 mb-16">
+            {countyGroups.map(({ county, groupTowns }) => (
+              <motion.div
+                key={county.slug}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
+                <div className="flex flex-wrap items-baseline justify-between gap-2 mb-4 border-b border-zinc-200 pb-3">
+                  <h3 className="text-xl font-display font-bold text-zinc-900 uppercase tracking-wide">
+                    {county.name}
+                  </h3>
+                  <Link
+                    href={`/areas/county/${county.slug}`}
+                    className="text-accent text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 hover:underline"
+                  >
+                    {county.name} Coverage <ArrowRight size={13} />
+                  </Link>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-0.5 bg-zinc-200">
+                  {groupTowns.map((area) => (
+                    <Link
+                      key={area.slug}
+                      href={`/areas/${area.slug}`}
+                      className="bg-white p-5 flex items-start gap-3 group hover:bg-accent/10 transition-colors border-t-2 border-t-transparent hover:border-t-accent h-full"
+                    >
+                      <MapPin size={15} className="text-accent shrink-0 mt-0.5" />
+                      <p className="font-bold text-zinc-900 text-sm uppercase tracking-wide group-hover:text-accent transition-colors">
+                        {area.name}
+                      </p>
+                    </Link>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
 
           {/* Border counties */}
           <motion.div

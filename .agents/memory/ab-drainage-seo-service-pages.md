@@ -9,3 +9,9 @@ description: How the 6 dedicated SEO service pages, FAQ page, and JSON-LD are wi
 - CLIENT RULE: do NOT name owner Louis Barnett anywhere on the site (client explicitly rejected it, July 2026). About page instead says the firm works from two bases: Hampshire and East Sussex. AggregateRating/Review schema deliberately omitted (no verified review data).
 - Google reviews status (July 2026): Louis's Google reviews were removed from his profile; client has an open case with Google to reinstate them. Once reinstated, add GBP URL to LocalBusiness sameAs on Home and consider review-related schema — not before.
 - Update CONTENT_UPDATED/CONTENT_UPDATED_ISO in servicePages.ts + sitemap lastmod when content changes.
+
+## Areas expansion (July 2026)
+- areas.ts holds 85 towns across 9 counties; counties.ts has 10 county pages (incl. London extra). Old /areas/county/sussex removed — split into west-sussex/east-sussex.
+- London county lists district labels (Greater London etc.) with no town pages — intentional; CountyArea renders non-matching names as plain chips.
+- sitemap.xml is manual: regenerate by extracting slugs from areas.ts/counties.ts; /privacy-policy and /terms are intentionally excluded.
+- Full build prerenders 130 routes; entry-server derives routes from the data arrays automatically.

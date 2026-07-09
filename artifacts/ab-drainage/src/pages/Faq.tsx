@@ -27,7 +27,7 @@ const faqs: FaqItem[] = [
   },
   {
     q: "What areas does AB Drainage Solutions cover?",
-    a: "Our core coverage area for routine and emergency call-outs is Hampshire and its border towns: Basingstoke (our HQ), Southampton, Winchester, Aldershot, Reading, Farnborough, Andover, Fleet, Alton, Petersfield, Portsmouth, Eastleigh, Fareham, Gosport, and Havant. Beyond that, we frequently take on projects across Berkshire, Surrey, Sussex, Kent, London, Dorset, and Wiltshire — particularly larger commercial and CCTV survey work rather than routine call-outs.",
+    a: "Our core coverage area for routine and emergency call-outs is Hampshire — over 30 towns from Basingstoke (our HQ) and Andover down to Southampton, Portsmouth, and the New Forest. Beyond that, we cover towns across Surrey, West Sussex, East Sussex, Berkshire, Wiltshire, Dorset, Oxfordshire, Kent, and London — with larger commercial and CCTV survey work making up much of the furthest-out coverage.",
   },
 ];
 
