@@ -269,3 +269,9 @@ id = "JdFXnOl8r7BzhhTgJjroP"
 uri = "file://attached_assets/generated_videos/ab-drainage-hero-video.mp4"
 type = "video"
 title = "AB Drainage — Hero Video"
+
+[[outputs]]
+id = "XZ5UMkNffxKdTiD2XVTeA"
+uri = "file://attached_assets/generated_videos/ab-drainage-hero-video-silent.mp4"
+type = "video"
+title = "AB Drainage — Hero Video (no audio)"
