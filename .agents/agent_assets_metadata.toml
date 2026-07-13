@@ -263,3 +263,9 @@ id = "PHdcj5ncnOccV8AFoxIEY"
 uri = "file://artifacts/ab-drainage/public/favicon-192.png"
 type = "image"
 title = "favicon-192.png — Apple touch icon (192px)"
+
+[[outputs]]
+id = "JdFXnOl8r7BzhhTgJjroP"
+uri = "file://attached_assets/generated_videos/ab-drainage-hero-video.mp4"
+type = "video"
+title = "AB Drainage — Hero Video"
