@@ -257,3 +257,9 @@ id = "BGQwjAXWH2LT4Im6Wt95E"
 uri = "file://exports/ab-drainage-fleet.png"
 type = "image"
 title = "A&B Drainage vehicle fleet"
+
+[[outputs]]
+id = "PHdcj5ncnOccV8AFoxIEY"
+uri = "file://artifacts/ab-drainage/public/favicon-192.png"
+type = "image"
+title = "favicon-192.png — Apple touch icon (192px)"
