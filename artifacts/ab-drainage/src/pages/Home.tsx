@@ -52,7 +52,7 @@ const faqs = [
   { q: "Are you fully insured and accredited?", a: "Yes. We're fully insured, health & safety compliant, and approved to work for the NHS and major UK contractors." },
 ];
 
-const REVIEWS_URL = "https://www.google.com/search?q=A%26B+Drainage+Solutions+Ltd+Basingstoke+Reviews";
+const REVIEWS_URL = "https://www.google.com/search?q=A%26B+Drainage+Solutions+Ltd#lrd=0x2931c741d50c00a3:0x96c946b80f3ff325,1";
 
 const reviews = [
   { name: "James T.", location: "Basingstoke", stars: 5, text: "Called at 11pm with a badly blocked drain — engineer was on site within 45 minutes and had it cleared in under an hour. Exceptional service." },
