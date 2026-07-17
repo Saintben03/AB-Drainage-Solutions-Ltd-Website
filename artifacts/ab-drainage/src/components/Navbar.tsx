@@ -15,19 +15,19 @@ const groupCompanies = [
   {
     name: "AB Construction Solutions",
     sub: "Civil Engineering & Groundworks",
-    href: "/ab-group/construction",
+    href: "https://abconstructionsolutions.co.uk",
     logo: logoConstruction,
   },
   {
     name: "AB Fencing Solutions",
     sub: "Residential, Commercial & Agricultural",
-    href: "/ab-group/fencing",
+    href: "https://abfencingsolutions.co.uk",
     logo: logoFencing,
   },
   {
     name: "AB Facilities Management",
     sub: "Buildings & Compliance",
-    href: "/ab-group/facilities",
+    href: "https://abfacilitiesmgmt.co.uk",
     logo: logoFacilities,
   },
 ];
@@ -339,9 +339,11 @@ export const Navbar = () => {
                         <p className="text-white/40 text-[10px] font-bold uppercase tracking-[0.22em]">AB Group Divisions</p>
                       </div>
                       {groupCompanies.map((co) => (
-                        <Link
+                        <a
                           key={co.href}
                           href={co.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="flex items-center gap-4 px-5 py-4 hover:bg-white/[0.06] transition-colors group/item border-t border-white/5"
                         >
                           <div className="min-w-0 flex-1">
@@ -356,7 +358,7 @@ export const Navbar = () => {
                             size={15}
                             className="ml-auto shrink-0 text-white/25 group-hover/item:text-white/70 group-hover/item:translate-x-0.5 transition-all"
                           />
-                        </Link>
+                        </a>
                       ))}
                       <div className="px-5 py-3 border-t border-white/10 bg-white/[0.02]">
                         <p className="text-white/30 text-[10px] uppercase tracking-[0.15em]">A&B Drainage — Currently Viewing</p>
@@ -540,9 +542,11 @@ export const Navbar = () => {
                         className="overflow-hidden bg-zinc-950"
                       >
                         {groupCompanies.map((co) => (
-                          <Link
+                          <a
                             key={co.href}
                             href={co.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             onClick={() => setMobileMenuOpen(false)}
                             className="flex items-center gap-4 px-8 py-4 border-t border-zinc-800 hover:bg-zinc-900 transition-colors"
                           >
@@ -555,7 +559,7 @@ export const Navbar = () => {
                               <p className="text-white/40 text-xs mt-1.5">{co.sub}</p>
                             </div>
                             <ArrowRight size={14} className="text-white/30" />
-                          </Link>
+                          </a>
                         ))}
                       </motion.div>
                     )}

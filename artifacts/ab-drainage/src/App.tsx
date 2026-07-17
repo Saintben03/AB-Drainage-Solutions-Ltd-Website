@@ -9,6 +9,8 @@ import { BookNowProvider } from "@/contexts/BookNowContext";
 import NotFound from "@/pages/not-found";
 
 import { Navbar } from "@/components/Navbar";
+import { DivisionNavbar } from "@/components/DivisionNavbar";
+import { getCurrentSite } from "@/lib/domain";
 import { Footer } from "@/components/Footer";
 import { SiteNotice } from "@/components/SiteNotice";
 import Home from "@/pages/Home";
@@ -58,6 +60,36 @@ function Router() {
       document.removeEventListener("dragstart", onDragStart);
     };
   }, []);
+
+  const site = getCurrentSite();
+
+  if (site === "construction") {
+    return (
+      <div className="flex flex-col min-h-[100dvh]">
+        <DivisionNavbar site="construction" />
+        <main className="flex-1"><ABGroupConstruction /></main>
+        <Footer />
+      </div>
+    );
+  }
+  if (site === "fencing") {
+    return (
+      <div className="flex flex-col min-h-[100dvh]">
+        <DivisionNavbar site="fencing" />
+        <main className="flex-1"><ABGroupFencing /></main>
+        <Footer />
+      </div>
+    );
+  }
+  if (site === "facilities") {
+    return (
+      <div className="flex flex-col min-h-[100dvh]">
+        <DivisionNavbar site="facilities" />
+        <main className="flex-1"><ABGroupFacilities /></main>
+        <Footer />
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col min-h-[100dvh]">
