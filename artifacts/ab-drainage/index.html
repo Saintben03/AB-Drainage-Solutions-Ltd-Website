@@ -37,9 +37,9 @@
       (function() {
         var h = window.location.hostname;
         var f = null;
-        if (h.includes('abconstructionsolutions')) f = '/favicon-construction.png';
-        else if (h.includes('abfencingsolutions')) f = '/favicon-fencing.png';
-        else if (h.includes('abfacilitiesmgmt')) f = '/favicon-facilities.png';
+        if (h.includes('abconstructionsolutions')) f = '/favicon-construction.png?v=2';
+        else if (h.includes('abfencingsolutions')) f = '/favicon-fencing.png?v=2';
+        else if (h.includes('abfacilitiesmgmt')) f = '/favicon-facilities.png?v=2';
         if (f) {
           document.getElementById('fav-any').setAttribute('href', f);
           document.getElementById('fav-svg').setAttribute('href', f);
