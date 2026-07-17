@@ -1,0 +1,114 @@
+REPLIT PROMPT — Fix 2 only (replace the favicon section from before):
+## FIX 2: Create real brand favicons from the existing logo assets
+
+The horizontal logo images for each division are already in the project assets. The circular AB icon sits on the LEFT side of each logo — we need to crop that square portion and use it as the favicon for each division domain.
+
+### Step A — Run this Node.js script to generate the favicon files
+
+Create a file called `scripts/generate-division-favicons.mjs` with this content:
+
+```js
+import sharp from 'sharp';
+import { glob } from 'glob';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import fs from 'fs';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const root = path.resolve(__dirname, '..');
+
+// Find the logo files in the assets folder
+const assetDirs = [
+  path.join(root, 'artifacts/ab-drainage/src/assets'),
+  path.join(root, 'artifacts/ab-drainage/public'),
+];
+
+const logos = {
+  construction: 'AB-Construction-300x54_1783288669800.png',
+  fencing: 'AB-Fencing-300x56_1783288689329.png',
+  facilities: 'AB-Facilities-scaled-1-300x52_1783288632041.png',
+};
+
+const outDir = path.join(root, 'artifacts/ab-drainage/public');
+
+async function findFile(filename) {
+  for (const dir of assetDirs) {
+    const fullPath = path.join(dir, filename);
+    if (fs.existsSync(fullPath)) return fullPath;
+  }
+  // Search recursively
+  const matches = await glob(`**/${filename}`, { cwd: root, absolute: true });
+  return matches[0] || null;
+}
+
+for (const [division, filename] of Object.entries(logos)) {
+  const src = await findFile(filename);
+  if (!src) {
+    console.error(`Could not find ${filename}`);
+    continue;
+  }
+
+  const meta = await sharp(src).metadata();
+  const size = meta.height; // crop a square equal to the image height from the left
+
+  const outPath = path.join(outDir, `favicon-${division}.png`);
+  await sharp(src)
+    .extract({ left: 0, top: 0, width: size, height: size })
+    .resize(64, 64)
+    .png()
+    .toFile(outPath);
+
+  console.log(`Created ${outPath}`);
+}
+```
+
+Then run it from the project root:
+cd artifacts/ab-drainage && node --input-type=module < ../../scripts/generate-division-favicons.mjs
+
+If sharp is not installed, run first:
+cd artifacts/ab-drainage && npm install sharp --save-dev
+
+### Step B — Update index.html to switch favicons per domain
+
+In `artifacts/ab-drainage/index.html`, find the Favicon block:
+```html
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico?v=7" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=7" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png?v=7" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=7" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=7" />
+    <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png?v=7" />
+```
+
+Replace it with:
+```html
+    <!-- Favicon — default for abdrainage.co.uk -->
+    <link id="fav-icon" rel="icon" href="/favicon.ico?v=7" sizes="any" />
+    <link id="fav-svg" rel="icon" type="image/svg+xml" href="/favicon.svg?v=7" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=7" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=7" />
+    <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png?v=7" />
+    <script>
+      (function() {
+        var h = window.location.hostname;
+        var f = null;
+        if (h.includes('abconstructionsolutions')) f = '/favicon-construction.png';
+        else if (h.includes('abfencingsolutions')) f = '/favicon-fencing.png';
+        else if (h.includes('abfacilitiesmgmt')) f = '/favicon-facilities.png';
+        if (f) {
+          document.getElementById('fav-icon').setAttribute('href', f);
+          document.getElementById('fav-svg').setAttribute('href', f);
+        }
+      })();
+    </script>
+```
+
+### Step C — Verify
+
+Confirm that these 3 files now exist in `artifacts/ab-drainage/public/`:
+- `favicon-construction.png`
+- `favicon-fencing.png`
+- `favicon-facilities.png`
+
+Show me the file sizes to confirm they were generated successfully.
