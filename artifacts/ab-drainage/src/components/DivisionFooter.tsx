@@ -126,7 +126,7 @@ export const DivisionFooter = ({ site }: DivisionFooterProps) => {
           <div>
             <h3 className="text-xl font-display font-bold mb-6 text-white">Contact Us</h3>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li>Priory Farm, Hampshire, Andwell, Hook RG27 9PA</li>
+              <li>Unit C3 Birdineye Farm, Uckfield, East Sussex, TN22 5HA</li>
               <li>
                 <a href="tel:01256688650" className="hover:text-white transition-colors">
                   01256 688 650
