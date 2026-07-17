@@ -1,0 +1,134 @@
+Please make the following 3 fixes to the project. Apply all of them carefully and verify each one.
+
+---
+
+## FIX 1: Footer cross-links on division pages
+
+The "Part of The AB Group" footer banner at the bottom of all 3 division pages currently uses `<Link>` (Wouter internal router) which just scrolls to the top on division domains. Replace every `<Link>` in that footer banner section with plain `<a>` tags linking to the correct external domains.
+
+### artifacts/ab-drainage/src/pages/ABGroupConstruction.tsx
+
+In the "AB GROUP FOOTER BANNER" section near the bottom, replace this:
+```tsx
+<Link href="/ab-group/fencing" className="px-6 py-3 border border-white/40 text-white text-xs font-bold uppercase tracking-wider hover:border-white hover:bg-white/10 transition-all">Fencing</Link>
+<Link href="/ab-group/facilities" className="px-6 py-3 border border-white/40 text-white text-xs font-bold uppercase tracking-wider hover:border-white hover:bg-white/10 transition-all">Facilities</Link>
+<Link href="/" className="px-6 py-3 text-xs font-bold uppercase tracking-wider text-[#dc2626] bg-white hover:opacity-90 transition-all">AB Drainage</Link>
+```
+with:
+```tsx
+<a href="https://abfencingsolutions.co.uk" target="_blank" rel="noopener noreferrer" className="px-6 py-3 border border-white/40 text-white text-xs font-bold uppercase tracking-wider hover:border-white hover:bg-white/10 transition-all">Fencing</a>
+<a href="https://abfacilitiesmgmt.co.uk" target="_blank" rel="noopener noreferrer" className="px-6 py-3 border border-white/40 text-white text-xs font-bold uppercase tracking-wider hover:border-white hover:bg-white/10 transition-all">Facilities</a>
+<a href="https://www.abdrainage.co.uk" target="_blank" rel="noopener noreferrer" className="px-6 py-3 text-xs font-bold uppercase tracking-wider text-[#dc2626] bg-white hover:opacity-90 transition-all">AB Drainage</a>
+```
+
+### artifacts/ab-drainage/src/pages/ABGroupFencing.tsx
+
+In the "AB GROUP FOOTER BANNER" section near the bottom, replace this:
+```tsx
+<Link href="/ab-group/construction" className="px-6 py-3 border border-white/40 text-white text-xs font-bold uppercase tracking-wider hover:border-white hover:bg-white/10 transition-all">Construction</Link>
+<Link href="/ab-group/facilities" className="px-6 py-3 border border-white/40 text-white text-xs font-bold uppercase tracking-wider hover:border-white hover:bg-white/10 transition-all">Facilities</Link>
+<Link href="/" className="px-6 py-3 text-xs font-bold uppercase tracking-wider text-[#16a34a] bg-white hover:opacity-90 transition-all">AB Drainage</Link>
+```
+with:
+```tsx
+<a href="https://abconstructionsolutions.co.uk" target="_blank" rel="noopener noreferrer" className="px-6 py-3 border border-white/40 text-white text-xs font-bold uppercase tracking-wider hover:border-white hover:bg-white/10 transition-all">Construction</a>
+<a href="https://abfacilitiesmgmt.co.uk" target="_blank" rel="noopener noreferrer" className="px-6 py-3 border border-white/40 text-white text-xs font-bold uppercase tracking-wider hover:border-white hover:bg-white/10 transition-all">Facilities</a>
+<a href="https://www.abdrainage.co.uk" target="_blank" rel="noopener noreferrer" className="px-6 py-3 text-xs font-bold uppercase tracking-wider text-[#16a34a] bg-white hover:opacity-90 transition-all">AB Drainage</a>
+```
+
+### artifacts/ab-drainage/src/pages/ABGroupFacilities.tsx
+
+In the "AB GROUP FOOTER BANNER" section near the bottom, replace this:
+```tsx
+<Link href="/ab-group/construction" className="px-6 py-3 border border-white/40 text-white text-xs font-bold uppercase tracking-wider hover:border-white hover:bg-white/10 transition-all">Construction</Link>
+<Link href="/ab-group/fencing" className="px-6 py-3 border border-white/40 text-white text-xs font-bold uppercase tracking-wider hover:border-white hover:bg-white/10 transition-all">Fencing</Link>
+<Link href="/" className="px-6 py-3 text-xs font-bold uppercase tracking-wider text-slate-700 bg-white hover:opacity-90 transition-all">AB Drainage</Link>
+```
+with:
+```tsx
+<a href="https://abconstructionsolutions.co.uk" target="_blank" rel="noopener noreferrer" className="px-6 py-3 border border-white/40 text-white text-xs font-bold uppercase tracking-wider hover:border-white hover:bg-white/10 transition-all">Construction</a>
+<a href="https://abfencingsolutions.co.uk" target="_blank" rel="noopener noreferrer" className="px-6 py-3 border border-white/40 text-white text-xs font-bold uppercase tracking-wider hover:border-white hover:bg-white/10 transition-all">Fencing</a>
+<a href="https://www.abdrainage.co.uk" target="_blank" rel="noopener noreferrer" className="px-6 py-3 text-xs font-bold uppercase tracking-wider text-slate-700 bg-white hover:opacity-90 transition-all">AB Drainage</a>
+```
+
+Also remove the `import { Link } from "wouter";` line from all 3 of those files ONLY IF `Link` is no longer used anywhere else in the file after making the above replacements. Check the full file before removing it.
+
+---
+
+## FIX 2: Dynamic favicon per division domain
+
+Since all 3 division sites are served from the same build (single-page app), we use a small inline script in `index.html` to swap the favicon before React loads, based on which domain is being visited.
+
+### Step A — Create 3 new SVG favicon files in `artifacts/ab-drainage/public/`:
+
+Create `artifacts/ab-drainage/public/favicon-construction.svg` with this content:
+```svg
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="50" fill="#dc2626"/>
+  <text x="50" y="67" font-family="Arial Black, Arial, sans-serif" font-size="44" font-weight="900" text-anchor="middle" fill="white">AB</text>
+</svg>
+```
+
+Create `artifacts/ab-drainage/public/favicon-fencing.svg` with this content:
+```svg
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="50" fill="#16a34a"/>
+  <text x="50" y="67" font-family="Arial Black, Arial, sans-serif" font-size="44" font-weight="900" text-anchor="middle" fill="white">AB</text>
+</svg>
+```
+
+Create `artifacts/ab-drainage/public/favicon-facilities.svg` with this content:
+```svg
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="50" fill="#64748b"/>
+  <text x="50" y="67" font-family="Arial Black, Arial, sans-serif" font-size="44" font-weight="900" text-anchor="middle" fill="white">AB</text>
+</svg>
+```
+
+### Step B — Add the favicon-switching script to `artifacts/ab-drainage/index.html`
+
+In `index.html`, find the Favicon comment block:
+```html
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico?v=7" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=7" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png?v=7" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=7" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=7" />
+    <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png?v=7" />
+```
+
+Replace it with:
+```html
+    <!-- Favicon — default for abdrainage.co.uk -->
+    <link id="favicon-main" rel="icon" href="/favicon.ico?v=7" sizes="any" />
+    <link id="favicon-svg" rel="icon" type="image/svg+xml" href="/favicon.svg?v=7" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png?v=7" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=7" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=7" />
+    <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png?v=7" />
+    <!-- Division favicon switcher — runs before React mounts -->
+    <script>
+      (function() {
+        var h = window.location.hostname;
+        var svg = null;
+        if (h.includes('abconstructionsolutions')) svg = '/favicon-construction.svg';
+        else if (h.includes('abfencingsolutions')) svg = '/favicon-fencing.svg';
+        else if (h.includes('abfacilitiesmgmt')) svg = '/favicon-facilities.svg';
+        if (svg) {
+          document.getElementById('favicon-main').setAttribute('href', svg);
+          document.getElementById('favicon-svg').setAttribute('href', svg);
+        }
+      })();
+    </script>
+```
+
+---
+
+## FIX 3: Verify contact forms
+
+Check `artifacts/ab-drainage/src/pages/ABGroupConstruction.tsx`, `ABGroupFencing.tsx`, and `ABGroupFacilities.tsx`. Confirm that all 3 files have `window.location.href = \`mailto:info@abdrainage.co.uk?subject=...` inside their `handleSubmit` function. If any of them is missing this or has a different email address, fix it to match. Do not change anything else in the forms.
+
+---
+
+After making all changes, confirm which files were modified and show me a brief summary of what was changed in each.

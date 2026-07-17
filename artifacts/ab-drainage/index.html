@@ -27,13 +27,27 @@
     <!-- Sitemap -->
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
-    <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico?v=7" sizes="any" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=7" />
+    <!-- Favicon — default for abdrainage.co.uk -->
+    <link id="favicon-main" rel="icon" href="/favicon.ico?v=7" sizes="any" />
+    <link id="favicon-svg" rel="icon" type="image/svg+xml" href="/favicon.svg?v=7" />
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png?v=7" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=7" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=7" />
     <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png?v=7" />
+    <!-- Division favicon switcher — runs before React mounts -->
+    <script>
+      (function() {
+        var h = window.location.hostname;
+        var svg = null;
+        if (h.includes('abconstructionsolutions')) svg = '/favicon-construction.svg';
+        else if (h.includes('abfencingsolutions')) svg = '/favicon-fencing.svg';
+        else if (h.includes('abfacilitiesmgmt')) svg = '/favicon-facilities.svg';
+        if (svg) {
+          document.getElementById('favicon-main').setAttribute('href', svg);
+          document.getElementById('favicon-svg').setAttribute('href', svg);
+        }
+      })();
+    </script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

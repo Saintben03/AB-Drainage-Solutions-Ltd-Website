@@ -349,9 +349,9 @@ export default function ABGroupFencing() {
               <p className="text-white/80 text-sm mt-1">Fencing, drainage, construction and facilities — all under one roof</p>
             </div>
             <div className="flex gap-4 flex-wrap">
-              <Link href="/ab-group/construction" className="px-6 py-3 border border-white/40 text-white text-xs font-bold uppercase tracking-wider hover:border-white hover:bg-white/10 transition-all">Construction</Link>
-              <Link href="/ab-group/facilities" className="px-6 py-3 border border-white/40 text-white text-xs font-bold uppercase tracking-wider hover:border-white hover:bg-white/10 transition-all">Facilities</Link>
-              <Link href="/" className="px-6 py-3 text-xs font-bold uppercase tracking-wider text-[#16a34a] bg-white hover:opacity-90 transition-all">AB Drainage</Link>
+              <a href="https://abconstructionsolutions.co.uk" target="_blank" rel="noopener noreferrer" className="px-6 py-3 border border-white/40 text-white text-xs font-bold uppercase tracking-wider hover:border-white hover:bg-white/10 transition-all">Construction</a>
+              <a href="https://abfacilitiesmgmt.co.uk" target="_blank" rel="noopener noreferrer" className="px-6 py-3 border border-white/40 text-white text-xs font-bold uppercase tracking-wider hover:border-white hover:bg-white/10 transition-all">Facilities</a>
+              <a href="https://www.abdrainage.co.uk" target="_blank" rel="noopener noreferrer" className="px-6 py-3 text-xs font-bold uppercase tracking-wider text-[#16a34a] bg-white hover:opacity-90 transition-all">AB Drainage</a>
             </div>
           </div>
         </div>
