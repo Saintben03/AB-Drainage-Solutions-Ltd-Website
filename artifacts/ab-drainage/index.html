@@ -41,8 +41,17 @@
         else if (h.includes('abfencingsolutions')) f = '/favicon-fencing.png?v=2';
         else if (h.includes('abfacilitiesmgmt')) f = '/favicon-facilities.png?v=2';
         if (f) {
-          document.getElementById('fav-any').setAttribute('href', f);
-          document.getElementById('fav-svg').setAttribute('href', f);
+          var links = document.querySelectorAll('link[rel="icon"], link[rel="apple-touch-icon"]');
+          for (var i = 0; i < links.length; i++) links[i].parentNode.removeChild(links[i]);
+          var l = document.createElement('link');
+          l.rel = 'icon';
+          l.type = 'image/png';
+          l.href = f;
+          document.head.appendChild(l);
+          var a = document.createElement('link');
+          a.rel = 'apple-touch-icon';
+          a.href = f;
+          document.head.appendChild(a);
         }
       })();
     </script>

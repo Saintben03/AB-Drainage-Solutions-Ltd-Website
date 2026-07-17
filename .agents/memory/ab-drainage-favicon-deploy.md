@@ -61,3 +61,5 @@ Client's desktop showed a fully blank site (tab title still set) while mobile + 
 **Fix:** renamed component/file to `SiteNotice.tsx` (neutral), storage key `ab_site_consent`, aria-labels de-cookied. **Rule:** never name a shipped component/file/class/id with adblock-trigger words (cookie, banner, ad, ads, sponsor, popup, consent, gdpr, tracking, analytics). The F12 Console `ERR_BLOCKED_BY_CLIENT` line is the definitive tell.
 
 2026-07-17: Division favicons now come from client-supplied badge screenshots (attached_assets/image_17842868/9x.png), center-cropped to 64px via sharp — NOT auto-cropped from division logo strips (client rejected those). Switcher in index.html uses ?v=2 on division favicon URLs for cache busting.
+
+2026-07-17: ROOT CAUSE old favicon on division domains even in incognito: switcher only swapped fav-any/fav-svg links, but Chrome prefers the sized PNG links (32/16/apple) which still pointed at drainage icons. Fix: script now REMOVES all link[rel=icon]+apple-touch-icon and injects a single division PNG link. Live-site curl checks DO work from shell (earlier 'outbound blocked' note is stale).
