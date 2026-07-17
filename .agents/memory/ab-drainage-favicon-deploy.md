@@ -63,3 +63,5 @@ Client's desktop showed a fully blank site (tab title still set) while mobile + 
 2026-07-17: Division favicons now come from client-supplied badge screenshots (attached_assets/image_17842868/9x.png), center-cropped to 64px via sharp — NOT auto-cropped from division logo strips (client rejected those). Switcher in index.html uses ?v=2 on division favicon URLs for cache busting.
 
 2026-07-17: ROOT CAUSE old favicon on division domains even in incognito: switcher only swapped fav-any/fav-svg links, but Chrome prefers the sized PNG links (32/16/apple) which still pointed at drainage icons. Fix: script now REMOVES all link[rel=icon]+apple-touch-icon and injects a single division PNG link. Live-site curl checks DO work from shell (earlier 'outbound blocked' note is stale).
+
+2026-07-17: Client wants division favicons as bare transparent circles (no square background). Made via remove-background on the badge screenshots + sharp trim + 64px contain on transparent canvas. Cache version now ?v=3.
