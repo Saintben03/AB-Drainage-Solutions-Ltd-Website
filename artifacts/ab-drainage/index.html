@@ -28,7 +28,7 @@
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
     <!-- Favicon — default for abdrainage.co.uk -->
-    <link id="fav-icon" rel="icon" href="/favicon.ico?v=7" sizes="any" />
+    <link id="fav-any" rel="icon" href="/favicon.ico?v=7" sizes="any" />
     <link id="fav-svg" rel="icon" type="image/svg+xml" href="/favicon.svg?v=7" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=7" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=7" />
@@ -41,7 +41,7 @@
         else if (h.includes('abfencingsolutions')) f = '/favicon-fencing.png';
         else if (h.includes('abfacilitiesmgmt')) f = '/favicon-facilities.png';
         if (f) {
-          document.getElementById('fav-icon').setAttribute('href', f);
+          document.getElementById('fav-any').setAttribute('href', f);
           document.getElementById('fav-svg').setAttribute('href', f);
         }
       })();

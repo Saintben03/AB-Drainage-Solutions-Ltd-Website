@@ -10,6 +10,7 @@ import NotFound from "@/pages/not-found";
 
 import { Navbar } from "@/components/Navbar";
 import { DivisionNavbar } from "@/components/DivisionNavbar";
+import { DivisionFooter } from "@/components/DivisionFooter";
 import { getCurrentSite } from "@/lib/domain";
 import { Footer } from "@/components/Footer";
 import { SiteNotice } from "@/components/SiteNotice";
@@ -68,7 +69,7 @@ function Router() {
       <div className="flex flex-col min-h-[100dvh]">
         <DivisionNavbar site="construction" />
         <main className="flex-1"><ABGroupConstruction /></main>
-        <Footer />
+        <DivisionFooter site="construction" />
       </div>
     );
   }
@@ -77,7 +78,7 @@ function Router() {
       <div className="flex flex-col min-h-[100dvh]">
         <DivisionNavbar site="fencing" />
         <main className="flex-1"><ABGroupFencing /></main>
-        <Footer />
+        <DivisionFooter site="fencing" />
       </div>
     );
   }
@@ -86,7 +87,7 @@ function Router() {
       <div className="flex flex-col min-h-[100dvh]">
         <DivisionNavbar site="facilities" />
         <main className="flex-1"><ABGroupFacilities /></main>
-        <Footer />
+        <DivisionFooter site="facilities" />
       </div>
     );
   }
