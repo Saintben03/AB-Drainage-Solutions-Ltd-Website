@@ -1,0 +1,170 @@
+Please make the following 4 changes. Apply all carefully.
+
+---
+
+## CHANGE 1: Fix contact forms on all 3 division pages to actually send emails
+
+Replace the handleSubmit function and add sending/error states in ABGroupConstruction.tsx, ABGroupFencing.tsx, and ABGroupFacilities.tsx.
+
+In each file, change the state declarations from:
+```tsx
+  const [form, setForm] = useState<FormState>(INIT);
+  const [sent, setSent] = useState(false);
+```
+to:
+```tsx
+  const [form, setForm] = useState<FormState>(INIT);
+  const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState(false);
+```
+
+Replace the handleSubmit function in ABGroupConstruction.tsx with:
+```tsx
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSending(true);
+    setError(false);
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: "1fff1011-7ce5-4637-a911-a8636db20080",
+          subject: `Construction Enquiry — ${form.service || "General"}`,
+          from_name: form.name,
+          email: form.email,
+          phone: form.phone,
+          service: form.service,
+          message: form.message,
+          source_site: window.location.hostname,
+        }),
+      });
+      const json = await res.json();
+      if (json.success) { setSent(true); setForm(INIT); }
+      else setError(true);
+    } catch { setError(true); }
+    finally { setSending(false); }
+  };
+```
+
+Replace the handleSubmit function in ABGroupFencing.tsx with:
+```tsx
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSending(true);
+    setError(false);
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: "1fff1011-7ce5-4637-a911-a8636db20080",
+          subject: `Fencing Enquiry — ${form.service || "General"}`,
+          from_name: form.name,
+          email: form.email,
+          phone: form.phone,
+          service: form.service,
+          message: form.message,
+          source_site: window.location.hostname,
+        }),
+      });
+      const json = await res.json();
+      if (json.success) { setSent(true); setForm(INIT); }
+      else setError(true);
+    } catch { setError(true); }
+    finally { setSending(false); }
+  };
+```
+
+Replace the handleSubmit function in ABGroupFacilities.tsx with:
+```tsx
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSending(true);
+    setError(false);
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: "1fff1011-7ce5-4637-a911-a8636db20080",
+          subject: `Facilities Enquiry — ${form.service || "General"}`,
+          from_name: form.name,
+          email: form.email,
+          phone: form.phone,
+          service: form.service,
+          message: form.message,
+          source_site: window.location.hostname,
+        }),
+      });
+      const json = await res.json();
+      if (json.success) { setSent(true); setForm(INIT); }
+      else setError(true);
+    } catch { setError(true); }
+    finally { setSending(false); }
+  };
+```
+
+In all 3 files, find the submit button:
+```tsx
+                  <button type="submit" className="w-full py-4 text-white font-bold uppercase tracking-wider text-sm flex items-center justify-center gap-2 transition-all hover:opacity-90" style={{ backgroundColor: ACCENT }}>
+                    Send Enquiry <ArrowRight size={16} />
+                  </button>
+```
+Replace with:
+```tsx
+                  <button type="submit" disabled={sending} className="w-full py-4 text-white font-bold uppercase tracking-wider text-sm flex items-center justify-center gap-2 transition-all hover:opacity-90 disabled:opacity-60" style={{ backgroundColor: ACCENT }}>
+                    {sending ? "Sending..." : <><span>Send Enquiry</span><ArrowRight size={16} /></>}
+                  </button>
+                  {error && <p className="text-red-500 text-xs text-center mt-2">Something went wrong — please call us on 01256 688 650</p>}
+```
+
+In all 3 files, find the success message:
+```tsx
+                  <p className="text-zinc-600">Thank you — your email client should have opened. We will be in touch shortly.</p>
+```
+Replace with:
+```tsx
+                  <p className="text-zinc-600">Thank you — we have received your enquiry and will be in touch shortly.</p>
+```
+
+---
+
+## CHANGE 2: Add "Designed by ObsessiveSoftware.app" credit to ALL footers
+
+### In artifacts/ab-drainage/src/components/Footer.tsx:
+
+Find the bottom bar div:
+```tsx
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
+          <p>&copy; {new Date().getFullYear()} A&B Drainage Solutions Ltd. All rights reserved.</p>
+          <div className="flex gap-4">
+            <Link href="/faq" className="hover:text-white transition-colors">FAQs</Link>
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">Terms &amp; Conditions</Link>
+          </div>
+        </div>
+```
+Replace with:
+```tsx
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
+          <p>&copy; {new Date().getFullYear()} A&B Drainage Solutions Ltd. All rights reserved.</p>
+          <div className="flex gap-4 items-center flex-wrap justify-center">
+            <Link href="/faq" className="hover:text-white transition-colors">FAQs</Link>
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">Terms &amp; Conditions</Link>
+            <span className="text-white/15">|</span>
+            <a href="https://obsessivesoftware.app" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white/60 transition-colors">
+              Designed by ObsessiveSoftware.app
+            </a>
+          </div>
+        </div>
+```
+
+### In artifacts/ab-drainage/src/components/DivisionFooter.tsx:
+
+Find the bottom bar div:
+```tsx
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
+          <p>&copy; {year} {c.company}. All

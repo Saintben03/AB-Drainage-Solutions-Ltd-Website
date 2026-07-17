@@ -173,9 +173,13 @@ export const DivisionFooter = ({ site }: DivisionFooterProps) => {
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
           <p>&copy; {year} {c.company}. All rights reserved.</p>
-          <div className="flex gap-4">
+          <div className="flex gap-4 items-center flex-wrap justify-center">
             <a href="https://www.abdrainage.co.uk/privacy-policy" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Privacy Policy</a>
             <a href="https://www.abdrainage.co.uk/terms" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Terms &amp; Conditions</a>
+            <span className="text-white/15">|</span>
+            <a href="https://obsessivesoftware.app" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white/60 transition-colors">
+              Designed by ObsessiveSoftware.app
+            </a>
           </div>
         </div>
       </div>

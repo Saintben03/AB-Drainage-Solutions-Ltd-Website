@@ -78,18 +78,37 @@ const INIT: FormState = { name: "", email: "", phone: "", service: "", message: 
 export default function ABGroupConstruction() {
   const [form, setForm] = useState<FormState>(INIT);
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Construction Enquiry — ${form.service || "General"}`);
-    const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nService: ${form.service}\n\nMessage:\n${form.message}`);
-    window.location.href = `mailto:info@abdrainage.co.uk?subject=${subject}&body=${body}`;
-    setSent(true);
-    setForm(INIT);
+    setSending(true);
+    setError(false);
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: "1fff1011-7ce5-4637-a911-a8636db20080",
+          subject: `Construction Enquiry — ${form.service || "General"}`,
+          from_name: form.name,
+          email: form.email,
+          phone: form.phone,
+          service: form.service,
+          message: form.message,
+          source_site: window.location.hostname,
+        }),
+      });
+      const json = await res.json();
+      if (json.success) { setSent(true); setForm(INIT); }
+      else setError(true);
+    } catch { setError(true); }
+    finally { setSending(false); }
   };
 
   return (
@@ -283,7 +302,7 @@ export default function ABGroupConstruction() {
                 <div className="bg-white border border-[#dc2626]/40 shadow-lg p-12 text-center">
                   <CheckCircle2 size={48} className="text-[#dc2626] mx-auto mb-4" />
                   <h3 className="text-zinc-900 font-display font-bold text-2xl uppercase mb-3">Enquiry Sent</h3>
-                  <p className="text-zinc-600">Thank you — your email client should have opened. We will be in touch shortly.</p>
+                  <p className="text-zinc-600">Thank you — we have received your enquiry and will be in touch shortly.</p>
                   <button onClick={() => setSent(false)} className="mt-6 text-[#dc2626] text-sm font-bold uppercase tracking-wider hover:underline">Send Another</button>
                 </div>
               ) : (
@@ -319,9 +338,10 @@ export default function ABGroupConstruction() {
                     <label className="block text-zinc-600 text-xs uppercase tracking-[0.15em] font-bold mb-2">Project Details *</label>
                     <textarea name="message" value={form.message} onChange={handleChange} required rows={5} className="w-full bg-white border border-zinc-300 text-zinc-900 px-4 py-3 text-sm focus:outline-none focus:border-[#dc2626] transition-colors resize-none" placeholder="Describe your project or requirement..." />
                   </div>
-                  <button type="submit" className="w-full py-4 text-white font-bold uppercase tracking-wider text-sm flex items-center justify-center gap-2 transition-all hover:opacity-90" style={{ backgroundColor: ACCENT }}>
-                    Send Enquiry <ArrowRight size={16} />
+                  <button type="submit" disabled={sending} className="w-full py-4 text-white font-bold uppercase tracking-wider text-sm flex items-center justify-center gap-2 transition-all hover:opacity-90 disabled:opacity-60" style={{ backgroundColor: ACCENT }}>
+                    {sending ? "Sending..." : <><span>Send Enquiry</span><ArrowRight size={16} /></>}
                   </button>
+                  {error && <p className="text-red-500 text-xs text-center mt-2">Something went wrong — please call us on 01256 688 650</p>}
                   <p className="text-zinc-400 text-xs text-center">Enquiries are sent to info@abdrainage.co.uk</p>
                 </form>
               )}
