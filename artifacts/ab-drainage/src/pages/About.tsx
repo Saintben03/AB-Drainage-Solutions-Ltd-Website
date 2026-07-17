@@ -15,6 +15,9 @@ import ccLogo from "@assets/site_files_1/CC-Multi-Disciplinary-Strap-White-BG-Fu
 import rollsRoyceLogo from "@assets/logos/rolls-royce-trim.png";
 import firstChoiceLogo from "@assets/logos/first-choice-official.png";
 import nimbusLogo from "@assets/logos/nimbus-logo.png";
+import kentLogo from "@assets/logos/kent-county-council.png";
+import thermoFisherLogo from "@assets/logos/thermo-fisher.png";
+import safeContractorLogo from "@assets/logos/safecontractor.png";
 
 const trustLogos = [
   { src: nhsLogo, alt: "NHS", className: "h-10 md:h-14" },
@@ -23,6 +26,9 @@ const trustLogos = [
   { src: rollsRoyceLogo, alt: "Rolls-Royce", className: "h-12 md:h-16" },
   { src: firstChoiceLogo, alt: "1st Choice Properties, Milton Keynes", className: "h-12 md:h-16" },
   { src: nimbusLogo, alt: "Nimbus Engineering Consultants", className: "h-10 md:h-14" },
+  { src: kentLogo, alt: "Kent County Council", className: "h-12 md:h-16" },
+  { src: thermoFisherLogo, alt: "Thermo Fisher Scientific", className: "h-8 md:h-10" },
+  { src: safeContractorLogo, alt: "SafeContractor Approved", className: "h-14 md:h-[4.5rem]" },
 ];
 
 const stats = [
