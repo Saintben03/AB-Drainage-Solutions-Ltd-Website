@@ -8,20 +8,14 @@ const WHITE = "#ffffff";
 const DARK = "#0a0f0b";
 const ACCENT = "#16a34a";
 
-import imgHero          from "@assets/fencing/fence-hero.png";
-import imgAboutSrc      from "@assets/fencing/fence-about.png";
-import imgGComposite    from "@assets/fencing/fence-gallery-composite.png";
-import imgGTraditional  from "@assets/fencing/fence-gallery-traditional.png";
-import imgGSecurity     from "@assets/fencing/fence-gallery-security.png";
-import imgGAgri         from "@assets/fencing/fence-gallery-agricultural.png";
-import imgGGate         from "@assets/fencing/fence-gallery-gate.png";
-import imgGDecorative   from "@assets/fencing/fence-gallery-decorative.png";
-import imgGTimber       from "@assets/fencing/fence-gallery-timber.png";
-import imgWhyUsGarden   from "@assets/fencing/fence-whyus-garden.png";
+import img19 from "@assets/Image_(19)_1784642358503.jpg";
+import img20 from "@assets/Image_(20)_1784642358503.jpg";
+import img21 from "@assets/Image_(21)_1784642358503.jpg";
+import img22 from "@assets/Image_(22)_1784642358504.jpg";
 
-const heroImg  = imgHero;
-const imgAbout = imgAboutSrc;
-const imgWhyUs = imgWhyUsGarden;
+const heroImg  = img21;
+const imgAbout = img22;
+const imgWhyUs = img19;
 
 /* ── Organic curve divider — garden/nature feel ── */
 function OrganicDivider({ from, to, flip = false }: { from: string; to: string; flip?: boolean }) {
@@ -53,14 +47,14 @@ const services = [
 ];
 
 const gallery = [
-  { src: imgHero,          caption: "Modern black aluminium slatted fence with LED planters" },
-  { src: imgGTraditional,  caption: "Traditional close-board — English cottage garden" },
-  { src: imgGComposite,    caption: "Composite horizontal panel — sage aluminium finish" },
-  { src: imgGSecurity,     caption: "Commercial palisade security fencing" },
-  { src: imgGAgri,         caption: "Post-and-rail agricultural — Hampshire countryside" },
-  { src: imgGGate,         caption: "Ornamental iron gate with slatted fence panels" },
-  { src: imgGDecorative,   caption: "Decorative metal lattice fence — luxury residence" },
-  { src: imgGTimber,       caption: "Contemporary oak-finish horizontal timber fence" },
+  { src: img19, caption: "Lawn & Gravel", pos: "center 30%" },
+  { src: img20, caption: "Striped Turf", pos: "center 40%" },
+  { src: img21, caption: "Patio & Fence", pos: "center 30%" },
+  { src: img22, caption: "Timber Sleeper Borders", pos: "center 25%" },
+  { src: img19, caption: "Raised Lawn Feature", pos: "center 50%" },
+  { src: img20, caption: "Cricket-Stripe Lawn", pos: "center 35%" },
+  { src: img21, caption: "Sunny Garden Perimeter", pos: "center 45%" },
+  { src: img22, caption: "Sleeper Raised Beds & Gate", pos: "center 20%" },
 ];
 
 const whyUs = [
@@ -123,7 +117,7 @@ export default function ABGroupFencing() {
       {/* ── HERO ── */}
       <section className="relative min-h-[92vh] flex items-end overflow-hidden bg-background">
         <div className="absolute inset-0">
-          <img src={heroImg} alt="Vibrant green garden and fencing" className="w-full h-full object-cover animate-heropan saturate-[1.35] brightness-[1.08] contrast-[1.1]" draggable={false} />
+          <img src={heroImg} alt="Sunny garden patio with lawn and fencing" className="w-full h-full object-cover object-[center_30%] animate-heropan brightness-[1.05] saturate-[1.2] contrast-[1.08]" draggable={false} />
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/10 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#16a34a]/40 via-[#16a34a]/5 to-transparent" style={{ mixBlendMode: "color" }} />
@@ -191,7 +185,7 @@ export default function ABGroupFencing() {
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
-              <img src={imgAbout} alt="Lush green countryside — AB Fencing" className="w-full aspect-[4/3] object-cover shadow-xl" draggable={false} />
+              <img src={imgAbout} alt="Timber sleeper raised beds with gate — AB Fencing" className="w-full aspect-[4/3] object-cover object-[center_25%] shadow-xl brightness-[1.05] saturate-[1.2] contrast-[1.08]" draggable={false} />
               <div className="absolute -bottom-4 -left-4 bg-[#16a34a] text-white p-6 hidden md:block shadow-lg">
                 <p className="text-2xl font-display font-black uppercase">HSE</p>
                 <p className="text-xs uppercase tracking-[0.15em] text-white/80">Compliant</p>
@@ -243,7 +237,13 @@ export default function ABGroupFencing() {
                 transition={{ duration: 0.45, delay: i * 0.07 }}
                 className="relative overflow-hidden group shadow-sm"
               >
-                <img src={item.src} alt={item.caption} className="w-full h-full object-cover aspect-square group-hover:scale-105 transition-transform duration-700" draggable={false} />
+                <img
+                  src={item.src}
+                  alt={item.caption}
+                  className="w-full h-full object-cover aspect-square group-hover:scale-105 transition-transform duration-700 brightness-[1.05] saturate-[1.2] contrast-[1.08]"
+                  style={{ objectPosition: item.pos }}
+                  draggable={false}
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                   <p className="text-white text-xs font-bold uppercase tracking-wide">{item.caption}</p>
                 </div>
@@ -275,7 +275,7 @@ export default function ABGroupFencing() {
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-              <img src={imgWhyUs} alt="Garden boundary and landscaping" className="w-full aspect-[4/3] object-cover shadow-xl" draggable={false} />
+              <img src={imgWhyUs} alt="Raised lawn with gravel border — AB Fencing" className="w-full aspect-[4/3] object-cover object-[center_30%] shadow-xl brightness-[1.05] saturate-[1.2] contrast-[1.08]" draggable={false} />
             </motion.div>
           </div>
         </div>

@@ -4,18 +4,16 @@ import { ArrowRight, Phone, Mail, CheckCircle2, HardHat, Shovel, Layers, Truck, 
 import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
 
-import imgAbout      from "@assets/construction/const-about.png";
-import imgGExcavation from "@assets/construction/const-gallery-excavation.png";
-import imgGConcrete   from "@assets/construction/const-gallery-concrete.png";
-import imgGRoad       from "@assets/construction/const-gallery-road.png";
-import imgGSteel      from "@assets/construction/const-gallery-steelframe.png";
-import imgGClearance  from "@assets/construction/const-gallery-clearance.png";
-import imgGRetaining  from "@assets/construction/const-gallery-retaining.png";
-import imgGHardstand  from "@assets/construction/const-gallery-hardstanding.png";
-import imgGBrickwork  from "@assets/construction/const-gallery-brickwork.png";
-import imgWhyUs       from "@assets/construction/const-whyus.png";
+import img13 from "@assets/Image_(13)_1784642358502.jpg";
+import img14 from "@assets/Image_(14)_1784642358502.jpg";
+import img15 from "@assets/Image_(15)_1784642358502.jpg";
+import img16 from "@assets/Image_(16)_1784642358502.jpg";
+import img17 from "@assets/Image_(17)_1784642358503.jpg";
+import img18 from "@assets/Image_(18)_1784642358503.jpg";
 
-const heroImg = imgGExcavation;
+const heroImg  = img13;
+const imgAbout = img14;
+const imgWhyUs = img15;
 
 const WHITE = "#ffffff";
 const DARK = "#0a0a0a";
@@ -52,14 +50,14 @@ const services = [
 ];
 
 const gallery = [
-  { src: imgGExcavation, caption: "Excavation and foundation preparation" },
-  { src: imgGConcrete,   caption: "Reinforced concrete foundation pour" },
-  { src: imgGRoad,       caption: "Tarmac road construction and surfacing" },
-  { src: imgGSteel,      caption: "Structural steel frame erection" },
-  { src: imgGClearance,  caption: "Site clearance and land preparation" },
-  { src: imgGRetaining,  caption: "Retaining wall and blockwork construction" },
-  { src: imgGHardstand,  caption: "Completed commercial hardstanding" },
-  { src: imgGBrickwork,  caption: "Brick and blockwork cavity wall construction" },
+  { src: img13, caption: "Flat Roof Deck Installation",   pos: "center 40%", cls: "brightness-[1.1] contrast-[1.15] saturate-[0.9]" },
+  { src: img14, caption: "Felt Overlay Complete",         pos: "center 35%", cls: "brightness-[1.1] contrast-[1.15] saturate-[0.9]" },
+  { src: img15, caption: "Scaffolded Roof Works",         pos: "center 50%", cls: "brightness-[1.1] contrast-[1.15] saturate-[0.9]" },
+  { src: img16, caption: "Interior Preparation",          pos: "center 40%", cls: "brightness-[1.05] saturate-[1.1]" },
+  { src: img17, caption: "Herringbone Flooring",          pos: "center 40%", cls: "brightness-[1.05] saturate-[1.1]" },
+  { src: img18, caption: "Treatment Room Flooring",       pos: "center 40%", cls: "brightness-[1.05] saturate-[1.1]" },
+  { src: img13, caption: "Plywood Deck — Blue Sky",       pos: "center 20%", cls: "brightness-[1.1] contrast-[1.15] saturate-[0.9]" },
+  { src: img14, caption: "Dark Felt Flat Roof — Complete", pos: "center 50%", cls: "brightness-[1.1] contrast-[1.15] saturate-[0.9]" },
 ];
 
 const whyUs = [
@@ -122,7 +120,7 @@ export default function ABGroupConstruction() {
       {/* ── HERO ── */}
       <section className="relative min-h-[92vh] flex items-end overflow-hidden bg-background">
         <div className="absolute inset-0">
-          <img src={heroImg} alt="AB Construction Solutions — workers on site" className="w-full h-full object-cover animate-heropan saturate-[1.35] brightness-[1.08] contrast-[1.1]" draggable={false} />
+          <img src={heroImg} alt="Plywood roof deck with blue sky and scaffolding" className="w-full h-full object-cover object-[center_40%] animate-heropan brightness-[1.1] contrast-[1.15] saturate-[0.9]" draggable={false} />
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/10 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#dc2626]/40 via-[#dc2626]/5 to-transparent" style={{ mixBlendMode: "color" }} />
@@ -190,7 +188,7 @@ export default function ABGroupConstruction() {
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
-              <img src={imgAbout} alt="AB Construction civil engineering team on site" className="w-full aspect-[4/3] object-cover shadow-xl" draggable={false} />
+              <img src={imgAbout} alt="Finished dark felt flat roof — rooftop view" className="w-full aspect-[4/3] object-cover object-[center_35%] shadow-xl brightness-[1.1] contrast-[1.15] saturate-[0.9]" draggable={false} />
               <div className="absolute -bottom-4 -left-4 bg-[#dc2626] text-white p-6 hidden md:block shadow-lg">
                 <p className="text-2xl font-display font-black uppercase">CDM</p>
                 <p className="text-xs uppercase tracking-[0.15em] text-white/80">Compliant</p>
@@ -235,7 +233,13 @@ export default function ABGroupConstruction() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             {gallery.map((item, i) => (
               <motion.div key={i} initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.07 }} className="relative overflow-hidden group shadow-sm">
-                <img src={item.src} alt={item.caption} className="w-full h-full object-cover aspect-square group-hover:scale-105 transition-transform duration-700" draggable={false} />
+                <img
+                  src={item.src}
+                  alt={item.caption}
+                  className={`w-full h-full object-cover aspect-square group-hover:scale-105 transition-transform duration-700 ${item.cls}`}
+                  style={{ objectPosition: item.pos }}
+                  draggable={false}
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                   <p className="text-white text-xs font-bold uppercase tracking-wide">{item.caption}</p>
                 </div>
@@ -267,7 +271,7 @@ export default function ABGroupConstruction() {
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-              <img src={imgWhyUs} alt="Completed commercial development — AB Construction" className="w-full aspect-[4/3] object-cover shadow-xl" draggable={false} />
+              <img src={imgWhyUs} alt="Puddle reflection with chimney pots — moody roofscape" className="w-full aspect-[4/3] object-cover object-[center_50%] shadow-xl brightness-[1.1] contrast-[1.15] saturate-[0.9]" draggable={false} />
             </motion.div>
           </div>
         </div>

@@ -4,18 +4,28 @@ import { ArrowRight, Phone, Mail, CheckCircle2, Wrench, ClipboardCheck, Building
 import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
 
-import imgAbout      from "@assets/facilities/fac-about.png";
-import imgGCleaning  from "@assets/facilities/fac-gallery-cleaning.png";
-import imgGHvac      from "@assets/facilities/fac-gallery-hvac.png";
-import imgGGrounds   from "@assets/facilities/fac-gallery-grounds.png";
-import imgGElec      from "@assets/facilities/fac-gallery-electrical.png";
-import imgGLobby     from "@assets/facilities/fac-gallery-lobby.png";
-import imgGSecurity  from "@assets/facilities/fac-gallery-security.png";
-import imgGFire      from "@assets/facilities/fac-gallery-fire.png";
-import imgGKitchen   from "@assets/facilities/fac-gallery-kitchen.png";
-import imgWhyUs      from "@assets/facilities/fac-whyus.png";
+import img13 from "@assets/Image_(13)_1784642358502.jpg";
+import img14 from "@assets/Image_(14)_1784642358502.jpg";
+import img15 from "@assets/Image_(15)_1784642358502.jpg";
+import img16 from "@assets/Image_(16)_1784642358502.jpg";
+import img17 from "@assets/Image_(17)_1784642358503.jpg";
+import img18 from "@assets/Image_(18)_1784642358503.jpg";
+import img19 from "@assets/Image_(19)_1784642358503.jpg";
+import img20 from "@assets/Image_(20)_1784642358503.jpg";
+import img21 from "@assets/Image_(21)_1784642358503.jpg";
+import img22 from "@assets/Image_(22)_1784642358504.jpg";
+import img32 from "@assets/Image_(32)_1784642358504.jpg";
+import img33 from "@assets/Image_(33)_1784642358504.jpg";
+import img34 from "@assets/Image_(34)_1784642358504.jpg";
+import img35 from "@assets/Image_(35)_1784642358504.jpg";
+import img36 from "@assets/Image_(36)_1784642358505.jpg";
+import img37 from "@assets/Image_(37)_1784642358505.jpg";
+import img38 from "@assets/Image_(38)_1784642358501.jpg";
+import img39 from "@assets/Image_(39)_1784642358501.jpg";
 
-const heroImg = "https://images.unsplash.com/photo-1497366216548-37526070297c?w=2560&q=90&auto=format&fit=crop";
+const heroImg  = img38;
+const imgAbout = img37;
+const imgWhyUs = img39;
 
 const WHITE  = "#ffffff";
 const DARK   = "#0c0e10";
@@ -53,15 +63,34 @@ const services = [
   { icon: <BarChart3 size={26} />, title: "Reporting & Audits", desc: "Detailed condition surveys, asset registers, lifecycle planning and management reporting — giving you full visibility and budget confidence." },
 ];
 
-const gallery = [
-  { src: imgGCleaning,  caption: "Commercial office deep clean" },
-  { src: imgGHvac,      caption: "HVAC and air conditioning maintenance" },
-  { src: imgGGrounds,   caption: "Commercial grounds maintenance" },
-  { src: imgGElec,      caption: "Electrical distribution board servicing" },
-  { src: imgGLobby,     caption: "Lobby and reception upkeep" },
-  { src: imgGSecurity,  caption: "CCTV and access control installation" },
-  { src: imgGFire,      caption: "Fire system compliance inspection" },
-  { src: imgGKitchen,   caption: "Commercial kitchen deep clean" },
+const mainGallery = [
+  { src: img37, caption: "Commercial Fit-Out — Reception",   pos: "center 40%", cls: "brightness-[1.08] contrast-[1.12] saturate-[1.15]" },
+  { src: img38, caption: "Commercial Fit-Out — Open Plan",   pos: "center 40%", cls: "brightness-[1.08] contrast-[1.12] saturate-[1.15]" },
+  { src: img39, caption: "Commercial Fit-Out — Corridor",    pos: "center 40%", cls: "brightness-[1.08] contrast-[1.12] saturate-[1.15]" },
+  { src: img16, caption: "Decoration & Preparation",         pos: "center 40%", cls: "brightness-[1.08] contrast-[1.12] saturate-[1.15]" },
+  { src: img17, caption: "Herringbone Floor Install",        pos: "center 40%", cls: "brightness-[1.08] contrast-[1.12] saturate-[1.15]" },
+  { src: img18, caption: "Treatment Room — Complete",        pos: "center 40%", cls: "brightness-[1.08] contrast-[1.12] saturate-[1.15]" },
+  { src: img35, caption: "3D Space Scan — Defurnished",      pos: "center 40%", cls: "brightness-[1.08] contrast-[1.12] saturate-[1.15]" },
+  { src: img36, caption: "3D Space Scan — Furnished",        pos: "center 40%", cls: "brightness-[1.08] contrast-[1.12] saturate-[1.15]" },
+];
+
+const floorPlans = [
+  { src: img32, caption: "Floor Plan — Layout A" },
+  { src: img33, caption: "Floor Plan — Layout B" },
+  { src: img34, caption: "Floor Plan — Layout C" },
+];
+
+const groundsGallery = [
+  { src: img19, caption: "Raised Lawn & Gravel Border",      pos: "center 30%", cls: "brightness-[1.05] saturate-[1.15]" },
+  { src: img20, caption: "Striped Turf — Grounds Upkeep",   pos: "center 40%", cls: "brightness-[1.05] saturate-[1.15]" },
+  { src: img21, caption: "Patio & Perimeter Fencing",        pos: "center 30%", cls: "brightness-[1.05] saturate-[1.15]" },
+  { src: img22, caption: "Timber Sleeper Raised Beds",       pos: "center 25%", cls: "brightness-[1.05] saturate-[1.15]" },
+];
+
+const buildingGallery = [
+  { src: img13, caption: "Flat Roof Deck Installation",      pos: "center 40%", cls: "brightness-[1.1] contrast-[1.15] saturate-[0.9]" },
+  { src: img14, caption: "Felt Overlay — Complete",          pos: "center 35%", cls: "brightness-[1.1] contrast-[1.15] saturate-[0.9]" },
+  { src: img15, caption: "Scaffolded Roof Works",            pos: "center 50%", cls: "brightness-[1.1] contrast-[1.15] saturate-[0.9]" },
 ];
 
 const whyUs = [
@@ -124,7 +153,7 @@ export default function ABGroupFacilities() {
       {/* ── HERO ── */}
       <section className="relative min-h-[92vh] flex items-end overflow-hidden bg-background">
         <div className="absolute inset-0">
-          <img src={heroImg} alt="Modern commercial building — AB Facilities Management" className="w-full h-full object-cover animate-heropan saturate-[1.35] brightness-[1.08] contrast-[1.1]" draggable={false} />
+          <img src={heroImg} alt="Modern optician commercial fit-out — reception and slatted ceiling" className="w-full h-full object-cover object-[center_40%] animate-heropan brightness-[1.08] contrast-[1.12] saturate-[1.15]" draggable={false} />
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/10 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-500/40 via-slate-500/5 to-transparent" style={{ mixBlendMode: "color" }} />
@@ -194,7 +223,7 @@ export default function ABGroupFacilities() {
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
-              <img src={imgAbout} alt="AB Facilities Management — commercial building" className="w-full aspect-[4/3] object-cover shadow-xl" draggable={false} />
+              <img src={imgAbout} alt="Commercial fit-out — optician front-of-house" className="w-full aspect-[4/3] object-cover object-[center_40%] shadow-xl brightness-[1.08] contrast-[1.12] saturate-[1.15]" draggable={false} />
               <div className="absolute -bottom-4 -left-4 bg-slate-600 text-white p-6 hidden md:block shadow-lg">
                 <p className="text-2xl font-display font-black uppercase">ISO</p>
                 <p className="text-xs uppercase tracking-[0.15em] text-white/80">Standards</p>
@@ -229,23 +258,99 @@ export default function ABGroupFacilities() {
 
       <SteppedDivider from={DARK} to={WHITE} />
 
-      {/* ── GALLERY ── */}
+      {/* ── PORTFOLIO / GALLERY ── */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-14">
-            <p className="text-slate-500 text-xs font-bold uppercase tracking-[0.25em] mb-3">Meet The Team</p>
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-zinc-900 uppercase">Our People</h2>
+
+          {/* Main fit-out gallery */}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-10">
+            <p className="text-slate-500 text-xs font-bold uppercase tracking-[0.25em] mb-3">Project Portfolio</p>
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-zinc-900 uppercase">Our Work</h2>
           </motion.div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-            {gallery.map((item, i) => (
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-16">
+            {mainGallery.map((item, i) => (
               <motion.div key={i} initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.07 }} className="relative overflow-hidden group shadow-sm">
-                <img src={item.src} alt={item.caption} className="w-full h-full object-cover aspect-square group-hover:scale-105 transition-transform duration-700" draggable={false} />
+                <img
+                  src={item.src}
+                  alt={item.caption}
+                  className={`w-full h-full object-cover aspect-square group-hover:scale-105 transition-transform duration-700 ${item.cls}`}
+                  style={{ objectPosition: item.pos }}
+                  draggable={false}
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                   <p className="text-white text-xs font-bold uppercase tracking-wide">{item.caption}</p>
                 </div>
               </motion.div>
             ))}
           </div>
+
+          {/* Space Planning — floor plans on light background */}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-8">
+            <p className="text-slate-500 text-xs font-bold uppercase tracking-[0.25em] mb-2">Space Planning</p>
+            <h3 className="text-2xl md:text-3xl font-display font-bold text-zinc-900 uppercase">Floor Plans & Layouts</h3>
+            <p className="text-zinc-500 text-sm mt-2 max-w-xl">We produce detailed space planning and floor layout drawings to help clients visualise and optimise every square metre.</p>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
+            {floorPlans.map((item, i) => (
+              <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }} className="border-2 border-slate-200 bg-white p-3 shadow-sm">
+                <img
+                  src={item.src}
+                  alt={item.caption}
+                  className="w-full aspect-[4/3] object-contain"
+                  draggable={false}
+                />
+                <p className="text-zinc-600 text-xs font-bold uppercase tracking-[0.15em] text-center mt-3 pb-1">{item.caption}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Grounds & Exterior */}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-8">
+            <p className="text-slate-500 text-xs font-bold uppercase tracking-[0.25em] mb-2">Grounds Management</p>
+            <h3 className="text-2xl md:text-3xl font-display font-bold text-zinc-900 uppercase">Grounds & Exterior</h3>
+            <p className="text-zinc-500 text-sm mt-2 max-w-xl">From manicured lawns and gravel borders to timber landscaping and perimeter fencing — we manage every aspect of your exterior.</p>
+          </motion.div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-16">
+            {groundsGallery.map((item, i) => (
+              <motion.div key={i} initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.07 }} className="relative overflow-hidden group shadow-sm">
+                <img
+                  src={item.src}
+                  alt={item.caption}
+                  className={`w-full h-full object-cover aspect-square group-hover:scale-105 transition-transform duration-700 ${item.cls}`}
+                  style={{ objectPosition: item.pos }}
+                  draggable={false}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <p className="text-white text-xs font-bold uppercase tracking-wide">{item.caption}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Building & Maintenance */}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-8">
+            <p className="text-slate-500 text-xs font-bold uppercase tracking-[0.25em] mb-2">Building Works</p>
+            <h3 className="text-2xl md:text-3xl font-display font-bold text-zinc-900 uppercase">Building & Maintenance</h3>
+            <p className="text-zinc-500 text-sm mt-2 max-w-xl">Roofing, structural repairs, and fabric maintenance — keeping your building's envelope watertight and compliant.</p>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {buildingGallery.map((item, i) => (
+              <motion.div key={i} initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.07 }} className="relative overflow-hidden group shadow-sm">
+                <img
+                  src={item.src}
+                  alt={item.caption}
+                  className={`w-full h-full object-cover aspect-[4/3] group-hover:scale-105 transition-transform duration-700 ${item.cls}`}
+                  style={{ objectPosition: item.pos }}
+                  draggable={false}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <p className="text-white text-xs font-bold uppercase tracking-wide">{item.caption}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
         </div>
       </section>
 
@@ -271,7 +376,7 @@ export default function ABGroupFacilities() {
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-              <img src={imgWhyUs} alt="Modern commercial building — AB Facilities" className="w-full aspect-[4/3] object-cover shadow-xl" draggable={false} />
+              <img src={imgWhyUs} alt="Sleek commercial corridor — optician fit-out" className="w-full aspect-[4/3] object-cover object-[center_40%] shadow-xl brightness-[1.08] contrast-[1.12] saturate-[1.15]" draggable={false} />
             </motion.div>
           </div>
         </div>
