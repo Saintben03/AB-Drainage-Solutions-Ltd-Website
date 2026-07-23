@@ -124,6 +124,18 @@
       ]
     }
     </script>
+    <script>
+      (function () {
+        var h = window.location.hostname;
+        if (/abconstructionsolutions|abfencingsolutions|abfacilitiesmgmt/.test(h)) {
+          document.documentElement.classList.add("division-boot");
+        }
+      })();
+    </script>
+    <style>
+      html.division-boot { background: #0a0a0a; }
+      html.division-boot #root { visibility: hidden; }
+    </style>
   </head>
   <body class="bg-background text-foreground antialiased selection:bg-primary selection:text-white">
     <div id="root"></div>

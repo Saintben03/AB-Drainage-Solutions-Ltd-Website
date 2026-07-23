@@ -10,8 +10,9 @@ import img15 from "@assets/Image_(15)_1784642358502.jpg";
 import img16 from "@assets/Image_(16)_1784642358502.jpg";
 import img17 from "@assets/Image_(17)_1784642358503.jpg";
 import img18 from "@assets/Image_(18)_1784642358503.jpg";
+import imgHeroDigger from "@assets/construction/const-gallery-excavation.png";
 
-const heroImg  = img13;
+const heroImg  = imgHeroDigger;
 const imgAbout = img14;
 const imgWhyUs = img15;
 

@@ -1,0 +1,12 @@
+Stop generating anything new. All three FM design mockups (A — Bold & Industrial, B — Corporate Premium, C — Minimal & High-End) currently have the same three unresolved problems. Fix all three of these, on all three mockups, before doing anything else:
+
+1. REMOVE THE DRAINAGE SITE WRAPPER
+Each mockup is currently rendering inside the live A&B Drainage Solutions site's header, the "24/7 EMERGENCY — CLICK TO CALL NOW" ticker, and the Drainage footer (Blocked Drains / Basingstoke / info@abdrainage.co.uk etc). Remove all of this from the mockup sandbox. Each of the three mockups should render standalone, starting from its own FM nav bar (the one showing "AB Facilities Management" / "AB Facilities Management LTD") with nothing above or below it from the Drainage site.
+
+2. REPLACE THE STOCK IMAGES WITH THE REAL UPLOADED PHOTOS
+The "Our Services" row in all three mockups is using generic stock photography — a night-time city skyline (used twice), a construction site photo, and a close-up of a hand holding a tool. These are not our images. Replace every image in the "Our Services" section, and everywhere else stock imagery has been used, with the real site photography I uploaded to this project (roofing, grounds/landscaping, fencing, commercial interiors, building exteriors, Matterport captures). If you're not sure where these files are in the project, check the assets/uploads folder used earlier for the working facilities page — do not source or generate any new images.
+
+3. BUILD THE MATTERPORT SECTION — IT IS CURRENTLY EMPTY
+All three mockups show a dark box with placeholder text "[MATTERPORT 3D TOUR — LIVE IFRAME]" and nothing else. This needs actual content, not a placeholder string. Use the real uploaded Matterport 3D capture images and floor plan images to build this out — at minimum, show the actual capture/floor-plan images filling that space (styled per each mockup's own design direction), with the Walkthrough / Dollhouse / Floor Plan tabs switching between real images we've provided, not an empty div.
+
+Do not move on to any other task, and do not ask me which direction to finalise, until all three mockups pass these three checks. Once done, confirm back to me specifically that each of the three fixes has been applied to each of the three mockups.

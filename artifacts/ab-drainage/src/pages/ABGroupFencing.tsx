@@ -12,8 +12,9 @@ import img19 from "@assets/Image_(19)_1784642358503.jpg";
 import img20 from "@assets/Image_(20)_1784642358503.jpg";
 import img21 from "@assets/Image_(21)_1784642358503.jpg";
 import img22 from "@assets/Image_(22)_1784642358504.jpg";
+import imgHeroGarden from "@assets/fencing/fence-hero.png";
 
-const heroImg  = img21;
+const heroImg  = imgHeroGarden;
 const imgAbout = img22;
 const imgWhyUs = img19;
 

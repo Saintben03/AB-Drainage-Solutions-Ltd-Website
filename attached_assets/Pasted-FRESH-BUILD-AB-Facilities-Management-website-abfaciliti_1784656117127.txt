@@ -1,0 +1,75 @@
+FRESH BUILD — AB Facilities Management website (abfacilitiesmgmt.co.uk)
+
+Do not reuse or reference the AB Drainage Solutions codebase, components, styling logic, or content in any way. This must be a brand new, standalone build for a completely separate business. AB Drainage Solutions (abdrainage.co.uk) must not be touched, imported from, or affected by this project in any way.
+
+ASSETS — ALL ALREADY PROVIDED, DO NOT SOURCE ANYTHING NEW
+Everything needed already exists in this project/repo:
+- The AB Facilities Management logo — already uploaded, use it as-is, do not generate a new logo or placeholder logo
+- The hero image (dark corridor / office fit-out photo with kitchen units visible down the hallway) — already uploaded, use it as-is
+- The full set of site photography (roofing, grounds/landscaping, fencing, commercial interiors, building exteriors) — already uploaded
+- The Matterport 3D captures and floor plan images — already uploaded
+Do not use stock photography, placeholder images, generated/AI images, or any image not already provided in this project for any section of this site. If you genuinely cannot locate one of these assets in the project files, stop and tell me exactly which asset is missing rather than substituting something else in its place.
+
+BUSINESS CONTEXT
+AB Facilities Management is a UK-wide commercial facilities management company, part of AB Group alongside two sister companies: AB Drainage Solutions and AB Fencing (each on their own separate domain). AB Facilities Management provides: planned preventative maintenance, reactive & emergency callouts, compliance & health and safety, M&E services, cleaning & hygiene, multi-site management, security & access control, and minor works & refurbishments. It also offers 3D building surveys using Matterport technology as a flagship differentiator.
+
+DOMAIN & DEPLOYMENT
+- This must be built and deployed as its own standalone site on its own domain: abfacilitiesmgmt.co.uk
+- Do not build this as a subpath of any other project or domain
+- Set up its own sitemap.xml, robots.txt, and be ready for its own Google Search Console property
+- Confirm your deployment plan (repo/project structure, hosting, DNS binding) before writing content
+
+SITE STRUCTURE — MULTIPLE PAGES, NOT ONE LONG PAGE
+- / — homepage (hero, intro, services overview, Matterport feature, why choose us, coverage map, CTA)
+- /services — full detail on all 8 service areas, each with its own section
+- /matterport — dedicated deep-dive page for the 3D survey offering (see spec below), also featured as a homepage section
+- /areas-covered — hub page listing UK regions/nations, linking to individual location pages
+- /facilities-management/[location] — individual SEO page per major UK city/region (London, Manchester, Birmingham, Bristol, Leeds, Glasgow, Cardiff, Belfast, Liverpool, Sheffield, Edinburgh, Newcastle, Southampton, Nottingham — at least these to start), same template, unique intro copy per location, unique <title>/meta description, LocalBusiness + Service schema
+- /gallery — real site photography (see image rules below)
+- /about — company background, AB Group context
+- /contact — quote request form
+
+SEO REQUIREMENTS (apply to every page)
+- Unique <title> and meta description per page
+- Canonical URL tags
+- Open Graph tags
+- JSON-LD: Organization/LocalBusiness schema sitewide, Service schema per service/location page, BreadcrumbList schema sitewide
+- Single H1 per page, logical H2/H3 nesting
+- Descriptive, facilities-relevant alt text on every image — never generic ("image1.jpg") and never referencing drainage
+- Lazy-loaded images with responsive srcset
+- Internal linking between service pages, location pages, and the Matterport page
+
+HERO SECTION
+Use the already-provided dark corridor / office fit-out photo as the hero background — this is fixed, do not substitute a different image, and never use retail/optical/unrelated stock imagery anywhere on this site. Add AB Facilities Management branding clearly over it using the already-provided logo: logo lockup, headline "AB FACILITIES MANAGEMENT" / "BUILDINGS THAT WORK FOR YOU" or similar, subtext on UK-wide commercial FM, two CTAs (Get a Quote / Our Services).
+
+"OTHER SERVICES" / AB GROUP LINKS
+Anywhere the site references sister companies (nav, footer, hero panel, "Part of AB Group" section), it must link ONLY to:
+- AB Fencing (its own domain)
+- AB Drainage Solutions — abdrainage.co.uk
+Do not link back to Facilities itself. Do not use internal /ab-group/ subpaths — these are genuine external cross-domain links between separate live sites.
+
+IMAGE USAGE — STRICT RULES
+Use the already-provided site photography (roofing, grounds/landscaping, fencing, commercial interiors, building exteriors, Matterport 3D captures and floor plans) throughout the site. Rules:
+1. Spread these across the relevant contextual sections (services, about, case studies, CTA backgrounds) — not dumped into one gallery only.
+2. Also build one dedicated /gallery page combining them.
+3. NEVER use any screenshot of a website (ours or anyone else's), any Google search results screenshot, any image containing another company's branding or marketing banners, or any image with annotation/markup (arrows, highlights) on it. Every image on this site must be one of the real provided photographs or Matterport captures — nothing else, and nothing newly sourced or generated.
+4. Treat images with consistent colour grading / a subtle dark overlay where used behind text, so they read as one cohesive high-end brand.
+
+MATTERPORT SECTION — THIS MUST BE THE STANDOUT FEATURE OF THE SITE, NOT A PLAIN GRID
+The current build has this as two small thumbnails and three flat floor plan images in a static row — that is not acceptable. Rebuild it properly using the already-provided Matterport capture and floor plan images:
+- Lead with one large, full-width visual moment — not small side-by-side thumbnails. This is the flagship section of the site; it should feel like the biggest, most premium section on the page.
+- Embed a real, interactive Matterport tour iframe if possible (Matterport supports embedding published spaces via iframe — use a demo/showcase space as a placeholder we can swap later) so a visitor can actually drag and orbit a live 3D space, not just look at a static image.
+- Include a dollhouse-view / floor-plan-view toggle interaction (Matterport tours natively support switching between walkthrough, dollhouse, and floor plan views — replicate this toggle, even if mocked with static states, so it feels like the real product).
+- Present floor plans as an animated/overlay reveal (e.g. fade or draw-in effect) rather than three flat static thumbnails side by side.
+- Include a short looping video area (10-15 sec walkthrough style) as an additional supporting element, clearly marked as a placeholder for our own footage.
+- Keep the strong copy already written for this section (3D Virtual Building Tours, Accurate Floor Plans & CAD Export, Digital Twin Documentation, Before & After Condition Records, Remote Scoping & Faster Quoting) but give it room to breathe next to the bigger visual — don't cram it into a tight two-column layout.
+- CTA: "Book a Survey"
+- Do not fabricate specific stats or client claims about Matterport usage — keep copy focused on capability and benefit in general terms.
+
+OTHER SECTIONS TO CARRY OVER (content is good, just needs a genuinely fresh, non-templated build)
+- "Our Services" 8-card grid: Planned Preventative Maintenance, Reactive & Emergency Callouts, Compliance & Health and Safety, M&E Services, Cleaning & Hygiene, Multi-Site Management, Security & Access Control, Minor Works & Refurbishments
+- "Why Choose AB Facilities" section: Single Point of Contact, UK-Wide Coverage, Fully Compliant & Insured, Part of the AB Group
+- UK-Wide Coverage region grid: Greater London, South East England, South West England, East of England, East Midlands, West Midlands, North West England, North East England, Yorkshire & The Humber, Wales, Scotland, Northern Ireland — no drainage branding of any kind near this section, and each region should link through to its /facilities-management/[location] page
+
+DESIGN BAR
+This has to look and read as a genuinely world-class, credible national FM company — distinctive art direction, not a generic reskinned template. Confirm your overall design direction (typography, colour system, layout approach) before building out every page, so we agree the foundation before you scale it across the full site.

@@ -27,6 +27,7 @@ import Contact from "@/pages/Contact";
 import ABGroupConstruction from "@/pages/ABGroupConstruction";
 import ABGroupFencing from "@/pages/ABGroupFencing";
 import ABGroupFacilities from "@/pages/ABGroupFacilities";
+import FMDesignMockups from "@/pages/FMDesignMockups";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import Terms from "@/pages/Terms";
 import ServicePage from "@/pages/ServicePage";
@@ -63,8 +64,38 @@ function Router() {
   }, []);
 
   const site = getCurrentSite();
+  const pathDivision = location.startsWith("/ab-group/construction")
+    ? "construction"
+    : location.startsWith("/ab-group/fencing")
+      ? "fencing"
+      : location.startsWith("/ab-group/facilities")
+        ? "facilities"
+        : null;
 
-  if (site === "construction") {
+  const DIVISION_URLS = {
+    construction: "https://abconstructionsolutions.co.uk",
+    fencing: "https://abfencingsolutions.co.uk",
+    facilities: "https://abfacilitiesmgmt.co.uk",
+  } as const;
+
+  const division = site !== "drainage" ? site : pathDivision;
+
+  useEffect(() => {
+    if (division) {
+      document.documentElement.classList.remove("division-boot");
+    }
+  }, [division]);
+
+  if (location === "/fm-mockups") {
+    return <FMDesignMockups />;
+  }
+
+  if (typeof window !== "undefined" && site === "drainage" && pathDivision) {
+    window.location.replace(DIVISION_URLS[pathDivision]);
+    return null;
+  }
+
+  if (division === "construction") {
     return (
       <div className="flex flex-col min-h-[100dvh]">
         <DivisionNavbar site="construction" />
@@ -73,7 +104,7 @@ function Router() {
       </div>
     );
   }
-  if (site === "fencing") {
+  if (division === "fencing") {
     return (
       <div className="flex flex-col min-h-[100dvh]">
         <DivisionNavbar site="fencing" />
@@ -82,7 +113,7 @@ function Router() {
       </div>
     );
   }
-  if (site === "facilities") {
+  if (division === "facilities") {
     return (
       <div className="flex flex-col min-h-[100dvh]">
         <DivisionNavbar site="facilities" />
@@ -115,9 +146,7 @@ function Router() {
               <Route path="/blog/:slug" component={BlogPost} />
               <Route path="/gallery" component={Gallery} />
               <Route path="/contact" component={Contact} />
-              <Route path="/ab-group/construction" component={ABGroupConstruction} />
-              <Route path="/ab-group/fencing" component={ABGroupFencing} />
-              <Route path="/ab-group/facilities" component={ABGroupFacilities} />
+              <Route path="/fm-mockups" component={FMDesignMockups} />
               <Route path="/privacy-policy" component={PrivacyPolicy} />
               <Route path="/terms" component={Terms} />
               <Route path="/faq" component={Faq} />

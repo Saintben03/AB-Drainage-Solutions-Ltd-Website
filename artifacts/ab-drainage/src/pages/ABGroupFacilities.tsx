@@ -1,11 +1,8 @@
 import { useState } from "react";
 import { Link } from "wouter";
-import { ArrowRight, Phone, Mail, CheckCircle2, Wrench, ClipboardCheck, Building, Shield, Zap, BarChart3, ChevronLeft, Scan, Eye, Ruler, Map } from "lucide-react";
+import { ArrowRight, Phone, Mail, CheckCircle2, Wrench, ClipboardCheck, Building, Shield, Zap, BarChart3, ChevronLeft } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
-
-import imgMpCommercial from "@assets/Image_(30)_1784642251758.jpg";
-import imgMpDollhouse  from "@assets/image_1784642236858.png";
 
 import img13 from "@assets/Image_(13)_1784642358502.jpg";
 import img14 from "@assets/Image_(14)_1784642358502.jpg";
@@ -26,28 +23,13 @@ import img37 from "@assets/Image_(37)_1784642358505.jpg";
 import img38 from "@assets/Image_(38)_1784642358501.jpg";
 import img39 from "@assets/Image_(39)_1784642358501.jpg";
 
-const heroImg  = img38;
+const heroImg  = "https://images.unsplash.com/photo-1497366216548-37526070297c?w=2560&q=90&auto=format&fit=crop";
 const imgAbout = img37;
 const imgWhyUs = img39;
 
-const WHITE      = "#ffffff";
-const DARK       = "#0c0e10";
-const NEAR_BLACK = "#080a0c";
-const ACCENT     = "#475569";
-
-const matterportFeatures = [
-  { icon: <Eye size={22} />, title: "3D Virtual Walkthroughs", desc: "Clients and stakeholders navigate a fully immersive 3D model of any space — accessible from any device, anywhere in the world." },
-  { icon: <Ruler size={22} />, title: "Precise Measurements", desc: "Every room, corridor and ceiling height is captured to millimetre accuracy — eliminating guesswork for contractors and project teams." },
-  { icon: <Map size={22} />, title: "Automated Floor Plans", desc: "Accurate, dimensioned floor plans generated automatically from the scan — branded with your project details, no manual drafting required." },
-  { icon: <Scan size={22} />, title: "Asset Documentation", desc: "Tag assets, plant and equipment within the model to create a living digital record that supports maintenance planning and compliance." },
-];
-
-const matterportUseCases = [
-  { title: "Pre-Tenancy Documentation", desc: "Capture a building's condition at lease commencement — a definitive, timestamped record both parties can reference." },
-  { title: "Dilapidations Evidence", desc: "Accurate 3D evidence of a building's state at key milestones, supporting dilapidations negotiations with factual data." },
-  { title: "Contractor Briefing", desc: "Share the model with contractors remotely so they arrive on site fully prepared — reducing abortive visits and survey costs." },
-  { title: "Asset & PPM Planning", desc: "Tag plant, equipment and systems within the model to build a living, navigable asset register linked to your PPM schedule." },
-];
+const WHITE  = "#ffffff";
+const DARK   = "#0c0e10";
+const ACCENT = "#475569";
 
 /* ── Stepped / battlements geometric divider — corporate feel ── */
 function SteppedDivider({ from, to, flip = false }: { from: string; to: string; flip?: boolean }) {
@@ -163,15 +145,15 @@ export default function ABGroupFacilities() {
   return (
     <>
       <SEO
-        title="AB Facilities Management | Building & Facilities Management | South England"
-        description="AB Facilities Management — South England's facilities management specialists. Planned maintenance, reactive callouts, compliance, multi-site management and Matterport 3D building surveys."
+        title="AB Facilities Management | Building & Facilities Management | Hampshire"
+        description="AB Facilities Management — Hampshire's facilities management specialists. Planned maintenance, reactive callouts, compliance, multi-site management."
         canonicalUrl="/ab-group/facilities"
       />
 
       {/* ── HERO ── */}
       <section className="relative min-h-[92vh] flex items-end overflow-hidden bg-background">
         <div className="absolute inset-0">
-          <img src={heroImg} alt="Modern optician commercial fit-out — reception and slatted ceiling" className="w-full h-full object-cover object-[center_40%] animate-heropan brightness-[1.08] contrast-[1.12] saturate-[1.15]" draggable={false} />
+          <img src={heroImg} alt="Modern commercial building — AB Facilities Management" className="w-full h-full object-cover object-[center_40%] animate-heropan brightness-[1.08] contrast-[1.12] saturate-[1.15]" draggable={false} />
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/10 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-500/40 via-slate-500/5 to-transparent" style={{ mixBlendMode: "color" }} />
@@ -194,14 +176,14 @@ export default function ABGroupFacilities() {
               <br /><span className="text-slate-300">Management</span>
             </h1>
             <p className="text-xl text-white/85 leading-relaxed mb-10 max-w-xl">
-              South England's trusted facilities management partner — keeping commercial buildings safe, compliant and operating at their best, every day.
+              Hampshire's trusted facilities management partner. Keeping commercial buildings safe, compliant and operating at their best — every day.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a href="#enquire" className="inline-flex items-center gap-2 px-10 py-5 bg-slate-600 hover:bg-slate-500 text-white font-bold uppercase tracking-wider text-sm transition-all">
                 Get a Quote <ArrowRight size={16} />
               </a>
-              <a href="#matterport" className="inline-flex items-center gap-2 px-10 py-5 border border-white/40 text-white font-bold uppercase tracking-wider text-sm hover:border-white/70 hover:bg-white/10 transition-all">
-                3D Building Surveys
+              <a href="#services" className="inline-flex items-center gap-2 px-10 py-5 border border-white/40 text-white font-bold uppercase tracking-wider text-sm hover:border-white/70 hover:bg-white/10 transition-all">
+                Our Services
               </a>
             </div>
           </motion.div>
@@ -226,7 +208,7 @@ export default function ABGroupFacilities() {
               <p className="text-slate-500 text-xs font-bold uppercase tracking-[0.25em] mb-4">About The Division</p>
               <h2 className="text-4xl md:text-5xl font-display font-bold text-zinc-900 uppercase leading-tight mb-6">Buildings That<br />Work Better</h2>
               <p className="text-zinc-600 leading-relaxed mb-6">
-                AB Facilities Management delivers comprehensive building and facilities management services to commercial, public sector and multi-site clients across South England.
+                AB Facilities Management delivers comprehensive building and facilities management services to commercial, public sector and multi-site clients across Hampshire.
               </p>
               <p className="text-zinc-600 leading-relaxed mb-10">
                 We take the complexity out of running and maintaining commercial premises, acting as your dedicated partner from day-to-day reactive works through to long-term strategic asset planning.
@@ -274,159 +256,7 @@ export default function ABGroupFacilities() {
         </div>
       </section>
 
-      <SteppedDivider from={DARK} to={NEAR_BLACK} />
-
-      {/* ── MATTERPORT 3D SHOWCASE ── */}
-      <section id="matterport" className="py-28" style={{ backgroundColor: NEAR_BLACK }}>
-        <div className="container mx-auto px-4 lg:px-8">
-
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto text-center mb-20"
-          >
-            <div className="inline-flex items-center gap-2 border border-slate-500/40 px-4 py-1.5 mb-6">
-              <Scan size={13} className="text-slate-400" />
-              <span className="text-slate-400 text-xs font-bold uppercase tracking-[0.2em]">Powered by Matterport</span>
-            </div>
-            <h2 className="text-4xl md:text-6xl font-display font-black text-white uppercase leading-tight mb-6">
-              3D Building<br /><span className="text-slate-400">Surveys & Digital Twins</span>
-            </h2>
-            <p className="text-white/60 text-lg leading-relaxed max-w-3xl mx-auto">
-              AB Facilities Management is a certified Matterport partner. We capture photorealistic 3D scans of commercial buildings, creating immersive digital twins that transform how you manage, plan and document your estate.
-            </p>
-          </motion.div>
-
-          {/* Feature: large image + feature list */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-            <motion.div
-              initial={{ opacity: 0, x: -28 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.65 }}
-              className="relative"
-            >
-              <div className="relative overflow-hidden">
-                <img
-                  src={imgMpCommercial}
-                  alt="Matterport 3D scan of a commercial multi-floor building"
-                  className="w-full aspect-video object-cover"
-                  draggable={false}
-                />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                  <p className="text-white/50 text-xs uppercase tracking-[0.2em]">Commercial Building — 3D Scan</p>
-                  <p className="text-white font-bold text-sm">Multi-floor exterior &amp; interior capture</p>
-                </div>
-              </div>
-              <div className="absolute -top-3 -right-3 hidden md:block">
-                <div className="bg-slate-600 text-white px-4 py-2 text-xs font-bold uppercase tracking-wider">
-                  Matterport Certified
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 28 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.65 }}
-            >
-              <p className="text-slate-400 text-xs font-bold uppercase tracking-[0.25em] mb-4">What You Get</p>
-              <h3 className="text-3xl md:text-4xl font-display font-bold text-white uppercase leading-tight mb-8">
-                A Complete Digital<br />Record of Your Building
-              </h3>
-              <div className="space-y-5">
-                {matterportFeatures.map((f, i) => (
-                  <motion.div
-                    key={f.title}
-                    initial={{ opacity: 0, x: 16 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: i * 0.08 }}
-                    className="flex gap-4 border-b border-zinc-800 pb-5 last:border-0 last:pb-0"
-                  >
-                    <div className="w-10 h-10 shrink-0 bg-slate-500/15 border border-slate-500/30 flex items-center justify-center text-slate-400">
-                      {f.icon}
-                    </div>
-                    <div>
-                      <h4 className="text-white font-bold uppercase tracking-wide text-sm mb-1">{f.title}</h4>
-                      <p className="text-white/50 text-sm leading-relaxed">{f.desc}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Showcase grid: dollhouse + interior + floor plan */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mb-4 text-center"
-          >
-            <p className="text-slate-400 text-xs font-bold uppercase tracking-[0.25em] mb-2">Scan Gallery</p>
-            <h3 className="text-2xl font-display font-bold text-white uppercase mb-10">Recent Surveys</h3>
-          </motion.div>
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-16">
-            {([
-              { src: img35,           caption: "3D dollhouse — optician",          label: "Defurnished View" },
-              { src: img36,           caption: "3D dollhouse — dental practice",   label: "Furnished View" },
-              { src: imgMpDollhouse,  caption: "Residential property survey",      label: "Dollhouse View" },
-              { src: img32,           caption: "Dimensioned floor plan",           label: "Floor Plan" },
-            ] as { src: string; caption: string; label: string }[]).map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.96 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.07 }}
-                className="relative overflow-hidden group"
-              >
-                <img
-                  src={item.src}
-                  alt={item.caption}
-                  className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-700"
-                  draggable={false}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-3">
-                  <span className="text-slate-300 text-[10px] font-bold uppercase tracking-wider mb-0.5">{item.label}</span>
-                  <span className="text-white text-xs">{item.caption}</span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Use-cases strip */}
-          <div className="border border-zinc-800 p-8 md:p-10 mb-12">
-            <p className="text-slate-400 text-xs font-bold uppercase tracking-[0.25em] mb-6 text-center">Use Cases</p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {matterportUseCases.map((u) => (
-                <div key={u.title} className="border-l-2 border-slate-600 pl-4">
-                  <h4 className="text-white font-bold text-sm uppercase tracking-wide mb-2">{u.title}</h4>
-                  <p className="text-white/45 text-xs leading-relaxed">{u.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="text-center">
-            <a
-              href="#enquire"
-              className="inline-flex items-center gap-2 px-10 py-5 bg-slate-600 hover:bg-slate-500 text-white font-bold uppercase tracking-wider text-sm transition-all"
-            >
-              Enquire About a 3D Survey <ArrowRight size={16} />
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <SteppedDivider from={NEAR_BLACK} to={WHITE} />
+      <SteppedDivider from={DARK} to={WHITE} />
 
       {/* ── PORTFOLIO / GALLERY ── */}
       <section className="py-24 bg-white">
@@ -610,7 +440,6 @@ export default function ABGroupFacilities() {
                       <option>Multi-Site Management</option>
                       <option>Security &amp; Access</option>
                       <option>Reporting &amp; Audits</option>
-                      <option>Matterport 3D Survey</option>
                       <option>General Enquiry</option>
                     </select>
                   </div>

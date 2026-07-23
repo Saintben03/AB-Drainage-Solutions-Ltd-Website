@@ -31,9 +31,9 @@ import nimbusLogo from "@assets/logos/nimbus-logo.png";
 import kentLogo from "@assets/logos/kent-county-council.png";
 import thermoFisherLogo from "@assets/logos/thermo-fisher.png";
 import safeContractorLogo from "@assets/logos/safecontractor.png";
-import divConstruction from "@assets/construction/const-about.png";
-import divFencing from "@assets/fencing/fence-hero.png";
-import divFacilities from "@assets/facilities/fac-gallery-lobby.png";
+import divConstruction from "@assets/Image_(13)_1784642358502.jpg";
+import divFencing from "@assets/Image_(21)_1784642358503.jpg";
+import divFacilities from "@assets/Image_(38)_1784642358501.jpg";
 
 const services = [
   { icon: <Siren size={32} />, title: "Emergency Drainage", tagline: "24/7 Rapid Response", href: "/services#emergency" },
@@ -96,7 +96,7 @@ const abGroupDivisions = [
     alt: "AB Construction Solutions Ltd — site work",
     title: ["Construction", "Solutions"],
     desc: "Reliable construction across residential, commercial and infrastructure sites — strong project oversight, skilled workmanship, clear communication from start to finish.",
-    href: "/ab-group/construction",
+    href: "https://abconstructionsolutions.co.uk",
     features: ["Commercial Construction", "Residential Projects", "Project Management", "Specialist Labour Supply", "Site RAMS & Method Statements", "Health & Safety Advice"],
     bar: "bg-red-600",
     tint: "from-red-900/80",
@@ -111,7 +111,7 @@ const abGroupDivisions = [
     alt: "AB Fencing Solutions Ltd — installed fencing",
     title: ["Fencing", "Solutions"],
     desc: "Expert fencing and landscaping tailored to homes and businesses — durable, well-crafted, designed to enhance outdoor spaces with a practical no-nonsense approach.",
-    href: "/ab-group/fencing",
+    href: "https://abfencingsolutions.co.uk",
     features: ["Secure Fencing Installations", "Garden Landscaping", "Pathway & Patio Laying", "Boundary Solutions", "Outdoor Design & Planning", "Nationwide Coverage"],
     bar: "bg-green-600",
     tint: "from-green-900/80",
@@ -126,7 +126,7 @@ const abGroupDivisions = [
     alt: "AB Facilities Management Ltd — commercial building",
     title: ["Facilities", "Management"],
     desc: "Keeping commercial buildings operating safely and efficiently — from planned maintenance programmes to rapid reactive support and ongoing compliance.",
-    href: "/ab-group/facilities",
+    href: "https://abfacilitiesmgmt.co.uk",
     features: ["Planned Maintenance", "Reactive Callouts", "Compliance & Safety Checks", "Multi-Site Management", "Efficiency Monitoring", "Reporting & Transparency"],
     bar: "bg-[#5392B6]",
     tint: "from-[#0e3a5c]/85",
@@ -687,12 +687,14 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
-                  <Link
+                  <a
                     href={d.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`group/btn mt-8 flex items-center justify-center gap-2 ${d.button} text-white text-xs font-bold uppercase tracking-[0.18em] py-4 rounded-lg transition-all duration-300 shadow-lg`}
                   >
                     Learn More <ArrowRight size={14} className="transition-transform duration-300 group-hover/btn:translate-x-1.5" />
-                  </Link>
+                  </a>
                 </div>
               </motion.div>
             ))}
@@ -712,15 +714,15 @@ export default function Home() {
               <p className="text-white/45 text-sm mt-1">Hampshire's leading drainage specialists for over 33 years. Rapid response, 24/7.</p>
             </div>
             <div className="flex flex-wrap gap-3 shrink-0">
-              <Link href="/ab-group/construction" className="inline-flex items-center gap-2 border-l-2 border-l-red-600 border border-zinc-700 hover:border-red-600/60 bg-zinc-800/60 hover:bg-red-950/30 text-white/70 hover:text-red-300 px-5 py-3 font-bold uppercase tracking-wider text-xs rounded-lg transition-all duration-200">
+              <a href="https://abconstructionsolutions.co.uk" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border-l-2 border-l-red-600 border border-zinc-700 hover:border-red-600/60 bg-zinc-800/60 hover:bg-red-950/30 text-white/70 hover:text-red-300 px-5 py-3 font-bold uppercase tracking-wider text-xs rounded-lg transition-all duration-200">
                 Construction <ArrowRight size={13} />
-              </Link>
-              <Link href="/ab-group/fencing" className="inline-flex items-center gap-2 border-l-2 border-l-green-600 border border-zinc-700 hover:border-green-600/60 bg-zinc-800/60 hover:bg-green-950/30 text-white/70 hover:text-green-300 px-5 py-3 font-bold uppercase tracking-wider text-xs rounded-lg transition-all duration-200">
+              </a>
+              <a href="https://abfencingsolutions.co.uk" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border-l-2 border-l-green-600 border border-zinc-700 hover:border-green-600/60 bg-zinc-800/60 hover:bg-green-950/30 text-white/70 hover:text-green-300 px-5 py-3 font-bold uppercase tracking-wider text-xs rounded-lg transition-all duration-200">
                 Fencing <ArrowRight size={13} />
-              </Link>
-              <Link href="/ab-group/facilities" className="inline-flex items-center gap-2 border-l-2 border-l-[#5392B6] border border-zinc-700 hover:border-[#5392B6]/60 bg-zinc-800/60 hover:bg-blue-950/30 text-white/70 hover:text-[#5392B6] px-5 py-3 font-bold uppercase tracking-wider text-xs rounded-lg transition-all duration-200">
+              </a>
+              <a href="https://abfacilitiesmgmt.co.uk" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border-l-2 border-l-[#5392B6] border border-zinc-700 hover:border-[#5392B6]/60 bg-zinc-800/60 hover:bg-blue-950/30 text-white/70 hover:text-[#5392B6] px-5 py-3 font-bold uppercase tracking-wider text-xs rounded-lg transition-all duration-200">
                 Facilities <ArrowRight size={13} />
-              </Link>
+              </a>
             </div>
           </motion.div>
 

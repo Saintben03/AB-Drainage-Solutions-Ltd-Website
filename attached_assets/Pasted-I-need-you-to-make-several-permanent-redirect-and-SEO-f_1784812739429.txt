@@ -1,0 +1,38 @@
+I need you to make several permanent redirect and SEO fixes to this project. Please implement all of the following:
+
+PART 1 — 301 PERMANENT REDIRECTS
+
+Add permanent 301 redirects for the following paths (handle both with and without trailing slash):
+
+/ab-group/fencing and all paths under it → https://abfencingsolutions.co.uk
+/ab-group/facilities and all paths under it → https://abfacilitiesmgmt.co.uk
+/ab-group/construction and all paths under it → https://abconstructionsolutions.co.uk
+
+All must be 301 (permanent), not 302. This is critical for SEO.
+
+PART 2 — CLEAN UP THE OLD PAGES
+
+For each of the three pages being redirected away (/ab-group/fencing, /ab-group/facilities, /ab-group/construction):
+
+Remove or update any <title> tags, meta description tags, or Open Graph tags that reference abdrainage.co.uk
+Remove any <link rel="canonical"> tags pointing to the old abdrainage.co.uk URLs
+Ensure there are no <meta name="robots" content="noindex"> tags that could block Google from following the redirects
+
+PART 3 — ROBOTS.TXT
+
+Check the existing robots.txt file. Ensure the three old paths (/ab-group/fencing, /ab-group/facilities, /ab-group/construction) are NOT blocked by a Disallow rule, as Google needs to be able to crawl them to follow the 301 redirects through to the new domains.
+
+PART 4 — AB-GROUP PARENT PAGE
+
+On the /ab-group/ parent page:
+
+Remove or update any internal links that point to /ab-group/fencing, /ab-group/facilities, or /ab-group/construction — replace them with direct links to https://abfencingsolutions.co.uk, https://abfacilitiesmgmt.co.uk, and https://abconstructionsolutions.co.uk respectively
+Update the page's <title> and meta description if they reference the fencing, facilities, or construction sub-pages
+
+PART 5 — CONFIRM YOUR WORK
+
+Once complete, please show me:
+
+The exact code added for each redirect and confirm the status code is 301
+Confirmation that robots.txt is not blocking any of the three paths
+A summary of any meta tags or canonical tags that were removed or updated

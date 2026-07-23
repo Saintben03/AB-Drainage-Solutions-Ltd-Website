@@ -15,6 +15,7 @@ const config: Record<DivisionSite, {
   company: string;
   description: string;
   accent: string;
+  email: string;
   services: string[];
   otherSites: { label: string; href: string }[];
 }> = {
@@ -24,6 +25,7 @@ const config: Record<DivisionSite, {
     company: "AB Construction Solutions Ltd",
     description: "Hampshire's civil engineering and groundworks specialists. Foundation laying, site clearance, structural works and project management — delivered on time and on budget.",
     accent: "#dc2626",
+    email: "info@abdrainage.co.uk",
     services: [
       "Groundworks & Excavation",
       "Civil Engineering",
@@ -44,6 +46,7 @@ const config: Record<DivisionSite, {
     company: "AB Fencing Solutions Ltd",
     description: "Hampshire's fencing specialists. Residential, commercial, agricultural and security fencing installed to the highest standard — on time, every time.",
     accent: "#16a34a",
+    email: "info@abdrainage.co.uk",
     services: [
       "Residential Fencing",
       "Commercial Fencing",
@@ -62,15 +65,16 @@ const config: Record<DivisionSite, {
     logo: logoFacilities,
     alt: "AB Facilities Management Ltd",
     company: "AB Facilities Management Ltd",
-    description: "Hampshire's trusted facilities management partner. Keeping commercial buildings safe, compliant and operating at their best — every day.",
-    accent: "#64748b",
+    description: "UK-wide commercial facilities management. Planned maintenance, reactive callouts, M&E, compliance and multi-site management — keeping your buildings running at their best.",
+    accent: "#5392B6",
+    email: "info@abfacilitiesmgmt.co.uk",
     services: [
-      "Building Maintenance",
-      "M&E Services",
+      "Planned Preventative Maintenance",
+      "Reactive & Emergency Callouts",
       "Compliance & H&S",
-      "Cleaning Services",
-      "Pest Control",
-      "Grounds Maintenance",
+      "M&E Services",
+      "Cleaning & Hygiene",
+      "Multi-Site Management",
     ],
     otherSites: [
       { label: "AB Drainage Solutions", href: "https://www.abdrainage.co.uk" },
@@ -103,8 +107,8 @@ export const DivisionFooter = ({ site }: DivisionFooterProps) => {
               <a href="tel:01256688650" className="text-base font-bold text-white hover:opacity-80 transition-opacity">
                 01256 688 650
               </a>
-              <a href="mailto:info@abdrainage.co.uk" className="text-sm hover:opacity-80 transition-opacity" style={{ color: c.accent }}>
-                info@abdrainage.co.uk
+              <a href={`mailto:${c.email}`} className="text-sm hover:opacity-80 transition-opacity" style={{ color: c.accent }}>
+                {c.email}
               </a>
             </div>
           </div>
@@ -133,8 +137,8 @@ export const DivisionFooter = ({ site }: DivisionFooterProps) => {
                 </a>
               </li>
               <li>
-                <a href="mailto:info@abdrainage.co.uk" className="hover:text-white transition-colors">
-                  info@abdrainage.co.uk
+                <a href={`mailto:${c.email}`} className="hover:text-white transition-colors">
+                  {c.email}
                 </a>
               </li>
               <li className="pt-2">

@@ -1,0 +1,75 @@
+IMPORTANT CONTEXT FIRST — READ BEFORE CHANGING ANYTHING:
+
+AB Group has three separate businesses, each now on its OWN domain (this is a recent change — they used to live as subpaths on abdrainage.co.uk, e.g. abdrainage.co.uk/ab-group/facilities, but that's no longer the structure):
+- AB Drainage Solutions — abdrainage.co.uk
+- AB Facilities Management — abfacilitiesmgmt.co.uk
+- AB Fencing (or equivalent) — its own separate domain
+
+This prompt is specifically for the AB Facilities Management site (abfacilitiesmgmt.co.uk). Right now it looks like a Facilities template has been pasted over content that was really built for Drainage, and Facilities has effectively become a copy of Drainage with the wording swapped. This is wrong and needs to be undone.
+
+Do the following:
+
+1. Stop treating Facilities as a clone of Drainage
+
+AB Facilities Management is a genuinely different business, on its own domain:
+- It provides commercial facilities management across the whole of the UK — building maintenance, compliance, cleaning, security, M&E, and cross-referral into its sister companies, Fencing and Drainage.
+- It is NOT a drainage company. Remove any drainage-site copy, drainage-specific service lists, drainage imagery placeholders, or drainage-styled section content that has leaked into the Facilities pages.
+- Facilities is part of AB Group, same as Drainage and Fencing. They can share a family visual identity (a consistent "Part of AB Group" badge/link pattern that links OUT to the other two domains) but the actual page content, services, and service-area structure must be written specifically for facilities management, and the site must work as a fully standalone site on its own domain — not assume it's a subpath of abdrainage.co.uk.
+
+2. Reuse structure and mechanics, not content
+
+From the Drainage site, reuse:
+- The overall menu/navigation system (header layout, mobile nav behaviour, "Get a Quote" CTA pattern, "Part of AB Group" link — but pointing to abfacilitiesmgmt.co.uk's siblings, not internal subpaths)
+- The page-per-service-area SEO architecture (i.e. the way Drainage has a dedicated page per town/region for local SEO) — replicate this pattern for Facilities, but built around the UK-wide facilities management service, on its own domain, with its own sitemap and its own metadata — not sharing or inheriting anything from abdrainage.co.uk's SEO setup.
+- The general design system: colour tokens, typography scale, card/button components, footer layout.
+
+Do NOT reuse: drainage service names, drainage imagery, drainage-specific trust badges, or any drainage copywriting.
+
+3. Location/SEO page architecture — UK-wide, standalone domain
+
+Build a proper location-based SEO structure for Facilities Management covering the whole of the UK, on abfacilitiesmgmt.co.uk as its own independent domain:
+- A hub page: /areas-covered or /uk-coverage listing UK regions/nations (England, Scotland, Wales, Northern Ireland) with links down to key city/region pages.
+- Individual programmatic SEO pages per major city/region (e.g. /facilities-management/london, /facilities-management/manchester, /facilities-management/birmingham, etc.) — same template, unique intro copy per location, local schema markup, unique title/meta description per page.
+- Proper metadata on every page: unique <title>, meta description, Open Graph tags, canonical URL — all referencing abfacilitiesmgmt.co.uk, not abdrainage.co.uk.
+- Structured data (JSON-LD): LocalBusiness/Organization schema on the homepage (with the correct business name, "AB Facilities Management", and its own domain), Service schema on each service page, BreadcrumbList schema site-wide.
+- Its own XML sitemap.xml and robots.txt, submitted separately in Google Search Console for abfacilitiesmgmt.co.uk (this needs its own GSC property since it's now a separate domain).
+- Semantic heading hierarchy (single H1 per page, logical H2/H3 nesting) — this is currently missing/broken because of the copy-paste job.
+- Fast image loading: proper alt text (facilities-relevant, not drainage), lazy-loading, responsive srcset.
+- Internal linking between Facilities' own service pages and location pages to spread link equity within the site. Cross-domain links to Fencing and Drainage should use rel="noopener" and read as genuine cross-referrals between sister companies, not internal nav.
+
+4. "Other Services" panel — fix the linking
+
+The "Other Services" section currently on the Facilities page (the one visible in the hero, styled like a slide-out panel) should link ONLY to the other two sister-company domains:
+- Fencing (its own domain)
+- Drainage — abdrainage.co.uk
+
+It should NOT link back to Facilities itself, since we're already on the Facilities site. Remove any other/incorrect links currently there, and make sure these are proper external links to the correct live domains, not internal /ab-group/ subpaths.
+
+5. Hero section
+
+Keep the current hero image (the dark corridor/office fit-out photo with the kitchen units) as the main hero background — do not replace it. On top of it:
+- Add AB Facilities Management branding more prominently — logo lockup, maybe a subtle brand motif/pattern element, consistent with the AB Group visual identity used across the three sibling sites.
+- Keep the existing headline structure ("AB FACILITIES MANAGEMENT") and CTA buttons ("Get a Quote", "Our Services") but restyle to feel like a distinct, world-class facilities management brand rather than a re-skinned drainage template.
+
+6. Use ALL uploaded images across the site, not just in one gallery
+
+I've uploaded a set of images for this project. Use them throughout the site in the relevant contextual sections (services, about, case studies, testimonials backgrounds, CTA sections) — not dumped into a single gallery. In addition, also build one gallery/portfolio section somewhere (e.g. on an "Our Work" or "Gallery" page) that showcases them together. Crop/filter/treat the images as needed (consistent colour grading, subtle dark overlay treatment matching the hero) so they look cohesive and high-end rather than randomly placed.
+
+7. Matterport section — this needs to be a genuine standout feature
+
+Build a dedicated, high-end section (its own page or a major homepage section — your call on which reads better, but it should feel like a flagship feature, not an afterthought) selling our use of Matterport 3D capture technology (matterport.com) as a core differentiator for how we survey, document, and manage buildings. This section should include:
+- A strong headline/positioning statement on why Matterport matters for facilities management clients (e.g. remote building surveys, digital twins, accurate CAD floor plans, before/after condition records, faster quoting, transparency for clients who can't be on-site).
+- Visual treatment that feels premium: large-format imagery, a mocked-up "digital twin" style layout, floor-plan/CAD-style graphic elements (can be illustrative/schematic rather than needing a real embed).
+- A video area — either an embedded demo video placeholder (clearly marked for us to swap in our own Matterport walkthrough later) or a Matterport iframe/embed slot if we have a real space ID to use.
+- Supporting bullet points: 3D virtual tours, accurate measurements, CAD/floor plan export, digital record-keeping for compliance, faster remote scoping of works.
+- A CTA into "Book a survey" / "Get a quote" from this section.
+
+Note: do not fabricate specific stats or client claims about Matterport usage — keep the copy focused on the capability and benefit, phrased generally (e.g. "we use Matterport 3D capture on our surveys") rather than invented numbers.
+
+8. General quality bar
+
+- This must look and feel like a world-class, credible commercial facilities management company on its own domain, not a template reskin or a subsection of Drainage.
+- Everything text-wise should be accurate to what a UK facilities management company actually does (building maintenance, compliance/health & safety, cleaning services, M&E, minor works, and cross-referral into Fencing and Drainage) — do not carry over any drainage-specific claims.
+- Confirm the site is deployed and configured correctly as its own standalone domain (abfacilitiesmgmt.co.uk) with its own DNS, SSL, sitemap, and analytics/Search Console setup — not sharing infrastructure with abdrainage.co.uk in a way that could cause duplicate content or canonical issues between the two domains.
+- Before you touch anything, make sure the live AB Drainage Solutions site (abdrainage.co.uk) is left completely untouched and unaffected by any of this work.
+- Confirm back to me the final routing/domain setup for Facilities once done, so I can check DNS, SSL, and Search Console are all correctly pointed at abfacilitiesmgmt.co.uk.

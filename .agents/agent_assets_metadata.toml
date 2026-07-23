@@ -275,3 +275,9 @@ id = "XZ5UMkNffxKdTiD2XVTeA"
 uri = "file://attached_assets/generated_videos/ab-drainage-hero-video-silent.mp4"
 type = "video"
 title = "AB Drainage — Hero Video (no audio)"
+
+[[outputs]]
+id = "ocT8Kny4Tv0_Y7BLVQQEP"
+uri = "file://attached_assets/image_1784655595031.png"
+type = "image"
+title = "AB Facilities Management — old page"
