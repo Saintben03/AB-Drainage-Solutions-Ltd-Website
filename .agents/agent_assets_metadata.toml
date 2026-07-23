@@ -246,6 +246,18 @@ uri = "file://attached_assets/hero-facilities.png"
 type = "image"
 title = "generated_image"
 
+[[generated]]
+id = "4FrDlZVU4XHz43nhhOp8H"
+uri = "file://artifacts/ab-drainage/public/hero-fencing.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "DUk0M9vkL-VixiiwTJr4C"
+uri = "file://artifacts/ab-drainage/public/hero-construction.png"
+type = "image"
+title = "generated_image"
+
 [[outputs]]
 id = "XDj-vFcGSpHIPNB20N4wa"
 uri = "file://attached_assets/site_files_1/AB Drainage background.png"
