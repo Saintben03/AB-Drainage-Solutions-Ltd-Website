@@ -10,9 +10,7 @@ import img15 from "@assets/Image_(15)_1784642358502.jpg";
 import img16 from "@assets/Image_(16)_1784642358502.jpg";
 import img17 from "@assets/Image_(17)_1784642358503.jpg";
 import img18 from "@assets/Image_(18)_1784642358503.jpg";
-import imgHeroDigger from "@assets/construction/const-gallery-excavation.png";
-
-const heroImg  = imgHeroDigger;
+const heroImg = "/hero-construction.png";
 const imgAbout = img14;
 const imgWhyUs = img15;
 
@@ -121,7 +119,7 @@ export default function ABGroupConstruction() {
       {/* ── HERO ── */}
       <section className="relative min-h-[92vh] flex items-end overflow-hidden bg-background">
         <div className="absolute inset-0">
-          <img src={heroImg} alt="Plywood roof deck with blue sky and scaffolding" className="w-full h-full object-cover object-[center_40%] animate-heropan brightness-[1.1] contrast-[1.15] saturate-[0.9]" draggable={false} />
+          <img src={heroImg} alt="Commercial building steel frame under construction at golden hour with tower cranes" className="w-full h-full object-cover object-[center_55%] animate-heropan brightness-[1.05] contrast-[1.1] saturate-[1.05]" draggable={false} />
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/10 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#dc2626]/40 via-[#dc2626]/5 to-transparent" style={{ mixBlendMode: "color" }} />

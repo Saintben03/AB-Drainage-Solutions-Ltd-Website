@@ -228,6 +228,24 @@ uri = "file://attached_assets/blog/septic-tank.png"
 type = "image"
 title = "septic tank emptying service"
 
+[[generated]]
+id = "Bl5FvewlP23YCusRKoYRk"
+uri = "file://attached_assets/hero-construction.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "f0Xqf9CeU63WkmwehGxnP"
+uri = "file://attached_assets/hero-fencing.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "eLLanSOKEHANA7nW2qyKN"
+uri = "file://attached_assets/hero-facilities.png"
+type = "image"
+title = "generated_image"
+
 [[outputs]]
 id = "XDj-vFcGSpHIPNB20N4wa"
 uri = "file://attached_assets/site_files_1/AB Drainage background.png"

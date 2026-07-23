@@ -12,9 +12,7 @@ import img19 from "@assets/Image_(19)_1784642358503.jpg";
 import img20 from "@assets/Image_(20)_1784642358503.jpg";
 import img21 from "@assets/Image_(21)_1784642358503.jpg";
 import img22 from "@assets/Image_(22)_1784642358504.jpg";
-import imgHeroGarden from "@assets/fencing/fence-hero.png";
-
-const heroImg  = imgHeroGarden;
+const heroImg = "/hero-fencing.png";
 const imgAbout = img22;
 const imgWhyUs = img19;
 
@@ -118,7 +116,7 @@ export default function ABGroupFencing() {
       {/* ── HERO ── */}
       <section className="relative min-h-[92vh] flex items-end overflow-hidden bg-background">
         <div className="absolute inset-0">
-          <img src={heroImg} alt="Sunny garden patio with lawn and fencing" className="w-full h-full object-cover object-[center_30%] animate-heropan brightness-[1.05] saturate-[1.2] contrast-[1.08]" draggable={false} />
+          <img src={heroImg} alt="Ornate wrought iron estate gates with climbing roses at a luxury English country property" className="w-full h-full object-cover object-[center_50%] animate-heropan brightness-[1.0] saturate-[1.1] contrast-[1.05]" draggable={false} />
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/10 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#16a34a]/40 via-[#16a34a]/5 to-transparent" style={{ mixBlendMode: "color" }} />

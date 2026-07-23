@@ -23,7 +23,7 @@ import img37 from "@assets/Image_(37)_1784642358505.jpg";
 import img38 from "@assets/Image_(38)_1784642358501.jpg";
 import img39 from "@assets/Image_(39)_1784642358501.jpg";
 
-const heroImg  = "https://images.unsplash.com/photo-1497366216548-37526070297c?w=2560&q=90&auto=format&fit=crop";
+const heroImg = "/hero-facilities.png";
 const imgAbout = img37;
 const imgWhyUs = img39;
 
@@ -153,7 +153,7 @@ export default function ABGroupFacilities() {
       {/* ── HERO ── */}
       <section className="relative min-h-[92vh] flex items-end overflow-hidden bg-background">
         <div className="absolute inset-0">
-          <img src={heroImg} alt="Modern commercial building — AB Facilities Management" className="w-full h-full object-cover object-[center_40%] animate-heropan brightness-[1.08] contrast-[1.12] saturate-[1.15]" draggable={false} />
+          <img src={heroImg} alt="Grand commercial office atrium with marble floors and floor-to-ceiling glass" className="w-full h-full object-cover object-[center_50%] animate-heropan brightness-[1.0] contrast-[1.08] saturate-[1.0]" draggable={false} />
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/10 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-500/40 via-slate-500/5 to-transparent" style={{ mixBlendMode: "color" }} />
