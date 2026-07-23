@@ -90,7 +90,8 @@ function Router() {
     return <FMDesignMockups />;
   }
 
-  if (typeof window !== "undefined" && site === "drainage" && pathDivision) {
+  const isProductionDomain = typeof window !== "undefined" && window.location.hostname === "abdrainage.co.uk";
+  if (isProductionDomain && site === "drainage" && pathDivision) {
     window.location.replace(DIVISION_URLS[pathDivision]);
     return null;
   }
